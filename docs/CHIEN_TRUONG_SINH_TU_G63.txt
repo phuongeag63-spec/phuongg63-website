@@ -1,0 +1,29 @@
+CHIẾN TRƯỜNG SINH TỬ G63 - NỘI DUNG GIỚI THIỆU
+
+Giá bán: 19.999.000đ
+Định vị: EA Top Khủng Tam Quốc - Collector Edition
+
+Tuyên bố quan trọng:
+- Không cam kết lợi nhuận.
+- Không dành cho người mới.
+- Không bán cho người chưa có chiến lược giao dịch.
+- Chỉ phù hợp người có vốn, có kinh nghiệm, thích thử thách và đam mê Tam Quốc Chí.
+
+Thông điệp chính:
+CHIẾN TRƯỜNG SINH TỬ G63 không chỉ là EA. Đây là một vương quốc giao dịch Tam Quốc, nơi mỗi lệnh là một đạo quân, mỗi lot là binh sĩ, mỗi mục tiêu là một thành trì và mỗi giai đoạn là một trận chiến.
+
+Điểm nổi bật:
+1. Bản đồ Tam Quốc 30 thành trì.
+2. Túi đồ 50 báu vật, thăng sao và tiến hóa.
+3. 20 tướng Tam Quốc theo tổng lot 365 ngày.
+4. 7 thần thú trấn giữ theo mục tiêu ngày.
+5. Boss tuần và Boss tháng.
+6. Thiên mệnh, nhiệm vụ ngày, sử ký, chuỗi thắng.
+7. Quản lý lệnh: TP gộp, BE, tỉa lệnh, chốt 50%, trailing EMA.
+8. Input tiếng Việt 100%.
+
+Ảnh đã thêm:
+- assets/images/chien-truong-sinh-tu-poster.png
+- assets/images/chien-truong-sinh-tu-dashboard.png
+- assets/images/chien-truong-sinh-tu-input.png
+- assets/images/chien-truong-sinh-tu-gallery.png

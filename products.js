@@ -7,6 +7,48 @@
 const PRODUCTS = [
 
   {
+    id: 'chien-truong-sinh-tu-g63',
+    name: 'CHIẾN TRƯỜNG SINH TỬ G63',
+    category: 'EA Top Khủng Tam Quốc',
+    badge: 'TOP KHỦNG',
+    price: 19999000,
+    priceText: '19.999.000đ',
+    rating: 'Collector Edition',
+    image: 'assets/images/chien-truong-sinh-tu-poster.png',
+    images: [
+      'assets/images/chien-truong-sinh-tu-poster.png',
+      'assets/images/chien-truong-sinh-tu-dashboard.png',
+      'assets/images/chien-truong-sinh-tu-input.png',
+      'assets/images/chien-truong-sinh-tu-gallery.png'
+    ],
+    short: 'EA Vương Quốc Tam Quốc biến mỗi phiên giao dịch thành một chiến trường sinh tử: không cam kết lợi nhuận, không dành cho người mới, chỉ dành cho đại gia đam mê Tam Quốc và thích thử thách thật sự.',
+    description: 'CHIẾN TRƯỜNG SINH TỬ G63 là phiên bản EA Top Khủng mang phong cách Tam Quốc độc quyền của Phương G63. Sản phẩm không được định vị là một công cụ hứa hẹn lợi nhuận, mà là một trải nghiệm giao dịch cực kỳ khác biệt: mỗi lot là binh sĩ, mỗi mốc thành tích là thành trì, mỗi mục tiêu tuần/tháng là Boss đại chiến, mỗi phiên giao dịch là một trận sa trường. EA không dành cho người mới, không dành cho người muốn mua để mong an toàn tuyệt đối. Đây là sản phẩm dành cho người có vốn, có bản lĩnh, có chiến lược riêng và thật sự đam mê Tam Quốc Chí.',
+    features: [
+      'Bản đồ Tam Quốc 30 thành trì: Thục, Ngô, Ngụy – chiếm dần theo mốc lợi nhuận và lot tích lũy',
+      'Hệ thống Vương Quốc: ngân khố, đại quân, quốc lực, quân lương, lịch sử vương triều',
+      'Túi đồ 50 báu vật: chia nhiều nhóm, có cơ chế thăng sao và tiến hóa báu vật',
+      '20 tướng Tam Quốc mở khóa theo tổng lot 365 ngày, có phẩm cấp sao và trang bị riêng',
+      '7 thần thú trấn giữ theo mục tiêu ngày: Tỳ Hưu, Kỳ Lân, Bạch Hổ, Huyền Vũ, Chu Tước, Thanh Long, Ứng Long',
+      'Boss tuần Quan Độ Chi Chiến và Boss tháng Đại Chiến Xích Bích',
+      'Thiên mệnh hằng ngày, nhiệm vụ ngày, sử ký, chuỗi chiến thắng và phục thù',
+      'Lô Fibonacci thưởng đặc biệt khi đóng toàn bộ lệnh với số lệnh thuộc 1/2/3/5/8',
+      'Quản lý lệnh chuyên nghiệp: TP gộp, dời BE, tỉa lệnh, chốt 50%, trailing EMA, đóng BUY/SELL/toàn tài khoản',
+      'Input tiếng Việt 100%, giao diện đại vương quốc đồ sộ, phong cách Tam Quốc – chiến trường – quốc chiến'
+    ],
+    install: [
+      'Sản phẩm chỉ nên dùng bởi trader có kinh nghiệm, hiểu rõ rủi ro và có chiến lược giao dịch riêng',
+      'Sau khi thanh toán và xác nhận qua Zalo, Phương G63 gửi file EX5 cùng hướng dẫn cài đặt',
+      'Mở MT5 → File → Open Data Folder → MQL5 → Experts',
+      'Copy file CHIEN_TRUONG_SINH_TU vào thư mục Experts rồi khởi động lại MT5',
+      'Kéo EA vào chart phù hợp: XAU, XAG hoặc BTC theo chế độ tài sản đã chọn',
+      'Cài Magic Number, mục tiêu chốt lãi, dời hòa vốn, mục tiêu ngày/tuần/tháng, EMA và các mốc Tam Quốc',
+      'Bật Algo Trading. Trader tự chịu trách nhiệm chiến lược; EA phục vụ phần quản lý và trải nghiệm chiến trường'
+    ],
+    warning: 'Không cam kết lợi nhuận. Không dành cho người mới. Không nên mua nếu chưa có chiến lược, chưa hiểu quản trị vốn hoặc mong EA tự làm giàu. Đây là sản phẩm trải nghiệm đỉnh cao dành cho người có bản lĩnh và đam mê Tam Quốc.'
+  },
+
+
+  {
     id: 'han-bang-chuong-g63',
     name: 'HÀN BĂNG CHƯỞNG G63',
     category: 'Manual Trading Cockpit',
