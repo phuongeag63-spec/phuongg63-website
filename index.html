@@ -3,9 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phương G63 Enterprise | Hệ sinh thái EA MT5 chuyên nghiệp</title>
+<title>Phương G63 V16 | EA MT5 - Dashboard - Academy - Chính sách</title>
 <meta name="description" content="Phương G63 Enterprise - hệ sinh thái EA MT5, Dashboard, Academy, hướng dẫn, phiên bản cập nhật và thanh toán QR VietinBank.">
 <meta name="theme-color" content="#08050b">
+<meta name="keywords" content="EA MT5, EA Gold MT5, Dashboard MT5, EA Tam Quốc, EA Grid MT5, Phương G63, Expert Advisor MT5 Việt Nam">
+<meta name="author" content="Phương G63">
+<meta property="og:title" content="Phương G63 | Hệ sinh thái EA MT5 chuyên nghiệp">
+<meta property="og:description" content="EA MT5, Dashboard, Academy, QR thanh toán, chính sách rõ ràng và hỗ trợ Zalo Phương G63.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/chien-truong-sinh-tu-poster.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Phương G63","description":"Hệ sinh thái EA MT5, Dashboard và công cụ hỗ trợ giao dịch MetaTrader 5.","contactPoint":{"@type":"ContactPoint","telephone":"+84822299993","contactType":"customer support","areaServed":"VN"}}</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,15 +22,15 @@
   <a class="brand" href="#home"><span class="logo">G63</span><span><b>PHƯƠNG G63</b><small>Enterprise MT5 Software</small></span></a>
   <button class="menu-btn" onclick="document.body.classList.toggle('menu-open')">☰</button>
   <nav>
-    <a href="#products">Sản phẩm</a><a href="#academy">Học viện</a><a href="#compare">So sánh</a><a href="#updates">Cập nhật</a><a href="#customer">Khách hàng</a><a class="gold-link" href="#contact">Liên hệ</a>
+    <a href="#products">Sản phẩm</a><a href="#order">Đặt mua</a><a href="#videos">Video</a><a href="#policy">Chính sách</a><a href="#academy">Học viện</a><a href="#updates">Cập nhật</a><a class="gold-link" href="#contact">Liên hệ</a>
   </nav>
 </header>
 <main>
 <section id="home" class="hero section-pad">
   <div class="hero-copy reveal">
-    <span class="eyebrow">PHƯƠNG G63 ENTERPRISE V15</span>
-    <h1>Từ website bán EA thành <em>hệ sinh thái phần mềm MT5</em></h1>
-    <p>Trang chủ, kho sản phẩm, tìm kiếm, lọc EA, trang chi tiết, gallery, video, học viện, nhật ký cập nhật, khu vực khách hàng và QR thanh toán — tất cả gom vào một nền tảng dễ mở rộng cho 20+ EA của bố.</p>
+    <span class="eyebrow">PHƯƠNG G63 ENTERPRISE V16</span>
+    <h1>Nền tảng EA MT5 có <em>SEO, chính sách và đặt mua chuyên nghiệp</em></h1>
+    <p>Tìm kiếm, lọc sản phẩm, trang chi tiết, QR thanh toán, chính sách sử dụng, form đặt mua qua Zalo, khu video hướng dẫn và nền tảng SEO để chuẩn bị mua tên miền.</p>
     <div class="hero-actions"><a class="btn btn-gold" href="#products">Khám phá sản phẩm</a><button class="btn btn-blue" data-buy-first>Mua sản phẩm nổi bật</button></div>
     <div class="kpis">
       <div><strong id="kpiProducts">20+</strong><span>Sản phẩm có thể mở rộng</span></div><div><strong>V15</strong><span>Enterprise System</span></div><div><strong>QR</strong><span>Thanh toán tự động</span></div>
@@ -51,6 +59,38 @@
   <div class="section-head reveal"><span class="eyebrow">COMPARE</span><h2>So sánh nhanh các sản phẩm</h2><p>Khách dễ hiểu sản phẩm nào là Dashboard, sản phẩm nào phục vụ đánh tay, sản phẩm nào là trải nghiệm Tam Quốc.</p></div>
   <div class="compare-wrap reveal"><table id="compareTable"></table></div>
 </section>
+
+<section id="order" class="section-pad order-zone">
+  <div class="section-head reveal"><span class="eyebrow">ORDER FORM</span><h2>Form đặt mua qua Zalo</h2><p>Khách chọn sản phẩm, nhập tên và số Zalo. Website tự tạo nội dung tin nhắn để gửi cho bố qua Zalo.</p></div>
+  <div class="order-card reveal">
+    <div class="form-grid">
+      <label>Họ tên khách<input id="orderName" placeholder="Ví dụ: Anh Minh"></label>
+      <label>Số Zalo<input id="orderZalo" placeholder="Ví dụ: 09xxxxxxxx"></label>
+      <label>Sản phẩm<select id="orderProduct"></select></label>
+      <label>Ghi chú<textarea id="orderNote" placeholder="Ví dụ: Tôi muốn mua bản Chiến Trường Sinh Tử G63"></textarea></label>
+    </div>
+    <div class="order-actions"><button class="btn btn-gold" onclick="sendOrderZalo()">Gửi yêu cầu qua Zalo</button><button class="btn btn-blue" onclick="openCheckoutBySelect()">Mở QR thanh toán</button></div>
+    <p class="small-note">Sau khi chuyển khoản, khách chụp biên lai gửi Zalo 08222 99993 để được xác nhận và nhận file.</p>
+  </div>
+</section>
+<section id="videos" class="section-pad video-zone">
+  <div class="section-head reveal"><span class="eyebrow">VIDEO CENTER</span><h2>Trung tâm video hướng dẫn</h2><p>Con đã chừa sẵn khu vực video. Khi bố có link YouTube, chỉ cần gửi con, con gắn vào từng sản phẩm.</p></div>
+  <div class="video-grid reveal">
+    <article><div class="video-box">▶</div><h3>Cài đặt EA MT5</h3><p>Copy EX5 vào MQL5/Experts, restart MT5, kéo EA vào chart và bật Algo Trading.</p></article>
+    <article><div class="video-box">▶</div><h3>Sử dụng Dashboard</h3><p>Hướng dẫn đọc Balance, Equity, Floating PnL, đóng Buy/Sell và quản lý nhiều symbol.</p></article>
+    <article><div class="video-box">▶</div><h3>Chiến Trường Sinh Tử</h3><p>Giới thiệu bản đồ Tam Quốc, thành trì, tướng, thần thú, boss và cơ chế trải nghiệm.</p></article>
+  </div>
+</section>
+<section id="policy" class="section-pad policy-zone">
+  <div class="section-head reveal"><span class="eyebrow">POLICY & TRUST</span><h2>Chính sách sử dụng rõ ràng</h2><p>Đây là phần giúp website nhìn đáng tin hơn và tránh khách hiểu sai về EA.</p></div>
+  <div class="policy-grid reveal">
+    <article><span>01</span><h3>Không cam kết lợi nhuận</h3><p>EA/Dashboard là công cụ hỗ trợ giao dịch, không phải cam kết tạo lợi nhuận. Trader tự chịu trách nhiệm với quyết định và quản trị vốn.</p></article>
+    <article><span>02</span><h3>Đúng đối tượng sử dụng</h3><p>Một số sản phẩm nâng cao không dành cho người mới. Khách nên có chiến lược, hiểu rủi ro, lot, margin và drawdown trước khi mua.</p></article>
+    <article><span>03</span><h3>Thanh toán và nhận file</h3><p>Khách chuyển khoản VietinBank đúng nội dung, gửi biên lai qua Zalo. Phương G63 xác nhận rồi gửi file EX5 và hướng dẫn.</p></article>
+    <article><span>04</span><h3>Hỗ trợ sau mua</h3><p>Hỗ trợ cài đặt và hướng dẫn cơ bản qua Zalo. Không bao gồm tư vấn tín hiệu vào lệnh hay bảo đảm kết quả giao dịch.</p></article>
+  </div>
+</section>
+
 <section id="academy" class="section-pad academy-zone">
   <div class="section-head reveal"><span class="eyebrow">PHƯƠNG G63 ACADEMY</span><h2>Học viện hướng dẫn khách hàng</h2><p>Khu vực này giúp khách tự đọc hướng dẫn trước và sau khi mua, giảm thời gian hỗ trợ lặp lại.</p></div>
   <div class="academy-grid reveal">
@@ -77,7 +117,7 @@
 </section>
 <section id="contact" class="contact section-pad reveal"><span class="eyebrow">CONTACT</span><h2>Kết nối Phương G63</h2><p>Zalo: <b>08222 99993 - Mr Phương</b></p><a class="btn btn-gold" href="https://zalo.me/84822299993">Nhắn Zalo ngay</a></section>
 </main>
-<footer><b>PHƯƠNG G63 ENTERPRISE</b><span>Expert Advisors • Dashboard • Academy • Customer Center</span><small>© 2026 Phương G63. All rights reserved.</small></footer>
+<footer><b>PHƯƠNG G63 ENTERPRISE V16</b><span>SEO • Chính sách • Form đặt mua • Video • Academy</span><small>© 2026 Phương G63. All rights reserved.</small></footer>
 <a class="zalo-float" href="https://zalo.me/84822299993">Zalo</a>
 <div id="checkout" class="modal"><div class="modal-box"><button class="modal-close" onclick="closeCheckout()">×</button><span class="badge">THANH TOÁN</span><h2 id="payName"></h2><div id="payPrice" class="modal-price"></div><p>Quét QR VietinBank. Sau khi chuyển khoản, chụp biên lai gửi qua Zalo để Phương G63 xác nhận và gửi file.</p><div class="qr-wrap"><img id="payQr" alt="QR VietinBank"></div><div class="bank-info"><p><b>Ngân hàng:</b> VietinBank</p><p><b>Số tài khoản:</b> 888889060666</p><p><b>Chủ TK:</b> Nguyễn Hoàng Phương</p><p><b>Nội dung:</b> <span id="payNote"></span> + Số Zalo</p></div><div class="modal-actions"><a class="btn btn-gold" href="https://zalo.me/84822299993">Gửi biên lai Zalo</a><button class="btn btn-blue" onclick="showPaidNotice()">Tôi đã chuyển khoản</button></div><div id="paidNotice" class="paid-notice">✅ Cảm ơn bạn. Vui lòng gửi ảnh biên lai qua Zalo 08222 99993 để nhận file cài đặt.</div></div></div>
 <script src="products.js"></script>

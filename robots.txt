@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://phuongeag63-spec.github.io/phuongg63-website/sitemap.xml

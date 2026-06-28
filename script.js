@@ -23,4 +23,10 @@ function closeCheckout(){document.getElementById('checkout').style.display='none
 function showPaidNotice(){document.getElementById('paidNotice').style.display='block'}
 function observeReveal(){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}
 function heroSlider(){const imgs=[...new Set(PRODUCTS.flatMap(p=>p.images))];let i=0;const el=document.getElementById('heroSlide');setInterval(()=>{i=(i+1)%imgs.length;el.src=imgs[i]},3300)}
-document.addEventListener('DOMContentLoaded',()=>{document.getElementById('kpiProducts').innerText=PRODUCTS.length+'+';renderFilters();renderProducts();renderDetail(PRODUCTS[0]);renderCompare();renderUpdates();observeReveal();heroSlider();document.getElementById('searchInput')?.addEventListener('input',renderProducts);document.querySelector('[data-buy-first]')?.addEventListener('click',()=>openCheckout(PRODUCTS[0]))});
+
+function fillOrderProducts(){const sel=document.getElementById('orderProduct');if(!sel)return;sel.innerHTML=PRODUCTS.map(p=>`<option value="${p.id}">${p.name} - ${p.priceText}</option>`).join('')}
+function selectedOrderProduct(){const id=document.getElementById('orderProduct')?.value;return PRODUCTS.find(p=>p.id===id)||PRODUCTS[0]}
+function sendOrderZalo(){const p=selectedOrderProduct();const name=document.getElementById('orderName')?.value||'';const zalo=document.getElementById('orderZalo')?.value||'';const note=document.getElementById('orderNote')?.value||'';const msg=`Chào Phương G63, tôi muốn đặt mua ${p.name} giá ${p.priceText}. Tên: ${name}. Zalo: ${zalo}. Ghi chú: ${note}`;window.open(zaloUrl+'?text='+encodeURIComponent(msg),'_blank')}
+function openCheckoutBySelect(){openCheckout(selectedOrderProduct())}
+
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('kpiProducts').innerText=PRODUCTS.length+'+';renderFilters();renderProducts();renderDetail(PRODUCTS[0]);renderCompare();renderUpdates();fillOrderProducts();observeReveal();heroSlider();document.getElementById('searchInput')?.addEventListener('input',renderProducts);document.querySelector('[data-buy-first]')?.addEventListener('click',()=>openCheckout(PRODUCTS[0]))});
