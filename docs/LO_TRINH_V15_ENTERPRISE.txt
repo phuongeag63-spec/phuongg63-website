@@ -1,0 +1,23 @@
+PHƯƠNG G63 V15 ENTERPRISE
+
+Đã có:
+- Trang chủ Enterprise
+- Kho sản phẩm tự động
+- Tìm kiếm sản phẩm
+- Bộ lọc loại EA
+- Trang chi tiết từng EA
+- Gallery ảnh
+- Khung video demo
+- QR thanh toán VietinBank
+- Học viện hướng dẫn khách hàng
+- Bảng so sánh sản phẩm
+- Nhật ký cập nhật phiên bản
+- Giao diện Customer Center chuẩn bị cho đăng nhập/license sau này
+
+Giai đoạn sau:
+- Mua tên miền
+- Google Analytics
+- SEO sitemap
+- Form gửi biên lai
+- License online
+- Khu vực khách hàng thật bằng server/hosting riêng

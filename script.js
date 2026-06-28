@@ -1,47 +1,26 @@
-const bankId = '970415';
-const accountNo = '888889060666';
-const accountName = 'NGUYEN HOANG PHUONG';
-const zaloUrl = 'https://zalo.me/84822299993';
-let currentProduct = PRODUCTS[0];
-
-function moneyNote(str){return encodeURIComponent(str.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D'));}
-function qrUrl(product){return `https://img.vietqr.io/image/${bankId}-${accountNo}-compact2.png?amount=${product.price}&addInfo=${moneyNote(product.name)}&accountName=${accountName}`;}
-function renderProducts(){
-  const grid=document.getElementById('productGrid');
-  grid.innerHTML=PRODUCTS.map((p,i)=>`<article class="product-card reveal" data-id="${p.id}"><img src="${p.image}" alt="${p.name}"><div class="product-body"><span class="badge">${p.badge}</span><div class="category">${p.category}</div><h3>${p.name}</h3><p>${p.short}</p><div class="price-row"><span class="price">${p.priceText}</span><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button></div><button class="btn btn-blue" onclick="selectProduct('${p.id}')">Xem chi tiết</button></div></article>`).join('');
-  observeReveal();
-}
-function selectProduct(id){
-  currentProduct = PRODUCTS.find(p=>p.id===id) || PRODUCTS[0];
-  renderDetail(currentProduct);
-  document.getElementById('details').scrollIntoView({behavior:'smooth'});
-}
-function renderDetail(p){
-  const box=document.getElementById('detailBox');
-  const thumbs=p.images.map((img,i)=>`<img src="${img}" class="${i===0?'active':''}" onclick="setMainImage('${img}',this)" alt="${p.name} ảnh ${i+1}">`).join('');
-  const warning = p.warning ? `<div class="warning-box">⚠️ ${p.warning}</div>` : '';
-  const install = p.install ? `<h4>Hướng dẫn nhận & cài đặt</h4><ul class="install-list">${p.install.map(x=>`<li>➜ ${x}</li>`).join('')}</ul>` : '';
-  const lore = p.id==='chien-truong-sinh-tu-g63' ? `<div class="lore-box"><h4>👑 Cốt truyện sản phẩm</h4><p>Thiên hạ chia ba. Mỗi phiên giao dịch là một trận sa trường. Trader không mua một lời cam kết lợi nhuận, mà bước vào một hành trình Tam Quốc: chiếm thành, mở tướng, thu báu vật, hạ Boss và tự thử thách bản lĩnh của chính mình.</p></div>` : '';
-  box.innerHTML=`<div class="detail-layout"><div><div class="gallery-main"><img id="mainGallery" src="${p.images[0]}" alt="${p.name}"></div><div class="thumbs">${thumbs}</div>${lore}</div><div class="detail-copy"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p>${warning}<div class="price">${p.priceText}</div><ul class="feature-list">${p.features.map(f=>`<li>✅ ${f}</li>`).join('')}</ul>${install}<div class="modal-actions"><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button><a class="btn btn-blue" href="${zaloUrl}">Hỏi Zalo</a></div></div></div>`;
-}
-function setMainImage(src,el){document.getElementById('mainGallery').src=src;document.querySelectorAll('.thumbs img').forEach(i=>i.classList.remove('active'));el.classList.add('active');}
-function openCheckoutById(id){openCheckout(PRODUCTS.find(p=>p.id===id)||PRODUCTS[0]);}
-function openCheckout(p){
-  document.getElementById('payName').innerText=p.name;
-  document.getElementById('payPrice').innerText=p.priceText;
-  document.getElementById('payNote').innerText=p.name;
-  document.getElementById('payQr').src=qrUrl(p);
-  document.getElementById('paidNotice').style.display='none';
-  document.getElementById('checkout').style.display='flex';
-}
-function closeCheckout(){document.getElementById('checkout').style.display='none';}
-function showPaidNotice(){document.getElementById('paidNotice').style.display='block';}
-function observeReveal(){
-  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-}
-function heroSlider(){
-  const imgs=[...new Set(PRODUCTS.flatMap(p=>p.images))];let i=0;const el=document.getElementById('heroSlide');
-  setInterval(()=>{i=(i+1)%imgs.length;el.src=imgs[i];},3600);
-}
-document.addEventListener('DOMContentLoaded',()=>{renderProducts();renderDetail(PRODUCTS[0]);observeReveal();heroSlider();document.querySelector('[data-buy-first]')?.addEventListener('click',()=>openCheckout(PRODUCTS[0]));});
+const bankId='970415';
+const accountNo='888889060666';
+const accountName='NGUYEN HOANG PHUONG';
+const zaloUrl='https://zalo.me/84822299993';
+let currentProduct=PRODUCTS[0];
+let activeFilter='all';
+function moneyNote(str){return encodeURIComponent(str.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D'))}
+function qrUrl(product){return `https://img.vietqr.io/image/${bankId}-${accountNo}-compact2.png?amount=${product.price}&addInfo=${moneyNote(product.name)}&accountName=${accountName}`}
+function cats(){return ['all',...new Set(PRODUCTS.map(p=>p.categoryKey))]}
+function catLabel(k){return {all:'Tất cả',tamquoc:'Tam Quốc',manual:'Đánh tay',dashboard:'Dashboard',ea:'EA Premium',coming:'Sắp cập nhật'}[k]||k}
+function renderFilters(){const bar=document.getElementById('filterBar');bar.innerHTML=cats().map(c=>`<button class="filter-btn ${c===activeFilter?'active':''}" onclick="setFilter('${c}')">${catLabel(c)}</button>`).join('')}
+function setFilter(c){activeFilter=c;renderFilters();renderProducts()}
+function productMatch(p,q){q=q.trim().toLowerCase();if(!q)return true;return [p.name,p.category,p.short,p.description,...(p.tags||[]),...(p.features||[])].join(' ').toLowerCase().includes(q)}
+function renderProducts(){const q=document.getElementById('searchInput')?.value||'';const list=PRODUCTS.filter(p=>(activeFilter==='all'||p.categoryKey===activeFilter)&&productMatch(p,q));const grid=document.getElementById('productGrid');grid.innerHTML=list.map(p=>`<article class="product-card reveal" data-id="${p.id}"><div class="img-wrap"><img src="${p.image}" alt="${p.name}"><span class="shine"></span></div><div class="product-body"><span class="badge">${p.badge}</span><div class="category">${p.category}</div><h3>${p.name}</h3><p>${p.short}</p><div class="tag-row">${(p.tags||[]).slice(0,3).map(t=>`<small>${t}</small>`).join('')}</div><div class="price-row"><span class="price">${p.priceText}</span><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button></div><button class="btn btn-blue" onclick="selectProduct('${p.id}')">Xem chi tiết</button></div></article>`).join('')||'<div class="empty">Không tìm thấy sản phẩm phù hợp.</div>';observeReveal()}
+function selectProduct(id){currentProduct=PRODUCTS.find(p=>p.id===id)||PRODUCTS[0];renderDetail(currentProduct);document.getElementById('details').scrollIntoView({behavior:'smooth'})}
+function renderDetail(p){const box=document.getElementById('detailBox');const thumbs=p.images.map((img,i)=>`<img src="${img}" class="${i===0?'active':''}" onclick="setMainImage('${img}',this)" alt="${p.name} ảnh ${i+1}">`).join('');const warning=p.warning?`<div class="warning-box">⚠️ ${p.warning}</div>`:'';const faq=(p.faq||[]).map((f,i)=>`<details ${i===0?'open':''}><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');const video=`<div class="video-box"><span>🎬</span><h4>${p.videoTitle||'Video demo'}</h4><p>${p.videoText||'Video sẽ được cập nhật.'}</p></div>`;const lore=p.id==='chien-truong-sinh-tu-g63'?`<div class="lore-box"><h4>👑 Cốt truyện sản phẩm</h4><p>Thiên hạ chia ba. Mỗi phiên giao dịch là một trận sa trường. Người dùng không mua một lời cam kết lợi nhuận, mà bước vào hành trình Tam Quốc: chiếm thành, mở tướng, thu báu vật, hạ Boss và tự thử thách bản lĩnh của chính mình.</p></div>`:'';box.innerHTML=`<div class="detail-layout"><div><div class="gallery-main"><img id="mainGallery" src="${p.images[0]}" alt="${p.name}"></div><div class="thumbs">${thumbs}</div>${video}${lore}</div><div class="detail-copy"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p>${warning}<div class="price">${p.priceText}</div><h4>Tính năng nổi bật</h4><ul class="feature-list">${p.features.map(f=>`<li>✅ ${f}</li>`).join('')}</ul><h4>Hướng dẫn nhận & cài đặt</h4><ul class="install-list">${p.install.map(x=>`<li>➜ ${x}</li>`).join('')}</ul><h4>Câu hỏi thường gặp</h4><div class="faq-list">${faq}</div><div class="modal-actions"><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button><a class="btn btn-blue" href="${zaloUrl}">Hỏi Zalo</a></div></div></div>`}
+function setMainImage(src,el){document.getElementById('mainGallery').src=src;document.querySelectorAll('.thumbs img').forEach(i=>i.classList.remove('active'));el.classList.add('active')}
+function renderCompare(){const t=document.getElementById('compareTable');t.innerHTML=`<thead><tr><th>Sản phẩm</th><th>Giá</th><th>Loại</th><th>Định vị</th><th>Hành động</th></tr></thead><tbody>${PRODUCTS.map(p=>`<tr><td><b>${p.name}</b></td><td>${p.priceText}</td><td>${p.category}</td><td>${p.tags?.slice(0,4).join(' • ')||''}</td><td><button class="mini-btn" onclick="selectProduct('${p.id}')">Xem</button></td></tr>`).join('')}</tbody>`}
+function renderUpdates(){const el=document.getElementById('updateList');el.innerHTML=UPDATES.map(u=>`<div class="time-item"><span>${u.date}</span><h3>${u.version}</h3><p>${u.text}</p></div>`).join('')}
+function openCheckoutById(id){openCheckout(PRODUCTS.find(p=>p.id===id)||PRODUCTS[0])}
+function openCheckout(p){document.getElementById('payName').innerText=p.name;document.getElementById('payPrice').innerText=p.priceText;document.getElementById('payNote').innerText=p.name;document.getElementById('payQr').src=qrUrl(p);document.getElementById('paidNotice').style.display='none';document.getElementById('checkout').style.display='flex'}
+function closeCheckout(){document.getElementById('checkout').style.display='none'}
+function showPaidNotice(){document.getElementById('paidNotice').style.display='block'}
+function observeReveal(){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}
+function heroSlider(){const imgs=[...new Set(PRODUCTS.flatMap(p=>p.images))];let i=0;const el=document.getElementById('heroSlide');setInterval(()=>{i=(i+1)%imgs.length;el.src=imgs[i]},3300)}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('kpiProducts').innerText=PRODUCTS.length+'+';renderFilters();renderProducts();renderDetail(PRODUCTS[0]);renderCompare();renderUpdates();observeReveal();heroSlider();document.getElementById('searchInput')?.addEventListener('input',renderProducts);document.querySelector('[data-buy-first]')?.addEventListener('click',()=>openCheckout(PRODUCTS[0]))});
