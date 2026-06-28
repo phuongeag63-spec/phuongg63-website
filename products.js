@@ -1,8 +1,9 @@
-/*
-  PHƯƠNG G63 - KHO SẢN PHẨM
-  Thêm EA mới: copy một khối {}, đổi id, tên, giá, mô tả, ảnh, tính năng.
-  Ảnh đặt trong assets/images/...
-*/
+/* =====================================================
+   PHƯƠNG G63 - PRODUCTS.JS
+   Bố muốn thêm EA mới: chỉ cần copy 1 khối sản phẩm,
+   đổi id, tên, giá, mô tả, ảnh, tính năng.
+   Ảnh đặt trong: assets/images/
+===================================================== */
 const PRODUCTS = [
   {
     id: 'dai-ban-doanh-g63-v8',
@@ -11,7 +12,7 @@ const PRODUCTS = [
     badge: 'BEST SELLER',
     price: 999000,
     priceText: '999.000đ',
-    accent: 'gold',
+    rating: '5.0',
     image: 'assets/images/web-preview.png',
     images: ['assets/images/web-preview.png','assets/images/dashboard-luc-mach.png','assets/images/input-luc-mach.png'],
     short: 'Dashboard quản lý lệnh MT5 chuyên nghiệp: kéo thả, thu gọn, âm thanh, đóng lệnh nhanh và theo dõi PnL realtime.',
@@ -33,7 +34,7 @@ const PRODUCTS = [
     badge: 'PREMIUM',
     price: 1600000,
     priceText: '1.600.000đ',
-    accent: 'cyan',
+    rating: '5.0',
     image: 'assets/images/poster-luc-mach.png',
     images: ['assets/images/poster-luc-mach.png','assets/images/hero-luc-mach.png','assets/images/dashboard-luc-mach.png','assets/images/input-luc-mach.png'],
     short: 'EA Grid nhiều giai đoạn, TP đơn, TP gộp, hỗ trợ đa tài sản, Dashboard Cyberpunk và quản lý Magic Number.',
@@ -48,7 +49,7 @@ const PRODUCTS = [
     badge: 'COMING SOON',
     price: 1400000,
     priceText: '1.400.000đ',
-    accent: 'blue',
+    rating: 'Đang cập nhật',
     image: 'assets/images/brand-banner.png',
     images: ['assets/images/brand-banner.png','assets/images/web-preview.png'],
     short: 'Mẫu sản phẩm tiếp theo trong hệ sinh thái Phương G63. Bố gửi code EA, con sẽ hoàn thiện trang riêng.',
