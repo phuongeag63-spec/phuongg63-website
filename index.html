@@ -8,121 +8,42 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<div class="bg-orb orb-a"></div><div class="bg-orb orb-b"></div>
 <header class="topbar">
-  <a class="brand" href="#home">
-    <div class="brand-logo">G63</div>
-    <div><strong>PHƯƠNG G63</strong><span>MT5 Expert Advisors</span></div>
-  </a>
-  <nav>
-    <a href="#home">Trang chủ</a>
-    <a href="#products">Sản phẩm</a>
-    <a href="#featured">Đại Bản Doanh</a>
-    <a href="#guide">Cài đặt</a>
-    <a href="#contact" class="nav-cta">Liên hệ</a>
-  </nav>
+  <a class="brand" href="#home"><div class="brand-logo">G63</div><div><strong>PHƯƠNG G63</strong><span>MT5 Expert Advisors</span></div></a>
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <nav id="mainNav"><a href="#home">Trang chủ</a><a href="#products">Sản phẩm</a><a href="#featured">Đại Bản Doanh</a><a href="#guide">Hướng dẫn</a><a href="#faq">FAQ</a><a href="#contact" class="nav-cta">Liên hệ</a></nav>
 </header>
-
 <main>
 <section id="home" class="hero section-pad">
   <div class="hero-copy reveal">
     <span class="eyebrow">Professional MetaTrader 5 Solutions</span>
     <h1>Hệ sinh thái phần mềm MT5 cao cấp cho Trader hiện đại</h1>
     <p>Phương G63 phát triển EA, Dashboard, Indicator và công cụ hỗ trợ giao dịch trên MetaTrader 5, giúp trader quản lý lệnh nhanh hơn, trực quan hơn và chuyên nghiệp hơn.</p>
-    <div class="hero-actions">
-      <a href="#products" class="btn btn-gold">Xem sản phẩm</a>
-      <button class="btn btn-blue" data-buy="dai-ban-doanh-g63-v8">Mua Dashboard G63</button>
-    </div>
-    <div class="stat-row">
-      <div><b>20+</b><span>EA & Tools</span></div>
-      <div><b>MT5</b><span>Nền tảng</span></div>
-      <div><b>G63</b><span>Thương hiệu</span></div>
-    </div>
+    <div class="hero-actions"><a href="#products" class="btn btn-gold">Xem sản phẩm</a><button class="btn btn-blue" data-buy="dai-ban-doanh-g63-v8">Mua Dashboard G63</button></div>
+    <div class="stat-row"><div><b>20+</b><span>EA & Tools</span></div><div><b>MT5</b><span>Nền tảng</span></div><div><b>G63</b><span>Thương hiệu</span></div></div>
   </div>
-  <div class="hero-media reveal">
-    <div class="slider-card">
-      <img id="heroSlider" src="assets/images/web-preview.png" alt="Phương G63 MT5 Dashboard" />
-      <div class="slider-caption">Dashboard • EA • Indicator • MT5 Tools</div>
-    </div>
-  </div>
+  <div class="hero-media reveal"><div class="showcase"><img id="heroSlider" src="assets/images/web-preview.png" alt="Phương G63 MT5 Dashboard" /><div class="scan"></div><div class="showcase-caption"><b>G63 Software Cockpit</b><span>Dashboard • EA • Indicator • MT5 Tools</span></div></div></div>
 </section>
-
 <section id="products" class="section-pad">
-  <span class="section-tag">SẢN PHẨM NỔI BẬT</span>
-  <h2>Danh mục sản phẩm Phương G63</h2>
-  <p class="section-desc">Mỗi sản phẩm có trang giới thiệu, hình ảnh tham khảo, giá bán và nút thanh toán QR VietinBank riêng.</p>
+  <div class="section-head reveal"><span class="section-tag">SẢN PHẨM NỔI BẬT</span><h2>Danh mục sản phẩm Phương G63</h2><p>Mỗi sản phẩm có trang giới thiệu, hình ảnh tham khảo, giá bán và nút thanh toán QR VietinBank riêng.</p></div>
   <div id="productGrid" class="product-grid"></div>
 </section>
-
 <section id="featured" class="section-pad feature-split">
-  <div class="reveal">
-    <span class="section-tag">SẢN PHẨM CHỦ LỰC</span>
-    <h2>ĐẠI BẢN DOANH G63 V8</h2>
-    <h3>Dashboard quản lý lệnh MT5 chuyên nghiệp dành cho Trader</h3>
-    <p>ĐẠI BẢN DOANH G63 V8 là bảng điều khiển quản lý lệnh cao cấp cho MetaTrader 5. Công cụ giúp theo dõi toàn bộ trạng thái tài khoản, quản lý nhiều cặp giao dịch và xử lý lệnh nhanh trong một giao diện duy nhất.</p>
-    <ul class="check-list">
-      <li>Quản lý nhiều Symbol cùng lúc: XAUUSD, BTCUSD, EURUSD, GBPUSD, USDJPY...</li>
-      <li>Theo dõi Balance, Equity, lợi nhuận hôm nay và Floating PnL realtime.</li>
-      <li>Đóng BUY, đóng SELL, xóa toàn bộ lệnh từng cặp hoặc toàn tài khoản.</li>
-      <li>Giao diện kéo thả, thu gọn/mở rộng, hiệu ứng LED và âm thanh nút bấm.</li>
-      <li>Tính toán Profit, Swap, Commission và Net Profit trực quan.</li>
-    </ul>
-    <div class="hero-actions"><button class="btn btn-gold" data-buy="dai-ban-doanh-g63-v8">Mua ngay 999.000đ</button><a class="btn btn-blue" href="#guide">Xem hướng dẫn</a></div>
-  </div>
-  <div class="preview-panel reveal">
-    <div class="panel-title"><span>G63 DASHBOARD PREVIEW</span><b>Realtime</b></div>
-    <div class="mini-stats"><div><span>Balance</span><b>$10,256</b></div><div><span>Equity</span><b>$12,356</b></div><div><span>Profit</span><b class="green">+$2,356</b></div></div>
-    <div class="pair"><b>XAUUSD</b><span class="green">+345.67</span></div>
-    <div class="pair"><b>BTCUSD</b><span class="green">+256.34</span></div>
-    <div class="pair"><b>GBPUSD</b><span class="red">-45.67</span></div>
-    <button class="danger">ĐÓNG TOÀN BỘ VỊ THẾ</button>
-  </div>
+  <div class="reveal"><span class="section-tag">SẢN PHẨM CHỦ LỰC</span><h2>ĐẠI BẢN DOANH G63 V8</h2><h3>Dashboard quản lý lệnh MT5 chuyên nghiệp dành cho Trader</h3><p>ĐẠI BẢN DOANH G63 V8 là bảng điều khiển quản lý lệnh cao cấp cho MetaTrader 5. Công cụ giúp theo dõi toàn bộ trạng thái tài khoản, quản lý nhiều cặp giao dịch và xử lý lệnh nhanh trong một giao diện duy nhất.</p><ul class="check-list"><li>Quản lý nhiều Symbol cùng lúc: XAUUSD, BTCUSD, EURUSD, GBPUSD, USDJPY.</li><li>Theo dõi Balance, Equity, lợi nhuận hôm nay và Floating PnL realtime.</li><li>Đóng BUY, đóng SELL, xóa toàn bộ lệnh từng cặp hoặc toàn tài khoản.</li><li>Giao diện kéo thả, thu gọn/mở rộng, hiệu ứng LED và âm thanh nút bấm.</li><li>Tính toán Profit, Swap, Commission và Net Profit trực quan.</li></ul><div class="hero-actions"><button class="btn btn-gold" data-buy="dai-ban-doanh-g63-v8">Mua ngay 999.000đ</button><a class="btn btn-blue" href="#guide">Xem hướng dẫn</a></div></div>
+  <div class="preview-panel reveal"><div class="panel-title"><span>G63 DASHBOARD PREVIEW</span><b>Realtime</b></div><div class="mini-stats"><div><span>Balance</span><b>$10,256</b></div><div><span>Equity</span><b>$12,356</b></div><div><span>Profit</span><b class="green">+$2,356</b></div></div><div class="pair"><b>XAUUSD</b><span class="green">+345.67</span></div><div class="pair"><b>BTCUSD</b><span class="green">+256.34</span></div><div class="pair"><b>GBPUSD</b><span class="red">-45.67</span></div><button class="danger">ĐÓNG TOÀN BỘ VỊ THẾ</button></div>
 </section>
-
-<section class="section-pad">
-  <span class="section-tag">HÌNH ẢNH THAM KHẢO</span>
-  <h2>Ảnh giới thiệu sản phẩm</h2>
-  <div id="gallery" class="gallery"></div>
-</section>
-
-<section id="guide" class="section-pad">
-  <span class="section-tag">HƯỚNG DẪN MUA & NHẬN SẢN PHẨM</span>
-  <h2>Quy trình dành cho khách hàng</h2>
-  <div class="steps">
-    <div><b>01</b><strong>Chọn sản phẩm</strong><span>Khách xem hình ảnh, tính năng và giá bán.</span></div>
-    <div><b>02</b><strong>Quét QR</strong><span>Thanh toán qua VietinBank đúng số tiền.</span></div>
-    <div><b>03</b><strong>Gửi biên lai</strong><span>Chụp màn hình chuyển khoản gửi qua Zalo.</span></div>
-    <div><b>04</b><strong>Nhận file</strong><span>Phương G63 xác nhận và gửi file EX5 + hướng dẫn cài đặt.</span></div>
-  </div>
-</section>
-
-<section class="section-pad two-box">
-  <div class="support-card"><h3>Thanh toán an toàn qua VietinBank</h3><p><b>Số tài khoản:</b> 888889060666</p><p><b>Chủ tài khoản:</b> Nguyễn Hoàng Phương</p><p><b>Zalo hỗ trợ:</b> 08222 99993 - Mr Phương</p></div>
-  <div class="support-card"><h3>Cam kết hỗ trợ</h3><p>Hỗ trợ cài đặt, hướng dẫn sử dụng, cập nhật sản phẩm và giải đáp lỗi cơ bản trong quá trình vận hành.</p></div>
-</section>
-
-<section id="contact" class="contact-box">
-  <span class="badge">KẾT NỐI</span>
-  <h2>Kết nối với Phương G63</h2>
-  <p>Liên hệ để được tư vấn EA, Dashboard, Indicator và công cụ hỗ trợ MT5.</p>
-  <a class="btn btn-gold" href="https://zalo.me/84822299993">Zalo 08222 99993</a>
-</section>
+<section class="section-pad"><div class="section-head reveal"><span class="section-tag">HÌNH ẢNH THAM KHẢO</span><h2>Gallery sản phẩm</h2><p>Khách có thể xem nhanh giao diện, bảng cài đặt và hình quảng bá trước khi mua.</p></div><div id="gallery" class="gallery"></div></section>
+<section id="guide" class="section-pad"><div class="section-head reveal"><span class="section-tag">HƯỚNG DẪN MUA & NHẬN SẢN PHẨM</span><h2>Quy trình dành cho khách hàng</h2></div><div class="steps"><div><b>01</b><strong>Chọn sản phẩm</strong><span>Khách xem hình ảnh, tính năng và giá bán.</span></div><div><b>02</b><strong>Quét QR</strong><span>Thanh toán qua VietinBank đúng số tiền.</span></div><div><b>03</b><strong>Gửi biên lai</strong><span>Chụp màn hình chuyển khoản gửi qua Zalo.</span></div><div><b>04</b><strong>Nhận file</strong><span>Phương G63 xác nhận và gửi file EX5 + hướng dẫn cài đặt.</span></div></div></section>
+<section class="section-pad install"><div class="section-head"><span class="section-tag">CÀI ĐẶT MT5</span><h2>Hướng dẫn cài đặt nhanh</h2></div><div class="timeline"><div><b>1</b><span>Mở MT5 → File → Open Data Folder</span></div><div><b>2</b><span>Vào MQL5 → Experts</span></div><div><b>3</b><span>Copy file EX5 vào thư mục Experts</span></div><div><b>4</b><span>Khởi động lại MT5</span></div><div><b>5</b><span>Kéo EA/Dashboard lên chart</span></div><div><b>6</b><span>Bật Algo Trading và kiểm tra thông số</span></div></div></section>
+<section class="section-pad trust"><div class="trust-card"><h3>Thanh toán an toàn qua VietinBank</h3><p><b>Số tài khoản:</b> 888889060666</p><p><b>Chủ tài khoản:</b> Nguyễn Hoàng Phương</p><p><b>Zalo hỗ trợ:</b> 08222 99993 - Mr Phương</p></div><div class="trust-card"><h3>Cam kết hỗ trợ</h3><p>Hỗ trợ cài đặt, hướng dẫn sử dụng, cập nhật sản phẩm và giải đáp lỗi cơ bản trong quá trình vận hành.</p></div><div class="trust-card"><h3>Cập nhật lâu dài</h3><p>Mỗi sản phẩm trong hệ sinh thái G63 có thể được bổ sung tính năng, hình ảnh và trang giới thiệu riêng.</p></div></section>
+<section id="faq" class="section-pad"><div class="section-head"><span class="section-tag">FAQ</span><h2>Câu hỏi thường gặp</h2></div><div class="faq"><details><summary>Sau khi chuyển khoản bao lâu nhận file?</summary><p>Sau khi bố xác nhận biên lai qua Zalo, khách sẽ được gửi file EX5 và hướng dẫn cài đặt.</p></details><details><summary>Có hỗ trợ cài đặt không?</summary><p>Có. Phương G63 hỗ trợ hướng dẫn cài đặt và kiểm tra lỗi cơ bản qua Zalo.</p></details><details><summary>EA dùng cho MT4 hay MT5?</summary><p>Các sản phẩm hiện định hướng chính cho MetaTrader 5. MT4 sẽ được ghi riêng nếu có.</p></details></div></section>
+<section id="contact" class="contact-box"><span class="badge">KẾT NỐI</span><h2>Kết nối với Phương G63</h2><p>Liên hệ để được tư vấn EA, Dashboard, Indicator và công cụ hỗ trợ MT5.</p><a class="btn btn-gold" href="https://zalo.me/84822299993">Zalo 08222 99993</a></section>
 </main>
-
-<footer>
-  <div><b>PHƯƠNG G63</b><p>EA • Dashboard • Indicator • MT5 Tools</p></div>
-  <p>© 2026 Phương G63. All rights reserved.</p>
-</footer>
-
+<footer><div><b>PHƯƠNG G63</b><p>EA • Dashboard • Indicator • MT5 Tools</p></div><p>© 2026 Phương G63. All rights reserved.</p></footer>
 <a class="float-zalo" href="https://zalo.me/84822299993">Zalo</a>
-
-<div id="detailModal" class="modal">
-  <div class="modal-box detail-box"><button class="modal-close" data-close>×</button><div id="detailContent"></div></div>
-</div>
-<div id="checkoutModal" class="modal">
-  <div class="modal-box checkout-box"><button class="modal-close" data-close>×</button><div id="checkoutContent"></div></div>
-</div>
-
-<script src="products.js"></script>
-<script src="script.js"></script>
+<div id="detailModal" class="modal"><div class="modal-box detail-box"><button class="modal-close" data-close>×</button><div id="detailContent"></div></div></div>
+<div id="checkoutModal" class="modal"><div class="modal-box checkout-box"><button class="modal-close" data-close>×</button><div id="checkoutContent"></div></div></div>
+<script src="products.js"></script><script src="script.js"></script>
 </body>
 </html>

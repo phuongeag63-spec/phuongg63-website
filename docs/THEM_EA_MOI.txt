@@ -1,0 +1,23 @@
+HUONG DAN THEM EA MOI CHO WEBSITE PHUONG G63
+
+1. Chuan bi anh:
+   - Tao anh poster, dashboard, setting.
+   - Dat vao thu muc: assets/images/
+   - Vi du: ea-sieu-grid-poster.png
+
+2. Mo file products.js
+
+3. Copy mot khoi san pham trong PRODUCTS va dan xuong duoi.
+
+4. Sua cac dong quan trong:
+   id: 'ea-sieu-grid-g63'
+   name: 'EA SIEU GRID G63'
+   price: 1600000
+   priceText: '1.600.000d'
+   image: 'assets/images/ea-sieu-grid-poster.png'
+   features: [...]
+   install: [...]
+
+5. Upload products.js va anh moi len GitHub.
+
+6. Bam Commit changes, doi 1 phut, nhan Ctrl + F5.
