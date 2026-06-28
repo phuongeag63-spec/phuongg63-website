@@ -5,6 +5,39 @@
    Ảnh đặt trong: assets/images/
 ===================================================== */
 const PRODUCTS = [
+
+  {
+    id: 'han-bang-chuong-g63',
+    name: 'HÀN BĂNG CHƯỞNG G63',
+    category: 'Manual Trading Cockpit',
+    badge: 'NEW PREMIUM',
+    price: 1400000,
+    priceText: '1.400.000đ',
+    rating: '5.0',
+    image: 'assets/images/han-bang-chuong-poster.png',
+    images: ['assets/images/han-bang-chuong-poster.png','assets/images/han-bang-chuong-dashboard.png','assets/images/han-bang-chuong-input.png'],
+    short: 'Premium Manual Trading Cockpit dành cho trader đã có chiến lược: bạn quyết định Buy/Sell, EA xử lý toàn bộ quản trị còn lại.',
+    description: 'HÀN BĂNG CHƯỞNG G63 không phải robot tự vào lệnh. Đây là cockpit hỗ trợ đánh tay chuyên nghiệp, dành cho trader nhiều kinh nghiệm, đặc biệt khi cần thao tác nhanh trong các phiên tin mạnh, giật lag. Trader là người quyết định điểm vào lệnh; EA phục vụ phần quản trị: rải lệnh, TP gộp, dời BE, chốt 50%, quản lý PnL, Margin và đóng lệnh nhanh.',
+    features: [
+      'Không tự Buy/Sell, không tìm tín hiệu, không thay thế chiến lược của trader',
+      'Dành cho trader đã có chiến lược rõ ràng và kinh nghiệm thực chiến từ 5 năm trở lên',
+      'Hỗ trợ đánh tin, thị trường chạy nhanh, cần thao tác nhanh và giảm sai sót',
+      'Dashboard Cyberpunk kéo thả, trực quan, quản lý Buy/Sell trong một bảng duy nhất',
+      'Tự động rải Buy Limit / Sell Limit theo thông số sau khi trader đã vào lệnh',
+      'TP gộp theo trung bình giá, dời Break Even một chạm và chốt 50% lệnh lời',
+      'Theo dõi Balance, Equity, Margin, Floating PnL, mục tiêu ngày và mục tiêu tuần',
+      'Hỗ trợ XAUUSD, BTCUSD, Forex, XAGUSD, USDJPY theo quy ước giá riêng'
+    ],
+    install: [
+      'Nhận file EX5 sau khi xác nhận thanh toán qua Zalo',
+      'Mở MT5 → File → Open Data Folder',
+      'Vào MQL5 → Experts và copy file EX5 vào thư mục Experts',
+      'Khởi động lại MT5',
+      'Kéo HÀN BĂNG CHƯỞNG G63 vào chart muốn giao dịch',
+      'Cài Magic Number, quy ước giá, TP gộp, BE, số lệnh Limit và mục tiêu ngày/tuần',
+      'Bật Algo Trading, sau đó trader tự quyết định Buy/Sell theo chiến lược của mình'
+    ]
+  },
   {
     id: 'dai-ban-doanh-g63-v8',
     name: 'ĐẠI BẢN DOANH G63 V8',
