@@ -1,84 +1,128 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phương G63 | MT5 Expert Advisors</title>
-<meta name="description" content="Phương G63 - Hệ sinh thái EA, Dashboard, Indicator và công cụ hỗ trợ MetaTrader 5.">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Phương G63 | Hệ sinh thái EA MT5 chuyên nghiệp</title>
+<meta name="description" content="Phương G63 phát triển EA MT5, Dashboard quản lý lệnh, Indicator và công cụ giao dịch chuyên nghiệp cho MetaTrader 5." />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header class="header">
-  <a class="brand" href="#home"><div class="logo">G63</div><div><h1>PHƯƠNG G63</h1><p>MT5 Expert Advisors</p></div></a>
-  <nav><a href="#home">Trang chủ</a><a href="#products">Sản phẩm</a><a href="#product-detail">Chi tiết</a><a href="#guide">Hướng dẫn</a><a href="#contact" class="btn small">Liên hệ</a></nav>
+<header class="topbar">
+  <a class="brand" href="#home">
+    <div class="brand-logo">G63</div>
+    <div><strong>PHƯƠNG G63</strong><span>MT5 Expert Advisors</span></div>
+  </a>
+  <nav>
+    <a href="#home">Trang chủ</a>
+    <a href="#products">Sản phẩm</a>
+    <a href="#featured">Đại Bản Doanh</a>
+    <a href="#guide">Cài đặt</a>
+    <a href="#contact" class="nav-cta">Liên hệ</a>
+  </nav>
 </header>
 
 <main>
-<section id="home" class="hero">
-  <div class="hero-text">
+<section id="home" class="hero section-pad">
+  <div class="hero-copy reveal">
     <span class="eyebrow">Professional MetaTrader 5 Solutions</span>
-    <h2>Website bán EA MT5 chuyên nghiệp cho thương hiệu Phương G63</h2>
-    <p>Trang này được thiết kế để bố thêm EA mới cực nhanh: chỉ cần thêm ảnh vào <b>assets/images</b> và thêm thông tin sản phẩm trong <b>script.js</b>.</p>
-    <div class="actions"><a href="#products" class="btn">Xem sản phẩm</a><button class="btn outline" onclick="openCheckout(products[0])">Mua sản phẩm nổi bật</button></div>
-    <div class="stats"><div><b>20+</b><span>EA & Tools</span></div><div><b>MT5</b><span>Nền tảng</span></div><div><b>G63</b><span>Thương hiệu</span></div></div>
+    <h1>Hệ sinh thái phần mềm MT5 cao cấp cho Trader hiện đại</h1>
+    <p>Phương G63 phát triển EA, Dashboard, Indicator và công cụ hỗ trợ giao dịch trên MetaTrader 5, giúp trader quản lý lệnh nhanh hơn, trực quan hơn và chuyên nghiệp hơn.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn btn-gold">Xem sản phẩm</a>
+      <button class="btn btn-blue" data-buy="dai-ban-doanh-g63-v8">Mua Dashboard G63</button>
+    </div>
+    <div class="stat-row">
+      <div><b>20+</b><span>EA & Tools</span></div>
+      <div><b>MT5</b><span>Nền tảng</span></div>
+      <div><b>G63</b><span>Thương hiệu</span></div>
+    </div>
   </div>
-  <div class="hero-card"><img id="heroImage" src="assets/images/hero-luc-mach.png" alt="Phương G63 EA MT5"><div class="glow"></div></div>
+  <div class="hero-media reveal">
+    <div class="slider-card">
+      <img id="heroSlider" src="assets/images/web-preview.png" alt="Phương G63 MT5 Dashboard" />
+      <div class="slider-caption">Dashboard • EA • Indicator • MT5 Tools</div>
+    </div>
+  </div>
 </section>
 
-<section id="products" class="section">
-  <span class="section-tag">SẢN PHẨM</span>
+<section id="products" class="section-pad">
+  <span class="section-tag">SẢN PHẨM NỔI BẬT</span>
   <h2>Danh mục sản phẩm Phương G63</h2>
-  <p class="muted">Mỗi sản phẩm có giá, ảnh, tính năng và QR thanh toán riêng. Sau này bố thêm EA mới trong 3 phút.</p>
+  <p class="section-desc">Mỗi sản phẩm có trang giới thiệu, hình ảnh tham khảo, giá bán và nút thanh toán QR VietinBank riêng.</p>
   <div id="productGrid" class="product-grid"></div>
 </section>
 
-<section id="product-detail" class="section detail-section">
-  <span class="section-tag">TRANG CHI TIẾT</span>
-  <div id="detailBox"></div>
+<section id="featured" class="section-pad feature-split">
+  <div class="reveal">
+    <span class="section-tag">SẢN PHẨM CHỦ LỰC</span>
+    <h2>ĐẠI BẢN DOANH G63 V8</h2>
+    <h3>Dashboard quản lý lệnh MT5 chuyên nghiệp dành cho Trader</h3>
+    <p>ĐẠI BẢN DOANH G63 V8 là bảng điều khiển quản lý lệnh cao cấp cho MetaTrader 5. Công cụ giúp theo dõi toàn bộ trạng thái tài khoản, quản lý nhiều cặp giao dịch và xử lý lệnh nhanh trong một giao diện duy nhất.</p>
+    <ul class="check-list">
+      <li>Quản lý nhiều Symbol cùng lúc: XAUUSD, BTCUSD, EURUSD, GBPUSD, USDJPY...</li>
+      <li>Theo dõi Balance, Equity, lợi nhuận hôm nay và Floating PnL realtime.</li>
+      <li>Đóng BUY, đóng SELL, xóa toàn bộ lệnh từng cặp hoặc toàn tài khoản.</li>
+      <li>Giao diện kéo thả, thu gọn/mở rộng, hiệu ứng LED và âm thanh nút bấm.</li>
+      <li>Tính toán Profit, Swap, Commission và Net Profit trực quan.</li>
+    </ul>
+    <div class="hero-actions"><button class="btn btn-gold" data-buy="dai-ban-doanh-g63-v8">Mua ngay 999.000đ</button><a class="btn btn-blue" href="#guide">Xem hướng dẫn</a></div>
+  </div>
+  <div class="preview-panel reveal">
+    <div class="panel-title"><span>G63 DASHBOARD PREVIEW</span><b>Realtime</b></div>
+    <div class="mini-stats"><div><span>Balance</span><b>$10,256</b></div><div><span>Equity</span><b>$12,356</b></div><div><span>Profit</span><b class="green">+$2,356</b></div></div>
+    <div class="pair"><b>XAUUSD</b><span class="green">+345.67</span></div>
+    <div class="pair"><b>BTCUSD</b><span class="green">+256.34</span></div>
+    <div class="pair"><b>GBPUSD</b><span class="red">-45.67</span></div>
+    <button class="danger">ĐÓNG TOÀN BỘ VỊ THẾ</button>
+  </div>
 </section>
 
-<section class="section gallery-section">
+<section class="section-pad">
   <span class="section-tag">HÌNH ẢNH THAM KHẢO</span>
   <h2>Ảnh giới thiệu sản phẩm</h2>
   <div id="gallery" class="gallery"></div>
 </section>
 
-<section id="guide" class="section">
-  <span class="section-tag">HƯỚNG DẪN</span>
-  <h2>Quy trình mua và nhận sản phẩm</h2>
+<section id="guide" class="section-pad">
+  <span class="section-tag">HƯỚNG DẪN MUA & NHẬN SẢN PHẨM</span>
+  <h2>Quy trình dành cho khách hàng</h2>
   <div class="steps">
-    <div><b>01</b><h3>Chọn sản phẩm</h3><p>Xem mô tả, ảnh và giá bán.</p></div>
-    <div><b>02</b><h3>Quét QR</h3><p>Thanh toán đúng số tiền qua VietinBank.</p></div>
-    <div><b>03</b><h3>Gửi biên lai</h3><p>Chụp màn hình chuyển khoản gửi qua Zalo.</p></div>
-    <div><b>04</b><h3>Nhận file</h3><p>Phương G63 xác nhận và gửi file EX5 + hướng dẫn.</p></div>
+    <div><b>01</b><strong>Chọn sản phẩm</strong><span>Khách xem hình ảnh, tính năng và giá bán.</span></div>
+    <div><b>02</b><strong>Quét QR</strong><span>Thanh toán qua VietinBank đúng số tiền.</span></div>
+    <div><b>03</b><strong>Gửi biên lai</strong><span>Chụp màn hình chuyển khoản gửi qua Zalo.</span></div>
+    <div><b>04</b><strong>Nhận file</strong><span>Phương G63 xác nhận và gửi file EX5 + hướng dẫn cài đặt.</span></div>
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section class="section-pad two-box">
+  <div class="support-card"><h3>Thanh toán an toàn qua VietinBank</h3><p><b>Số tài khoản:</b> 888889060666</p><p><b>Chủ tài khoản:</b> Nguyễn Hoàng Phương</p><p><b>Zalo hỗ trợ:</b> 08222 99993 - Mr Phương</p></div>
+  <div class="support-card"><h3>Cam kết hỗ trợ</h3><p>Hỗ trợ cài đặt, hướng dẫn sử dụng, cập nhật sản phẩm và giải đáp lỗi cơ bản trong quá trình vận hành.</p></div>
+</section>
+
+<section id="contact" class="contact-box">
   <span class="badge">KẾT NỐI</span>
   <h2>Kết nối với Phương G63</h2>
   <p>Liên hệ để được tư vấn EA, Dashboard, Indicator và công cụ hỗ trợ MT5.</p>
-  <a class="btn" href="https://zalo.me/84822299993">Zalo 08222 99993</a>
+  <a class="btn btn-gold" href="https://zalo.me/84822299993">Zalo 08222 99993</a>
 </section>
 </main>
 
-<footer><b>PHƯƠNG G63</b><p>Expert Advisors • Dashboard • Indicator • MT5 Tools</p></footer>
+<footer>
+  <div><b>PHƯƠNG G63</b><p>EA • Dashboard • Indicator • MT5 Tools</p></div>
+  <p>© 2026 Phương G63. All rights reserved.</p>
+</footer>
+
 <a class="float-zalo" href="https://zalo.me/84822299993">Zalo</a>
 
+<div id="detailModal" class="modal">
+  <div class="modal-box detail-box"><button class="modal-close" data-close>×</button><div id="detailContent"></div></div>
+</div>
 <div id="checkoutModal" class="modal">
-  <div class="modal-box">
-    <button class="close" onclick="closeCheckout()">×</button>
-    <span class="badge">THANH TOÁN</span>
-    <h2 id="modalName"></h2>
-    <div id="modalPrice" class="price"></div>
-    <p class="muted">Quét mã QR để thanh toán. Sau đó chụp biên lai gửi qua Zalo cho Phương G63.</p>
-    <div class="qr"><img id="modalQr" alt="QR VietinBank"></div>
-    <div class="bank"><p><b>Ngân hàng:</b> VietinBank</p><p><b>Số tài khoản:</b> 888889060666</p><p><b>Chủ tài khoản:</b> Nguyễn Hoàng Phương</p><p><b>Nội dung CK:</b> <span id="modalNote"></span> + Số Zalo</p></div>
-    <div class="actions center"><a class="btn" href="https://zalo.me/84822299993">Gửi biên lai Zalo</a><button class="btn outline" onclick="document.getElementById('paidNotice').style.display='block'">Tôi đã chuyển khoản</button></div>
-    <div id="paidNotice" class="notice">✅ Cảm ơn bạn. Vui lòng gửi ảnh biên lai qua Zalo 08222 99993 để Phương G63 xác nhận và gửi file cài đặt.</div>
-  </div>
+  <div class="modal-box checkout-box"><button class="modal-close" data-close>×</button><div id="checkoutContent"></div></div>
 </div>
 
+<script src="products.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
