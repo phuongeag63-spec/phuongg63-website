@@ -19,7 +19,10 @@ function selectProduct(id){
 function renderDetail(p){
   const box=document.getElementById('detailBox');
   const thumbs=p.images.map((img,i)=>`<img src="${img}" class="${i===0?'active':''}" onclick="setMainImage('${img}',this)" alt="${p.name} ảnh ${i+1}">`).join('');
-  box.innerHTML=`<div class="detail-layout"><div><div class="gallery-main"><img id="mainGallery" src="${p.images[0]}" alt="${p.name}"></div><div class="thumbs">${thumbs}</div></div><div class="detail-copy"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p><div class="price">${p.priceText}</div><ul class="feature-list">${p.features.map(f=>`<li>✅ ${f}</li>`).join('')}</ul><div class="modal-actions"><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button><a class="btn btn-blue" href="${zaloUrl}">Hỏi Zalo</a></div></div></div>`;
+  const warning = p.warning ? `<div class="warning-box">⚠️ ${p.warning}</div>` : '';
+  const install = p.install ? `<h4>Hướng dẫn nhận & cài đặt</h4><ul class="install-list">${p.install.map(x=>`<li>➜ ${x}</li>`).join('')}</ul>` : '';
+  const lore = p.id==='chien-truong-sinh-tu-g63' ? `<div class="lore-box"><h4>👑 Cốt truyện sản phẩm</h4><p>Thiên hạ chia ba. Mỗi phiên giao dịch là một trận sa trường. Trader không mua một lời cam kết lợi nhuận, mà bước vào một hành trình Tam Quốc: chiếm thành, mở tướng, thu báu vật, hạ Boss và tự thử thách bản lĩnh của chính mình.</p></div>` : '';
+  box.innerHTML=`<div class="detail-layout"><div><div class="gallery-main"><img id="mainGallery" src="${p.images[0]}" alt="${p.name}"></div><div class="thumbs">${thumbs}</div>${lore}</div><div class="detail-copy"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p>${warning}<div class="price">${p.priceText}</div><ul class="feature-list">${p.features.map(f=>`<li>✅ ${f}</li>`).join('')}</ul>${install}<div class="modal-actions"><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button><a class="btn btn-blue" href="${zaloUrl}">Hỏi Zalo</a></div></div></div>`;
 }
 function setMainImage(src,el){document.getElementById('mainGallery').src=src;document.querySelectorAll('.thumbs img').forEach(i=>i.classList.remove('active'));el.classList.add('active');}
 function openCheckoutById(id){openCheckout(PRODUCTS.find(p=>p.id===id)||PRODUCTS[0]);}
