@@ -3,85 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Phương G63 - Professional MT5 Solutions</title>
-  <meta name="description" content="Phương G63 phát triển EA, Dashboard, Indicator và công cụ hỗ trợ giao dịch chuyên nghiệp cho MetaTrader 5." />
+  <meta name="description" content="Phương G63 - Giải pháp EA, Dashboard, Indicator và công cụ hỗ trợ MetaTrader 5 chuyên nghiệp." />
+  <title>Phương G63 - MT5 Expert Advisors</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
 
-  <header class="header">
-    <a href="#home" class="brand">
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Phương G63">
       <div class="brand-mark">G63</div>
       <div>
         <div class="brand-name">PHƯƠNG G63</div>
         <div class="brand-sub">MT5 Expert Advisors</div>
       </div>
     </a>
-    <nav class="nav">
+
+    <button class="menu-toggle" aria-label="Mở menu">☰</button>
+
+    <nav class="main-nav">
       <a href="#home">Trang chủ</a>
       <a href="#products">Sản phẩm</a>
       <a href="#features">Tính năng</a>
-      <a href="#video">Video</a>
+      <a href="#youtube">Video</a>
       <a href="#contact" class="nav-cta">Liên hệ</a>
     </nav>
   </header>
 
   <main>
-    <section id="home" class="hero section">
+    <section id="home" class="hero section-shell">
       <div class="hero-content reveal">
-        <div class="eyebrow">Professional MetaTrader 5 Solutions</div>
+        <span class="eyebrow">Professional MetaTrader 5 Solutions</span>
         <h1>Giải pháp MT5 chuyên nghiệp cho Trader hiện đại</h1>
-        <p>Phương G63 phát triển Expert Advisor, Dashboard, Indicator và công cụ hỗ trợ giao dịch giúp trader quản lý lệnh nhanh hơn, an toàn hơn và hiệu quả hơn trên MetaTrader 5.</p>
+        <p>
+          Phương G63 phát triển Expert Advisor, Dashboard, Indicator và công cụ hỗ trợ giao dịch giúp trader quản lý lệnh nhanh hơn, an toàn hơn và hiệu quả hơn trên MetaTrader 5.
+        </p>
         <div class="hero-actions">
-          <a href="#products" class="btn btn-primary">Xem sản phẩm</a>
-          <a href="https://zalo.me/84822299993" class="btn btn-secondary">Liên hệ Zalo</a>
+          <a class="btn btn-primary" href="#products">Xem sản phẩm</a>
+          <a class="btn btn-secondary" href="https://zalo.me/84822299993" target="_blank" rel="noopener">Liên hệ Zalo</a>
         </div>
-        <div class="stats">
+        <div class="mini-stats">
           <div><strong>MT5</strong><span>Nền tảng</span></div>
           <div><strong>EA</strong><span>Tự động hóa</span></div>
           <div><strong>G63</strong><span>Thương hiệu</span></div>
         </div>
       </div>
 
-      <div class="dashboard-card reveal delay-1">
-        <div class="dash-top">
-          <strong>ĐẠI BẢN DOANH G63 V8</strong>
-          <span>THU GỌN</span>
+      <div class="hero-visual reveal delay-1">
+        <div class="dashboard-card">
+          <div class="dashboard-top">
+            <strong>ĐẠI BẢN DOANH G63 V8</strong>
+            <span>THU GỌN</span>
+          </div>
+          <div class="dashboard-stats">
+            <div><small>BALANCE</small><b>$10,256.24</b></div>
+            <div><small>EQUITY</small><b>$12,356.78</b></div>
+            <div><small>LỜI HÔM NAY</small><b class="profit">$2,356.78</b></div>
+          </div>
+          <div class="market-grid">
+            <div class="market"><b>XAUUSD</b><small>BUY 5 • SELL 3</small><span class="profit">$345.67</span></div>
+            <div class="market"><b>BTCUSD</b><small>BUY 2 • SELL 1</small><span class="profit">$256.34</span></div>
+            <div class="market"><b>GBPUSD</b><small>BUY 5 • SELL 1</small><span class="loss">-$45.67</span></div>
+            <div class="market"><b>EURJPY</b><small>BUY 1 • SELL 0</small><span class="profit">$18.90</span></div>
+          </div>
+          <button class="danger-btn">ĐÓNG TOÀN BỘ VỊ THẾ</button>
         </div>
-        <div class="dash-metrics">
-          <div><small>BALANCE</small><b>$10,256.24</b></div>
-          <div><small>EQUITY</small><b>$12,356.78</b></div>
-          <div><small>LỜI HÔM NAY</small><b class="green">$2,356.78</b></div>
-        </div>
-        <div class="dash-grid">
-          <div class="symbol"><b>XAUUSD</b><small>BUY 5 • SELL 3</small><span class="green">$345.67</span></div>
-          <div class="symbol"><b>BTCUSD</b><small>BUY 2 • SELL 1</small><span class="green">$256.34</span></div>
-          <div class="symbol"><b>GBPUSD</b><small>BUY 5 • SELL 1</small><span class="red">-$45.67</span></div>
-          <div class="symbol"><b>EURJPY</b><small>BUY 1 • SELL 0</small><span class="green">$18.90</span></div>
-        </div>
-        <div class="close-all">ĐÓNG TOÀN BỘ VỊ THẾ</div>
       </div>
     </section>
 
-    <section id="products" class="section">
-      <div class="section-head reveal">
-        <span>SẢN PHẨM</span>
+    <section id="products" class="section-shell content-section">
+      <div class="section-heading reveal">
+        <span class="eyebrow cyan">SẢN PHẨM</span>
         <h2>Sản phẩm nổi bật của Phương G63</h2>
+        <p>Các công cụ được thiết kế để hỗ trợ trader MT5 quản lý, phân tích và vận hành giao dịch chuyên nghiệp hơn.</p>
       </div>
+
       <div class="product-grid">
         <article class="product-card featured reveal">
-          <div class="badge">Nổi bật</div>
+          <span class="badge">Nổi bật</span>
           <h3>ĐẠI BẢN DOANH G63 V8</h3>
-          <p>Dashboard quản lý lệnh MT5 chuyên nghiệp, realtime, kéo thả, thu gọn và đóng lệnh nhanh chỉ với 1 click.</p>
+          <p>Dashboard quản lý lệnh MT5 realtime, kéo thả, thu gọn, âm thanh thông minh và đóng lệnh nhanh chỉ với 1 click.</p>
+          <ul>
+            <li>Quản lý đa sản phẩm</li>
+            <li>Theo dõi lời/lỗ realtime</li>
+            <li>Đóng toàn bộ vị thế nhanh</li>
+          </ul>
           <a href="#contact">Tư vấn ngay →</a>
         </article>
+
         <article class="product-card reveal delay-1">
           <h3>EA MT5</h3>
           <p>Phát triển Expert Advisor theo chiến lược riêng, tối ưu quản lý vốn và hiệu suất giao dịch.</p>
           <a href="#contact">Liên hệ →</a>
         </article>
+
         <article class="product-card reveal delay-2">
           <h3>Indicator</h3>
           <p>Công cụ phân tích kỹ thuật hỗ trợ trader nhận diện xu hướng, tín hiệu và vùng giao dịch tiềm năng.</p>
@@ -90,28 +106,28 @@
       </div>
     </section>
 
-    <section id="features" class="section">
-      <div class="section-head reveal">
-        <span>LÝ DO CHỌN</span>
+    <section id="features" class="section-shell content-section">
+      <div class="section-heading reveal">
+        <span class="eyebrow cyan">LÝ DO CHỌN</span>
         <h2>Vì sao chọn Phương G63?</h2>
       </div>
       <div class="feature-grid">
-        <div class="feature reveal">✅ Lập trình MQL5 chuyên nghiệp</div>
-        <div class="feature reveal">✅ Giao diện đẹp, dễ sử dụng</div>
-        <div class="feature reveal">✅ Hỗ trợ nhanh qua Zalo</div>
-        <div class="feature reveal">✅ Định hướng phát triển lâu dài</div>
-        <div class="feature reveal">✅ Tối ưu cho MetaTrader 5</div>
-        <div class="feature reveal">✅ Xây dựng theo thương hiệu riêng</div>
+        <div class="feature-item reveal">✅ Lập trình MQL5 chuyên nghiệp</div>
+        <div class="feature-item reveal">✅ Giao diện đẹp, dễ sử dụng</div>
+        <div class="feature-item reveal">✅ Hỗ trợ nhanh qua Zalo</div>
+        <div class="feature-item reveal">✅ Tối ưu cho MetaTrader 5</div>
+        <div class="feature-item reveal">✅ Định hướng phát triển lâu dài</div>
+        <div class="feature-item reveal">✅ Xây dựng theo thương hiệu riêng</div>
       </div>
     </section>
 
-    <section id="video" class="section video-section">
-      <div class="section-head reveal">
-        <span>YOUTUBE</span>
+    <section id="youtube" class="section-shell content-section">
+      <div class="section-heading reveal">
+        <span class="eyebrow cyan">YOUTUBE</span>
         <h2>Video giới thiệu & hướng dẫn</h2>
       </div>
       <div class="video-card reveal">
-        <div class="play">▶</div>
+        <div class="play-button">▶</div>
         <div>
           <h3>ĐẠI BẢN DOANH G63 V8</h3>
           <p>Demo Dashboard quản lý lệnh MT5, đóng lệnh nhanh, theo dõi lợi nhuận realtime và quản lý đa sản phẩm.</p>
@@ -119,18 +135,20 @@
       </div>
     </section>
 
-    <section id="contact" class="section contact-section reveal">
+    <section id="contact" class="contact-card reveal">
+      <span class="eyebrow">KẾT NỐI</span>
       <h2>Kết nối với Phương G63</h2>
       <p>Liên hệ để được tư vấn EA, Dashboard, Indicator và công cụ hỗ trợ MT5.</p>
-      <div class="contact-line"><span>Zalo:</span> <strong>08222 99993</strong> <span>Mr Phương</span></div>
-      <a href="https://zalo.me/84822299993" class="btn btn-primary">Liên hệ Zalo ngay</a>
+      <div class="contact-info"><span>Zalo:</span> <strong>08222 99993</strong> <span>Mr Phương</span></div>
+      <a class="btn btn-primary" href="https://zalo.me/84822299993" target="_blank" rel="noopener">Liên hệ Zalo ngay</a>
     </section>
   </main>
 
+  <a class="floating-zalo" href="https://zalo.me/84822299993" target="_blank" rel="noopener">Zalo</a>
+
   <footer class="footer">
-    <strong>PHƯƠNG G63</strong>
-    <span>Expert Advisors • Dashboard • Indicator • MT5 Tools</span>
-    <span>© 2026 Phương G63. All rights reserved.</span>
+    <div><strong>PHƯƠNG G63</strong><p>Expert Advisors • Dashboard • Indicator • MT5 Tools</p></div>
+    <p>© 2026 Phương G63. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
