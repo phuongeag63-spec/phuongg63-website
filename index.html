@@ -4,81 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phương G63 | EA MT5 - Dashboard - Indicator</title>
-<meta name="description" content="Phương G63 phát triển EA MT5, Dashboard quản lý lệnh, Indicator và công cụ hỗ trợ MetaTrader 5.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Segoe UI,Tahoma,sans-serif;background:#05070d;color:#fff}
+body{font-family:Segoe UI,Tahoma,sans-serif;background:#05070d;color:white}
 a{text-decoration:none;color:inherit}
 :root{--gold:#ffd34d;--blue:#00d9ff;--card:#0d1324;--line:#1d2b4f}
-
-header{position:sticky;top:0;z-index:999;background:rgba(5,7,13,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px 7%;display:flex;justify-content:space-between;align-items:center}
+header{position:sticky;top:0;z-index:999;background:#05070df2;border-bottom:1px solid var(--line);padding:14px 7%;display:flex;justify-content:space-between;align-items:center}
 .brand{display:flex;gap:14px;align-items:center}
-.logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--gold),#ff9f00);color:#111;display:grid;place-items:center;font-weight:900;box-shadow:0 0 25px #ffbf1f66}
-.brand h2{color:var(--gold);font-size:25px;letter-spacing:1px}
+.logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--gold),#ff9f00);color:#111;display:grid;place-items:center;font-weight:900}
+.brand h2{color:var(--gold)}
 .brand p{font-size:12px;color:#9ca3af}
-nav{display:flex;gap:22px;align-items:center;font-size:14px;font-weight:800}
+nav{display:flex;gap:20px;align-items:center;font-weight:800;font-size:14px}
 nav a:hover{color:var(--gold)}
-.btn{display:inline-block;border-radius:999px;padding:13px 24px;font-weight:900;cursor:pointer}
-.btn-gold{background:linear-gradient(135deg,var(--gold),#ffad00);color:#111!important;box-shadow:0 0 24px #ffbf1f55}
+.btn{display:inline-block;border:0;border-radius:999px;padding:13px 24px;font-weight:900;cursor:pointer}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#ffad00);color:#111!important}
 .btn-blue{border:1px solid #1f5bff;color:#fff;background:transparent}
-
-.hero{min-height:720px;padding:90px 7%;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;background:radial-gradient(circle at right,#003cff55,transparent 42%),radial-gradient(circle at left bottom,#ffbf1f22,transparent 35%),#05070d}
+.hero{padding:90px 7%;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;background:radial-gradient(circle at right,#003cff55,transparent 42%),#05070d}
 .pill{display:inline-block;color:var(--gold);border:1px solid #ffd34d55;border-radius:999px;padding:10px 18px;font-weight:900;margin-bottom:22px}
-h1{font-size:60px;line-height:1.08;margin-bottom:24px}
-.hero p,.muted{color:#cbd5e1;line-height:1.8;font-size:17px}
+h1{font-size:58px;line-height:1.08;margin-bottom:24px}
+h2{font-size:42px;margin:16px 0 28px}
+p,.muted{color:#cbd5e1;line-height:1.8}
 .actions{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
-.mini{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
-.mini div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 24px}
-.mini b{display:block;color:var(--blue);font-size:22px}
-
-.dashboard{background:linear-gradient(145deg,#0d1324,#070b15);border:1px solid #1f5bff;border-radius:28px;padding:28px;box-shadow:0 0 45px #004cff55}
+.dashboard,.card,.feature,.price-box,.contact{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px}
+.dashboard{border-color:#1f5bff;box-shadow:0 0 45px #004cff55}
 .dash-head{display:flex;justify-content:space-between;color:var(--gold);font-weight:900;margin-bottom:18px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
 .box,.pair{background:#060a13;border:1px solid #173b85;border-radius:14px;padding:16px}
-.box small{color:#9ca3af;font-weight:800}.box b{display:block;margin-top:6px}
+.box small{color:#9ca3af}.box b{display:block;margin-top:6px}
 .pair{display:flex;justify-content:space-between;margin-bottom:12px}
 .green{color:#00ff91}.red{color:#ff426d}
-.close-btn{width:100%;margin-top:8px;padding:18px;border:0;border-radius:14px;background:linear-gradient(135deg,#ff174d,#c90028);color:white;font-weight:900}
-
+.close-btn{width:100%;padding:18px;border:0;border-radius:14px;background:linear-gradient(135deg,#ff174d,#c90028);color:white;font-weight:900}
 section{padding:85px 7%}
 .section-tag{color:var(--blue);font-weight:900;letter-spacing:4px}
-h2{font-size:42px;margin:16px 0 28px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card,.feature,.review,.faq,.video-box,.price-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px}
-.card:hover,.feature:hover,.review:hover,.faq:hover{border-color:var(--gold);box-shadow:0 0 28px #ffbf1f22;transform:translateY(-4px)}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card:hover{border-color:var(--gold);box-shadow:0 0 28px #ffbf1f22;transform:translateY(-4px)}
 .card h3{color:var(--blue);font-size:25px;margin:20px 0 16px}
-.card p,.review p,.faq p{color:#cbd5e1;line-height:1.7}
-.card a{display:inline-block;margin-top:18px;color:var(--gold);font-weight:900}
 .badge{display:inline-block;background:var(--gold);color:#111;padding:8px 14px;border-radius:999px;font-weight:900}
-.highlight{border-color:var(--gold)}
-.feature{font-weight:850}
-
-.pricing{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
-.price-box{border-color:var(--gold);text-align:center}
-.price{font-size:54px;color:var(--gold);font-weight:900;margin:20px 0}
+.price{font-size:44px;color:var(--gold);font-weight:900;margin:16px 0}
+.contact{width:82%;margin:80px auto;text-align:center;border-color:var(--gold)}
+.float-zalo{position:fixed;right:24px;bottom:24px;background:#1473ff;color:white;padding:16px 20px;border-radius:999px;font-weight:900;z-index:999}
+footer{padding:40px 7%;border-top:1px solid var(--line);color:#cbd5e1}
+.checkout-modal{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+.checkout-box{width:min(760px,96%);max-height:92vh;overflow:auto;background:linear-gradient(145deg,#0d1324,#060a13);border:1px solid var(--gold);border-radius:30px;padding:36px;text-align:center;position:relative}
+.close-modal{position:absolute;top:18px;right:20px;width:38px;height:38px;border:0;border-radius:50%;background:#ff174d;color:white;font-size:24px;font-weight:900;cursor:pointer}
 .qr{max-width:330px;margin:28px auto;background:#fff;padding:16px;border-radius:22px}
 .qr img{width:100%;display:block;border-radius:14px}
-.bank{line-height:2;color:#cbd5e1;text-align:left;max-width:520px;margin:0 auto}
-
-.contact{width:82%;margin:80px auto;padding:60px;text-align:center;border:1px solid var(--gold);border-radius:30px;background:linear-gradient(145deg,#0d1324,#070b15)}
-.contact h2{font-size:44px}.contact strong{display:block;margin:22px 0 30px}
-
-footer{padding:40px 7%;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#cbd5e1}
-.float-zalo{position:fixed;right:24px;bottom:24px;background:#1473ff;color:white;padding:16px 20px;border-radius:999px;font-weight:900;box-shadow:0 0 28px #1473ff88;z-index:999}
-
-.checkout-modal{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
-.checkout-box{width:min(760px,96%);max-height:92vh;overflow:auto;background:linear-gradient(145deg,#0d1324,#060a13);border:1px solid var(--gold);border-radius:30px;padding:36px;text-align:center;box-shadow:0 0 55px #ffbf1f44;position:relative}
-.close-modal{position:absolute;top:18px;right:20px;width:38px;height:38px;border:0;border-radius:50%;background:#ff174d;color:white;font-size:24px;font-weight:900;cursor:pointer}
-.checkout-actions{margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.notice{margin-top:22px;padding:18px;border-radius:16px;background:#06130d;border:1px solid #00ff91;color:#cbd5e1}
-
+.bank{text-align:left;max-width:520px;margin:0 auto;color:#cbd5e1;line-height:2}
+.notice{display:none;margin-top:22px;padding:18px;border-radius:16px;background:#06130d;border:1px solid #00ff91;color:#cbd5e1}
 @media(max-width:900px){
 header{flex-direction:column;gap:16px}nav{flex-wrap:wrap;justify-content:center}
-.hero,.pricing{grid-template-columns:1fr}h1{font-size:42px}
-.grid3,.stats{grid-template-columns:1fr}
-.contact{width:92%;padding:34px}
-footer{flex-direction:column;gap:12px}
+.hero,.grid2{grid-template-columns:1fr}h1{font-size:40px}
+.grid3,.stats{grid-template-columns:1fr}.contact{width:92%}
 }
 </style>
 </head>
@@ -87,13 +65,12 @@ footer{flex-direction:column;gap:12px}
 
 <header>
 <a class="brand" href="#home">
-  <div class="logo">G63</div>
-  <div><h2>PHƯƠNG G63</h2><p>MT5 Expert Advisors</p></div>
+<div class="logo">G63</div>
+<div><h2>PHƯƠNG G63</h2><p>MT5 Expert Advisors</p></div>
 </a>
 <nav>
 <a href="#home">Trang chủ</a>
 <a href="#products">Sản phẩm</a>
-<a href="#pricing">Thanh toán</a>
 <a href="#guide">Cài đặt</a>
 <a href="#contact" class="btn btn-gold">Liên hệ</a>
 </nav>
@@ -102,145 +79,115 @@ footer{flex-direction:column;gap:12px}
 <section id="home" class="hero">
 <div>
 <span class="pill">Professional MetaTrader 5 Solutions</span>
-<h1>Giải pháp MT5 chuyên nghiệp cho Trader hiện đại</h1>
-<p>Phương G63 phát triển Expert Advisor, Dashboard, Indicator và công cụ hỗ trợ giao dịch giúp trader quản lý lệnh nhanh hơn, an toàn hơn và hiệu quả hơn trên MetaTrader 5.</p>
+<h1>Hệ sinh thái EA MT5 chuyên nghiệp</h1>
+<p>Phương G63 phát triển EA, Dashboard, Indicator và công cụ hỗ trợ giao dịch dành cho MetaTrader 5.</p>
 <div class="actions">
-  <a href="#products" class="btn btn-gold">Xem sản phẩm</a>
-  <button onclick="openCheckout()" class="btn btn-blue">Mua ngay</button>
-</div>
-<div class="mini">
-  <div><b>MT5</b><span>Nền tảng</span></div>
-  <div><b>EA</b><span>Tự động hóa</span></div>
-  <div><b>G63</b><span>Thương hiệu</span></div>
+<a href="#products" class="btn btn-gold">Xem sản phẩm</a>
+<a href="#contact" class="btn btn-blue">Liên hệ Zalo</a>
 </div>
 </div>
 
 <div class="dashboard">
-<div class="dash-head"><span>ĐẠI BẢN DOANH G63 V8</span><span>THU GỌN</span></div>
+<div class="dash-head"><span>G63 SOFTWARE COCKPIT</span><span>MT5</span></div>
 <div class="stats">
-  <div class="box"><small>BALANCE</small><b>$10,256.24</b></div>
-  <div class="box"><small>EQUITY</small><b>$12,356.78</b></div>
-  <div class="box"><small>LỜI HÔM NAY</small><b class="green">$2,356.78</b></div>
+<div class="box"><small>BALANCE</small><b>$10,256</b></div>
+<div class="box"><small>EQUITY</small><b>$12,356</b></div>
+<div class="box"><small>PROFIT</small><b class="green">$2,356</b></div>
 </div>
-<div class="pair"><b>XAUUSD</b><span class="green">$345.67</span></div>
-<div class="pair"><b>BTCUSD</b><span class="green">$256.34</span></div>
-<div class="pair"><b>GBPUSD</b><span class="red">-$45.67</span></div>
-<div class="pair"><b>EURJPY</b><span class="green">$18.90</span></div>
-<button class="close-btn">ĐÓNG TOÀN BỘ VỊ THẾ</button>
+<div class="pair"><b>EA Lục Mạch</b><span class="green">Active</span></div>
+<div class="pair"><b>Dashboard G63</b><span class="green">Realtime</span></div>
+<div class="pair"><b>License</b><span class="red">Manual</span></div>
+<button class="close-btn">PHƯƠNG G63 MT5 SOLUTIONS</button>
 </div>
 </section>
 
 <section id="products">
 <span class="section-tag">SẢN PHẨM</span>
-<h2>Sản phẩm nổi bật của Phương G63</h2>
-<p class="muted">Các công cụ được thiết kế để hỗ trợ trader MT5 quản lý, phân tích và vận hành giao dịch chuyên nghiệp hơn.</p><br>
+<h2>Danh mục sản phẩm Phương G63</h2>
 
-<div class="grid3">
-<div class="card highlight">
-  <span class="badge">Nổi bật</span>
-  <h3>ĐẠI BẢN DOANH G63 V8</h3>
-  <p>Dashboard quản lý lệnh MT5 realtime, kéo thả, thu gọn, âm thanh thông minh và đóng lệnh nhanh chỉ với 1 click.</p>
-  <button onclick="openCheckout()" class="btn btn-gold">Mua ngay</button>
+<div class="grid2">
+<div class="card">
+<span class="badge">Dashboard</span>
+<h3>ĐẠI BẢN DOANH G63 V8</h3>
+<p>Dashboard quản lý lệnh MT5 realtime, kéo thả, thu gọn, âm thanh thông minh và đóng lệnh nhanh.</p>
+<div class="price">999.000đ</div>
+<button class="btn btn-gold" onclick="openCheckout('ĐẠI BẢN DOANH G63 V8','999000','999.000đ')">Mua ngay</button>
 </div>
 
 <div class="card">
-  <h3>EA MT5</h3>
-  <p>Phát triển Expert Advisor theo chiến lược riêng, tối ưu quản lý vốn và hiệu suất giao dịch.</p>
-  <a href="#contact">Liên hệ →</a>
-</div>
-
-<div class="card">
-  <h3>Indicator</h3>
-  <p>Công cụ phân tích kỹ thuật hỗ trợ trader nhận diện xu hướng, tín hiệu và vùng giao dịch tiềm năng.</p>
-  <a href="#contact">Liên hệ →</a>
-</div>
-</div>
-</section>
-
-<section id="pricing">
-<span class="section-tag">THANH TOÁN</span>
-<h2>Mua ĐẠI BẢN DOANH G63 V8</h2>
-
-<div class="pricing">
-<div class="price-box">
-  <span class="badge">BẢN CHÍNH THỨC</span>
-  <div class="price">999.000đ</div>
-  <p class="muted">Khách chuyển khoản VietinBank, sau đó chụp biên lai gửi qua Zalo. Phương G63 sẽ xác nhận và gửi file cài đặt trực tiếp.</p>
-  <br>
-  <button onclick="openCheckout()" class="btn btn-gold">Mua ngay</button>
-</div>
-
-<div class="price-box">
-  <h3>Thông tin thanh toán</h3>
-  <div class="bank">
-    <p><b>Ngân hàng:</b> VietinBank</p>
-    <p><b>Số tài khoản:</b> 888889060666</p>
-    <p><b>Chủ tài khoản:</b> Nguyễn Hoàng Phương</p>
-    <p><b>Nội dung CK:</b> G63 V8 + Số Zalo của bạn</p>
-  </div>
+<span class="badge">EA Premium</span>
+<h3>EA LỤC MẠCH THẦN KIẾM G63</h3>
+<p>EA Grid nhiều giai đoạn, TP đơn, TP gộp, hỗ trợ đa tài sản, Dashboard Cyberpunk và quản lý Magic Number.</p>
+<div class="price">1.600.000đ</div>
+<button class="btn btn-gold" onclick="openCheckout('EA LỤC MẠCH THẦN KIẾM G63','1600000','1.600.000đ')">Mua ngay</button>
 </div>
 </div>
 </section>
 
 <section id="guide">
 <span class="section-tag">CÀI ĐẶT</span>
-<h2>Hướng dẫn cài đặt nhanh</h2>
+<h2>Hướng dẫn nhận và cài đặt</h2>
 <div class="grid3">
-<div class="feature">1️⃣ Sau khi xác nhận thanh toán, Phương G63 gửi file EX5 và hướng dẫn cài đặt.</div>
-<div class="feature">2️⃣ Mở MT5 → File → Open Data Folder → MQL5 → Experts.</div>
-<div class="feature">3️⃣ Chép file EX5 vào Experts, khởi động lại MT5 và kéo EA lên biểu đồ.</div>
+<div class="feature">1️⃣ Khách thanh toán bằng QR VietinBank.</div>
+<div class="feature">2️⃣ Chụp biên lai gửi Zalo 08222 99993.</div>
+<div class="feature">3️⃣ Phương G63 xác nhận và gửi file EX5 + hướng dẫn cài đặt.</div>
 </div>
 </section>
 
 <section id="contact" class="contact">
-<span class="badge">KẾT NỐI</span>
+<span class="badge">LIÊN HỆ</span>
 <h2>Kết nối với Phương G63</h2>
-<p>Liên hệ để được tư vấn EA, Dashboard, Indicator và công cụ hỗ trợ MT5.</p>
-<strong>Zalo: 08222 99993 - Mr Phương</strong>
-<a href="https://zalo.me/84822299993" class="btn btn-gold">Liên hệ Zalo ngay</a>
+<p>Tư vấn EA, Dashboard, Indicator và công cụ hỗ trợ MT5.</p>
+<br>
+<a href="https://zalo.me/84822299993" class="btn btn-gold">Zalo 08222 99993</a>
 </section>
 
 <footer>
-<div><b>PHƯƠNG G63</b><p>Expert Advisors • Dashboard • Indicator • MT5 Tools</p></div>
+<b>PHƯƠNG G63</b>
+<p>Expert Advisors • Dashboard • Indicator • MT5 Tools</p>
 <p>© 2026 Phương G63. All rights reserved.</p>
 </footer>
 
 <a class="float-zalo" href="https://zalo.me/84822299993">Zalo</a>
 
 <div id="checkoutModal" class="checkout-modal">
-  <div class="checkout-box">
-    <button class="close-modal" onclick="closeCheckout()">×</button>
+<div class="checkout-box">
+<button class="close-modal" onclick="closeCheckout()">×</button>
+<span class="badge">THANH TOÁN</span>
+<h2 id="checkoutProduct">Sản phẩm</h2>
+<div class="price" id="checkoutPrice">0đ</div>
+<p class="muted">Quét mã QR để thanh toán. Sau đó chụp biên lai gửi qua Zalo cho Phương G63.</p>
 
-    <span class="badge">THANH TOÁN SẢN PHẨM</span>
-    <h2>ĐẠI BẢN DOANH G63 V8</h2>
-    <div class="price">999.000đ</div>
+<div class="qr">
+<img id="qrImage" src="" alt="QR thanh toán VietinBank">
+</div>
 
-    <p class="muted">Quét mã QR bên dưới để thanh toán. Sau khi chuyển khoản, chụp màn hình biên lai gửi qua Zalo cho Phương G63.</p>
+<div class="bank">
+<p><b>Ngân hàng:</b> VietinBank</p>
+<p><b>Số tài khoản:</b> 888889060666</p>
+<p><b>Chủ tài khoản:</b> Nguyễn Hoàng Phương</p>
+<p><b>Nội dung CK:</b> <span id="payNote"></span></p>
+</div>
 
-    <div class="qr">
-      <img src="https://img.vietqr.io/image/970415-888889060666-compact2.png?amount=999000&addInfo=G63%20V8%20Thanh%20Toan&accountName=NGUYEN%20HOANG%20PHUONG" alt="QR thanh toán VietinBank">
-    </div>
+<br>
+<a href="https://zalo.me/84822299993" class="btn btn-gold">Gửi biên lai qua Zalo</a>
+<button class="btn btn-blue" onclick="showNotice()">Tôi đã chuyển khoản</button>
 
-    <div class="bank">
-      <p><b>Ngân hàng:</b> VietinBank</p>
-      <p><b>Số tài khoản:</b> 888889060666</p>
-      <p><b>Chủ tài khoản:</b> Nguyễn Hoàng Phương</p>
-      <p><b>Nội dung CK:</b> G63 V8 + Số Zalo của bạn</p>
-    </div>
-
-    <div class="checkout-actions">
-      <a href="https://zalo.me/84822299993" class="btn btn-gold">Gửi biên lai qua Zalo</a>
-      <button onclick="showNotice()" class="btn btn-blue">Tôi đã chuyển khoản</button>
-    </div>
-
-    <div id="noticeBox" class="notice" style="display:none">
-      ✅ Cảm ơn bạn đã thanh toán. Vui lòng gửi ảnh biên lai qua Zalo 08222 99993 để Phương G63 xác nhận và gửi file cài đặt.
-    </div>
-  </div>
+<div id="noticeBox" class="notice">
+✅ Cảm ơn bạn. Vui lòng gửi ảnh biên lai qua Zalo 08222 99993 để Phương G63 xác nhận và gửi file cài đặt.
+</div>
+</div>
 </div>
 
 <script>
-function openCheckout(){
+function openCheckout(product, amount, priceText){
+  const note = product.replaceAll(" ","%20");
+  document.getElementById("checkoutProduct").innerText = product;
+  document.getElementById("checkoutPrice").innerText = priceText;
+  document.getElementById("payNote").innerText = product + " + Số Zalo";
+  document.getElementById("qrImage").src =
+  "https://img.vietqr.io/image/970415-888889060666-compact2.png?amount="+amount+"&addInfo="+note+"&accountName=NGUYEN%20HOANG%20PHUONG";
+  document.getElementById("noticeBox").style.display = "none";
   document.getElementById("checkoutModal").style.display = "flex";
 }
 function closeCheckout(){
