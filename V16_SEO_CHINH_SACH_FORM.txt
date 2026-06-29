@@ -1,0 +1,31 @@
+HƯỚNG DẪN THÊM EA MỚI - PHƯƠNG G63 V11
+
+1. Chuẩn bị ảnh:
+   - poster-ea-moi.png
+   - dashboard-ea-moi.png
+   - input-ea-moi.png
+   Upload vào thư mục: assets/images/
+
+2. Mở file products.js
+
+3. Copy một khối sản phẩm trong PRODUCTS, dán xuống dưới rồi sửa:
+   id: viết không dấu, không khoảng trắng
+   name: tên EA
+   category: loại sản phẩm
+   badge: BEST SELLER / PREMIUM / NEW
+   price: giá dạng số, ví dụ 1600000
+   priceText: giá hiển thị, ví dụ 1.600.000đ
+   image: ảnh đại diện
+   images: danh sách ảnh gallery
+   short: mô tả ngắn
+   description: mô tả dài
+   features: danh sách tính năng
+
+4. Commit changes.
+
+5. Mở website và nhấn Ctrl + F5.
+
+Ghi nhớ:
+- Không cần sửa index.html.
+- Không cần sửa style.css.
+- Chủ yếu chỉ sửa products.js và upload ảnh.

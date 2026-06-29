@@ -1,0 +1,34 @@
+HƯỚNG DẪN THÊM EA MỚI - PHƯƠNG G63 V15 ENTERPRISE
+
+1. Chuẩn bị ảnh cho EA mới:
+   - poster.png
+   - dashboard.png
+   - input.png
+   - gallery.png
+   Đưa ảnh vào: assets/images/
+
+2. Mở file products.js
+
+3. Copy một khối sản phẩm có sẵn trong mảng PRODUCTS.
+
+4. Đổi các mục:
+   id: viết không dấu, không khoảng trắng
+   name: tên EA
+   category/categoryKey: loại sản phẩm
+   price: số tiền không dấu chấm
+   priceText: giá hiển thị
+   image/images: đường dẫn ảnh
+   short/description: mô tả
+   features: tính năng
+   install: hướng dẫn
+   faq: câu hỏi thường gặp
+
+5. Lưu file, upload lên GitHub và Commit changes.
+
+Website sẽ tự sinh:
+- Card sản phẩm
+- Trang chi tiết
+- Gallery
+- QR thanh toán
+- Bảng so sánh
+- Tìm kiếm/lọc

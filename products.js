@@ -1,5 +1,5 @@
 /* =====================================================
-   PHƯƠNG G63 ENTERPRISE - PRODUCTS.JS
+   PHƯƠNG G63 ENTERPRISE V17 - PRODUCTS.JS
    Thêm EA mới: copy 1 khối sản phẩm, đổi thông tin và ảnh.
    Ảnh đặt trong: assets/images/
 ===================================================== */
@@ -59,7 +59,9 @@ const PRODUCTS = [
 ];
 
 const UPDATES = [
-  {version:'V15 Enterprise', date:'Hiện tại', text:'Thêm tìm kiếm, bộ lọc, so sánh sản phẩm, Academy, Patch Notes, Customer Center và hệ thống thêm EA dễ mở rộng.'},
+  {version:'V17 License & Receipt Center', date:'29/06/2026', text:'Thêm khu gửi biên lai qua Zalo, License Preview, checklist trước khi mua, Customer Center mô phỏng và đồng bộ nội dung V17.'},
+  {version:'V16 SEO + Sales', date:'Trước đó', text:'Thêm SEO meta, chính sách sử dụng, form đặt mua qua Zalo, trung tâm video hướng dẫn và tăng độ tin cậy trước khi mua tên miền.'},
+  {version:'V15 Enterprise', date:'Trước đó', text:'Thêm tìm kiếm, bộ lọc, so sánh sản phẩm, Academy, Patch Notes, Customer Center và hệ thống thêm EA dễ mở rộng.'},
   {version:'V14 Thương Hiệu', date:'Trước đó', text:'Nâng cấp giao diện thương hiệu Phương G63, thêm định vị thương hiệu và trang Chiến Trường Sinh Tử.'},
   {version:'V12 Hàn Băng Chưởng', date:'Trước đó', text:'Thêm sản phẩm Hàn Băng Chưởng G63, định vị cockpit đánh tay chuyên nghiệp.'},
   {version:'V11 Ultimate', date:'Trước đó', text:'Chuẩn hóa sản phẩm, QR thanh toán, gallery và trang chi tiết.'}
