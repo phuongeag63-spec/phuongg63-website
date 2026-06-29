@@ -150,7 +150,117 @@
     <div><b>SEO</b><span>Trang riêng cho từng EA/Dashboard</span></div>
   </div>
 </section>
-<section id="afterbuy" class="section-pad afterbuy-zone">
+<section id="afterbuy"
+  <!-- ═══════════════════════════════════════════════════
+  NHẬT KÝ & CÂU CHUYỆN — chèn vào index.html
+  Vị trí: ngay sau thẻ </section> của phần #trust (dòng 152)
+  Mỗi khi có bài mới: copy 1 khối .blog-card, dán lên đầu
+═══════════════════════════════════════════════════ -->
+<section id="nhat-ky" class="section-pad" style="background:radial-gradient(circle at 80% 20%,rgba(255,211,106,.07),transparent 40%),radial-gradient(circle at 10% 80%,rgba(36,230,255,.05),transparent 35%)">
+  <div class="section-head reveal">
+    <span class="eyebrow">NHẬT KÝ & CÂU CHUYỆN</span>
+    <h2>Góc chia sẻ của <em style="color:var(--gold);font-style:normal">Phương G63</em></h2>
+    <p>Hành trình thật, giao dịch thật — nhật ký lệnh, kinh nghiệm và những câu chuyện từ thị trường tài chính.</p>
+  </div>
+
+  <!-- LƯỚI BÀI VIẾT -->
+  <div class="blog-grid reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px">
+
+    <!-- ═══════════════════════════════════
+         BÀI MỚI NHẤT (to hơn, chiếm 2 cột)
+    ═══════════════════════════════════ -->
+    <a href="nhat-ky/hanh-trinh-cua-toi.html" class="blog-card blog-card--featured" style="grid-column:span 2;background:linear-gradient(180deg,#12172c,#0b0f1c);border:1px solid rgba(255,211,106,.3);border-radius:24px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.3s" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='var(--gold)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,211,106,.3)'">
+      <div style="overflow:hidden;height:220px">
+        <img src="assets/images/anhlucconchayxe.jpg" alt="Hành trình Phương G63" style="width:100%;height:100%;object-fit:cover;display:block;transition:.5s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''"/>
+      </div>
+      <div style="padding:22px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+          <span style="font-size:11px;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,211,106,.4);background:rgba(255,211,106,.08);color:var(--gold);font-weight:900">⭐ Câu chuyện</span>
+          <span style="font-size:11px;padding:4px 10px;border-radius:999px;border:1px solid #33406a;background:#0a0f20;color:#cbd5e1;font-weight:900">Hành trình</span>
+        </div>
+        <h3 style="font-size:20px;font-weight:1000;color:#fff;margin-bottom:10px;line-height:1.3">Từ tài xế 11 năm đến trader Forex – hành trình tôi không bao giờ quên</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:14px">Tôi không xuất phát từ tài chính, không có bằng cấp. Chỉ có 11 năm sau vô lăng và một ngày tình cờ thấy bài viết về Forex...</p>
+        <span style="font-size:12px;color:var(--gold);font-weight:900">Đọc tiếp →</span>
+      </div>
+    </a>
+
+    <!-- CỘT PHẢI: 2 bài nhỏ xếp chồng -->
+    <div style="display:flex;flex-direction:column;gap:20px">
+
+      <!-- BÀI NHỎ 1 -->
+      <!-- ✏️ KHI CÓ BÀI MỚI: copy khối <a> này, đổi thông tin -->
+      <a href="nhat-ky/2025-06-28.html" class="blog-card" style="background:linear-gradient(180deg,#12172c,#0b0f1c);border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;flex:1;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--line)';this.style.transform=''">
+        <div style="overflow:hidden;height:110px">
+          <img src="assets/images/anheatamquoc.png" alt="EA Tam Quốc" style="width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+        <div style="padding:16px">
+          <div style="margin-bottom:8px">
+            <span style="font-size:10px;padding:3px 8px;border-radius:999px;border:1px solid #2a5c3a;background:#0a1f10;color:#5dba7a;font-weight:900">✅ Thắng</span>
+            <span style="font-size:10px;padding:3px 8px;border-radius:999px;border:1px solid #33406a;background:#0a0f20;color:#cbd5e1;font-weight:900;margin-left:4px">XAUUSD</span>
+          </div>
+          <h3 style="font-size:14px;font-weight:900;color:#fff;margin-bottom:6px;line-height:1.3">Lệnh Buy XAUUSD – bắt đáy vùng hỗ trợ 2.320</h3>
+          <p style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px">Confluence EMA50 và order block H4. Lãi 45 pips, R:R 2.1.</p>
+          <span style="font-size:11px;color:var(--gold);font-weight:900">Đọc tiếp →</span>
+        </div>
+      </a>
+
+      <!-- BÀI NHỎ 2 -->
+      <a href="nhat-ky/2025-06-26.html" class="blog-card" style="background:linear-gradient(180deg,#12172c,#0b0f1c);border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;flex:1;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--line)';this.style.transform=''">
+        <div style="padding:16px">
+          <div style="margin-bottom:8px">
+            <span style="font-size:10px;padding:3px 8px;border-radius:999px;border:1px solid #5c2a2a;background:#1f0a0a;color:#e06060;font-weight:900">❌ Thua</span>
+            <span style="font-size:10px;padding:3px 8px;border-radius:999px;border:1px solid #33406a;background:#0a0f20;color:#cbd5e1;font-weight:900;margin-left:4px">EURUSD</span>
+          </div>
+          <h3 style="font-size:14px;font-weight:900;color:#fff;margin-bottom:6px;line-height:1.3">Vào sớm khi chưa có xác nhận nến – bài học FOMO</h3>
+          <p style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px">Bị quét SL ngay sau đó. Bài học: luôn chờ đóng nến xác nhận.</p>
+          <span style="font-size:11px;color:var(--gold);font-weight:900">Đọc tiếp →</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- HÀNG 2: 3 bài nhỏ ngang nhau -->
+    <!-- BÀI NHỎ 3 -->
+    <a href="nhat-ky/2025-06-24.html" class="blog-card" style="background:linear-gradient(180deg,#12172c,#0b0f1c);border:1px solid var(--line);border-radius:20px;padding:18px;text-decoration:none;color:inherit;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--line)';this.style.transform=''">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="text-align:center;flex-shrink:0">
+          <div style="font-size:1.6rem;font-weight:1000;color:var(--gold);line-height:1">24</div>
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase">Thg 6</div>
+        </div>
+        <div>
+          <div style="margin-bottom:6px"><span style="font-size:10px;padding:3px 8px;border-radius:999px;border:1px solid #3a3a2a;background:#1a1a0a;color:#c0b860;font-weight:900">➖ Hoà vốn</span></div>
+          <div style="font-size:13px;font-weight:900;color:#fff;line-height:1.3">XAUUSD sideway – dời BE rồi bị quét</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- BÀI NHỎ 4 — THÊM BÀI MỚI VÀO ĐÂY -->
+    <!-- ✏️ copy khối <a> phía trên, đổi thông tin bài mới -->
+    <a href="blog.html" class="blog-card" style="background:linear-gradient(180deg,#12172c,#0b0f1c);border:1px dashed var(--line);border-radius:20px;padding:18px;text-decoration:none;color:inherit;display:flex;align-items:center;justify-content:center;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
+      <div>
+        <div style="font-size:28px;margin-bottom:8px">📖</div>
+        <div style="font-size:13px;color:var(--muted)">Xem thêm bài viết</div>
+        <div style="font-size:12px;color:var(--gold);font-weight:900;margin-top:4px">Nhật ký →</div>
+      </div>
+    </a>
+
+    <!-- BÀI NHỎ 5 -->
+    <a href="blog.html" class="blog-card" style="background:linear-gradient(135deg,rgba(255,211,106,.1),rgba(255,159,28,.06));border:1px solid rgba(255,211,106,.3);border-radius:20px;padding:18px;text-decoration:none;color:inherit;display:flex;align-items:center;justify-content:center;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(255,211,106,.3)'">
+      <div>
+        <div style="font-size:13px;color:var(--gold);font-weight:900;margin-bottom:6px">📝 Tổng cộng</div>
+        <div style="font-size:2rem;font-weight:1000;color:#fff">3+</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">bài viết & nhật ký</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- NÚT XEM TẤT CẢ -->
+  <div style="text-align:center">
+    <a class="btn btn-gold" href="blog.html">Xem tất cả bài viết</a>
+  </div>
+</section>
+class="section-pad afterbuy-zone">
   <div class="section-head reveal"><span class="eyebrow">AFTER PURCHASE GUIDE</span><h2>Hướng dẫn sau mua</h2><p>Khách mua xong có thể tự kiểm tra từng bước, giảm nhắn hỏi lặp lại và làm quy trình bán hàng nhìn chuyên nghiệp hơn.</p></div>
   <div class="afterbuy-steps reveal">
     <article><b>01</b><h3>Xác nhận thanh toán</h3><p>Chuyển khoản đúng QR, nhập mã giao dịch ở khu biên lai V18 và gửi qua Zalo 08222 99993.</p></article>
