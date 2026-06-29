@@ -36,3 +36,80 @@ function copyReceiptText(){const text=buildReceiptMessage();navigator.clipboard?
 function updateReceiptPreview(){const p=selectedReceiptProduct();const code='G63-V18-'+p.id.slice(0,8).toUpperCase();const licenseCode=document.getElementById('licenseCode');const licenseProduct=document.getElementById('licenseProduct');if(licenseCode)licenseCode.innerText=code;if(licenseProduct)licenseProduct.innerText=p.name;const preview=document.getElementById('receiptPreview');if(preview)preview.innerText=buildReceiptMessage()}
 function updateReadyScore(){const boxes=[...document.querySelectorAll('[data-ready]')];const done=boxes.filter(x=>x.checked).length;const score=document.getElementById('readyScore');const text=document.getElementById('readyText');if(score)score.innerText=done+'/'+boxes.length;if(text)text.innerText=done===boxes.length?'Đã đủ checklist cơ bản. Khách có thể tiếp tục đặt mua, vẫn cần tự chịu trách nhiệm giao dịch.':'Hãy tick đủ checklist trước khi mua sản phẩm nâng cao.'}
 document.addEventListener('DOMContentLoaded',()=>{document.getElementById('kpiProducts').innerText=PRODUCTS.length+'+';renderFilters();renderProducts();renderDetail(PRODUCTS[0]);renderCompare();renderUpdates();fillOrderProducts();syncProductSelects(PRODUCTS[0].id);observeReveal();heroSlider();document.getElementById('searchInput')?.addEventListener('input',renderProducts);document.querySelector('[data-buy-first]')?.addEventListener('click',()=>openCheckout(PRODUCTS[0]));['orderProduct','receiptProduct','receiptName','receiptZalo','receiptAmount','receiptCode','receiptNote','orderName','orderZalo'].forEach(id=>document.getElementById(id)?.addEventListener('input',updateReceiptPreview));document.getElementById('orderProduct')?.addEventListener('change',e=>syncProductSelects(e.target.value));document.getElementById('receiptProduct')?.addEventListener('change',updateReceiptPreview);document.querySelectorAll('[data-ready]').forEach(box=>box.addEventListener('change',updateReadyScore));updateReadyScore();updateReceiptPreview()});
+
+/* ============================================================
+   V19 UX NÂNG CẤP
+   ============================================================ */
+
+/* ─── LOADING SCREEN ─────────────────────────────────────── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const s = document.getElementById('loading-screen');
+    if (s) s.classList.add('hidden');
+  }, 1400);
+});
+
+/* ─── BACK TO TOP ────────────────────────────────────────── */
+(function () {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* ─── DARK / LIGHT MODE ──────────────────────────────────── */
+(function () {
+  const btn = document.getElementById('mode-toggle');
+  if (!btn) return;
+  // Khôi phục mode đã lưu
+  if (localStorage.getItem('g63-mode') === 'light') {
+    document.body.classList.add('light-mode');
+    btn.textContent = '🌙';
+  } else {
+    btn.textContent = '☀️';
+  }
+  btn.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('light-mode');
+    btn.textContent = isLight ? '🌙' : '☀️';
+    localStorage.setItem('g63-mode', isLight ? 'light' : 'dark');
+  });
+})();
+
+/* ─── COUNTER ANIMATION cho KPI ─────────────────────────── */
+(function () {
+  function animateCount(el, end, suffix, duration) {
+    let cur = 0;
+    const step = Math.max(1, Math.ceil(end / (duration / 16)));
+    const timer = setInterval(() => {
+      cur = Math.min(cur + step, end);
+      el.textContent = cur + suffix;
+      el.classList.add('kpi-counting');
+      setTimeout(() => el.classList.remove('kpi-counting'), 200);
+      if (cur >= end) clearInterval(timer);
+    }, 16);
+  }
+
+  const targets = [
+    { id: 'kpiProducts', suffix: '+' },
+  ];
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const raw = parseInt(el.textContent) || 0;
+      const suffix = el.textContent.replace(/[0-9]/g, '');
+      animateCount(el, raw, suffix, 1200);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+
+  targets.forEach(t => {
+    const el = document.getElementById(t.id);
+    if (el) io.observe(el);
+  });
+})();
