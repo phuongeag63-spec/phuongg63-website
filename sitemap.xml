@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://phuongeag63-spec.github.io/phuongg63-website/</loc><priority>1.0</priority></url>
+  <url><loc>https://phuongeag63-spec.github.io/phuongg63-website/san-pham/chien-truong-sinh-tu-g63/</loc><priority>0.8</priority></url>
+  <url><loc>https://phuongeag63-spec.github.io/phuongg63-website/san-pham/han-bang-chuong-g63/</loc><priority>0.8</priority></url>
+  <url><loc>https://phuongeag63-spec.github.io/phuongg63-website/san-pham/dai-ban-doanh-g63-v8/</loc><priority>0.8</priority></url>
+  <url><loc>https://phuongeag63-spec.github.io/phuongg63-website/san-pham/luc-mach-than-kiem-g63/</loc><priority>0.8</priority></url>
+  <url><loc>https://phuongeag63-spec.github.io/phuongg63-website/san-pham/ea-huyen-vu-g63/</loc><priority>0.8</priority></url>
 </urlset>

@@ -1,0 +1,32 @@
+PHƯƠNG G63 ENTERPRISE V18 - SEO PRODUCT PAGES + TRUST CENTER
+
+Mục tiêu V18:
+- Website nhìn giống hệ thống phần mềm chuyên nghiệp hơn.
+- Mỗi sản phẩm có một trang riêng để dễ SEO, dễ gửi link riêng cho khách.
+- Tăng độ tin cậy trước khi khách chuyển khoản.
+- Có hướng dẫn sau mua rõ ràng để giảm hỗ trợ lặp lại.
+
+Nâng cấp chính:
+1. Thư mục san-pham/
+- Mỗi sản phẩm trong products.js có một trang riêng.
+- URL mẫu: san-pham/chien-truong-sinh-tu-g63/
+- Trang riêng có title, meta description, gallery, FAQ, QR thanh toán và cảnh báo rủi ro.
+
+2. Trust Center
+- Minh bạch sản phẩm.
+- Minh bạch thanh toán.
+- Minh bạch rủi ro.
+- Minh bạch hỗ trợ sau mua.
+
+3. After Purchase Guide
+- Xác nhận thanh toán.
+- Nhận file EX5.
+- Cài vào MT5.
+- Bật Algo Trading.
+- Chạy thử nhỏ.
+- Lưu license/update.
+
+4. Lưu ý khi có tên miền thật
+- Sửa sitemap.xml sang domain thật.
+- Thêm og:url cho trang chủ và từng trang sản phẩm.
+- Có thể thêm favicon và Google Search Console.

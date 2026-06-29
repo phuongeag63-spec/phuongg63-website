@@ -1,0 +1,21 @@
+PHƯƠNG G63 ENTERPRISE V17 - LICENSE & RECEIPT CENTER
+
+Bản V17 tập trung nâng chất luồng bán hàng sau khi khách bấm mua:
+
+1. License & Receipt Center
+- Khách nhập tên, số Zalo, sản phẩm, số tiền và mã giao dịch.
+- Website tự tạo tin nhắn gửi Zalo cho Phương G63.
+- Có nút copy nội dung phòng khi trình duyệt không mở Zalo.
+
+2. License Preview
+- Mô phỏng mã hồ sơ khách hàng G63-V17.
+- Hiển thị sản phẩm đang chọn và trạng thái chờ xác nhận Zalo.
+- Chuẩn bị cho giai đoạn có server: đăng nhập, đơn hàng, license, download, update.
+
+3. Checklist trước khi mua
+- Khách xác nhận hiểu rủi ro, không cam kết lợi nhuận, đã có chiến lược riêng.
+- Giúp thương hiệu Phương G63 giữ định vị trung thực.
+
+4. Cách thêm sản phẩm mới
+- Vẫn sửa products.js như V15/V16.
+- Website tự đưa sản phẩm mới vào kho, so sánh, form đặt mua, QR và khu biên lai.
