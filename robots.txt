@@ -1,3 +1,18 @@
+# robots.txt — phuongg63.com
+# Cập nhật: 2026-06-29
+
 User-agent: *
 Allow: /
-Sitemap: https://phuongeag63-spec.github.io/phuongg63-website/sitemap.xml
+
+# Chặn các bot scraper không cần thiết
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# ✅ Sitemap — URL chính xác (không dùng github.io)
+Sitemap: https://phuongg63.com/sitemap.xml
