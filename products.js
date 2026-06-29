@@ -66,4 +66,52 @@ const UPDATES = [
   {version:'V14 Thương Hiệu', date:'Trước đó', text:'Nâng cấp giao diện thương hiệu Phương G63, thêm định vị thương hiệu và trang Chiến Trường Sinh Tử.'},
   {version:'V12 Hàn Băng Chưởng', date:'Trước đó', text:'Thêm sản phẩm Hàn Băng Chưởng G63, định vị cockpit đánh tay chuyên nghiệp.'},
   {version:'V11 Ultimate', date:'Trước đó', text:'Chuẩn hóa sản phẩm, QR thanh toán, gallery và trang chi tiết.'}
-];
+// ============================================================
+//  THÊM VÀO FILE products.js — Võ Mục Di Thư G63 SUNG LIÊN THANH
+//  Dán vào bên trong mảng PRODUCTS = [...], TRƯỚC dấu ] cuối cùng
+// ============================================================
+
+  {
+    id: 'vo-muc-di-thu-g63',
+    name: 'Võ Mục Di Thư G63 — Sung Liên Thanh',
+    badge: '⚔️ ĐÁNH TAY',
+    category: 'Đánh tay',
+    categoryKey: 'manual',
+    short: 'Trợ lý giao dịch thủ công thế hệ mới — Bảng điều khiển MT5 realtime, tính giá trung bình, đồng bộ SL/TP, chốt 50% lời.',
+    description: 'Võ Mục Di Thư G63 — Sung Liên Thanh v1.10 PROMAX là công cụ hỗ trợ giao dịch thủ công trên MT5. EA không tự động mở lệnh mà trang bị cho bạn bảng điều khiển thông minh: tính giá trung bình Buy/Sell, đồng bộ SL/TP toàn bộ lệnh, dời Break-Even 1 nút, chốt 50% lợi nhuận và hiển thị lãi/lỗ dự kiến realtime.',
+    price: 666000,
+    priceText: '666.000 ₫',
+    image: 'assets/images/vo-muc-di-thu-banner.png',
+    images: [
+      'assets/images/vo-muc-di-thu-banner.png',
+      'assets/images/vo-muc-di-thu-features.png',
+    ],
+    tags: ['MT5', 'Thủ công', 'XAUUSD', 'Vàng', 'Forex', 'Dashboard', 'SL/TP', 'Break-Even'],
+    features: [
+      'Tính giá trung bình Buy/Sell tự động theo thời gian thực',
+      'Đồng bộ SL/TP cho toàn bộ lệnh cùng chiều chỉ 1 nút',
+      'Bảng điều khiển realtime: floating P&L, tổng lots, lãi/lỗ dự kiến',
+      'Dời Break-Even 1 nút — bảo vệ vốn khi đang lời',
+      'Chốt 50% lợi nhuận — hiện thực hóa lãi từng phần',
+      'Đóng lệnh linh hoạt: toàn TK / chỉ Buy / chỉ Sell / cặp hiện tại',
+      'Hiển thị lãi/lỗ dự kiến nếu hit TP hoặc SL',
+      'Hỗ trợ XAUUSD, Forex, BTCUSD, XAGUSD',
+    ],
+    install: [
+      'Thanh toán và liên hệ Zalo 08222 99993 để nhận file .ex5',
+      'Trong MT5: File → Open Data Folder → MQL5 → Experts → dán file vào',
+      'Nhấn phải chuột vào Expert Advisors trong Navigator → Refresh',
+      'Kéo EA từ Navigator vào chart cặp tiền muốn dùng',
+      'Tab Common → tích "Allow Algo Trading" → OK',
+      'Dashboard sẽ xuất hiện trên chart ngay lập tức',
+    ],
+    faq: [
+      ['EA có tự động mở lệnh không?', 'Không. EA là công cụ hỗ trợ thủ công — bạn vẫn tự mở lệnh, EA chỉ giúp quản lý và tối ưu các lệnh đó.'],
+      ['Chạy được với broker nào?', 'Tất cả broker hỗ trợ MT5 và cho phép chạy EA. Khuyến nghị broker spread thấp, ổn định.'],
+      ['Có hỗ trợ cài đặt từ xa không?', 'Có. Liên hệ Zalo để được hỗ trợ cài đặt và chia sẻ màn hình nếu cần.'],
+      ['Cần VPS không?', 'Không bắt buộc. Nếu muốn EA hoạt động 24/7 kể cả khi tắt máy thì nên dùng VPS Windows.'],
+    ],
+    videoTitle: 'Demo Võ Mục Di Thư G63 — SUNG LIÊN THANH',
+    videoText: 'Video hướng dẫn cài đặt và sử dụng sẽ được cập nhật trên kênh YouTube Phương G63.',
+    warning: 'EA này là công cụ hỗ trợ thủ công, không phải robot tự động. Kết quả giao dịch phụ thuộc vào kỹ năng và chiến lược của người dùng.',
+  },];
