@@ -66,10 +66,10 @@ const PRODUCTS = [
     description: 'Võ Mục Di Thư G63 — Sung Liên Thanh v1.10 PROMAX là công cụ hỗ trợ giao dịch thủ công trên MT5. EA không tự động mở lệnh mà trang bị cho bạn bảng điều khiển thông minh: tính giá trung bình Buy/Sell, đồng bộ SL/TP toàn bộ lệnh, dời Break-Even 1 nút, chốt 50% lợi nhuận và hiển thị lãi/lỗ dự kiến realtime.',
     price: 666000,
     priceText: '666.000 ₫',
-    image: 'assets/images/vo-muc-di-thu-banner.svg',
+    image: 'assets/images/vmdt-banner.svg',
     images: [
-      'assets/images/vo-muc-di-thu-banner.svg',
-      'assets/images/vo-muc-di-thu-features.svg',
+      'assets/images/vmdt-banner.svg',
+      'assets/images/vmdt-features.svg',
     ],
     tags: ['MT5', 'Thủ công', 'XAUUSD', 'Vàng', 'Forex', 'Dashboard', 'SL/TP', 'Break-Even'],
     features: [
