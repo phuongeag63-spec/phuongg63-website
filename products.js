@@ -10,7 +10,7 @@ const PRODUCTS = [
     category: 'EA Top Khủng Tam Quốc', categoryKey:'tamquoc',
     badge: 'TOP KHỦNG', price: 19999000, priceText: '19.999.000đ', rating: 'Collector Edition',
     image: 'assets/images/chien-truong-sinh-tu-poster.png',
-    images: ['assets/images/chien-truong-sinh-tu-poster.png','assets/images/chien-truong-sinh-tu-dashboard.png','assets/images/chien-truong-sinh-tu-input.png','assets/images/chien-truong-sinh-tu-gallery.png'],
+    images: ['assets/images/chien-truong-sinh-tu-poster.png','assets/images/chien-truong-sinh-tu-dashboard.png','assets/images/chien-truong-sinh-tu-gallery.png'],
     tags:['Tam Quốc','Top khủng','Trải nghiệm','Dashboard','Quốc chiến'],
     short: 'EA Vương Quốc Tam Quốc biến mỗi phiên giao dịch thành một chiến trường sinh tử. Không cam kết lợi nhuận, không dành cho người mới.',
     description: 'CHIẾN TRƯỜNG SINH TỬ G63 là phiên bản EA Top Khủng mang phong cách Tam Quốc độc quyền của Phương G63. Sản phẩm không được định vị là công cụ hứa hẹn lợi nhuận, mà là một trải nghiệm giao dịch khác biệt: mỗi lot là binh sĩ, mỗi mốc thành tích là thành trì, mỗi mục tiêu tuần/tháng là Boss đại chiến, mỗi phiên giao dịch là một trận sa trường.',
