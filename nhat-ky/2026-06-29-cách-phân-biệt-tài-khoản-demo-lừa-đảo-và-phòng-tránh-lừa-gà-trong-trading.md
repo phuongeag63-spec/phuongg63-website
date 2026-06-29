@@ -1,7 +1,7 @@
 ---
 title: CÁCH PHÂN BIỆT TÀI KHOẢN DEMO LỪA ĐẢO VÀ PHÒNG TRÁNH "LỪA GÀ" TRONG TRADING
 date: 2026-06-30T02:05:00.000+07:00
-image: /assets/images/anhlucdauconthunhap.jpg
+image: /assets/images/anhlucdauconthunhap.jpg.png
 category: Câu chuyện
 ---
 # CÁCH PHÂN BIỆT TÀI KHOẢN DEMO LỪA ĐẢO VÀ PHÒNG TRÁNH "LỪA GÀ" TRONG TRADING
