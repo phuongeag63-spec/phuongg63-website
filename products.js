@@ -55,22 +55,7 @@ const PRODUCTS = [
     id:'ea-huyen-vu-g63', name:'EA HUYỀN VŨ G63', category:'Sắp cập nhật', categoryKey:'coming', badge:'COMING SOON', price:1400000, priceText:'1.400.000đ', rating:'Đang cập nhật',
     image:'assets/images/brand-banner.png', images:['assets/images/brand-banner.png','assets/images/web-preview.png'], tags:['Sắp cập nhật'], short:'Mẫu sản phẩm tiếp theo trong hệ sinh thái Phương G63.',
     description:'Sản phẩm đang được chuẩn bị nội dung, hình ảnh và tính năng chi tiết.', features:['Trang sản phẩm riêng','Ảnh giới thiệu riêng','Nút thanh toán QR riêng','Hướng dẫn cài đặt riêng'], install:['Đang cập nhật'], faq:[['Khi nào ra mắt?','Bố gửi code, ảnh và giá, con sẽ đưa lên website.']], videoTitle:'', videoText:''
-  }
-];
-
-const UPDATES = [
-  {version:'V18 SEO Product Pages + Trust Center', date:'29/06/2026', text:'Tự sinh trang SEO riêng cho từng sản phẩm, thêm Trust Center, hướng dẫn sau mua, checklist upload GitHub và tối ưu mobile cho khách xem bằng điện thoại.'},
-  {version:'V17 License & Receipt Center', date:'Trước đó', text:'Thêm khu gửi biên lai qua Zalo, License Preview, checklist trước khi mua, Customer Center mô phỏng và đồng bộ nội dung V17.'},
-  {version:'V16 SEO + Sales', date:'Trước đó', text:'Thêm SEO meta, chính sách sử dụng, form đặt mua qua Zalo, trung tâm video hướng dẫn và tăng độ tin cậy trước khi mua tên miền.'},
-  {version:'V15 Enterprise', date:'Trước đó', text:'Thêm tìm kiếm, bộ lọc, so sánh sản phẩm, Academy, Patch Notes, Customer Center và hệ thống thêm EA dễ mở rộng.'},
-  {version:'V14 Thương Hiệu', date:'Trước đó', text:'Nâng cấp giao diện thương hiệu Phương G63, thêm định vị thương hiệu và trang Chiến Trường Sinh Tử.'},
-  {version:'V12 Hàn Băng Chưởng', date:'Trước đó', text:'Thêm sản phẩm Hàn Băng Chưởng G63, định vị cockpit đánh tay chuyên nghiệp.'},
-  {version:'V11 Ultimate', date:'Trước đó', text:'Chuẩn hóa sản phẩm, QR thanh toán, gallery và trang chi tiết.'}
-// ============================================================
-//  THÊM VÀO FILE products.js — Võ Mục Di Thư G63 SUNG LIÊN THANH
-//  Dán vào bên trong mảng PRODUCTS = [...], TRƯỚC dấu ] cuối cùng
-// ============================================================
-
+  },
   {
     id: 'vo-muc-di-thu-g63',
     name: 'Võ Mục Di Thư G63 — Sung Liên Thanh',
@@ -81,10 +66,10 @@ const UPDATES = [
     description: 'Võ Mục Di Thư G63 — Sung Liên Thanh v1.10 PROMAX là công cụ hỗ trợ giao dịch thủ công trên MT5. EA không tự động mở lệnh mà trang bị cho bạn bảng điều khiển thông minh: tính giá trung bình Buy/Sell, đồng bộ SL/TP toàn bộ lệnh, dời Break-Even 1 nút, chốt 50% lợi nhuận và hiển thị lãi/lỗ dự kiến realtime.',
     price: 666000,
     priceText: '666.000 ₫',
-    image: 'assets/images/vo-muc-di-thu-banner.png',
+    image: 'assets/images/vo-muc-di-thu-banner.svg',
     images: [
-      'assets/images/vo-muc-di-thu-banner.png',
-      'assets/images/vo-muc-di-thu-features.png',
+      'assets/images/vo-muc-di-thu-banner.svg',
+      'assets/images/vo-muc-di-thu-features.svg',
     ],
     tags: ['MT5', 'Thủ công', 'XAUUSD', 'Vàng', 'Forex', 'Dashboard', 'SL/TP', 'Break-Even'],
     features: [
@@ -114,4 +99,15 @@ const UPDATES = [
     videoTitle: 'Demo Võ Mục Di Thư G63 — SUNG LIÊN THANH',
     videoText: 'Video hướng dẫn cài đặt và sử dụng sẽ được cập nhật trên kênh YouTube Phương G63.',
     warning: 'EA này là công cụ hỗ trợ thủ công, không phải robot tự động. Kết quả giao dịch phụ thuộc vào kỹ năng và chiến lược của người dùng.',
-  },];
+  },
+];
+
+const UPDATES = [
+  {version:'V18 SEO Product Pages + Trust Center', date:'29/06/2026', text:'Tự sinh trang SEO riêng cho từng sản phẩm, thêm Trust Center, hướng dẫn sau mua, checklist upload GitHub và tối ưu mobile cho khách xem bằng điện thoại.'},
+  {version:'V17 License & Receipt Center', date:'Trước đó', text:'Thêm khu gửi biên lai qua Zalo, License Preview, checklist trước khi mua, Customer Center mô phỏng và đồng bộ nội dung V17.'},
+  {version:'V16 SEO + Sales', date:'Trước đó', text:'Thêm SEO meta, chính sách sử dụng, form đặt mua qua Zalo, trung tâm video hướng dẫn và tăng độ tin cậy trước khi mua tên miền.'},
+  {version:'V15 Enterprise', date:'Trước đó', text:'Thêm tìm kiếm, bộ lọc, so sánh sản phẩm, Academy, Patch Notes, Customer Center và hệ thống thêm EA dễ mở rộng.'},
+  {version:'V14 Thương Hiệu', date:'Trước đó', text:'Nâng cấp giao diện thương hiệu Phương G63, thêm định vị thương hiệu và trang Chiến Trường Sinh Tử.'},
+  {version:'V12 Hàn Băng Chưởng', date:'Trước đó', text:'Thêm sản phẩm Hàn Băng Chưởng G63, định vị cockpit đánh tay chuyên nghiệp.'},
+  {version:'V11 Ultimate', date:'Trước đó', text:'Chuẩn hóa sản phẩm, QR thanh toán, gallery và trang chi tiết.'}
+];
