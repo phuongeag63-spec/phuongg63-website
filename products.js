@@ -18,8 +18,7 @@ const PRODUCTS = [
     install: ['Chỉ nên dùng bởi trader có kinh nghiệm và hiểu rõ rủi ro','Nhận file EX5 sau khi xác nhận thanh toán','Copy file vào MQL5 → Experts','Khởi động lại MT5 và kéo EA lên chart','Cài Magic, tài sản, TP, BE, EMA, tỉa lệnh và mục tiêu','Trader tự chịu trách nhiệm chiến lược; EA phục vụ phần quản lý và trải nghiệm chiến trường'],
     faq:[['EA này có cam kết lợi nhuận không?','Không. Đây là sản phẩm trải nghiệm Tam Quốc và công cụ quản lý giao dịch, không phải lời hứa lợi nhuận.'],['Người mới có nên mua không?','Không nên. Sản phẩm dành cho người có vốn, có chiến lược và hiểu rủi ro.'],['Vì sao giá cao?','Đây là phiên bản Collector / Top Khủng với hệ thống giao diện, gamification và trải nghiệm rất khác biệt.']],
     warning:'Không cam kết lợi nhuận. Không dành cho người mới. Không nên mua nếu chưa có chiến lược, chưa hiểu quản trị vốn hoặc mong EA tự làm giàu.',
-    videoTitle:'Trailer Tam Quốc G63', videoText:'Khu vực này sẽ gắn video trailer/review 4K khi bố có video.'
-  },
+    videoText:''
   {
     id: 'han-bang-chuong-g63', name: 'HÀN BĂNG CHƯỞNG G63', category: 'Manual Trading Cockpit', categoryKey:'manual', badge:'NEW PREMIUM', price:1400000, priceText:'1.400.000đ', rating:'5.0',
     image:'assets/images/han-bang-chuong-poster.png', images:['assets/images/han-bang-chuong-poster.png','assets/images/han-bang-chuong-dashboard.png','assets/images/han-bang-chuong-input.png'],
@@ -29,8 +28,7 @@ const PRODUCTS = [
     features:['Không tự Buy/Sell, không tìm tín hiệu, không thay thế chiến lược','Dành cho trader đã có chiến lược rõ ràng','Hỗ trợ đánh tin, thị trường chạy nhanh','Dashboard Cyberpunk kéo thả','Tự động rải Buy Limit / Sell Limit sau khi trader đã vào lệnh','TP gộp, dời BE một chạm, chốt 50%','Theo dõi Balance, Equity, Margin, Floating PnL','Hỗ trợ XAUUSD, BTCUSD, Forex, XAGUSD, USDJPY'],
     install:['Nhận file EX5 sau khi xác nhận thanh toán','Copy vào MQL5 → Experts','Restart MT5','Kéo EA vào chart','Cài Magic Number, quy ước giá, TP gộp, BE','Bật Algo Trading và trader tự quyết định Buy/Sell'],
     faq:[['EA có tự vào lệnh không?','Không. Trader là người quyết định, EA chỉ phục vụ quản trị sau đó.'],['Có phù hợp người mới không?','Không nên. Bố định vị cho trader kinh nghiệm cao.']],
-    videoTitle:'Demo Cockpit đánh tay', videoText:'Sau này bố quay màn hình đánh tin, con gắn vào đây.'
-  },
+    videoText:''
   {
     id: 'dai-ban-doanh-g63-v8', name:'ĐẠI BẢN DOANH G63 V8', category:'Dashboard MT5', categoryKey:'dashboard', badge:'BEST SELLER', price:999000, priceText:'999.000đ', rating:'5.0',
     image:'assets/images/web-preview.png', images:['assets/images/web-preview.png','assets/images/dashboard-luc-mach.png','assets/images/input-luc-mach.png'], tags:['Dashboard','Quản lý lệnh','Multi Symbol'],
@@ -39,8 +37,7 @@ const PRODUCTS = [
     features:['Quản lý nhiều Symbol cùng lúc','Theo dõi Balance, Equity, lợi nhuận hôm nay, Floating PnL','Đóng BUY, SELL, từng cặp hoặc toàn tài khoản','Giao diện kéo thả, thu gọn/mở rộng, LED và âm thanh','Tính Profit, Swap, Commission và Net Profit','Phù hợp trader giao dịch nhiều cặp, scalping, vàng, forex, crypto'],
     install:['Nhận file EX5','Mở MT5 → File → Open Data Folder','Vào MQL5 → Experts','Copy EX5 vào Experts','Restart MT5 và kéo Dashboard lên chart','Bật Algo Trading'],
     faq:[['Dashboard có tự giao dịch không?','Không. Đây là bảng quản lý lệnh và tài khoản.'],['Giá bao nhiêu?','999.000đ.']],
-    videoTitle:'Demo Đại Bản Doanh', videoText:'Khung video demo sẽ cập nhật.'
-  },
+    videoText:''
   {
     id:'luc-mach-than-kiem-g63', name:'EA LỤC MẠCH THẦN KIẾM G63', category:'EA Premium', categoryKey:'ea', badge:'PREMIUM', price:1600000, priceText:'1.600.000đ', rating:'5.0',
     image:'assets/images/poster-luc-mach.png', images:['assets/images/poster-luc-mach.png','assets/images/hero-luc-mach.png','assets/images/dashboard-luc-mach.png','assets/images/input-luc-mach.png'], tags:['Grid','TP gộp','EA Premium'],
@@ -49,8 +46,7 @@ const PRODUCTS = [
     features:['Grid nhiều giai đoạn','TP đơn và TP gộp','Hỗ trợ XAUUSD, BTC, XAGUSD, Forex USD, Forex JPY','Dashboard kéo thả','Nút đóng toàn bộ, đóng Buy, đóng Sell','Quản lý Magic Number, mục tiêu ngày và tuần'],
     install:['Nhận file EX5','Copy vào MQL5 → Experts','Restart MT5','Kéo EA vào biểu đồ đúng Symbol','Kiểm tra thông số đầu vào và bật Algo Trading'],
     faq:[['EA dùng nền tảng nào?','MetaTrader 5.'],['Có ảnh hướng dẫn không?','Có thể bổ sung trong gallery và docs.']],
-    videoTitle:'Demo Lục Mạch Thần Kiếm', videoText:'Khung video demo sẽ cập nhật.'
-  },
+    videoText:''
   {
     id:'ea-huyen-vu-g63', name:'EA HUYỀN VŨ G63', category:'Sắp cập nhật', categoryKey:'coming', badge:'COMING SOON', price:1400000, priceText:'1.400.000đ', rating:'Đang cập nhật',
     image:'assets/images/brand-banner.png', images:['assets/images/brand-banner.png','assets/images/web-preview.png'], tags:['Sắp cập nhật'], short:'Mẫu sản phẩm tiếp theo trong hệ sinh thái Phương G63.',
