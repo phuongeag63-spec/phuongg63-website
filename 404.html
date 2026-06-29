@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Trang không tìm thấy | Phương G63</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #ffd36a;
+    --gold2: #ff9f1c;
+    --bg: #07040b;
+    --surface: #0f0b16;
+    --cyan: #24e6ff;
+    --muted: #6b6480;
+  }
+
+  body {
+    background: var(--bg);
+    color: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Orbs */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    pointer-events: none;
+  }
+  .orb-1 { width: 500px; height: 500px; background: #ffd36a; top: -150px; left: -150px; }
+  .orb-2 { width: 400px; height: 400px; background: #24e6ff; bottom: -100px; right: -100px; }
+
+  .container {
+    text-align: center;
+    padding: 40px 24px;
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+  }
+
+  /* 404 glitch number */
+  .error-code {
+    font-size: clamp(100px, 20vw, 160px);
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #ffd36a 0%, #ff9f1c 50%, #ffd36a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
+    animation: glitch 4s infinite;
+    text-shadow: none;
+    filter: drop-shadow(0 0 40px rgba(255,211,106,0.4));
+  }
+
+  @keyframes glitch {
+    0%, 90%, 100% { transform: translate(0); filter: drop-shadow(0 0 40px rgba(255,211,106,0.4)); }
+    92% { transform: translate(-3px, 1px); filter: drop-shadow(3px 0 0 #24e6ff) drop-shadow(-3px 0 0 #ff9f1c); }
+    94% { transform: translate(3px, -1px); filter: drop-shadow(-3px 0 0 #24e6ff) drop-shadow(3px 0 0 #ff9f1c); }
+    96% { transform: translate(-2px, 2px); filter: drop-shadow(2px 0 0 #24e6ff); }
+    98% { transform: translate(0); filter: drop-shadow(0 0 40px rgba(255,211,106,0.4)); }
+  }
+
+  .brand {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: rgba(255,211,106,0.5);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 900;
+    margin: 12px 0 16px;
+    color: #fff;
+  }
+
+  p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 13px 28px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 900;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .btn:hover { transform: translateY(-3px); }
+
+  .btn-gold {
+    background: linear-gradient(135deg, #ffd36a, #ff9f1c);
+    color: #07040b;
+    box-shadow: 0 4px 20px rgba(255,211,106,0.35);
+  }
+  .btn-gold:hover { box-shadow: 0 8px 32px rgba(255,211,106,0.55); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1.5px solid rgba(255,211,106,0.4);
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(255,211,106,0.08); }
+
+  /* Quick links */
+  .quick-links {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .quick-links p {
+    font-size: 12px;
+    margin-bottom: 14px;
+    color: rgba(255,255,255,0.25);
+  }
+  .quick-links .links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .quick-links a {
+    font-size: 12px;
+    color: rgba(255,211,106,0.6);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,211,106,0.2);
+    transition: all 0.2s;
+  }
+  .quick-links a:hover {
+    color: var(--gold);
+    border-color: rgba(255,211,106,0.5);
+    background: rgba(255,211,106,0.08);
+  }
+
+  /* Countdown */
+  .auto-redirect {
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .auto-redirect span { color: var(--gold); font-weight: 900; }
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="container">
+  <div class="brand">Phương G63 Enterprise</div>
+  <div class="error-code">404</div>
+  <h1>Trang không tìm thấy</h1>
+  <p>Trang bạn đang tìm có thể đã được di chuyển, xoá hoặc chưa tồn tại.<br>Đừng lo — quay về trang chủ để tiếp tục khám phá.</p>
+
+  <div class="actions">
+    <a class="btn btn-gold" href="/">🏠 Về trang chủ</a>
+    <a class="btn btn-outline" href="/#products">Xem sản phẩm</a>
+    <a class="btn btn-outline" href="https://zalo.me/84822299993">Nhắn Zalo</a>
+  </div>
+
+  <div class="quick-links">
+    <p>Hoặc đi thẳng đến</p>
+    <div class="links">
+      <a href="/#trust">Trust Center</a>
+      <a href="/#afterbuy">Sau mua</a>
+      <a href="/#license">License</a>
+      <a href="/#contact">Liên hệ</a>
+      <a href="/blog.html">Nhật ký</a>
+    </div>
+  </div>
+
+  <div class="auto-redirect">
+    Tự động về trang chủ sau <span id="countdown">10</span> giây
+  </div>
+</div>
+
+<script>
+  let count = 10;
+  const el = document.getElementById('countdown');
+  const timer = setInterval(() => {
+    count--;
+    el.textContent = count;
+    if (count <= 0) {
+      clearInterval(timer);
+      window.location.href = '/';
+    }
+  }, 1000);
+</script>
+</body>
+</html>
