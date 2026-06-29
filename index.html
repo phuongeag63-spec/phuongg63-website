@@ -290,13 +290,24 @@
         </div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,211,106,.08)">
-        <div style="padding:16px 24px;border-right:1px solid rgba(255,211,106,.06)">
-          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px">Số Dư Tài Khoản</div>
-          <div id="g63-balance" style="font-size:20px;font-weight:900;color:#ffd36a;line-height:1">—</div>
+        <div style="padding:14px 20px;border-right:1px solid rgba(255,211,106,.06)">
+          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:5px">Số Dư</div>
+          <div id="g63-balance" style="font-size:18px;font-weight:900;color:#ffd36a;line-height:1">—</div>
         </div>
-        <div style="padding:16px 24px">
-          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px">Lợi Nhuận Hôm Nay</div>
-          <div id="g63-profit" style="font-size:20px;font-weight:900;color:#fff;line-height:1">—</div>
+        <div style="padding:14px 20px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:5px">Lãi/Lỗ Hôm Nay</div>
+          <div id="g63-profit" style="font-size:18px;font-weight:900;color:#fff;line-height:1">—</div>
+        </div>
+      </div>
+      <!-- Floating P&L row -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,211,106,.08)">
+        <div style="padding:12px 20px;border-right:1px solid rgba(255,211,106,.06)">
+          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:5px">Floating P&amp;L</div>
+          <div id="g63-floating" style="font-size:18px;font-weight:900;color:#fff;line-height:1">—</div>
+        </div>
+        <div style="padding:12px 20px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:5px">Equity</div>
+          <div id="g63-equity" style="font-size:18px;font-weight:900;color:#fff;line-height:1">—</div>
         </div>
       </div>
       <div style="padding:16px 24px;flex:1">
@@ -307,8 +318,9 @@
             <th style="text-align:left;padding:6px 8px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.06)">Hướng</th>
             <th style="text-align:left;padding:6px 8px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.06)">Lots</th>
             <th style="text-align:left;padding:6px 8px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.06)">Lãi/Lỗ</th>
+            <th style="text-align:left;padding:6px 8px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.06)">TT</th>
           </tr></thead>
-          <tbody id="g63-positions"><tr><td colspan="4" style="text-align:center;padding:16px 0;color:rgba(255,255,255,.25);font-size:12px">Đang tải...</td></tr></tbody>
+          <tbody id="g63-positions"><tr><td colspan="5" style="text-align:center;padding:16px 0;color:rgba(255,255,255,.25);font-size:12px">Đang tải...</td></tr></tbody>
         </table>
       </div>
       <div style="padding:10px 24px;border-top:1px solid rgba(255,211,106,.06);display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.2)">
@@ -324,17 +336,42 @@
     function fmtT(s){try{return new Date(s).toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}catch(e){return s||'';}}
     function renderG63(d){
       var cur=(d.currency||'USD').replace('USC','USD');
+      // Balance
       var bEl=document.getElementById('g63-balance');
       if(bEl)bEl.textContent=fmt(d.balance||0)+' '+cur;
+      // Today profit
       var pEl=document.getElementById('g63-profit');
       if(pEl){var p=d.todayProfit||0;pEl.textContent=(p>=0?'+':'')+fmt(p)+' '+cur;pEl.style.color=p>=0?'#3ddc84':'#ff5555';}
+      // Floating P&L = equity - balance
+      var balance=d.balance||0, equity=d.equity||0;
+      var floating=equity-balance;
+      var fEl=document.getElementById('g63-floating');
+      if(fEl){fEl.textContent=(floating>=0?'+':'')+fmt(floating)+' '+cur;fEl.style.color=floating>=0?'#3ddc84':'#ff5555';}
+      // Equity
+      var eEl=document.getElementById('g63-equity');
+      if(eEl){eEl.textContent=fmt(equity)+' '+cur;eEl.style.color=equity>=balance?'#3ddc84':'#ff5555';}
+      // Orders title
       var tEl=document.getElementById('g63-orders-title');
       if(tEl)tEl.textContent='Lệnh Đang Mở ('+(d.openOrders||0)+')';
+      // Positions table
       var tb=document.getElementById('g63-positions');
       if(tb){
         var pos=d.positions||[];
-        if(!pos.length){tb.innerHTML='<tr><td colspan="4" style="text-align:center;padding:16px 0;color:rgba(255,255,255,.25);font-size:12px">Không có lệnh nào đang mở</td></tr>';}
-        else{tb.innerHTML=pos.map(function(x){var pc=x.profit>=0?'#3ddc84':'#ff5555';var tc=x.type==='Buy'?'#3ddc84':'#ff6b6b';return'<tr><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);font-weight:900;color:#ffd36a">'+x.symbol+'</td><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);font-weight:700;color:'+tc+'">'+x.type+'</td><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.75)">'+Number(x.lots).toFixed(2)+'</td><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);font-weight:700;color:'+pc+'">'+(x.profit>=0?'+':'')+fmt(x.profit)+' '+cur+'</td></tr>';}).join('');}
+        if(!pos.length){tb.innerHTML='<tr><td colspan="5" style="text-align:center;padding:16px 0;color:rgba(255,255,255,.25);font-size:12px">Không có lệnh nào đang mở</td></tr>';}
+        else{tb.innerHTML=pos.map(function(x){
+          var pc=x.profit>=0?'#3ddc84':'#ff5555';
+          var tc=x.type==='Buy'?'#3ddc84':'#ff6b6b';
+          var badge=x.profit>=0
+            ?'<span style="display:inline-block;padding:2px 7px;border-radius:999px;background:rgba(61,220,132,.15);border:1px solid rgba(61,220,132,.4);color:#3ddc84;font-size:10px;font-weight:900">▲ Lời</span>'
+            :'<span style="display:inline-block;padding:2px 7px;border-radius:999px;background:rgba(255,85,85,.15);border:1px solid rgba(255,85,85,.4);color:#ff5555;font-size:10px;font-weight:900">▼ Lỗ</span>';
+          return'<tr>'
+            +'<td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);font-weight:900;color:#ffd36a">'+x.symbol+'</td>'
+            +'<td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);font-weight:700;color:'+tc+'">'+x.type+'</td>'
+            +'<td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.75)">'+Number(x.lots).toFixed(2)+'</td>'
+            +'<td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);font-weight:700;color:'+pc+'">'+(x.profit>=0?'+':'')+fmt(x.profit)+' '+cur+'</td>'
+            +'<td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04)">'+badge+'</td>'
+            +'</tr>';
+        }).join('');}
       }
       var lu=document.getElementById('g63-lastupdate');
       if(lu)lu.textContent='Cập nhật lúc '+fmtT(d.lastUpdate);
