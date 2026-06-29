@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560">
+  <defs>
+    <linearGradient id="bgF" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#07040b"/>
+      <stop offset="50%" style="stop-color:#0d0818"/>
+      <stop offset="100%" style="stop-color:#07040b"/>
+    </linearGradient>
+    <linearGradient id="goldF" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd36a"/>
+      <stop offset="100%" style="stop-color:#ff9f1c"/>
+    </linearGradient>
+    <linearGradient id="goldV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd36a"/>
+      <stop offset="100%" style="stop-color:#ff9f1c"/>
+    </linearGradient>
+    <linearGradient id="redF" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="100%" style="stop-color:#ff3a3a"/>
+    </linearGradient>
+    <linearGradient id="greenF" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3ddc84"/>
+      <stop offset="100%" style="stop-color:#00c853"/>
+    </linearGradient>
+    <linearGradient id="cyanF" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#24e6ff"/>
+      <stop offset="100%" style="stop-color:#0099cc"/>
+    </linearGradient>
+    <filter id="glowF">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bigglowF">
+      <feGaussianBlur stdDeviation="14" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="560" fill="url(#bgF)"/>
+
+  <!-- Grid -->
+  <defs>
+    <pattern id="gridF" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,211,106,0.035)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="560" fill="url(#gridF)"/>
+
+  <!-- Orbs -->
+  <circle cx="100" cy="100" r="220" fill="#ffd36a" opacity="0.04" filter="url(#bigglowF)"/>
+  <circle cx="820" cy="450" r="200" fill="#24e6ff" opacity="0.03" filter="url(#bigglowF)"/>
+
+  <!-- Border -->
+  <rect x="1.5" y="1.5" width="897" height="557" rx="20" fill="none" stroke="rgba(255,211,106,0.2)" stroke-width="1.5"/>
+  <rect x="8" y="8" width="884" height="544" rx="16" fill="none" stroke="rgba(255,211,106,0.06)" stroke-width="1"/>
+
+  <!-- Header -->
+  <text x="450" y="52" text-anchor="middle" font-family="Arial" font-weight="700" font-size="11" fill="rgba(255,211,106,0.5)" letter-spacing="3">TÍNH NĂNG CHI TIẾT</text>
+  <text x="450" y="88" text-anchor="middle" font-family="Arial Black, Arial" font-weight="900" font-size="30" fill="white">Võ Mục Di Thư G63 — <tspan fill="url(#goldF)" filter="url(#glowF)">Sung Liên Thanh</tspan></text>
+  <text x="450" y="114" text-anchor="middle" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.4)">8 tính năng cốt lõi · Hỗ trợ MT5 · Phiên bản 1.10 PROMAX</text>
+
+  <!-- Divider -->
+  <line x1="80" y1="132" x2="820" y2="132" stroke="rgba(255,211,106,0.12)" stroke-width="1"/>
+
+  <!-- ── FEATURE CARDS — 2 columns × 4 rows ── -->
+
+  <!-- Row 1 -->
+  <!-- Card 1: Tính giá trung bình -->
+  <rect x="50" y="148" width="380" height="80" rx="14" fill="rgba(255,211,106,0.06)" stroke="rgba(255,211,106,0.18)" stroke-width="1"/>
+  <rect x="50" y="148" width="5" height="80" rx="3" fill="url(#goldF)"/>
+  <text x="80" y="180" font-family="Arial" font-size="22" fill="#ffd36a">⚖️</text>
+  <text x="115" y="176" font-family="Arial Black" font-weight="900" font-size="14" fill="url(#goldF)">Tính giá trung bình tự động</text>
+  <text x="115" y="195" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.55)">Tự tính giá TB Buy/Sell từ tất cả lệnh đang mở</text>
+  <text x="115" y="212" font-family="Arial" font-size="11" fill="rgba(255,211,106,0.45)">→ Hiển thị realtime trên dashboard</text>
+
+  <!-- Card 2: Đồng bộ SL/TP -->
+  <rect x="470" y="148" width="380" height="80" rx="14" fill="rgba(36,230,255,0.05)" stroke="rgba(36,230,255,0.18)" stroke-width="1"/>
+  <rect x="470" y="148" width="5" height="80" rx="3" fill="url(#cyanF)"/>
+  <text x="500" y="180" font-family="Arial" font-size="22" fill="#24e6ff">🛡️</text>
+  <text x="535" y="176" font-family="Arial Black" font-weight="900" font-size="14" fill="url(#cyanF)">Đồng bộ SL/TP toàn bộ lệnh</text>
+  <text x="535" y="195" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.55)">1 nút đặt SL/TP — áp dụng đồng loạt tất cả</text>
+  <text x="535" y="212" font-family="Arial" font-size="11" fill="rgba(36,230,255,0.5)">→ Không bỏ sót lệnh nào</text>
+
+  <!-- Row 2 -->
+  <!-- Card 3: Bảng điều khiển -->
+  <rect x="50" y="244" width="380" height="80" rx="14" fill="rgba(61,220,132,0.05)" stroke="rgba(61,220,132,0.18)" stroke-width="1"/>
+  <rect x="50" y="244" width="5" height="80" rx="3" fill="url(#greenF)"/>
+  <text x="80" y="276" font-family="Arial" font-size="22" fill="#3ddc84">📊</text>
+  <text x="115" y="272" font-family="Arial Black" font-weight="900" font-size="14" fill="url(#greenF)">Bảng điều khiển realtime</text>
+  <text x="115" y="291" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.55)">Dashboard trên chart: lãi/lỗ, lots, TP/SL dự kiến</text>
+  <text x="115" y="308" font-family="Arial" font-size="11" fill="rgba(61,220,132,0.5)">→ Thống kê lợi nhuận ngày</text>
+
+  <!-- Card 4: Dời BE -->
+  <rect x="470" y="244" width="380" height="80" rx="14" fill="rgba(255,107,53,0.06)" stroke="rgba(255,107,53,0.2)" stroke-width="1"/>
+  <rect x="470" y="244" width="5" height="80" rx="3" fill="url(#redF)"/>
+  <text x="500" y="276" font-family="Arial" font-size="22" fill="#ff6b35">🔒</text>
+  <text x="535" y="272" font-family="Arial Black" font-weight="900" font-size="14" fill="url(#redF)">Dời Break-Even 1 nút</text>
+  <text x="535" y="291" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.55)">Kéo SL về giá TB — bảo vệ vốn khi đang lời</text>
+  <text x="535" y="308" font-family="Arial" font-size="11" fill="rgba(255,107,53,0.5)">→ Không bao giờ thua lại từ lệnh đang lời</text>
+
+  <!-- Row 3 -->
+  <!-- Card 5: Chốt 50% -->
+  <rect x="50" y="340" width="380" height="80" rx="14" fill="rgba(255,211,106,0.06)" stroke="rgba(255,211,106,0.18)" stroke-width="1"/>
+  <rect x="50" y="340" width="5" height="80" rx="3" fill="url(#goldF)"/>
+  <text x="80" y="372" font-family="Arial" font-size="22" fill="#ffd36a">✂️</text>
+  <text x="115" y="368" font-family="Arial Black" font-weight="900" font-size="14" fill="url(#goldF)">Chốt 50% lợi nhuận</text>
+  <text x="115" y="387" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.55)">Đóng nửa khối lượng khi đang lời — giữ rủi ro</text>
+  <text x="115" y="404" font-family="Arial" font-size="11" fill="rgba(255,211,106,0.45)">→ Bảo toàn lợi nhuận thực tế</text>
+
+  <!-- Card 6: Đóng theo loại -->
+  <rect x="470" y="340" width="380" height="80" rx="14" fill="rgba(36,230,255,0.05)" stroke="rgba(36,230,255,0.18)" stroke-width="1"/>
+  <rect x="470" y="340" width="5" height="80" rx="3" fill="url(#cyanF)"/>
+  <text x="500" y="372" font-family="Arial" font-size="22" fill="#24e6ff">🎯</text>
+  <text x="535" y="368" font-family="Arial Black" font-weight="900" font-size="14" fill="url(#cyanF)">Đóng lệnh theo loại</text>
+  <text x="535" y="387" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.55)">Đóng tất cả TK / chỉ Buy / chỉ Sell / cặp hiện tại</text>
+  <text x="535" y="404" font-family="Arial" font-size="11" fill="rgba(36,230,255,0.5)">→ 6 nút điều khiển tức thì</text>
+
+  <!-- Row 4 -->
+  <!-- Card 7: Lãi/lỗ dự kiến -->
+  <rect x="50" y="436" width="380" height="80" rx="14" fill="rgba(61,220,132,0.05)" stroke="rgba(61,220,132,0.18)" stroke-width="1"/>
+  <rect x="50" y="436" width="5" height="80" rx="3" fill="url(#greenF)"/>
+  <text x="80" y="468" font-family="Arial" font-size="22" fill="#3ddc84">💰</text>
+  <text x="115" y="464" font-family="Arial Black" font-weight="900" font-size="14" fill="url(#greenF)">Lãi/lỗ dự kiến realtime</text>
+  <text x="115" y="483" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.55)">Hiển thị $ lời/lỗ nếu hit TP hoặc SL</text>
+  <text x="115" y="500" font-family="Arial" font-size="11" fill="rgba(61,220,132,0.5)">→ Ra quyết định chính xác hơn</text>
+
+  <!-- Card 8: Multi symbol -->
+  <rect x="470" y="436" width="380" height="80" rx="14" fill="rgba(255,107,53,0.06)" stroke="rgba(255,107,53,0.2)" stroke-width="1"/>
+  <rect x="470" y="436" width="5" height="80" rx="3" fill="url(#redF)"/>
+  <text x="500" y="468" font-family="Arial" font-size="22" fill="#ff6b35">🌐</text>
+  <text x="535" y="464" font-family="Arial Black" font-weight="900" font-size="14" fill="url(#redF)">Hỗ trợ đa cặp tiền tệ</text>
+  <text x="535" y="483" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.55)">XAUUSD · Forex · BTCUSD · XAGUSD</text>
+  <text x="535" y="500" font-family="Arial" font-size="11" fill="rgba(255,107,53,0.5)">→ Chọn loại symbol khi cài đặt</text>
+
+  <!-- Bottom bar -->
+  <rect x="50" y="532" width="800" height="1" fill="rgba(255,211,106,0.1)"/>
+  <text x="450" y="550" text-anchor="middle" font-family="Arial Black" font-size="11" fill="rgba(255,211,106,0.3)" letter-spacing="2">PHƯƠNG G63 · phuongg63.com · VERSION 1.10 PROMAX</text>
+</svg>
