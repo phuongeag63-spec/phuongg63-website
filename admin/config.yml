@@ -1,0 +1,30 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+locale: vi
+
+collections:
+  - name: "nhat-ky"
+    label: "Nhật ký & Bài viết"
+    folder: "nhat-ky"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    fields:
+      - {label: "Tiêu đề", name: "title", widget: "string"}
+      - {label: "Ngày đăng", name: "date", widget: "datetime"}
+      - {label: "Ảnh bìa", name: "image", widget: "image", required: false}
+      - label: "Danh mục"
+        name: "category"
+        widget: "select"
+        options: ["Câu chuyện", "Nhật ký lệnh", "Kinh nghiệm", "Trading"]
+      - label: "Kết quả"
+        name: "result"
+        widget: "select"
+        required: false
+        options: ["Thắng", "Thua", "Hoà vốn"]
+      - {label: "Nội dung", name: "body", widget: "markdown"}
