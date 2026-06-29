@@ -253,8 +253,11 @@
     <div><b style="color:var(--cyan)">4.801</b><span>Tổng giao dịch</span></div>
     <div><b style="color:var(--gold)">103%</b><span>Lợi nhuận/tháng</span></div>
   </div>
-  <div class="reveal" style="display:flex;justify-content:center;margin-bottom:36px">
-    <div style="background:linear-gradient(180deg,#12172c,#0b0f1c);border:1px solid rgba(255,211,106,.3);border-radius:24px;padding:28px;max-width:760px;width:100%">
+  <!-- 2-cột: MyFXBook + Live MT5 Dashboard -->
+  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px;margin:0 auto 36px;padding:0 20px">
+
+    <!-- Cột trái: MyFXBook -->
+    <div style="background:linear-gradient(180deg,#12172c,#0b0f1c);border:1px solid rgba(255,211,106,.3);border-radius:24px;padding:28px">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
         <div style="width:10px;height:10px;border-radius:50%;background:#5dba7a;box-shadow:0 0 8px #5dba7a;animation:blink 2s infinite"></div>
         <span style="font-size:13px;color:#5dba7a;font-weight:900">LIVE — Cập nhật tự động</span>
@@ -270,7 +273,76 @@
         <a href="https://www.myfxbook.com/members/PhuongG63EA" target="_blank" style="font-size:12px;color:var(--gold);font-weight:900;text-decoration:none">Xem chi tiết đầy đủ →</a>
       </div>
     </div>
+
+    <!-- Cột phải: Live MT5 Dashboard -->
+    <div style="background:linear-gradient(135deg,#0d0818,#120d20);border:1px solid rgba(255,211,106,.2);border-radius:24px;overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px;border-bottom:1px solid rgba(255,211,106,.1);background:rgba(255,211,106,.03)">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#ffd36a,#ff9f1c);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📈</div>
+          <div>
+            <div style="font-size:16px;font-weight:900;color:#fff;line-height:1">Phuong G63</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.4);margin-top:3px;letter-spacing:1px;text-transform:uppercase">Live Trading · Exness MT5</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.3);border-radius:20px;padding:4px 10px">
+          <div style="width:6px;height:6px;border-radius:50%;background:#3ddc84;animation:blink 1.4s ease-in-out infinite"></div>
+          <span style="font-size:10px;font-weight:700;color:#3ddc84;letter-spacing:1px">LIVE</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,211,106,.08)">
+        <div style="padding:16px 24px;border-right:1px solid rgba(255,211,106,.06)">
+          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px">Số Dư Tài Khoản</div>
+          <div id="g63-balance" style="font-size:20px;font-weight:900;color:#ffd36a;line-height:1">—</div>
+        </div>
+        <div style="padding:16px 24px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px">Lợi Nhuận Hôm Nay</div>
+          <div id="g63-profit" style="font-size:20px;font-weight:900;color:#fff;line-height:1">—</div>
+        </div>
+      </div>
+      <div style="padding:16px 24px;flex:1">
+        <div id="g63-orders-title" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,211,106,.5);margin-bottom:12px">Lệnh Đang Mở</div>
+        <table style="width:100%;border-collapse:collapse;font-size:12px">
+          <thead><tr>
+            <th style="text-align:left;padding:6px 8px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.06)">Cặp</th>
+            <th style="text-align:left;padding:6px 8px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.06)">Hướng</th>
+            <th style="text-align:left;padding:6px 8px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.06)">Lots</th>
+            <th style="text-align:left;padding:6px 8px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.06)">Lãi/Lỗ</th>
+          </tr></thead>
+          <tbody id="g63-positions"><tr><td colspan="4" style="text-align:center;padding:16px 0;color:rgba(255,255,255,.25);font-size:12px">Đang tải...</td></tr></tbody>
+        </table>
+      </div>
+      <div style="padding:10px 24px;border-top:1px solid rgba(255,211,106,.06);display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.2)">
+        <span>Cập nhật mỗi 30 giây</span>
+        <span id="g63-lastupdate">—</span>
+      </div>
+    </div>
   </div>
+  <script>
+  (function(){
+    var GURL='https://script.google.com/macros/s/AKfycbx2x5a6RtOdFlrp4UjojcEYbpgM-LZuXff7E2Os0k5ofvRflq-rlrmPVC1GFTYZbT2Qfg/exec';
+    function fmt(n){return Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+    function fmtT(s){try{return new Date(s).toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}catch(e){return s||'';}}
+    function renderG63(d){
+      var cur=(d.currency||'USD').replace('USC','USD');
+      var bEl=document.getElementById('g63-balance');
+      if(bEl)bEl.textContent=fmt(d.balance||0)+' '+cur;
+      var pEl=document.getElementById('g63-profit');
+      if(pEl){var p=d.todayProfit||0;pEl.textContent=(p>=0?'+':'')+fmt(p)+' '+cur;pEl.style.color=p>=0?'#3ddc84':'#ff5555';}
+      var tEl=document.getElementById('g63-orders-title');
+      if(tEl)tEl.textContent='Lệnh Đang Mở ('+(d.openOrders||0)+')';
+      var tb=document.getElementById('g63-positions');
+      if(tb){
+        var pos=d.positions||[];
+        if(!pos.length){tb.innerHTML='<tr><td colspan="4" style="text-align:center;padding:16px 0;color:rgba(255,255,255,.25);font-size:12px">Không có lệnh nào đang mở</td></tr>';}
+        else{tb.innerHTML=pos.map(function(x){var pc=x.profit>=0?'#3ddc84':'#ff5555';var tc=x.type==='Buy'?'#3ddc84':'#ff6b6b';return'<tr><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);font-weight:900;color:#ffd36a">'+x.symbol+'</td><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);font-weight:700;color:'+tc+'">'+x.type+'</td><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.75)">'+Number(x.lots).toFixed(2)+'</td><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,.04);font-weight:700;color:'+pc+'">'+(x.profit>=0?'+':'')+fmt(x.profit)+' '+cur+'</td></tr>';}).join('');}
+      }
+      var lu=document.getElementById('g63-lastupdate');
+      if(lu)lu.textContent='Cập nhật lúc '+fmtT(d.lastUpdate);
+    }
+    function fetchG63(){fetch(GURL).then(function(r){return r.json();}).then(function(d){if(d&&!d.status)renderG63(d);}).catch(function(){});}
+    fetchG63();setInterval(fetchG63,30000);
+  })();
+  </script>
   <div class="reveal" style="max-width:760px;margin:0 auto">
     <div style="background:#1a0b10;border:1px solid rgba(255,51,79,.3);border-radius:16px;padding:16px 20px">
       <p style="font-size:13px;color:#ffd2d8;margin:0;line-height:1.7">
