@@ -798,5 +798,33 @@
 <div id="checkout" class="modal"><div class="modal-box"><button class="modal-close" onclick="closeCheckout()">×</button><span class="badge">THANH TOÁN</span><h2 id="payName"></h2><div id="payPrice" class="modal-price"></div><p>Quét QR VietinBank. Sau khi chuyển khoản, chụp biên lai gửi qua Zalo hoặc dùng khu gửi biên lai V18 để tạo nội dung xác nhận.</p><div class="qr-wrap"><img id="payQr" alt="QR VietinBank"></div><div class="bank-info"><p><b>Ngân hàng:</b> VietinBank</p><p><b>Số tài khoản:</b> 888889060666</p><p><b>Chủ TK:</b> Nguyễn Hoàng Phương</p><p><b>Nội dung:</b> <span id="payNote"></span> + Số Zalo</p></div><div class="modal-actions"><a class="btn btn-gold" href="https://zalo.me/84822299993">Gửi biên lai Zalo</a><button class="btn btn-blue" onclick="showPaidNotice()">Tôi đã chuyển khoản</button></div><div id="paidNotice" class="paid-notice">✅ Cảm ơn bạn. Hãy kéo xuống khu V18 License & Receipt Center để gửi mã giao dịch và nhận file cài đặt.</div></div></div>
 <script src="products.js"></script>
 <script src="script.js"></script>
+<style>
+.btn-exness {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #1a7a4a, #22c55e);
+  color: #fff !important;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  width: 100%;
+  margin-top: 8px;
+  text-align: center;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 15px rgba(34,197,94,0.25);
+}
+.btn-exness:hover {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(34,197,94,0.4);
+}
+</style>
 </body>
 </html>
