@@ -4,8 +4,6 @@ date: 2026-06-30T03:11:00.000+07:00
 image: https://phuongg63.com/nhat-ky/triet-ly-phat-dao-ma-giao.jpg.png
 category: Câu chuyện
 ---
-![]()
-
 Trong thế giới trading online, có một chiêu trò cực kỳ phổ biến mà hàng ngàn người đã sập bẫy: **dùng tài khoản demo giả vờ là tài khoản thật để lừa tiền**. Bài viết này tôi sẽ chỉ ra từng dấu hiệu cụ thể để bạn nhận biết và không bao giờ bị "lùa gà" nữa.
 
 ## 1. TÀI KHOẢN DEMO LÀ GÌ? TẠI SAO KẺ XẤU DÙNG NÓ?
