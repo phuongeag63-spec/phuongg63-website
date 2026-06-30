@@ -187,7 +187,7 @@ function parseFrontmatter(raw) {
 }
 
 function excerpt(body, len = 120) {
-  return body.replace(/#{1,6}\s.*\n?/g,'').replace(/\*\*|__|\*|_|`/g,'').replace(/\n/g,' ').trim().slice(0,len) + '…';
+  return body.replace(/#{1,6}\s.*\n?/g,'').replace(/!\[.*?\]\(.*?\)/g,'').replace(/\*\*|__|\*|_|`/g,'').replace(/\n/g,' ').trim().slice(0,len) + '…';
 }
 
 // ─── RENDER ─────────────────────────────────────────────────────────
