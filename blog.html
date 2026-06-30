@@ -187,7 +187,16 @@ function parseFrontmatter(raw) {
 }
 
 function excerpt(body, len = 120) {
-  return body.replace(/#{1,6}\s.*\n?/g,'').replace(/!\[.*?\]\(.*?\)/g,'').replace(/\*\*|__|\*|_|`/g,'').replace(/\n/g,' ').trim().slice(0,len) + '…';
+  return body
+    .replace(/!\[[\s\S]*?\]\([\s\S]*?\)/g, '')   // xoá ảnh ![](url)
+    .replace(/\[[\s\S]*?\]\([\s\S]*?\)/g, '')     // xoá link [text](url)
+    .replace(/#{1,6}\s[^\n]*/g, '')               // xoá tiêu đề #
+    .replace(/https?:\/\/\S+/g, '')               // xoá mọi URL còn sót
+    .replace(/\*\*|__|\*|_|`/g, '')               // xoá markdown format
+    .replace(/\n/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim()
+    .slice(0, len) + '…';
 }
 
 // ─── RENDER ─────────────────────────────────────────────────────────
