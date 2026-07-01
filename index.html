@@ -121,7 +121,7 @@
   <a class="brand" href="#home"><span class="logo">G63</span><span><b>PHƯƠNG G63</b><small>Enterprise MT5 Software</small></span></a>
   <button class="menu-btn" onclick="document.body.classList.toggle('menu-open')">☰</button>
   <nav>
-    <a href="#products">Sản phẩm</a><a href="#order">Đặt mua</a><a href="#trust">Uy tín</a><a href="#afterbuy">Sau mua</a><a href="#license">License</a><a href="#policy">Chính sách</a><a href="#updates">Cập nhật</a><a class="gold-link" href="#contact">Liên hệ</a><a href="blog.html">Nhật ký</a>
+    <a href="#products">Sản phẩm</a><a class="gold-link" href="#contact">Liên hệ</a><a href="blog.html">Nhật ký</a>
   </nav>
 </header>
 <main>
@@ -638,64 +638,6 @@
   <div class="section-head reveal"><span class="eyebrow">COMPARE</span><h2>So sánh nhanh các sản phẩm</h2><p>Khách dễ hiểu sản phẩm nào là Dashboard, sản phẩm nào phục vụ đánh tay, sản phẩm nào là trải nghiệm Tam Quốc.</p></div>
   <div class="compare-wrap reveal"><table id="compareTable"></table></div>
 </section>
-<section id="order" class="section-pad order-zone">
-  <div class="section-head reveal"><span class="eyebrow">ORDER FORM</span><h2>Form đặt mua qua Zalo</h2><p>Khách chọn sản phẩm, nhập tên và số Zalo. Website tự tạo nội dung tin nhắn để gửi cho bố qua Zalo.</p></div>
-  <div class="order-card reveal">
-    <div class="form-grid">
-      <label>Họ tên khách<input id="orderName" placeholder="Ví dụ: Anh Minh"></label>
-      <label>Số Zalo<input id="orderZalo" placeholder="Ví dụ: 09xxxxxxxx"></label>
-      <label>Sản phẩm<select id="orderProduct"></select></label>
-      <label>Ghi chú<textarea id="orderNote" placeholder="Ví dụ: Tôi muốn mua bản Chiến Trường Sinh Tử G63"></textarea></label>
-    </div>
-    <div class="order-actions"><button class="btn btn-gold" onclick="sendOrderZalo()">Gửi yêu cầu qua Zalo</button><button class="btn btn-blue" onclick="openCheckoutBySelect()">Mở QR thanh toán</button></div>
-    <p class="small-note">Sau khi chuyển khoản, khách chụp biên lai gửi Zalo 08222 99993 hoặc dùng khu gửi biên lai V18 ngay bên dưới.</p>
-  </div>
-</section>
-<section id="license" class="section-pad license-zone">
-  <div class="section-head reveal"><span class="eyebrow">V17 LICENSE & RECEIPT CENTER</span><h2>Trung tâm biên lai và license</h2><p>Đây là lớp chuẩn bị cho giai đoạn có hosting/server thật: khách gửi biên lai đúng format, Phương G63 xác nhận, cấp file EX5, license và lịch cập nhật.</p></div>
-  <div class="license-layout reveal">
-    <div class="receipt-card">
-      <span class="badge">GỬI BIÊN LAI</span>
-      <h3>Tạo tin nhắn xác nhận thanh toán</h3>
-      <p>Khách điền thông tin sau khi chuyển khoản. Nút bên dưới mở Zalo kèm nội dung đã soạn sẵn để bố dễ kiểm tra.</p>
-      <div class="form-grid compact-form">
-        <label>Họ tên<input id="receiptName" placeholder="Ví dụ: Anh Minh"></label>
-        <label>Số Zalo<input id="receiptZalo" placeholder="09xxxxxxxx"></label>
-        <label>Sản phẩm<select id="receiptProduct"></select></label>
-        <label>Mã giao dịch<input id="receiptCode" placeholder="Ví dụ: FT252... hoặc mã ngân hàng"></label>
-        <label>Số tiền đã chuyển<input id="receiptAmount" placeholder="Ví dụ: 1.400.000đ"></label>
-        <label>Ghi chú<textarea id="receiptNote" placeholder="Ví dụ: Em đã chuyển khoản, xin nhận file cài đặt và hướng dẫn."></textarea></label>
-      </div>
-      <div class="order-actions"><button class="btn btn-gold" onclick="sendReceiptZalo()">Gửi biên lai qua Zalo</button><button class="btn btn-blue" onclick="copyReceiptText()">Copy nội dung</button></div>
-      <div id="receiptPreview" class="receipt-preview"></div>
-    </div>
-    <div class="license-card">
-      <span class="badge">LICENSE PREVIEW</span>
-      <h3>Hồ sơ khách hàng mẫu</h3>
-      <div class="license-pass">
-        <div><small>Mã hồ sơ</small><strong id="licenseCode">G63-V18-DEMO</strong></div>
-        <div><small>Sản phẩm</small><strong id="licenseProduct">-</strong></div>
-        <div><small>Trạng thái</small><strong>Chờ xác nhận Zalo</strong></div>
-      </div>
-      <div class="support-steps">
-        <article><b>01</b><span>Chuyển khoản đúng QR và nội dung</span></article>
-        <article><b>02</b><span>Gửi biên lai + số Zalo</span></article>
-        <article><b>03</b><span>Nhận file EX5, hướng dẫn cài đặt</span></article>
-        <article><b>04</b><span>Lưu license, lịch sử mua, bản cập nhật</span></article>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="readiness" class="section-pad readiness-zone">
-  <div class="section-head reveal"><span class="eyebrow">BUYER READINESS</span><h2>Checklist trước khi mua</h2><p>V17 thêm lớp lọc kỳ vọng để khách hiểu đúng: EA/Dashboard là công cụ hỗ trợ, không phải lời hứa lợi nhuận.</p></div>
-  <div class="readiness-grid reveal">
-    <label><input type="checkbox" data-ready> Tôi hiểu EA không cam kết lợi nhuận.</label>
-    <label><input type="checkbox" data-ready> Tôi đã biết rủi ro lot, margin, drawdown.</label>
-    <label><input type="checkbox" data-ready> Tôi có chiến lược giao dịch riêng.</label>
-    <label><input type="checkbox" data-ready> Tôi đồng ý tự chịu trách nhiệm khi giao dịch.</label>
-  </div>
-  <div class="readiness-result reveal"><strong id="readyScore">0/4</strong><span id="readyText">Hãy tick đủ checklist trước khi mua sản phẩm nâng cao.</span></div>
-</section>
 <section id="videos" class="section-pad video-zone">
   <div class="section-head reveal"><span class="eyebrow">VIDEO CENTER</span><h2>Trung tâm video hướng dẫn</h2><p>Con đã chừa sẵn khu vực video. Khi bố có link YouTube, chỉ cần gửi con, con gắn vào từng sản phẩm.</p></div>
   <div class="video-grid reveal">
@@ -792,10 +734,6 @@
         <div style="font-size:11px;font-weight:900;letter-spacing:2px;color:rgba(255,211,106,.5);text-transform:uppercase;margin-bottom:16px">Điều hướng</div>
         <div style="display:flex;flex-direction:column;gap:10px">
           <a href="/#products" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#ffd36a'" onmouseout="this.style.color='rgba(255,255,255,.5)'">🛒 Sản phẩm EA</a>
-          <a href="/#order" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#ffd36a'" onmouseout="this.style.color='rgba(255,255,255,.5)'">📦 Đặt mua</a>
-          <a href="/#trust" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#ffd36a'" onmouseout="this.style.color='rgba(255,255,255,.5)'">🛡️ Uy tín</a>
-          <a href="/#afterbuy" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#ffd36a'" onmouseout="this.style.color='rgba(255,255,255,.5)'">📋 Sau mua</a>
-          <a href="/#license" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#ffd36a'" onmouseout="this.style.color='rgba(255,255,255,.5)'">🔑 License</a>
           <a href="/blog.html" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#ffd36a'" onmouseout="this.style.color='rgba(255,255,255,.5)'">📖 Nhật ký</a>
           <a href="/#contact" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#ffd36a'" onmouseout="this.style.color='rgba(255,255,255,.5)'">💬 Liên hệ</a>
         </div>
