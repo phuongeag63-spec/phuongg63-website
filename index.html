@@ -496,6 +496,7 @@
   }
   function excerpt(body,len){return body.replace(/#{1,6}\s.*\n?/g,'').replace(/\*\*|__|\*|_|`/g,'').replace(/\n/g,' ').trim().slice(0,len||100)+'…';}
   function fmtDate(d){try{return new Date(d).toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'});}catch(e){return d||'';}}
+  function heroImgErr(el){el.parentNode.innerHTML='<div style="width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:64px">📝</div>';}
 
   function resultBadge(r){
     if(!r)return'';
@@ -507,7 +508,7 @@
 
   function renderHero(p){
     var img=p.img
-      ?'<img src="'+p.img+'" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0d0a14" onerror="this.parentNode.innerHTML=\'<div style=\\\"width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:64px\\\">📝</div>\'">'
+      ?'<img src="'+p.img+'" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0d0a14" onerror="heroImgErr(this)">'
       :'<div style="width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:64px">📝</div>';
     return'<a href="'+p.href+'" style="border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:block;background:#0f0b16;border:1px solid rgba(255,211,106,.15);transition:.3s" onmouseover="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 24px 60px rgba(0,0,0,.6)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">'
       +img
