@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Học Viện Phương G63 | Kiến thức EA MT5</title>
+<meta name="description" content="Học viện Phương G63 — kiến thức cần biết trước và sau khi dùng EA MT5: quản trị vốn, cài đặt, gửi biên lai, theo dõi hiệu suất.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#ffd36a;--gold2:#ff9f1c;--bg:#07040b;--surface:#0f0b16;--muted:#6b6480;--cyan:#24e6ff}
+body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min-height:100vh}
+.nav{position:sticky;top:0;z-index:100;background:rgba(7,4,11,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,211,106,.12);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
+.nav-brand{font-size:18px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+.nav-links{display:flex;gap:16px}
+.nav-links a{color:rgba(255,255,255,.6);font-size:13px;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.wrap{max-width:800px;margin:0 auto;padding:60px 24px 100px}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,211,106,.5);margin-bottom:12px;display:block}
+h1{font-size:clamp(28px,5vw,42px);font-weight:900;line-height:1.25;margin-bottom:12px;background:linear-gradient(135deg,#fff,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.meta{font-size:13px;color:var(--muted);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.07)}
+.content{font-size:15px;line-height:1.85;color:rgba(255,255,255,.78)}
+.content h2{font-size:20px;font-weight:900;color:#fff;margin:48px 0 16px;padding-left:14px;border-left:3px solid var(--gold)}
+.content p{margin-bottom:14px}
+.content ul{margin:0 0 14px 20px}
+.content ul li{margin-bottom:8px}
+.content a{color:var(--gold)}
+.content strong{color:#fff}
+.highlight{background:rgba(255,211,106,.07);border:1px solid rgba(255,211,106,.15);border-radius:12px;padding:16px 20px;margin:24px 0}
+
+/* Module cards */
+.module-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin:20px 0 32px}
+.module-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px 24px}
+.module-card .num{font-size:11px;font-weight:900;letter-spacing:2px;color:rgba(255,211,106,.5);margin-bottom:10px}
+.module-card h3{font-size:16px;font-weight:900;color:#fff;margin-bottom:10px}
+.module-card p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;margin:0}
+.module-card .tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:900;padding:3px 10px;border-radius:999px;background:rgba(255,211,106,.1);color:var(--gold)}
+
+/* Tip / Warn */
+.tip{background:rgba(36,230,255,.05);border:1px solid rgba(36,230,255,.15);border-radius:12px;padding:14px 18px;margin:16px 0;font-size:13px;color:rgba(255,255,255,.65);line-height:1.7}
+.tip strong{color:var(--cyan)}
+.warn-box{background:rgba(255,92,92,.05);border:1px solid rgba(255,92,92,.18);border-radius:12px;padding:14px 18px;margin:16px 0;font-size:13px;color:rgba(255,255,255,.6);line-height:1.75}
+.warn-box strong{color:#ff9090}
+
+/* Code */
+.code-block{font-family:monospace;font-size:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 18px;margin:14px 0;color:var(--cyan);line-height:1.8}
+
+footer-bar{display:block;border-top:1px solid rgba(255,255,255,.06);padding:28px 24px;text-align:center;font-size:12px;color:rgba(255,255,255,.3)}
+footer-bar a{color:rgba(255,211,106,.5);text-decoration:none;margin:0 10px}
+footer-bar a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-brand" href="/">⚔️ Phương G63</a>
+  <div class="nav-links">
+    <a href="/">Trang chủ</a>
+    <a href="/#products">Sản phẩm</a>
+    <a href="/blog.html">Nhật ký</a>
+    <a href="https://zalo.me/84822299993" target="_blank">Zalo</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <span class="eyebrow">Phương G63 Academy</span>
+  <h1>Học Viện Hướng Dẫn</h1>
+  <div class="meta">Phương G63 Software &nbsp;·&nbsp; Cập nhật: 01/07/2026</div>
+
+  <div class="content">
+
+    <div class="highlight">
+      Khu vực này tổng hợp kiến thức bạn cần nắm trước và sau khi dùng EA MT5 — từ cài đặt cơ bản, quản trị vốn, đến cách đọc hiệu suất và tránh những sai lầm phổ biến.
+    </div>
+
+    <!-- MODULE 1 -->
+    <h2>Module 1 — Cài đặt EA/Dashboard MT5</h2>
+    <p>Quy trình chuẩn để cài file EA vào MetaTrader 5, áp dụng cho tất cả sản phẩm của Phương G63.</p>
+
+    <div class="code-block">
+      Bước 1: Mở MT5 → File → Open Data Folder<br>
+      Bước 2: Vào thư mục MQL5 → Experts<br>
+      Bước 3: Dán file .ex5 vào đây<br>
+      Bước 4: Đóng thư mục → Restart MT5<br>
+      Bước 5: Navigator (Ctrl+N) → Expert Advisors → thấy tên EA ✅
+    </div>
+
+    <p>Sau khi cài xong, kéo EA từ Navigator lên chart đúng symbol và timeframe. Trong hộp thoại hiện ra, chuyển sang tab <strong>Inputs</strong> để nhập các thông số theo hướng dẫn đi kèm.</p>
+
+    <div class="warn-box"><strong>Lỗi hay gặp:</strong> EA hiện mặt buồn 🙁 trên chart — tức là Algo Trading chưa bật. Vào thanh toolbar MT5, bật nút "Algo Trading" (biểu tượng play xanh lá). Sau đó chart sẽ hiện mặt cười 🙂.</div>
+
+    <!-- MODULE 2 -->
+    <h2>Module 2 — Quản trị vốn khi dùng EA</h2>
+    <p>Đây là phần quan trọng nhất. EA tốt đến đâu cũng không cứu được tài khoản nếu quản lý vốn sai.</p>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="num">NGUYÊN TẮC 01</div>
+        <h3>Chỉ dùng vốn có thể chấp nhận mất</h3>
+        <p>Không dùng tiền sinh hoạt, tiền vay, hay tiền không thể mất để chạy EA. Giao dịch Forex/Gold có rủi ro cao — vốn có thể về 0.</p>
+        <span class="tag">⚠️ Rủi ro cao</span>
+      </div>
+      <div class="module-card">
+        <div class="num">NGUYÊN TẮC 02</div>
+        <h3>Lot size phù hợp với tài khoản</h3>
+        <p>Thông thường: lot 0.01 cho mỗi $100–200 vốn (tùy EA). Dùng lot quá lớn so với vốn → margin call nhanh. Luôn theo khuyến nghị trong hướng dẫn sản phẩm.</p>
+        <span class="tag">📊 Quan trọng</span>
+      </div>
+      <div class="module-card">
+        <div class="num">NGUYÊN TẮC 03</div>
+        <h3>Hiểu drawdown trước khi chạy thật</h3>
+        <p>Drawdown là mức lỗ tạm thời tối đa trong quá trình EA hoạt động. Nếu bạn không chấp nhận được drawdown 20–30%, đừng để EA chạy tự động với vốn lớn.</p>
+        <span class="tag">📉 Cần hiểu rõ</span>
+      </div>
+      <div class="module-card">
+        <div class="num">NGUYÊN TẮC 04</div>
+        <h3>Không can thiệp khi EA đang chạy</h3>
+        <p>Đóng lệnh tay khi EA đang giữ lệnh có thể phá vỡ logic hệ thống. Nếu cần dừng EA — tắt hẳn Algo Trading hoặc gỡ EA khỏi chart, đừng đóng lệnh thủ công giữa chừng.</p>
+        <span class="tag">🚫 Lưu ý</span>
+      </div>
+    </div>
+
+    <!-- MODULE 3 -->
+    <h2>Module 3 — Quy trình gửi biên lai và nhận file</h2>
+    <p>Sau khi chuyển khoản, thực hiện đúng quy trình sau để nhận file nhanh nhất:</p>
+    <ul>
+      <li>Chụp ảnh màn hình xác nhận giao dịch ngân hàng (có số tiền, thời gian, mã GD)</li>
+      <li>Mở Zalo → nhắn <strong>0822 299 993</strong> kèm ảnh biên lai</li>
+      <li>Ghi rõ: tên sản phẩm muốn mua + số máy MT5 (tìm trong MT5 → Help → About)</li>
+      <li>Chờ xác nhận và nhận file trong 1–3 giờ (giờ làm việc)</li>
+    </ul>
+
+    <div class="tip"><strong>Số máy MT5 ở đâu?</strong> Mở MT5 → menu Help → About → dòng "Login" hoặc xem góc dưới bên trái màn hình MT5, thường có dạng số như: 123456789.</div>
+
+    <!-- MODULE 4 -->
+    <h2>Module 4 — Theo dõi và đánh giá hiệu suất EA</h2>
+    <p>Sau khi chạy EA một thời gian, bạn cần biết cách đọc kết quả để đánh giá đúng hiệu quả.</p>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="num">CHỈ SỐ 01</div>
+        <h3>Profit Factor</h3>
+        <p>Tỷ lệ tổng lãi / tổng lỗ. Profit Factor > 1.5 là tốt. Dưới 1.0 nghĩa là tổng đang lỗ.</p>
+      </div>
+      <div class="module-card">
+        <div class="num">CHỈ SỐ 02</div>
+        <h3>Max Drawdown</h3>
+        <p>Mức lỗ tạm thời tối đa so với đỉnh tài khoản. Drawdown dưới 20% được xem là chấp nhận được cho hầu hết EA.</p>
+      </div>
+      <div class="module-card">
+        <div class="num">CHỈ SỐ 03</div>
+        <h3>Win Rate</h3>
+        <p>Tỷ lệ lệnh thắng. Win rate cao không có nghĩa là lời nhiều — cần xem cả Risk/Reward ratio.</p>
+      </div>
+      <div class="module-card">
+        <div class="num">CHỈ SỐ 04</div>
+        <h3>Expected Payoff</h3>
+        <p>Lợi nhuận trung bình mỗi lệnh. Số dương là EA đang có kỳ vọng dương — dấu hiệu hệ thống tốt.</p>
+      </div>
+    </div>
+
+    <p>Xem báo cáo đầy đủ trong MT5: <strong>View → Terminal → tab Account History</strong> → chuột phải → Save as Report.</p>
+
+    <!-- MODULE 5 -->
+    <h2>Module 5 — Những sai lầm phổ biến cần tránh</h2>
+
+    <div class="warn-box"><strong>Sai lầm #1 — Dùng lot quá lớn ngay từ đầu:</strong> Hầu hết tài khoản cháy vì lot không phù hợp với vốn, không phải vì EA tệ. Bắt đầu nhỏ, quan sát ít nhất 1 tháng trước khi tăng lot.</div>
+
+    <div class="warn-box"><strong>Sai lầm #2 — Tắt EA khi đang drawdown:</strong> EA có chu kỳ hoạt động. Tắt đúng lúc drawdown là bỏ lỡ giai đoạn phục hồi. Nếu bạn không chịu được drawdown của EA — hãy xem lại lot size.</div>
+
+    <div class="warn-box"><strong>Sai lầm #3 — Chạy nhiều EA cùng 1 tài khoản không tính toán:</strong> Mỗi EA sẽ mở lệnh độc lập — margin bị nhân lên. Tính tổng exposure trước khi chạy song song.</div>
+
+    <div class="warn-box"><strong>Sai lầm #4 — Kỳ vọng lợi nhuận cố định mỗi tháng:</strong> EA hoạt động theo điều kiện thị trường, không phải theo lịch. Tháng thị trường trending tốt → EA lời nhiều. Tháng sideway → EA lời ít hoặc hòa vốn.</div>
+
+    <div style="margin-top:40px;padding:20px 24px;background:rgba(255,211,106,.07);border:1px solid rgba(255,211,106,.2);border-radius:16px;text-align:center">
+      <div style="font-size:15px;font-weight:900;color:#fff;margin-bottom:8px">Còn câu hỏi nào khác?</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:16px">Nhắn trực tiếp qua Zalo — Phương G63 hỗ trợ trong giờ hành chính.</div>
+      <a href="https://zalo.me/84822299993" style="display:inline-block;padding:12px 28px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111;font-weight:900;font-size:14px;border-radius:999px;text-decoration:none">Nhắn Zalo 0822 299 993</a>
+    </div>
+
+  </div>
+</div>
+
+<footer-bar>
+  © 2026 Phương G63 Software &nbsp;·&nbsp;
+  <a href="/chinh-sach-mua-hang.html">Chính sách mua hàng</a>
+  <a href="/huong-dan-sau-mua.html">Hướng dẫn sau mua</a>
+  <a href="/hoc-vien.html">Học viện</a>
+  <a href="/privacy.html">Chính sách bảo mật</a>
+  <a href="/terms.html">Điều khoản sử dụng</a>
+  <a href="/">Trang chủ</a>
+</footer-bar>
+
+</body>
+</html>
