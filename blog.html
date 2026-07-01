@@ -5,70 +5,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nhật ký & Bài viết | Phương G63</title>
 <meta name="description" content="Nhật ký lệnh, kinh nghiệm trading và câu chuyện thật từ hành trình giao dịch của Phương G63.">
-<meta property="og:title" content="Nhật ký & Bài viết | Phương G63">
-<meta property="og:description" content="Hành trình thật, giao dịch thật — nhật ký lệnh, kinh nghiệm và những câu chuyện từ thị trường tài chính.">
-<meta property="og:type" content="website">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8KME2DB3L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B8KME2DB3L');
+</script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
 :root{
   --gold:#ffd36a;--gold2:#ff9f1c;--bg:#07040b;--surface:#0f0b16;
   --surface2:#16101f;--cyan:#24e6ff;--muted:#6b6480;
-  --green:#3ddc84;--red:#ff5c5c;
+  --green:#3ddc84;--red:#ff5c5c;--border:rgba(255,211,106,.12);
 }
-
 body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min-height:100vh}
 
 /* ── NAV ── */
-.nav{position:sticky;top:0;z-index:100;background:rgba(7,4,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,211,106,.12);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
+.nav{position:sticky;top:0;z-index:100;background:rgba(7,4,11,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
 .nav-brand{font-size:18px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;white-space:nowrap}
 .nav-links{display:flex;gap:16px;flex:1;flex-wrap:wrap}
 .nav-links a{color:rgba(255,255,255,.6);font-size:13px;text-decoration:none;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
 
-/* ── HERO ── */
-.hero{padding:80px 24px 56px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(255,211,106,.08),transparent 60%)}
-.hero-eyebrow{font-size:11px;font-weight:900;letter-spacing:4px;color:rgba(255,211,106,.5);text-transform:uppercase;margin-bottom:16px}
-.hero h1{font-size:clamp(32px,6vw,56px);font-weight:900;background:linear-gradient(135deg,#fff 0%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px}
-.hero p{font-size:16px;color:var(--muted);max-width:540px;margin:0 auto 32px;line-height:1.7}
+/* ── HEADER BAR ── */
+.header-bar{background:linear-gradient(135deg,#12082a,#0a0515);border-bottom:2px solid var(--gold);padding:18px 0 14px}
+.header-bar .inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.header-title{font-size:clamp(22px,4vw,32px);font-weight:900;background:linear-gradient(135deg,#fff 0%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header-sub{font-size:13px;color:var(--muted);border-left:2px solid var(--gold);padding-left:14px;margin-left:6px}
 
-/* ── FILTERS ── */
-.filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0 24px 32px}
-.filter-btn{padding:8px 18px;border-radius:999px;border:1.5px solid rgba(255,211,106,.2);background:transparent;color:rgba(255,211,106,.6);font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:all .2s}
+/* ── FILTER BAR ── */
+.filter-wrap{background:var(--surface);border-bottom:1px solid var(--border)}
+.filter-bar{max-width:1200px;margin:0 auto;padding:10px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-right:4px}
+.filter-btn{padding:6px 16px;border-radius:999px;border:1.5px solid rgba(255,211,106,.2);background:transparent;color:rgba(255,211,106,.6);font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:all .2s}
 .filter-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(255,211,106,.06)}
 .filter-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold2));border-color:transparent;color:#07040b}
 
-/* ── MAIN GRID ── */
-.container{max-width:1100px;margin:0 auto;padding:0 24px 80px}
-.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+/* ── CONTAINER ── */
+.container{max-width:1200px;margin:0 auto;padding:28px 24px 80px}
 
-/* ── CARD ── */
-.post-card{background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s;text-decoration:none;color:inherit}
-.post-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.5);border-color:rgba(255,211,106,.3)}
-.post-card .card-img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface2)}
-.post-card .card-img-placeholder{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:40px}
-.post-card .card-body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
-.post-card .card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.card-cat{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 10px;border-radius:999px;background:rgba(255,211,106,.12);color:var(--gold);text-transform:uppercase}
-.card-result{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 10px;border-radius:999px}
-.result-win{background:rgba(61,220,132,.12);color:var(--green)}
-.result-lose{background:rgba(255,92,92,.12);color:var(--red)}
-.result-break{background:rgba(255,211,106,.1);color:rgba(255,211,106,.7)}
-.post-card .card-date{font-size:12px;color:var(--muted)}
-.post-card h3{font-size:17px;font-weight:900;color:#fff;line-height:1.4;margin-top:4px}
-.post-card p{font-size:13px;color:var(--muted);line-height:1.6;flex:1}
-.card-read{font-size:12px;font-weight:900;color:var(--gold);margin-top:8px;letter-spacing:.5px}
+/* ── NEWS LAYOUT ── */
+.news-layout{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-bottom:36px}
+
+/* ── FEATURED (bài to bên trái) ── */
+.featured-card{position:relative;border-radius:20px;overflow:hidden;background:var(--surface);border:1px solid var(--border);text-decoration:none;color:inherit;display:block;transition:transform .3s,box-shadow .3s}
+.featured-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.featured-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--surface2)}
+.featured-img-placeholder{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a0a2e,#0f0620);font-size:64px}
+.featured-body{padding:24px 28px 28px}
+.featured-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.cat-badge{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 12px;border-radius:999px;background:rgba(255,211,106,.15);color:var(--gold);text-transform:uppercase;border:1px solid rgba(255,211,106,.25)}
+.result-badge{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 12px;border-radius:999px}
+.result-win{background:rgba(61,220,132,.15);color:var(--green);border:1px solid rgba(61,220,132,.25)}
+.result-lose{background:rgba(255,92,92,.15);color:var(--red);border:1px solid rgba(255,92,92,.25)}
+.result-hoa{background:rgba(255,211,106,.1);color:rgba(255,211,106,.7);border:1px solid rgba(255,211,106,.2)}
+.feat-new{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 12px;border-radius:999px;background:rgba(36,230,255,.15);color:var(--cyan);border:1px solid rgba(36,230,255,.25)}
+.featured-date{font-size:12px;color:var(--muted);margin-left:auto}
+.featured-title{font-size:clamp(20px,2.5vw,26px);font-weight:900;color:#fff;line-height:1.35;margin-bottom:12px}
+.featured-excerpt{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:20px}
+.featured-read{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:900;color:var(--gold);letter-spacing:.5px}
+.featured-read::after{content:'→';transition:transform .2s}
+.featured-card:hover .featured-read::after{transform:translateX(5px)}
+
+/* ── SIDEBAR (danh sách bên phải) ── */
+.sidebar{display:flex;flex-direction:column;gap:0}
+.sidebar-header{font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding-bottom:12px;border-bottom:2px solid var(--gold);margin-bottom:4px}
+.side-card{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .2s;border-radius:8px}
+.side-card:hover{background:rgba(255,211,106,.04);padding-left:8px}
+.side-img{width:80px;height:56px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--surface2)}
+.side-img-placeholder{width:80px;height:56px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a0a2e,#0f0620);font-size:22px}
+.side-body{flex:1;min-width:0}
+.side-cat{font-size:10px;font-weight:900;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.side-title{font-size:13px;font-weight:700;color:#fff;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:5px}
+.side-date{font-size:11px;color:var(--muted)}
+.side-card:last-child{border-bottom:none}
+
+/* ── THÊM BÀI (nút xem tất cả) ── */
+.see-all-wrap{text-align:right;margin-top:8px}
+.see-all{font-size:12px;font-weight:900;color:var(--gold);text-decoration:none;letter-spacing:.5px}
+.see-all:hover{color:#fff}
+
+/* ── DIVIDER ── */
+.section-label{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.section-label span{font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.section-label::before,.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-label::before{display:none}
+
+/* ── POSTS GRID (các bài còn lại) ── */
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.post-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s;text-decoration:none;color:inherit}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.5);border-color:rgba(255,211,106,.3)}
+.card-img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface2)}
+.card-img-placeholder{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:36px}
+.card-body{padding:18px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-cat{font-size:10px;font-weight:900;letter-spacing:1px;padding:3px 10px;border-radius:999px;background:rgba(255,211,106,.12);color:var(--gold);text-transform:uppercase}
+.card-date{font-size:11px;color:var(--muted)}
+.card-body h3{font-size:15px;font-weight:900;color:#fff;line-height:1.4}
+.card-body p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;flex:1}
+.card-read{font-size:11px;font-weight:900;color:var(--gold);margin-top:4px;letter-spacing:.5px}
 
 /* ── STATUS ── */
-.status-msg{text-align:center;padding:60px 24px;color:var(--muted);font-size:14px}
+.status-msg{text-align:center;padding:60px 24px;color:var(--muted);font-size:14px;grid-column:1/-1}
 .status-msg .icon{font-size:40px;margin-bottom:16px}
 .spinner{display:inline-block;width:32px;height:32px;border:3px solid rgba(255,211,106,.2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid rgba(255,255,255,.06);padding:40px 24px;text-align:center;color:var(--muted);font-size:13px}
+footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;color:var(--muted);font-size:13px}
 footer a{color:var(--gold);text-decoration:none}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .news-layout{grid-template-columns:1fr}
+  .sidebar{display:none}
+  .posts-grid{grid-template-columns:1fr}
+  .featured-body{padding:18px}
+}
+@media(max-width:480px){
+  .header-sub{display:none}
+  .featured-title{font-size:18px}
+}
 </style>
 </head>
 <body>
@@ -85,27 +145,40 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </nav>
 
-<div class="hero">
-  <div class="hero-eyebrow">Hành trình thật · Giao dịch thật</div>
-  <h1>Nhật ký & Bài viết</h1>
-  <p>Nhật ký lệnh, kinh nghiệm trading và những câu chuyện thật từ thị trường tài chính.</p>
+<div class="header-bar">
+  <div class="inner">
+    <div class="header-title">Nhật ký & Bài viết</div>
+    <div class="header-sub">Hành trình thật · Giao dịch thật · Phương G63</div>
+  </div>
 </div>
 
-<div class="filter-bar" id="filterBar">
-  <button class="filter-btn active" onclick="setFilter('all')">Tất cả</button>
-  <button class="filter-btn" onclick="setFilter('Câu chuyện')">Câu chuyện</button>
-  <button class="filter-btn" onclick="setFilter('Nhật ký lệnh')">Nhật ký lệnh</button>
-  <button class="filter-btn" onclick="setFilter('Kinh nghiệm')">Kinh nghiệm</button>
-  <button class="filter-btn" onclick="setFilter('Trading')">Trading</button>
+<div class="filter-wrap">
+  <div class="filter-bar">
+    <span class="filter-label">Lọc:</span>
+    <button class="filter-btn active" onclick="setFilter('all')">Tất cả</button>
+    <button class="filter-btn" onclick="setFilter('Câu chuyện')">Câu chuyện</button>
+    <button class="filter-btn" onclick="setFilter('Nhật ký lệnh')">Nhật ký lệnh</button>
+    <button class="filter-btn" onclick="setFilter('Kinh nghiệm')">Kinh nghiệm</button>
+    <button class="filter-btn" onclick="setFilter('Trading')">Trading</button>
+  </div>
 </div>
 
 <div class="container">
-  <div id="postsGrid" class="posts-grid">
+
+  <!-- BÀI NỔI BẬT + SIDEBAR -->
+  <div class="news-layout" id="newsLayout">
     <div class="status-msg" style="grid-column:1/-1">
       <div class="spinner"></div>
       <div style="margin-top:16px">Đang tải bài viết...</div>
     </div>
   </div>
+
+  <!-- CÁC BÀI CÒN LẠI -->
+  <div id="moreSection" style="display:none">
+    <div class="section-label"><span>Bài viết khác</span></div>
+    <div class="posts-grid" id="postsGrid"></div>
+  </div>
+
 </div>
 
 <footer>
@@ -120,61 +193,15 @@ const BRANCH   = 'main';
 const API_BASE = `https://api.github.com/repos/${REPO}/contents/nhat-ky?ref=${BRANCH}`;
 const RAW_BASE = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/nhat-ky/`;
 
-// Bài viết cũ (HTML) — thêm vào đây nếu muốn
 const OLD_POSTS = [
-  {
-    title: 'Từ bỏ hay đứng dậy?',
-    date: '2025-06-30',
-    category: 'Câu chuyện',
-    result: null,
-    image: null,
-    excerpt: 'Sau một chuỗi thua lỗ, ranh giới giữa từ bỏ và đứng dậy mỏng đến mức đáng sợ...',
-    href: '/nhat-ky/tu-bo-hay-dung-day.html',
-    emoji: '⚔️'
-  },
-  {
-    title: 'Hành trình của tôi',
-    date: '2025-06-28',
-    category: 'Câu chuyện',
-    result: null,
-    image: null,
-    excerpt: 'Tôi không sinh ra biết trading. Đây là những gì thị trường đã dạy tôi...',
-    href: '/nhat-ky/hanh-trinh-cua-toi.html',
-    emoji: '🗺️'
-  },
-  {
-    title: 'Nhật ký 28/06/2025',
-    date: '2025-06-28',
-    category: 'Nhật ký lệnh',
-    result: 'Thua',
-    image: null,
-    excerpt: 'Thị trường đảo chiều bất ngờ. Ghi lại để học.',
-    href: '/nhat-ky/2025-06-28.html',
-    emoji: '📉'
-  },
-  {
-    title: 'Nhật ký 26/06/2025',
-    date: '2025-06-26',
-    category: 'Nhật ký lệnh',
-    result: 'Thua',
-    image: null,
-    excerpt: 'Hai lệnh ngược chiều nhau. Cả hai đều sai.',
-    href: '/nhat-ky/2025-06-26.html',
-    emoji: '📉'
-  },
-  {
-    title: 'Nhật ký 24/06/2025',
-    date: '2025-06-24',
-    category: 'Nhật ký lệnh',
-    result: 'Hoà vốn',
-    image: null,
-    excerpt: 'Đứng vững không phải là thắng, nhưng cũng không phải là thua.',
-    href: '/nhat-ky/2025-06-24.html',
-    emoji: '⚖️'
-  },
+  {title:'Từ bỏ hay đứng dậy?',date:'2025-06-30',category:'Câu chuyện',result:null,image:null,excerpt:'Sau một chuỗi thua lỗ, ranh giới giữa từ bỏ và đứng dậy mỏng đến mức đáng sợ...',href:'/nhat-ky/tu-bo-hay-dung-day.html',emoji:'⚔️'},
+  {title:'Hành trình của tôi',date:'2025-06-28',category:'Câu chuyện',result:null,image:null,excerpt:'Tôi không sinh ra biết trading. Đây là những gì thị trường đã dạy tôi...',href:'/nhat-ky/hanh-trinh-cua-toi.html',emoji:'🗺️'},
+  {title:'Nhật ký 28/06/2025',date:'2025-06-28',category:'Nhật ký lệnh',result:'Thua',image:null,excerpt:'Thị trường đảo chiều bất ngờ. Ghi lại để học.',href:'/nhat-ky/2025-06-28.html',emoji:'📉'},
+  {title:'Nhật ký 26/06/2025',date:'2025-06-26',category:'Nhật ký lệnh',result:'Thua',image:null,excerpt:'Hai lệnh ngược chiều nhau. Cả hai đều sai.',href:'/nhat-ky/2025-06-26.html',emoji:'📉'},
+  {title:'Nhật ký 24/06/2025',date:'2025-06-24',category:'Nhật ký lệnh',result:'Hoà vốn',image:null,excerpt:'Đứng vững không phải là thắng, nhưng cũng không phải là thua.',href:'/nhat-ky/2025-06-24.html',emoji:'⚖️'},
 ];
 
-// ─── FRONTMATTER PARSER ─────────────────────────────────────────────
+// ─── PARSERS ────────────────────────────────────────────────────────
 function parseFrontmatter(raw) {
   const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
   if (!m) return { meta: {}, body: raw };
@@ -186,53 +213,92 @@ function parseFrontmatter(raw) {
   return { meta, body: m[2] };
 }
 
-function excerpt(body, len = 120) {
+function excerpt(body, len = 160) {
   return body
-    .replace(/!\[[\s\S]*?\]\([\s\S]*?\)/g, '')   // xoá ảnh ![](url)
-    .replace(/\[[\s\S]*?\]\([\s\S]*?\)/g, '')     // xoá link [text](url)
-    .replace(/#{1,6}\s[^\n]*/g, '')               // xoá tiêu đề #
-    .replace(/https?:\/\/\S+/g, '')               // xoá mọi URL còn sót
-    .replace(/\*\*|__|\*|_|`/g, '')               // xoá markdown format
+    .replace(/!\[[\s\S]*?\]\([\s\S]*?\)/g, '')
+    .replace(/\[[\s\S]*?\]\([\s\S]*?\)/g, '')
+    .replace(/#{1,6}\s[^\n]*/g, '')
+    .replace(/https?:\/\/\S+/g, '')
+    .replace(/\*\*|__|\*|_|`/g, '')
     .replace(/\n/g, ' ')
     .replace(/\s{2,}/g, ' ')
     .trim()
     .slice(0, len) + '…';
 }
 
-// ─── RENDER ─────────────────────────────────────────────────────────
-let allPosts = [];
-let activeFilter = 'all';
-
-function resultClass(r) {
-  if (!r) return '';
-  if (r === 'Thắng') return 'result-win';
-  if (r === 'Thua')  return 'result-lose';
-  return 'result-break';
+function formatDate(d) {
+  if (!d) return '';
+  try { return new Date(d).toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'}); }
+  catch { return d; }
 }
 
-function resultLabel(r) {
+function resultBadge(r) {
   if (!r) return '';
-  if (r === 'Thắng') return '✅ Thắng';
-  if (r === 'Thua')  return '❌ Thua';
-  return '⚖️ Hoà vốn';
+  if (r === 'Thắng') return `<span class="result-badge result-win">✅ Thắng</span>`;
+  if (r === 'Thua')  return `<span class="result-badge result-lose">❌ Thua</span>`;
+  return `<span class="result-badge result-hoa">⚖️ Hoà vốn</span>`;
 }
 
+// ─── RENDER FEATURED ────────────────────────────────────────────────
+function renderFeatured(post) {
+  const img = post.image
+    ? `<img class="featured-img" src="${post.image}" alt="${post.title}" loading="lazy" onerror="this.style.display='none'">`
+    : `<div class="featured-img-placeholder">${post.emoji || '📖'}</div>`;
+  return `
+  <a class="featured-card" href="${post.href}">
+    ${img}
+    <div class="featured-body">
+      <div class="featured-meta">
+        <span class="cat-badge">${post.category || 'Bài viết'}</span>
+        ${resultBadge(post.result)}
+        <span class="feat-new">🔥 Mới nhất</span>
+        <span class="featured-date">📅 ${formatDate(post.date)}</span>
+      </div>
+      <h2 class="featured-title">${post.title}</h2>
+      <p class="featured-excerpt">${post.excerpt || ''}</p>
+      <span class="featured-read">Đọc tiếp</span>
+    </div>
+  </a>`;
+}
+
+// ─── RENDER SIDEBAR ─────────────────────────────────────────────────
+function renderSidebar(posts) {
+  if (!posts.length) return '';
+  const items = posts.slice(0, 6).map(p => {
+    const img = p.image
+      ? `<img class="side-img" src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'">`
+      : `<div class="side-img-placeholder">${p.emoji || '📖'}</div>`;
+    return `
+    <a class="side-card" href="${p.href}">
+      ${img}
+      <div class="side-body">
+        <div class="side-cat">${p.category || 'Bài viết'}</div>
+        <div class="side-title">${p.title}</div>
+        <div class="side-date">📅 ${formatDate(p.date)}</div>
+      </div>
+    </a>`;
+  }).join('');
+  return `
+  <div class="sidebar">
+    <div class="sidebar-header">Bài viết gần đây</div>
+    ${items}
+  </div>`;
+}
+
+// ─── RENDER CARD ────────────────────────────────────────────────────
 function renderCard(post) {
-  const imgHtml = post.image
+  const img = post.image
     ? `<img class="card-img" src="${post.image}" alt="${post.title}" loading="lazy" onerror="this.style.display='none'">`
     : `<div class="card-img-placeholder">${post.emoji || '📖'}</div>`;
-  const resultBadge = post.result
-    ? `<span class="card-result ${resultClass(post.result)}">${resultLabel(post.result)}</span>`
-    : '';
   return `
   <a class="post-card" href="${post.href}">
-    ${imgHtml}
+    ${img}
     <div class="card-body">
       <div class="card-meta">
         <span class="card-cat">${post.category || 'Bài viết'}</span>
-        ${resultBadge}
+        ${resultBadge(post.result)}
       </div>
-      <div class="card-date">${formatDate(post.date)}</div>
+      <div class="card-date">📅 ${formatDate(post.date)}</div>
       <h3>${post.title}</h3>
       <p>${post.excerpt || ''}</p>
       <div class="card-read">Đọc bài →</div>
@@ -240,43 +306,56 @@ function renderCard(post) {
   </a>`;
 }
 
-function formatDate(d) {
-  if (!d) return '';
-  try {
-    const dt = new Date(d);
-    return dt.toLocaleDateString('vi-VN', { day:'2-digit', month:'2-digit', year:'numeric' });
-  } catch { return d; }
+// ─── RENDER ALL ─────────────────────────────────────────────────────
+let allPosts = [];
+let activeFilter = 'all';
+
+function renderAll() {
+  const filtered = activeFilter === 'all'
+    ? allPosts
+    : allPosts.filter(p => p.category === activeFilter);
+
+  const layout = document.getElementById('newsLayout');
+  const moreSection = document.getElementById('moreSection');
+  const grid = document.getElementById('postsGrid');
+
+  if (!filtered.length) {
+    layout.innerHTML = `<div class="status-msg" style="grid-column:1/-1"><div class="icon">🔍</div><div>Chưa có bài nào trong danh mục này.</div></div>`;
+    moreSection.style.display = 'none';
+    return;
+  }
+
+  const [featured, ...rest] = filtered;
+
+  // Render featured + sidebar
+  layout.innerHTML = renderFeatured(featured) + renderSidebar(rest);
+
+  // Render remaining grid (bỏ qua 7 bài đầu đã hiện sidebar)
+  const gridPosts = rest.slice(6);
+  if (gridPosts.length) {
+    moreSection.style.display = 'block';
+    grid.innerHTML = gridPosts.map(renderCard).join('');
+  } else {
+    moreSection.style.display = 'none';
+  }
 }
 
 function setFilter(cat) {
   activeFilter = cat;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  const btns = document.querySelectorAll('.filter-btn');
-  btns.forEach(b => { if (b.textContent.includes(cat === 'all' ? 'Tất cả' : cat)) b.classList.add('active'); });
-  renderPosts();
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    if (b.textContent.includes(cat === 'all' ? 'Tất cả' : cat)) b.classList.add('active');
+  });
+  renderAll();
 }
 
-function renderPosts() {
-  const grid = document.getElementById('postsGrid');
-  const filtered = activeFilter === 'all'
-    ? allPosts
-    : allPosts.filter(p => p.category === activeFilter);
-
-  if (!filtered.length) {
-    grid.innerHTML = `<div class="status-msg" style="grid-column:1/-1"><div class="icon">🔍</div><div>Chưa có bài nào trong danh mục này.</div></div>`;
-    return;
-  }
-  grid.innerHTML = filtered.map(renderCard).join('');
-}
-
-// ─── LOAD MARKDOWN POSTS ────────────────────────────────────────────
+// ─── LOAD MARKDOWN ──────────────────────────────────────────────────
 async function loadMarkdownPosts() {
   try {
     const res = await fetch(API_BASE);
     if (!res.ok) throw new Error('GitHub API error');
     const files = await res.json();
     const mdFiles = files.filter(f => f.name.endsWith('.md'));
-
     const parsed = await Promise.all(mdFiles.map(async f => {
       try {
         const r = await fetch(RAW_BASE + f.name);
@@ -295,31 +374,27 @@ async function loadMarkdownPosts() {
         };
       } catch { return null; }
     }));
-
     return parsed.filter(Boolean);
-  } catch (e) {
+  } catch(e) {
     console.warn('Could not fetch markdown posts:', e);
     return [];
   }
 }
 
-// ─── INIT ────────────────────────────────────────────────────────────
+// ─── INIT ───────────────────────────────────────────────────────────
 (async () => {
   const mdPosts = await loadMarkdownPosts();
-  // Merge: markdown (mới nhất lên đầu) + bài HTML cũ
   const combined = [...mdPosts, ...OLD_POSTS].sort((a,b) => {
-    const da = new Date(a.date || a._ts || '2000-01-01');
-    const db = new Date(b.date || b._ts || '2000-01-01');
-    return db - da;
+    return new Date(b.date || b._ts || '2000') - new Date(a.date || a._ts || '2000');
   });
   allPosts = combined;
 
   if (!allPosts.length) {
-    document.getElementById('postsGrid').innerHTML =
-      `<div class="status-msg" style="grid-column:1/-1"><div class="icon">📭</div><div>Chưa có bài viết nào. Hãy đăng bài đầu tiên qua CMS!</div></div>`;
+    document.getElementById('newsLayout').innerHTML =
+      `<div class="status-msg" style="grid-column:1/-1"><div class="icon">📭</div><div>Chưa có bài viết nào.</div></div>`;
     return;
   }
-  renderPosts();
+  renderAll();
 })();
 </script>
 </body>
