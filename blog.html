@@ -193,6 +193,14 @@ const BRANCH   = 'main';
 const API_BASE = `https://api.github.com/repos/${REPO}/contents/nhat-ky?ref=${BRANCH}`;
 const RAW_BASE = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/nhat-ky/`;
 
+// Fix đường dẫn ảnh — đảm bảo luôn bắt đầu bằng /
+function fixImg(src) {
+  if (!src) return '';
+  src = src.trim();
+  if (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('/')) return src;
+  return '/' + src;
+}
+
 const OLD_POSTS = [
   {title:'Từ bỏ hay đứng dậy?',date:'2025-06-30',category:'Câu chuyện',result:null,image:null,excerpt:'Sau một chuỗi thua lỗ, ranh giới giữa từ bỏ và đứng dậy mỏng đến mức đáng sợ...',href:'/nhat-ky/tu-bo-hay-dung-day.html',emoji:'⚔️'},
   {title:'Hành trình của tôi',date:'2025-06-28',category:'Câu chuyện',result:null,image:null,excerpt:'Tôi không sinh ra biết trading. Đây là những gì thị trường đã dạy tôi...',href:'/nhat-ky/hanh-trinh-cua-toi.html',emoji:'🗺️'},
@@ -242,7 +250,7 @@ function resultBadge(r) {
 // ─── RENDER FEATURED ────────────────────────────────────────────────
 function renderFeatured(post) {
   const img = post.image
-    ? `<img class="featured-img" src="${post.image}" alt="${post.title}" loading="lazy" onerror="this.style.display='none'">`
+    ? `<img class="featured-img" src="${fixImg(post.image)}" alt="${post.title}" loading="lazy" onerror="this.style.display='none'">`
     : `<div class="featured-img-placeholder">${post.emoji || '📖'}</div>`;
   return `
   <a class="featured-card" href="${post.href}">
@@ -266,7 +274,7 @@ function renderSidebar(posts) {
   if (!posts.length) return '';
   const items = posts.slice(0, 6).map(p => {
     const img = p.image
-      ? `<img class="side-img" src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'">`
+      ? `<img class="side-img" src="${fixImg(p.image)}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'">`
       : `<div class="side-img-placeholder">${p.emoji || '📖'}</div>`;
     return `
     <a class="side-card" href="${p.href}">
@@ -288,7 +296,7 @@ function renderSidebar(posts) {
 // ─── RENDER CARD ────────────────────────────────────────────────────
 function renderCard(post) {
   const img = post.image
-    ? `<img class="card-img" src="${post.image}" alt="${post.title}" loading="lazy" onerror="this.style.display='none'">`
+    ? `<img class="card-img" src="${fixImg(post.image)}" alt="${post.title}" loading="lazy" onerror="this.style.display='none'">`
     : `<div class="card-img-placeholder">${post.emoji || '📖'}</div>`;
   return `
   <a class="post-card" href="${post.href}">
