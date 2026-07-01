@@ -149,6 +149,14 @@ function resultLabel(r) {
   return '⚖️ Hoà vốn';
 }
 
+// ─── FIX IMAGE PATH ────────────────────────────────────────────────
+function fixImg(src) {
+  if (!src) return '';
+  src = src.trim();
+  if (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('/')) return src;
+  return '/' + src; // thêm / nếu thiếu
+}
+
 // ─── MAIN ──────────────────────────────────────────────────────────
 (async () => {
   const params = new URLSearchParams(location.search);
@@ -172,12 +180,23 @@ function resultLabel(r) {
     if (meta.image) {
       const img = document.createElement('img');
       img.className = 'cover-img';
-      img.src = meta.image;
+      img.src = fixImg(meta.image);
       img.alt = meta.title || '';
-      img.onerror = () => coverWrap.innerHTML = '';
+      img.onerror = () => { coverWrap.innerHTML = '<div class="cover-placeholder">📝</div>'; };
       coverWrap.appendChild(img);
     } else {
       coverWrap.innerHTML = `<div class="cover-placeholder">📝</div>`;
+    }
+
+    // Fix ảnh trong body — đảm bảo đường dẫn bắt đầu bằng /
+    if (typeof marked !== 'undefined') {
+      const origImg = marked.Renderer.prototype.image;
+      const renderer = new marked.Renderer();
+      renderer.image = function(href, title, text) {
+        var fixedHref = fixImg(href);
+        return '<img src="' + fixedHref + '" alt="' + (text||'') + '" style="max-width:100%;border-radius:12px;margin:1.5em auto;display:block">';
+      };
+      marked.setOptions({ renderer: renderer });
     }
 
     // Meta row
@@ -196,6 +215,14 @@ function resultLabel(r) {
     } else {
       document.getElementById('articleBody').innerText = body;
     }
+
+    // Sau khi render xong: fix lại tất cả ảnh trong body thiếu /
+    document.querySelectorAll('#articleBody img').forEach(function(img) {
+      var s = img.getAttribute('src') || '';
+      if (s && !s.startsWith('http') && !s.startsWith('/')) {
+        img.src = '/' + s;
+      }
+    });
 
     document.getElementById('loading').style.display = 'none';
     document.getElementById('app').style.display     = 'block';
