@@ -14,7 +14,7 @@ description: EMA100 không phải chén thánh – nhưng đây là công cụ g
 
 
 
-**!\[Ảo Tưởng vs Sinh Tồn trong Trading](/nhat-ky/ao-tuong-vs-sinh-ton.jpg)**
+**!\[Ảo Tưởng vs Sinh Tồn trong Trading](/assets/images/ao-tuong-vs-sinh-ton.jpg)**
 
 
 
@@ -72,7 +72,7 @@ description: EMA100 không phải chén thánh – nhưng đây là công cụ g
 
 
 
-**!\[EMA100 – Cách Pro Trader Sử Dụng](/nhat-ky/ema100-cach-pro-trader-su-dung.jpg)**
+**!\[EMA100 – Cách Pro Trader Sử Dụng](/assets/images/ema100-cach-pro-trader-su-dung.jpg)**
 
 
 
@@ -134,7 +134,7 @@ description: EMA100 không phải chén thánh – nhưng đây là công cụ g
 
 
 
-**!\[Setup EMA100 Chuyên Cho XAUUSD](/nhat-ky/setup-ema100-chuyen-cho-xauusd.jpg)**
+**!\[Setup EMA100 Chuyên Cho XAUUSD](/assets/images/setup-ema100-chuyen-cho-xauusd.jpg)**
 
 
 
