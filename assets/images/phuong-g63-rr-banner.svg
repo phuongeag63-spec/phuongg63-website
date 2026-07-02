@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+    <stop offset="0%" stop-color="#0a0515"/>
+    <stop offset="55%" stop-color="#07040b"/>
+    <stop offset="100%" stop-color="#0c0720"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+    <stop offset="0%" stop-color="#ffd36a"/>
+    <stop offset="100%" stop-color="#ff9f1c"/>
+  </linearGradient>
+  <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+    <stop offset="0%" stop-color="#ffd36a"/>
+    <stop offset="100%" stop-color="#ff9f1c"/>
+  </linearGradient>
+  <radialGradient id="orbL" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffd36a" stop-opacity="0.13"/>
+    <stop offset="100%" stop-color="#ffd36a" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="orbR" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#5b36ff" stop-opacity="0.11"/>
+    <stop offset="100%" stop-color="#5b36ff" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="tGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffd36a" stop-opacity="0.07"/>
+    <stop offset="100%" stop-color="#ffd36a" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+
+<!-- Background -->
+<rect width="1200" height="675" fill="url(#bg)"/>
+
+<!-- Orbs -->
+<ellipse cx="90" cy="190" rx="340" ry="340" fill="url(#orbL)"/>
+<ellipse cx="1110" cy="490" rx="270" ry="270" fill="url(#orbR)"/>
+
+<!-- Subtle grid -->
+<g stroke="rgba(255,211,106,0.032)" stroke-width="1">
+  <line x1="0" y1="112" x2="1200" y2="112"/>
+  <line x1="0" y1="225" x2="1200" y2="225"/>
+  <line x1="0" y1="337" x2="1200" y2="337"/>
+  <line x1="0" y1="450" x2="1200" y2="450"/>
+  <line x1="0" y1="562" x2="1200" y2="562"/>
+  <line x1="200" y1="0" x2="200" y2="675"/>
+  <line x1="400" y1="0" x2="400" y2="675"/>
+  <line x1="600" y1="0" x2="600" y2="675"/>
+  <line x1="800" y1="0" x2="800" y2="675"/>
+  <line x1="1000" y1="0" x2="1000" y2="675"/>
+</g>
+
+<!-- Center divider -->
+<line x1="628" y1="80" x2="628" y2="596" stroke="rgba(255,211,106,0.07)" stroke-width="1"/>
+
+<!-- ═══════════════ LEFT ═══════════════ -->
+
+<!-- Gold accent bar -->
+<rect x="56" y="108" width="3" height="130" rx="1.5" fill="url(#goldV)"/>
+
+<!-- Eyebrow badge -->
+<rect x="70" y="108" width="228" height="26" rx="13" fill="rgba(255,211,106,0.09)" stroke="rgba(255,211,106,0.28)" stroke-width="1"/>
+<text x="184" y="126" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ffd36a" letter-spacing="2.5">EXPERT ADVISOR · MT5</text>
+
+<!-- Title -->
+<text x="56" y="215" font-family="Arial,sans-serif" font-size="62" font-weight="900" fill="url(#gold)">PHUONG G63</text>
+<text x="56" y="308" font-family="Arial,sans-serif" font-size="94" font-weight="900" fill="#ffffff" letter-spacing="10">RR</text>
+
+<!-- Version pill -->
+<rect x="244" y="270" width="70" height="24" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+<text x="279" y="287" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="rgba(255,255,255,0.45)">v1.07</text>
+
+<!-- Divider -->
+<rect x="56" y="323" width="465" height="1" fill="rgba(255,211,106,0.14)"/>
+
+<!-- Description -->
+<text x="56" y="350" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.52)">Hệ thống quản lý lệnh tự động theo tỷ lệ Risk : Reward</text>
+<text x="56" y="372" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.52)">Chốt lời từng phần · Hòa vốn tự động · Trailing theo EMA</text>
+
+<!-- Chips row 1 -->
+<rect x="56" y="393" width="162" height="27" rx="13.5" fill="rgba(61,220,132,0.1)" stroke="rgba(61,220,132,0.3)" stroke-width="1"/>
+<text x="137" y="411.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#3ddc84">⚖️ Risk:Reward Auto</text>
+
+<rect x="228" y="393" width="140" height="27" rx="13.5" fill="rgba(255,211,106,0.08)" stroke="rgba(255,211,106,0.27)" stroke-width="1"/>
+<text x="298" y="411.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#ffd36a">📊 Chốt lời 80%</text>
+
+<rect x="378" y="393" width="145" height="27" rx="13.5" fill="rgba(255,211,106,0.08)" stroke="rgba(255,211,106,0.27)" stroke-width="1"/>
+<text x="450" y="411.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#ffd36a">🎯 Break Even Auto</text>
+
+<!-- Chips row 2 -->
+<rect x="56" y="430" width="152" height="27" rx="13.5" fill="rgba(255,211,106,0.08)" stroke="rgba(255,211,106,0.27)" stroke-width="1"/>
+<text x="132" y="448.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#ffd36a">📈 Trailing EMA 100</text>
+
+<rect x="218" y="430" width="188" height="27" rx="13.5" fill="rgba(100,150,255,0.1)" stroke="rgba(100,150,255,0.27)" stroke-width="1"/>
+<text x="312" y="448.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#7bb8ff">💹 XAUUSD · Forex · BTC</text>
+
+<rect x="416" y="430" width="105" height="27" rx="13.5" fill="rgba(255,211,106,0.08)" stroke="rgba(255,211,106,0.27)" stroke-width="1"/>
+<text x="468.5" y="448.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#ffd36a">🖥️ Dashboard</text>
+
+<!-- Price box -->
+<rect x="56" y="497" width="200" height="54" rx="14" fill="rgba(255,211,106,0.09)" stroke="rgba(255,211,106,0.38)" stroke-width="1.5"/>
+<text x="156" y="518" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="rgba(255,211,106,0.48)" letter-spacing="2">GIÁ BÁN</text>
+<text x="156" y="543" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" font-weight="900" fill="url(#gold)">888.000 ₫</text>
+
+<!-- Contact info -->
+<text x="270" y="520" font-family="Arial,sans-serif" font-size="12.5" fill="rgba(255,255,255,0.3)">Liên hệ đặt mua qua Zalo</text>
+<text x="270" y="540" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="rgba(255,211,106,0.55)">08222 99993 · Mr Phương</text>
+
+<!-- Bottom brand -->
+<text x="56" y="630" font-family="Arial,sans-serif" font-size="11.5" fill="rgba(255,211,106,0.16)" letter-spacing="3" font-weight="700">PHƯƠNG G63 SOFTWARE · phuongg63.com</text>
+
+
+<!-- ═══════════════ RIGHT — Bullseye Visual ═══════════════ -->
+
+<!-- Card bg -->
+<rect x="652" y="70" width="492" height="540" rx="24" fill="rgba(255,211,106,0.022)" stroke="rgba(255,211,106,0.09)" stroke-width="1"/>
+
+<!-- Top chip -->
+<rect x="793" y="86" width="224" height="24" rx="12" fill="rgba(255,211,106,0.09)" stroke="rgba(255,211,106,0.2)" stroke-width="1"/>
+<text x="905" y="103" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="rgba(255,211,106,0.55)" letter-spacing="2">QUẢN LÝ LỆNH TỰ ĐỘNG</text>
+
+<!-- Target glow orb -->
+<ellipse cx="905" cy="315" rx="205" ry="205" fill="url(#tGlow)"/>
+
+<!-- Concentric rings -->
+<circle cx="905" cy="315" r="200" fill="none" stroke="rgba(255,211,106,0.05)" stroke-width="1.5"/>
+<circle cx="905" cy="315" r="163" fill="none" stroke="rgba(255,211,106,0.08)" stroke-width="1.5"/>
+<circle cx="905" cy="315" r="126" fill="none" stroke="rgba(255,211,106,0.13)" stroke-width="1.5"/>
+<circle cx="905" cy="315" r="89" fill="none" stroke="rgba(255,211,106,0.21)" stroke-width="2"/>
+<circle cx="905" cy="315" r="52" fill="none" stroke="rgba(255,211,106,0.35)" stroke-width="2"/>
+<circle cx="905" cy="315" r="24" fill="rgba(255,211,106,0.12)" stroke="rgba(255,211,106,0.6)" stroke-width="2.5"/>
+
+<!-- Center dot -->
+<circle cx="905" cy="315" r="9" fill="url(#gold)"/>
+<circle cx="905" cy="315" r="3.5" fill="#ffffff"/>
+
+<!-- Crosshair lines -->
+<line x1="905" y1="98"  x2="905" y2="187" stroke="rgba(255,211,106,0.18)" stroke-width="1.5"/>
+<line x1="905" y1="443" x2="905" y2="536" stroke="rgba(255,211,106,0.18)" stroke-width="1.5"/>
+<line x1="670" y1="315" x2="779"  y2="315" stroke="rgba(255,211,106,0.18)" stroke-width="1.5"/>
+<line x1="1031" y1="315" x2="1126" y2="315" stroke="rgba(255,211,106,0.18)" stroke-width="1.5"/>
+
+<!-- Crosshair corner ticks -->
+<line x1="905" y1="96" x2="898" y2="96" stroke="rgba(255,211,106,0.4)" stroke-width="2"/>
+<line x1="905" y1="96" x2="912" y2="96" stroke="rgba(255,211,106,0.4)" stroke-width="2"/>
+<line x1="668" y1="315" x2="668" y2="308" stroke="rgba(255,211,106,0.4)" stroke-width="2"/>
+<line x1="668" y1="315" x2="668" y2="322" stroke="rgba(255,211,106,0.4)" stroke-width="2"/>
+
+<!-- Badge top: RR -->
+<rect x="845" y="100" width="120" height="26" rx="13" fill="rgba(255,211,106,0.13)" stroke="rgba(255,211,106,0.4)" stroke-width="1"/>
+<text x="905" y="118" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="900" fill="#ffd36a">📊  RR 1 : 2</text>
+
+<!-- Badge left: RISK -->
+<rect x="672" y="302" width="78" height="26" rx="13" fill="rgba(255,100,100,0.13)" stroke="rgba(255,100,100,0.33)" stroke-width="1"/>
+<text x="711" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="900" fill="#ff8888">⚠ RISK</text>
+
+<!-- Badge right: REWARD -->
+<rect x="1036" y="302" width="96" height="26" rx="13" fill="rgba(61,220,132,0.13)" stroke="rgba(61,220,132,0.33)" stroke-width="1"/>
+<text x="1084" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="900" fill="#3ddc84">✓ REWARD</text>
+
+<!-- ─── Bottom stat boxes ─── -->
+<!-- Stat 1: Rủi ro 5% -->
+<rect x="688" y="455" width="130" height="96" rx="16" fill="rgba(255,100,100,0.07)" stroke="rgba(255,100,100,0.2)" stroke-width="1"/>
+<text x="753" y="477" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="rgba(255,140,140,0.6)" letter-spacing="1.5">RỦI RO MỤC TIÊU</text>
+<text x="753" y="515" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#ff8888">5%</text>
+<text x="753" y="537" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.28)">mặc định</text>
+
+<!-- Stat 2: Tỷ lệ RR -->
+<rect x="838" y="455" width="136" height="96" rx="16" fill="rgba(255,211,106,0.07)" stroke="rgba(255,211,106,0.2)" stroke-width="1"/>
+<text x="906" y="477" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="rgba(255,211,106,0.6)" letter-spacing="1.5">TỶ LỆ R:R</text>
+<text x="906" y="515" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#ffd36a">1 : 2</text>
+<text x="906" y="537" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.28)">mặc định</text>
+
+<!-- Stat 3: Chốt lời 80% -->
+<rect x="994" y="455" width="130" height="96" rx="16" fill="rgba(61,220,132,0.07)" stroke="rgba(61,220,132,0.2)" stroke-width="1"/>
+<text x="1059" y="477" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="rgba(61,220,132,0.6)" letter-spacing="1.5">CHỐT LỜI</text>
+<text x="1059" y="515" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#3ddc84">80%</text>
+<text x="1059" y="537" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.28)">1 lần chốt</text>
+
+<!-- Bottom right credit -->
+<text x="1128" y="630" text-anchor="end" font-family="Arial,sans-serif" font-size="11" fill="rgba(255,255,255,0.14)">⚔️ Phương G63</text>
+
+</svg>
