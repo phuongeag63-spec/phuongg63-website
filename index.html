@@ -234,7 +234,7 @@
   /* ── HERO: ảnh phía trên, nội dung bên dưới ── */
   function renderHero(p){
     var imgPart=p.img
-      ?'<img src="'+p.img+'" alt="'+p.title+'" style="width:100%;height:260px;object-fit:cover;object-position:center top;display:block" onerror="this.style.display=\'none\';this.parentNode.style.height=\'160px\';this.parentNode.style.background=\'linear-gradient(135deg,#1a1025,#0f0b16)\'">'
+      ?'<img src="'+p.img+'" alt="'+p.title+'" style="width:100%;height:auto;max-height:380px;object-fit:contain;background:#0a0d1a;display:block" onerror="this.style.display=\'none\';this.parentNode.style.height=\'160px\';this.parentNode.style.background=\'linear-gradient(135deg,#1a1025,#0f0b16)\'">'
       :'<div style="width:100%;height:180px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:64px">📝</div>';
     return'<a href="'+p.href+'" style="display:block;border-radius:20px;overflow:hidden;background:#0d1024;text-decoration:none;color:inherit;transition:.3s" onmouseover="this.style.transform=\'translateY(-3px)\';this.style.boxShadow=\'0 20px 60px rgba(0,0,0,.6)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">'
       +'<div style="position:relative;overflow:hidden">'
