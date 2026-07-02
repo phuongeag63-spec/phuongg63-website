@@ -7,21 +7,21 @@ let activeFilter='all';
 function cats(){return ['all',...new Set(PRODUCTS.map(p=>p.categoryKey))]}
 function catLabel(k){return {all:'Tất cả',tamquoc:'Tam Quốc',manual:'Đánh tay',dashboard:'Dashboard',ea:'EA Premium',coming:'Sắp cập nhật'}[k]||k}
 function productPageUrl(id){return 'san-pham/'+id+'/'}
-function renderFilters(){const bar=document.getElementById('filterBar');bar.innerHTML=cats().map(c=>`<button class="filter-btn ${c===activeFilter?'active':''}" onclick="setFilter('${c}')">${catLabel(c)}</button>`).join('')}
+function renderFilters(){const bar=document.getElementById('filterBar');if(!bar)return;bar.innerHTML=cats().map(c=>`<button class="filter-btn ${c===activeFilter?'active':''}" onclick="setFilter('${c}')">${catLabel(c)}</button>`).join('')}
 function setFilter(c){activeFilter=c;renderFilters();renderProducts()}
 function productMatch(p,q){q=q.trim().toLowerCase();if(!q)return true;return [p.name,p.category,p.short,p.description,...(p.tags||[]),...(p.features||[])].join(' ').toLowerCase().includes(q)}
-function renderProducts(){const q=document.getElementById('searchInput')?.value||'';const list=PRODUCTS.filter(p=>(activeFilter==='all'||p.categoryKey===activeFilter)&&productMatch(p,q));const grid=document.getElementById('productGrid');grid.innerHTML=list.map(p=>`<article class="product-card reveal" data-id="${p.id}"><div class="img-wrap"><img src="${p.image}" alt="${p.name}"><span class="shine"></span></div><div class="product-body"><span class="badge">${p.badge}</span><div class="category">${p.category}</div><h3>${p.name}</h3><p>${p.short}</p><div class="tag-row">${(p.tags||[]).slice(0,3).map(t=>`<small>${t}</small>`).join('')}</div><div class="price-row"><span class="price">${p.priceText}</span><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button></div><a class="btn btn-exness" href="https://one.exnessonelink.com/intl/vi/a/20jf6d0igf" target="_blank">🎁 Đăng ký Exness — Nhận miễn phí</a><div class="product-actions"><button class="btn btn-blue" onclick="selectProduct('${p.id}')">Xem nhanh</button><a class="btn btn-blue" href="${productPageUrl(p.id)}">Trang SEO</a></div></div></article>`).join('')||'<div class="empty">Không tìm thấy sản phẩm phù hợp.</div>';observeReveal()}
-function selectProduct(id){currentProduct=PRODUCTS.find(p=>p.id===id)||PRODUCTS[0];renderDetail(currentProduct);syncProductSelects(currentProduct.id);document.getElementById('details').scrollIntoView({behavior:'smooth'})}
-function renderDetail(p){const box=document.getElementById('detailBox');const thumbs=p.images.map((img,i)=>`<img src="${img}" class="${i===0?'active':''}" onclick="setMainImage('${img}',this)" alt="${p.name} ảnh ${i+1}">`).join('');const warning=p.warning?`<div class="warning-box">⚠️ ${p.warning}</div>`:'';const faq=(p.faq||[]).map((f,i)=>`<details ${i===0?'open':''}><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');const video=`<div class="video-box"><span>🎬</span><h4>${p.videoTitle||'Video demo'}</h4><p>${p.videoText||'Video sẽ được cập nhật.'}</p></div>`;const lore=p.id==='chien-truong-sinh-tu-g63'?`<div class="lore-box"><h4>👑 Cốt truyện sản phẩm</h4><p>Thiên hạ chia ba. Mỗi phiên giao dịch là một trận sa trường. Người dùng không mua một lời cam kết lợi nhuận, mà bước vào hành trình Tam Quốc: chiếm thành, mở tướng, thu báu vật, hạ Boss và tự thử thách bản lĩnh của chính mình.</p></div>`:'';box.innerHTML=`<div class="detail-layout"><div><div class="gallery-main"><img id="mainGallery" src="${p.images[0]}" alt="${p.name}"></div><div class="thumbs">${thumbs}</div>${video}${lore}</div><div class="detail-copy"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p>${warning}<div class="price">${p.priceText}</div><h4>Tính năng nổi bật</h4><ul class="feature-list">${p.features.map(f=>`<li>✅ ${f}</li>`).join('')}</ul><h4>Hướng dẫn nhận & cài đặt</h4><ul class="install-list">${p.install.map(x=>`<li>➜ ${x}</li>`).join('')}</ul><h4>Câu hỏi thường gặp</h4><div class="faq-list">${faq}</div><div class="modal-actions"><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button><a class="btn btn-exness" href="https://one.exnessonelink.com/intl/vi/a/20jf6d0igf" target="_blank">🎁 Đăng ký Exness — Nhận miễn phí</a><a class="btn btn-blue" href="${productPageUrl(p.id)}">Mở trang SEO</a><a class="btn btn-blue" href="${zaloUrl}">Hỏi Zalo</a></div></div></div>`}
+function renderProducts(){const q=document.getElementById('searchInput')?.value||'';const list=PRODUCTS.filter(p=>(activeFilter==='all'||p.categoryKey===activeFilter)&&productMatch(p,q));const grid=document.getElementById('productGrid');if(!grid)return;grid.innerHTML=list.map(p=>`<article class="product-card reveal" data-id="${p.id}"><div class="img-wrap"><img src="${p.image}" alt="${p.name}"><span class="shine"></span></div><div class="product-body"><span class="badge">${p.badge}</span><div class="category">${p.category}</div><h3>${p.name}</h3><p>${p.short}</p><div class="tag-row">${(p.tags||[]).slice(0,3).map(t=>`<small>${t}</small>`).join('')}</div><div class="price-row"><span class="price">${p.priceText}</span><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button></div><a class="btn btn-exness" href="https://one.exnessonelink.com/intl/vi/a/20jf6d0igf" target="_blank">🎁 Đăng ký Exness — Nhận miễn phí</a><div class="product-actions"><button class="btn btn-blue" onclick="selectProduct('${p.id}')">Xem nhanh</button><a class="btn btn-blue" href="${productPageUrl(p.id)}">Trang SEO</a></div></div></article>`).join('')||'<div class="empty">Không tìm thấy sản phẩm phù hợp.</div>';observeReveal()}
+function selectProduct(id){currentProduct=PRODUCTS.find(p=>p.id===id)||PRODUCTS[0];renderDetail(currentProduct);syncProductSelects(currentProduct.id);document.getElementById('details')?.scrollIntoView({behavior:'smooth'})}
+function renderDetail(p){const box=document.getElementById('detailBox');if(!box)return;const thumbs=p.images.map((img,i)=>`<img src="${img}" class="${i===0?'active':''}" onclick="setMainImage('${img}',this)" alt="${p.name} ảnh ${i+1}">`).join('');const warning=p.warning?`<div class="warning-box">⚠️ ${p.warning}</div>`:'';const faq=(p.faq||[]).map((f,i)=>`<details ${i===0?'open':''}><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');const video=`<div class="video-box"><span>🎬</span><h4>${p.videoTitle||'Video demo'}</h4><p>${p.videoText||'Video sẽ được cập nhật.'}</p></div>`;const lore=p.id==='chien-truong-sinh-tu-g63'?`<div class="lore-box"><h4>👑 Cốt truyện sản phẩm</h4><p>Thiên hạ chia ba. Mỗi phiên giao dịch là một trận sa trường. Người dùng không mua một lời cam kết lợi nhuận, mà bước vào hành trình Tam Quốc: chiếm thành, mở tướng, thu báu vật, hạ Boss và tự thử thách bản lĩnh của chính mình.</p></div>`:'';box.innerHTML=`<div class="detail-layout"><div><div class="gallery-main"><img id="mainGallery" src="${p.images[0]}" alt="${p.name}"></div><div class="thumbs">${thumbs}</div>${video}${lore}</div><div class="detail-copy"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p>${warning}<div class="price">${p.priceText}</div><h4>Tính năng nổi bật</h4><ul class="feature-list">${p.features.map(f=>`<li>✅ ${f}</li>`).join('')}</ul><h4>Hướng dẫn nhận & cài đặt</h4><ul class="install-list">${p.install.map(x=>`<li>➜ ${x}</li>`).join('')}</ul><h4>Câu hỏi thường gặp</h4><div class="faq-list">${faq}</div><div class="modal-actions"><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button><a class="btn btn-exness" href="https://one.exnessonelink.com/intl/vi/a/20jf6d0igf" target="_blank">🎁 Đăng ký Exness — Nhận miễn phí</a><a class="btn btn-blue" href="${productPageUrl(p.id)}">Mở trang SEO</a><a class="btn btn-blue" href="${zaloUrl}">Hỏi Zalo</a></div></div></div>`}
 function setMainImage(src,el){document.getElementById('mainGallery').src=src;document.querySelectorAll('.thumbs img').forEach(i=>i.classList.remove('active'));el.classList.add('active')}
-function renderCompare(){const t=document.getElementById('compareTable');t.innerHTML=`<thead><tr><th>Sản phẩm</th><th>Giá</th><th>Loại</th><th>Định vị</th><th>Hành động</th></tr></thead><tbody>${PRODUCTS.map(p=>`<tr><td><b>${p.name}</b></td><td>${p.priceText}</td><td>${p.category}</td><td>${p.tags?.slice(0,4).join(' • ')||''}</td><td><button class="mini-btn" onclick="selectProduct('${p.id}')">Xem</button></td></tr>`).join('')}</tbody>`}
-function renderUpdates(){const el=document.getElementById('updateList');el.innerHTML=UPDATES.map(u=>`<div class="time-item"><span>${u.date}</span><h3>${u.version}</h3><p>${u.text}</p></div>`).join('')}
+function renderCompare(){const t=document.getElementById('compareTable');if(!t)return;t.innerHTML=`<thead><tr><th>Sản phẩm</th><th>Giá</th><th>Loại</th><th>Định vị</th><th>Hành động</th></tr></thead><tbody>${PRODUCTS.map(p=>`<tr><td><b>${p.name}</b></td><td>${p.priceText}</td><td>${p.category}</td><td>${p.tags?.slice(0,4).join(' • ')||''}</td><td><button class="mini-btn" onclick="selectProduct('${p.id}')">Xem</button></td></tr>`).join('')}</tbody>`}
+function renderUpdates(){const el=document.getElementById('updateList');if(!el)return;el.innerHTML=UPDATES.map(u=>`<div class="time-item"><span>${u.date}</span><h3>${u.version}</h3><p>${u.text}</p></div>`).join('')}
 function openCheckoutById(id){openCheckout(PRODUCTS.find(p=>p.id===id)||PRODUCTS[0])}
 function openCheckout(p){syncProductSelects(p.id);document.getElementById('payName').innerText=p.name;document.getElementById('payPrice').innerText=p.priceText;document.getElementById('payNote').innerText=p.name;document.getElementById('paidNotice').style.display='none';const qrImg=document.getElementById('qrBankImg');if(qrImg){const addInfo=encodeURIComponent(p.name+' Zalo 0822299993');qrImg.src='https://img.vietqr.io/image/970415-888889060666-compact2.png?addInfo='+addInfo+'&accountName=NGUYEN%20HOANG%20PHUONG';qrImg.onerror=function(){this.onerror=null;this.src='assets/images/qr-bank.png.jpg'}}document.getElementById('checkout').style.display='flex'}
 function closeCheckout(){document.getElementById('checkout').style.display='none'}
 function showPaidNotice(){document.getElementById('paidNotice').style.display='block';setTimeout(()=>{closeCheckout()},1200)}
 function observeReveal(){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}
-function heroSlider(){const imgs=[...new Set(PRODUCTS.flatMap(p=>p.images))];let i=0;const el=document.getElementById('heroSlide');setInterval(()=>{i=(i+1)%imgs.length;el.src=imgs[i]},3300)}
+function heroSlider(){const imgs=[...new Set(PRODUCTS.flatMap(p=>p.images))];let i=0;const el=document.getElementById('heroSlide');if(!el)return;setInterval(()=>{i=(i+1)%imgs.length;el.src=imgs[i]},3300)}
 function fillOrderProducts(){const opts=PRODUCTS.map(p=>`<option value="${p.id}">${p.name} - ${p.priceText}</option>`).join('');['orderProduct','receiptProduct'].forEach(id=>{const sel=document.getElementById(id);if(sel)sel.innerHTML=opts})}
 function selectedOrderProduct(){const id=document.getElementById('orderProduct')?.value;return PRODUCTS.find(p=>p.id===id)||PRODUCTS[0]}
 function selectedReceiptProduct(){const id=document.getElementById('receiptProduct')?.value||document.getElementById('orderProduct')?.value;return PRODUCTS.find(p=>p.id===id)||PRODUCTS[0]}
@@ -34,11 +34,9 @@ function copyReceiptText(){const text=buildReceiptMessage();navigator.clipboard?
 function updateReceiptPreview(){const p=selectedReceiptProduct();const code='G63-V18-'+p.id.slice(0,8).toUpperCase();const licenseCode=document.getElementById('licenseCode');const licenseProduct=document.getElementById('licenseProduct');if(licenseCode)licenseCode.innerText=code;if(licenseProduct)licenseProduct.innerText=p.name;const preview=document.getElementById('receiptPreview');if(preview)preview.innerText=buildReceiptMessage()}
 function updateReadyScore(){const boxes=[...document.querySelectorAll('[data-ready]')];const done=boxes.filter(x=>x.checked).length;const score=document.getElementById('readyScore');const text=document.getElementById('readyText');if(score)score.innerText=done+'/'+boxes.length;if(text)text.innerText=done===boxes.length?'Đã đủ checklist cơ bản. Khách có thể tiếp tục đặt mua, vẫn cần tự chịu trách nhiệm giao dịch.':'Hãy tick đủ checklist trước khi mua sản phẩm nâng cao.'}
 document.addEventListener('DOMContentLoaded',()=>{const kpiEl=document.getElementById('kpiProducts');if(kpiEl)kpiEl.innerText=PRODUCTS.length+'+';renderFilters();renderProducts();renderDetail(PRODUCTS[0]);renderCompare();renderUpdates();fillOrderProducts();syncProductSelects(PRODUCTS[0].id);observeReveal();heroSlider();document.getElementById('searchInput')?.addEventListener('input',renderProducts);document.querySelector('[data-buy-first]')?.addEventListener('click',()=>openCheckout(PRODUCTS[0]));['orderProduct','receiptProduct','receiptName','receiptZalo','receiptAmount','receiptCode','receiptNote','orderName','orderZalo'].forEach(id=>document.getElementById(id)?.addEventListener('input',updateReceiptPreview));document.getElementById('orderProduct')?.addEventListener('change',e=>syncProductSelects(e.target.value));document.getElementById('receiptProduct')?.addEventListener('change',updateReceiptPreview);document.querySelectorAll('[data-ready]').forEach(box=>box.addEventListener('change',updateReadyScore));updateReadyScore();updateReceiptPreview()});
-
 /* ============================================================
    V19 UX NÂNG CẤP
    ============================================================ */
-
 /* ─── LOADING SCREEN ─────────────────────────────────────── */
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -46,7 +44,6 @@ window.addEventListener('load', () => {
     if (s) s.classList.add('hidden');
   }, 1400);
 });
-
 /* ─── BACK TO TOP ────────────────────────────────────────── */
 (function () {
   const btn = document.getElementById('back-to-top');
@@ -58,12 +55,10 @@ window.addEventListener('load', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
-
 /* ─── DARK / LIGHT MODE ──────────────────────────────────── */
 (function () {
   const btn = document.getElementById('mode-toggle');
   if (!btn) return;
-  // Khôi phục mode đã lưu
   if (localStorage.getItem('g63-mode') === 'light') {
     document.body.classList.add('light-mode');
     btn.textContent = '🌙';
@@ -76,7 +71,6 @@ window.addEventListener('load', () => {
     localStorage.setItem('g63-mode', isLight ? 'light' : 'dark');
   });
 })();
-
 /* ─── COUNTER ANIMATION cho KPI ─────────────────────────── */
 (function () {
   function animateCount(el, end, suffix, duration) {
@@ -90,11 +84,9 @@ window.addEventListener('load', () => {
       if (cur >= end) clearInterval(timer);
     }, 16);
   }
-
   const targets = [
     { id: 'kpiProducts', suffix: '+' },
   ];
-
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -105,7 +97,6 @@ window.addEventListener('load', () => {
       io.unobserve(el);
     });
   }, { threshold: 0.6 });
-
   targets.forEach(t => {
     const el = document.getElementById(t.id);
     if (el) io.observe(el);
