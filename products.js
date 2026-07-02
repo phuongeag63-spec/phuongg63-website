@@ -18,7 +18,7 @@ const PRODUCTS = [
     install: ['Chỉ nên dùng bởi trader có kinh nghiệm và hiểu rõ rủi ro','Nhận file EX5 sau khi xác nhận thanh toán','Copy file vào MQL5 → Experts','Khởi động lại MT5 và kéo EA lên chart','Cài Magic, tài sản, TP, BE, EMA, tỉa lệnh và mục tiêu','Trader tự chịu trách nhiệm chiến lược; EA phục vụ phần quản lý và trải nghiệm chiến trường'],
     faq:[['EA này có cam kết lợi nhuận không?','Không. Đây là sản phẩm trải nghiệm Tam Quốc và công cụ quản lý giao dịch, không phải lời hứa lợi nhuận.'],['Người mới có nên mua không?','Không nên. Sản phẩm dành cho người có vốn, có chiến lược và hiểu rủi ro.'],['Vì sao giá cao?','Đây là phiên bản Collector / Top Khủng với hệ thống giao diện, gamification và trải nghiệm rất khác biệt.']],
     warning:'Không cam kết lợi nhuận. Không dành cho người mới. Không nên mua nếu chưa có chiến lược, chưa hiểu quản trị vốn hoặc mong EA tự làm giàu.',
-    videoTitle:'', videoText:''
+    videoTitle:'Demo EA Chiến Trường Sinh Tử G63', videoText:'Video demo 20 giây — hành trình Tam Quốc trong từng phiên giao dịch.', video:'assets/chientruongsinhtU_demo.mp4'
   },
   {
     id: 'han-bang-chuong-g63', name: 'HÀN BĂNG CHƯỞNG G63', category: 'Manual Trading Cockpit', categoryKey:'manual', badge:'NEW PREMIUM', price:1400000, priceText:'1.400.000đ', rating:'5.0',
