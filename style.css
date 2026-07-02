@@ -317,3 +317,40 @@ button:focus-visible {
   outline-offset: 3px;
   border-radius: 4px;
 }
+/* ─── MOBILE FIX: Blog & Nhat Ky ───────────────────────── */
+@media (max-width: 768px) {
+  /* Trang blog.html */
+  .news-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .sidebar {
+    margin-top: 24px;
+  }
+  .featured-title {
+    font-size: 1.4rem !important;
+    line-height: 1.4 !important;
+  }
+  .featured-excerpt {
+    font-size: 0.88rem !important;
+    -webkit-line-clamp: 3 !important;
+  }
+
+  /* Homepage #nhat-ky */
+  #nhat-ky .nk-grid,
+  #nhat-ky [class*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Exness promo card */
+  .exness-card,
+  [class*="exness"] {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
+    padding: 20px 16px !important;
+  }
+  .exness-card .btn,
+  [class*="exness"] .btn {
+    width: 100% !important;
+  }
+}
