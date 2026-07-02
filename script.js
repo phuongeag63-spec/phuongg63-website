@@ -4,11 +4,6 @@ const accountName='NGUYEN HOANG PHUONG';
 const zaloUrl='https://zalo.me/84822299993';
 let currentProduct=PRODUCTS[0];
 let activeFilter='all';
-function stripDia(str){return str.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D')}
-function crc16(str){let c=0xFFFF;for(let i=0;i<str.length;i++){c^=(str.charCodeAt(i)<<8);for(let j=0;j<8;j++){c=(c&0x8000)?((c<<1)^0x1021):(c<<1);c&=0xFFFF;}}return c.toString(16).toUpperCase().padStart(4,'0')}
-function emv(id,v){const s=String(v);return id+String(s.length).padStart(2,'0')+s}
-function buildVietQR(price,name){const mai=emv('00','A000000727')+emv('01','0006'+bankId)+emv('02',accountNo)+emv('03','QRIBFTTC');const bill=stripDia(name).substring(0,25);const adf=emv('01',bill);let data=emv('00','01')+emv('01','12')+emv('38',mai)+emv('52','0000')+emv('53','704')+(price>0?emv('54',String(price)):'')+emv('58','VN')+emv('59',accountName.substring(0,25))+emv('60','HO CHI MINH')+emv('62',adf)+'6304';return data+crc16(data)}
-function renderQR(p){const el=document.getElementById('payQr');if(!el)return;el.innerHTML='';if(typeof QRCode==='undefined'){el.innerHTML='<div style="font-size:12px;color:rgba(255,100,100,.8);padding:16px;text-align:center">⚠️ Chưa tải được thư viện QR. Vui lòng chuyển khoản theo thông tin bên dưới.</div>';return;}try{new QRCode(el,{text:buildVietQR(p.price,p.name),width:200,height:200,colorDark:'#000000',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M})}catch(e){el.innerHTML='<div style="font-size:12px;color:rgba(255,100,100,.8);padding:16px;text-align:center">⚠️ Không tạo được QR. Vui lòng chuyển khoản theo thông tin bên dưới.</div>'}}
 function cats(){return ['all',...new Set(PRODUCTS.map(p=>p.categoryKey))]}
 function catLabel(k){return {all:'Tất cả',tamquoc:'Tam Quốc',manual:'Đánh tay',dashboard:'Dashboard',ea:'EA Premium',coming:'Sắp cập nhật'}[k]||k}
 function productPageUrl(id){return 'san-pham/'+id+'/'}
@@ -22,7 +17,7 @@ function setMainImage(src,el){document.getElementById('mainGallery').src=src;doc
 function renderCompare(){const t=document.getElementById('compareTable');t.innerHTML=`<thead><tr><th>Sản phẩm</th><th>Giá</th><th>Loại</th><th>Định vị</th><th>Hành động</th></tr></thead><tbody>${PRODUCTS.map(p=>`<tr><td><b>${p.name}</b></td><td>${p.priceText}</td><td>${p.category}</td><td>${p.tags?.slice(0,4).join(' • ')||''}</td><td><button class="mini-btn" onclick="selectProduct('${p.id}')">Xem</button></td></tr>`).join('')}</tbody>`}
 function renderUpdates(){const el=document.getElementById('updateList');el.innerHTML=UPDATES.map(u=>`<div class="time-item"><span>${u.date}</span><h3>${u.version}</h3><p>${u.text}</p></div>`).join('')}
 function openCheckoutById(id){openCheckout(PRODUCTS.find(p=>p.id===id)||PRODUCTS[0])}
-function openCheckout(p){syncProductSelects(p.id);document.getElementById('payName').innerText=p.name;document.getElementById('payPrice').innerText=p.priceText;document.getElementById('payNote').innerText=p.name;renderQR(p);document.getElementById('paidNotice').style.display='none';document.getElementById('checkout').style.display='flex'}
+function openCheckout(p){syncProductSelects(p.id);document.getElementById('payName').innerText=p.name;document.getElementById('payPrice').innerText=p.priceText;document.getElementById('payNote').innerText=p.name;document.getElementById('paidNotice').style.display='none';document.getElementById('checkout').style.display='flex'}
 function closeCheckout(){document.getElementById('checkout').style.display='none'}
 function showPaidNotice(){document.getElementById('paidNotice').style.display='block';setTimeout(()=>{closeCheckout()},1200)}
 function observeReveal(){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}
