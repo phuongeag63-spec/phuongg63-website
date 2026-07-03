@@ -977,6 +977,20 @@
 
 /* ── MOBILE RESPONSIVE ── */
 @media (max-width: 768px) {
+  /* Zalo button trên mobile: nhỏ lại, nằm trên bottom nav */
+  .zalo-float-vip {
+    bottom: 74px !important;
+    right: 14px !important;
+    padding: 10px !important;
+    border-radius: 50% !important;
+    width: 48px !important;
+    height: 48px !important;
+    justify-content: center !important;
+    animation: none !important;
+  }
+  .zalo-cta { display: none !important; }
+  .zalo-pulse { top: -3px !important; right: -3px !important; }
+
   /* Stack 2-col stats vào 1 cột */
   .stats-2col {
     grid-template-columns: 1fr !important;
