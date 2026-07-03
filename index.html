@@ -401,7 +401,7 @@
   }
   function excerpt(body,len){return body.replace(/#{1,6}\s.*\n?/g,'').replace(/\*\*|__|\*|_|`/g,'').replace(/\n/g,' ').trim().slice(0,len||100)+'…';}
   function fmtDate(d){try{return new Date(d).toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'});}catch(e){return d||'';}}
-  function heroImgErr(el){el.parentNode.innerHTML='<div style="width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:64px">📝</div>';}
+  window.heroImgErr=function(el){el.parentNode.innerHTML='<div style="width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:64px">📝</div>';}
 
   function resultBadge(r){
     if(!r)return'';
