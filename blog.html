@@ -419,7 +419,7 @@ function renderFeatured(post) {
 // ─── RENDER SIDEBAR ─────────────────────────────────────────────────
 function renderSidebar(posts) {
   if (!posts.length) return '';
-  const items = posts.slice(0, 6).map(p => {
+  const items = posts.slice(0, 4).map(p => {
     const img = p.image
       ? `<img class="side-img" src="${fixImg(p.image)}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'">`
       : `<div class="side-img-placeholder">${p.emoji || '📖'}</div>`;
@@ -485,8 +485,8 @@ function renderAll() {
   // Render featured + sidebar
   layout.innerHTML = renderFeatured(featured) + renderSidebar(rest);
 
-  // Render remaining grid (bỏ qua 7 bài đầu đã hiện sidebar)
-  const gridPosts = rest.slice(6);
+  // Render remaining grid (bỏ qua 5 bài đầu đã hiện sidebar)
+  const gridPosts = rest.slice(4);
   if (gridPosts.length) {
     moreSection.style.display = 'block';
     grid.innerHTML = gridPosts.map(renderCard).join('');
