@@ -1,142 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Trang chủ -->
   <url>
     <loc>https://phuongg63.com/</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Blog -->
   <url>
     <loc>https://phuongg63.com/blog.html</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Trang sản phẩm / hướng dẫn -->
   <url>
-    <loc>https://phuongg63.com/huong-dan-sau-mua.html</loc>
+    <loc>https://phuongg63.com/san-pham</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/ea-vs-trade-tay-cai-nao-phu-hop-voi-ban.html</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phuongg63.com/hoc-vien.html</loc>
+    <loc>https://phuongg63.com/nhat-ky/2026-07-03-tu-ha-noi-nhin-ve.html</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phuongg63.com/vmdt-guide.html</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Dịch vụ -->
-  <url>
-    <loc>https://phuongg63.com/lap-trinh-ea.html</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Chính sách -->
-  <url>
-    <loc>https://phuongg63.com/chinh-sach-mua-hang.html</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://phuongg63.com/privacy.html</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://phuongg63.com/terms.html</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <!-- Bài viết blog -->
-  <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-07-03-bai-hoc-dat-gia-khi-giup-nguoi-ban-vo-on</loc>
+    <loc>https://phuongg63.com/nhat-ky/2026-07-03-giua-rung-thong-da-lat.html</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-07-03-bi-quyet-giu-von-khi-thi-truong-di-nguoc</loc>
+    <loc>https://phuongg63.com/nhat-ky/2026-07-03-dem-ngoi-mot-minh-ben-song.html</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-07-01-ea-co-thuc-su-hoat-dong-khong</loc>
+    <loc>https://phuongg63.com/nhat-ky/2026-07-03-bi-quyet-giu-von-khi-thi-truong-di-nguoc.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/2026-07-03-bai-hoc-dat-gia-khi-giup-nguoi-ban-vo-on.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/tai-sao-backtest-dep-ma-live-thua.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/tich-nhat-lenh-nho-thanh-dong-tien-on-dinh.html</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-06-28-tai-sao-90-phan-tram-trader-thua-lo</loc>
+    <loc>https://phuongg63.com/nhat-ky/gioi-thieu-phuongg63.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/3-loi-khi-moi-bat-dau-dung-ea.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/2026-07-01-ea-co-thuc-su-hoat-dong-khong.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/ema100-khong-phai-chen-thanh-ma-la-kim-chi-nam-giup-trader-ton-tai-lau-dai.html</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=ema100-khong-phai-chen-thanh-ma-la-kim-chi-nam-giup-trader-ton-tai-lau-dai</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=tai-sao-backtest-dep-ma-live-thua</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=ea-vs-trade-tay-cai-nao-phu-hop-voi-ban</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=3-loi-khi-moi-bat-dau-dung-ea</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=tich-nhat-lenh-nho-thanh-dong-tien-on-dinh</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-07-03-dem-ngoi-mot-minh-ben-song</loc>
-    <lastmod>2026-07-03</lastmod>
+    <loc>https://phuongg63.com/nhat-ky/ema100-final-correct.html</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-07-03-giua-rung-thong-da-lat</loc>
-    <lastmod>2026-07-03</lastmod>
+    <loc>https://phuongg63.com/nhat-ky/2026-06-28-tai-sao-90-phan-tram-trader-thua-lo.html</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-07-03-tu-ha-noi-nhin-ve</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
 </urlset>

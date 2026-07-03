@@ -6,8 +6,10 @@
 const fs   = require('fs');
 const path = require('path');
 
-const NHAT_KY_DIR = path.join(__dirname, 'nhat-ky');
-const OUTPUT_FILE = path.join(__dirname, 'posts.json');
+const NHAT_KY_DIR  = path.join(__dirname, 'nhat-ky');
+const OUTPUT_FILE  = path.join(__dirname, 'posts.json');
+const SITEMAP_FILE = path.join(__dirname, 'sitemap.xml');
+const BASE_URL     = 'https://phuongg63.com';
 
 // Đọc frontmatter từ file .md
 function parseFrontmatter(content) {
@@ -105,6 +107,90 @@ function scanPosts() {
   return posts;
 }
 
+// Tạo sitemap.xml
+function generateSitemap(posts) {
+  const today = new Date().toISOString().split('T')[0];
+  const staticPages = [
+    { loc: BASE_URL + '/',          priority: '1.0', changefreq: 'weekly',  lastmod: today },
+    { loc: BASE_URL + '/blog.html', priority: '0.9', changefreq: 'daily',   lastmod: today },
+    { loc: BASE_URL + '/san-pham',  priority: '0.8', changefreq: 'weekly',  lastmod: today },
+  ];
+  const postPages = posts.map(p => ({
+    loc: `${BASE_URL}/nhat-ky/${p.file}.html`,
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: p.date || today,
+  }));
+  const allUrls = [...staticPages, ...postPages];
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allUrls.map(u => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${u.lastmod}</lastmod>
+    <changefreq>${u.changefreq}</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+  fs.writeFileSync(SITEMAP_FILE, xml, 'utf8');
+  console.log(`✅ Đã tạo sitemap.xml với ${allUrls.length} URLs`);
+}
+
+// Tạo file HTML tĩnh cho mỗi bài (giúp Google index tốt hơn)
+function generateStaticPages(posts) {
+  const { marked } = require('marked');
+  let count = 0;
+  for (const p of posts) {
+    const mdPath = path.join(NHAT_KY_DIR, p.file + '.md');
+    if (!fs.existsSync(mdPath)) continue;
+    const raw = fs.readFileSync(mdPath, 'utf8');
+    const body = raw.replace(/^---[\s\S]*?---\r?\n/, '');
+    const htmlBody = marked.parse(body);
+    const image = p.image ? `https://phuongg63.com${p.image}` : 'https://phuongg63.com/assets/images/chien-truong-sinh-tu-poster.png';
+    const canonical = `${BASE_URL}/nhat-ky/${p.file}.html`;
+    const html = `<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${p.title} | Phương G63</title>
+<meta name="description" content="${p.excerpt.replace(/"/g,'&quot;')}">
+<meta name="author" content="Phương G63">
+<link rel="canonical" href="${canonical}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${p.title}">
+<meta property="og:description" content="${p.excerpt.replace(/"/g,'&quot;')}">
+<meta property="og:image" content="${image}">
+<meta property="og:url" content="${canonical}">
+<meta property="article:published_time" content="${p.date}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"${p.title.replace(/"/g,'\\"')}","description":"${p.excerpt.replace(/"/g,'\\"')}","datePublished":"${p.date}","author":{"@type":"Person","name":"Phương G63","url":"${BASE_URL}/"},"publisher":{"@type":"Person","name":"Phương G63"},"url":"${canonical}","image":"${image}"}
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8KME2DB3L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-B8KME2DB3L');</script>
+<style>
+body{font-family:system-ui,sans-serif;max-width:800px;margin:0 auto;padding:20px 24px;line-height:1.7;color:#e8e0f0;background:#07040b}
+h1,h2,h3{color:#ffd36a}img{max-width:100%;border-radius:12px}a{color:#ffd36a}
+.back{display:inline-block;margin-bottom:24px;color:#ffd36a;text-decoration:none;font-weight:700}
+.meta{color:rgba(255,255,255,.5);font-size:14px;margin-bottom:32px}
+</style>
+</head>
+<body>
+<a class="back" href="/blog.html">← Quay lại Nhật ký</a>
+<h1>${p.title}</h1>
+<div class="meta">📅 ${p.date} &nbsp;·&nbsp; ${p.category}</div>
+${p.image ? `<img src="${p.image}" alt="${p.title}" style="width:100%;margin-bottom:24px">` : ''}
+<article>${htmlBody}</article>
+<hr style="border-color:rgba(255,211,106,.2);margin:40px 0">
+<p><a href="/blog.html">← Xem tất cả bài viết</a></p>
+</body>
+</html>`;
+    fs.writeFileSync(path.join(NHAT_KY_DIR, p.file + '.html'), html, 'utf8');
+    count++;
+  }
+  console.log(`✅ Đã tạo ${count} trang HTML tĩnh trong nhat-ky/`);
+}
+
 // Chạy
 const posts = scanPosts();
 fs.writeFileSync(OUTPUT_FILE, JSON.stringify(posts, null, 2), 'utf8');
@@ -113,3 +199,5 @@ posts.slice(0, 5).forEach((p, i) =>
   console.log(`   ${i+1}. [${p.date}] ${p.title.slice(0, 50)}`)
 );
 if (posts.length > 5) console.log(`   ... và ${posts.length - 5} bài nữa`);
+generateSitemap(posts);
+generateStaticPages(posts);
