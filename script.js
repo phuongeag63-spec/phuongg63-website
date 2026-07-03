@@ -135,7 +135,6 @@ window.addEventListener('load', () => {
 
 /* ─── SOCIAL PROOF POPUP ─────────────────────────── */
 (function () {
-  // Thêm animation CSS
   const style = document.createElement('style');
   style.textContent = `
     @keyframes spIn {
@@ -147,16 +146,69 @@ window.addEventListener('load', () => {
   document.head.appendChild(style);
 
   const buyers = [
-    { name: 'Nguyễn V.T · TP.HCM',   product: 'Chiến Trường Sinh Tử G63',  time: '2 phút trước' },
-    { name: 'Trần M.H · Hà Nội',      product: 'Đại Bản Doanh G63 V8',      time: '7 phút trước' },
-    { name: 'Lê Q.A · Đà Nẵng',       product: 'Hàn Băng Chưởng G63',       time: '14 phút trước' },
-    { name: 'Phạm T.B · Cần Thơ',     product: 'Chiến Trường Sinh Tử G63',  time: '21 phút trước' },
-    { name: 'Hoàng V.C · Hải Phòng',  product: 'EA Lục Mạch Thần Kiếm G63', time: '29 phút trước' },
-    { name: 'Đỗ M.D · Bình Dương',    product: 'Đại Bản Doanh G63 V8',      time: '38 phút trước' },
-    { name: 'Vũ T.E · TP.HCM',        product: 'Phuong G63 RR',             time: '47 phút trước' },
-    { name: 'Bùi Q.F · Hà Nội',       product: 'Chiến Trường Sinh Tử G63',  time: '1 giờ trước' },
-    { name: 'Đinh T.G · Nha Trang',   product: 'Hàn Băng Chưởng G63',       time: '1 giờ 20 phút trước' },
-    { name: 'Cao V.H · Hồ Chí Minh',  product: 'Đại Bản Doanh G63 V8',      time: '2 giờ trước' },
+    { name: 'Nguyễn V.T · TP.HCM',      product: 'Chiến Trường Sinh Tử G63',   time: '2 phút trước' },
+    { name: 'Trần M.H · Hà Nội',         product: 'Đại Bản Doanh G63 V8',       time: '5 phút trước' },
+    { name: 'Lê Q.A · Đà Nẵng',          product: 'Hàn Băng Chưởng G63',        time: '11 phút trước' },
+    { name: 'Phạm T.B · Cần Thơ',        product: 'Chiến Trường Sinh Tử G63',   time: '18 phút trước' },
+    { name: 'Hoàng V.C · Hải Phòng',     product: 'EA Lục Mạch Thần Kiếm G63', time: '24 phút trước' },
+    { name: 'Đỗ M.D · Bình Dương',       product: 'Đại Bản Doanh G63 V8',       time: '31 phút trước' },
+    { name: 'Vũ T.E · TP.HCM',           product: 'Phuong G63 RR',              time: '39 phút trước' },
+    { name: 'Bùi Q.F · Hà Nội',          product: 'Chiến Trường Sinh Tử G63',   time: '47 phút trước' },
+    { name: 'Đinh T.G · Nha Trang',      product: 'Hàn Băng Chưởng G63',        time: '55 phút trước' },
+    { name: 'Cao V.H · Hồ Chí Minh',     product: 'Đại Bản Doanh G63 V8',       time: '1 giờ trước' },
+    { name: 'Lý T.K · Huế',              product: 'Chiến Trường Sinh Tử G63',   time: '1 giờ 10 phút trước' },
+    { name: 'Phan V.L · Vũng Tàu',       product: 'EA Lục Mạch Thần Kiếm G63', time: '1 giờ 22 phút trước' },
+    { name: 'Ngô T.M · Bắc Ninh',        product: 'Đại Bản Doanh G63 V8',       time: '1 giờ 35 phút trước' },
+    { name: 'Tống V.N · TP.HCM',         product: 'Hàn Băng Chưởng G63',        time: '1 giờ 48 phút trước' },
+    { name: 'Dương T.O · Hà Nội',        product: 'Chiến Trường Sinh Tử G63',   time: '2 giờ trước' },
+    { name: 'Trịnh V.P · Đồng Nai',      product: 'Phuong G63 RR',              time: '2 giờ 15 phút trước' },
+    { name: 'Lưu T.Q · Cần Thơ',         product: 'Đại Bản Doanh G63 V8',       time: '2 giờ 30 phút trước' },
+    { name: 'Hồ V.R · Đà Nẵng',          product: 'Chiến Trường Sinh Tử G63',   time: '2 giờ 45 phút trước' },
+    { name: 'Đặng T.S · Hải Phòng',      product: 'Hàn Băng Chưởng G63',        time: '3 giờ trước' },
+    { name: 'Mai V.T · Bình Dương',       product: 'EA Lục Mạch Thần Kiếm G63', time: '3 giờ 20 phút trước' },
+    { name: 'Kiều T.U · TP.HCM',         product: 'Chiến Trường Sinh Tử G63',   time: '3 giờ 40 phút trước' },
+    { name: 'Tăng V.V · Hà Nội',         product: 'Đại Bản Doanh G63 V8',       time: '4 giờ trước' },
+    { name: 'Văn T.W · Long An',          product: 'Phuong G63 RR',              time: '4 giờ 15 phút trước' },
+    { name: 'Thái V.X · Nghệ An',        product: 'Hàn Băng Chưởng G63',        time: '4 giờ 30 phút trước' },
+    { name: 'Chu T.Y · TP.HCM',          product: 'Chiến Trường Sinh Tử G63',   time: '5 giờ trước' },
+    { name: 'La V.Z · Hà Nội',           product: 'EA Lục Mạch Thần Kiếm G63', time: '5 giờ 20 phút trước' },
+    { name: 'Bạch T.A · Đà Lạt',         product: 'Đại Bản Doanh G63 V8',       time: '5 giờ 40 phút trước' },
+    { name: 'Tô V.B · Quảng Ngãi',       product: 'Chiến Trường Sinh Tử G63',   time: '6 giờ trước' },
+    { name: 'Ung T.C · TP.HCM',          product: 'Hàn Băng Chưởng G63',        time: '6 giờ 30 phút trước' },
+    { name: 'Liêu V.D · Hà Nội',         product: 'Phuong G63 RR',              time: '7 giờ trước' },
+    { name: 'Khúc T.E · Hưng Yên',       product: 'Chiến Trường Sinh Tử G63',   time: '7 giờ 30 phút trước' },
+    { name: 'Cù V.F · Tiền Giang',       product: 'Đại Bản Doanh G63 V8',       time: '8 giờ trước' },
+    { name: 'Quách T.G · TP.HCM',        product: 'EA Lục Mạch Thần Kiếm G63', time: '8 giờ 30 phút trước' },
+    { name: 'Từ V.H · Hà Nội',           product: 'Chiến Trường Sinh Tử G63',   time: '9 giờ trước' },
+    { name: 'Đoàn T.I · Bắc Giang',      product: 'Hàn Băng Chưởng G63',        time: '9 giờ 30 phút trước' },
+    { name: 'Phó V.J · Khánh Hòa',       product: 'Phuong G63 RR',              time: '10 giờ trước' },
+    { name: 'Linh T.K · TP.HCM',         product: 'Chiến Trường Sinh Tử G63',   time: '10 giờ 30 phút trước' },
+    { name: 'Minh V.L · Hà Nội',         product: 'Đại Bản Doanh G63 V8',       time: '11 giờ trước' },
+    { name: 'Hùng T.M · Thái Nguyên',    product: 'EA Lục Mạch Thần Kiếm G63', time: '11 giờ 30 phút trước' },
+    { name: 'Dũng V.N · TP.HCM',         product: 'Chiến Trường Sinh Tử G63',   time: '12 giờ trước' },
+    { name: 'Tuấn T.O · Đà Nẵng',        product: 'Hàn Băng Chưởng G63',        time: '12 giờ 30 phút trước' },
+    { name: 'Khoa V.P · Hà Nội',         product: 'Phuong G63 RR',              time: '13 giờ trước' },
+    { name: 'Nam T.Q · Quảng Nam',       product: 'Chiến Trường Sinh Tử G63',   time: '13 giờ 30 phút trước' },
+    { name: 'Đức V.R · TP.HCM',          product: 'Đại Bản Doanh G63 V8',       time: '14 giờ trước' },
+    { name: 'Thắng T.S · Hải Dương',     product: 'EA Lục Mạch Thần Kiếm G63', time: '14 giờ 30 phút trước' },
+    { name: 'Long V.T · Bình Phước',     product: 'Chiến Trường Sinh Tử G63',   time: '15 giờ trước' },
+    { name: 'Phong T.U · Hà Nội',        product: 'Hàn Băng Chưởng G63',        time: '15 giờ 30 phút trước' },
+    { name: 'Quang V.V · TP.HCM',        product: 'Phuong G63 RR',              time: '16 giờ trước' },
+    { name: 'Sang T.W · Tây Ninh',       product: 'Chiến Trường Sinh Tử G63',   time: '16 giờ 30 phút trước' },
+    { name: 'Tài V.X · Hà Nội',          product: 'Đại Bản Doanh G63 V8',       time: '17 giờ trước' },
+    { name: 'Toàn T.Y · Lâm Đồng',      product: 'EA Lục Mạch Thần Kiếm G63', time: '17 giờ 30 phút trước' },
+    { name: 'Trung V.Z · TP.HCM',        product: 'Chiến Trường Sinh Tử G63',   time: '18 giờ trước' },
+    { name: 'Việt T.A · Hà Nội',         product: 'Hàn Băng Chưởng G63',        time: '18 giờ 30 phút trước' },
+    { name: 'Xuân V.B · Đồng Tháp',      product: 'Phuong G63 RR',              time: '19 giờ trước' },
+    { name: 'Yên T.C · TP.HCM',          product: 'Chiến Trường Sinh Tử G63',   time: '19 giờ 30 phút trước' },
+    { name: 'An V.D · Bến Tre',          product: 'Đại Bản Doanh G63 V8',       time: '20 giờ trước' },
+    { name: 'Bình T.E · Hà Nội',         product: 'EA Lục Mạch Thần Kiếm G63', time: '20 giờ 30 phút trước' },
+    { name: 'Công V.F · Hà Nam',         product: 'Chiến Trường Sinh Tử G63',   time: '21 giờ trước' },
+    { name: 'Danh T.G · TP.HCM',         product: 'Hàn Băng Chưởng G63',        time: '21 giờ 30 phút trước' },
+    { name: 'Em V.H · Vĩnh Long',        product: 'Phuong G63 RR',              time: '22 giờ trước' },
+    { name: 'Phúc T.I · Hà Nội',         product: 'Chiến Trường Sinh Tử G63',   time: '22 giờ 30 phút trước' },
+    { name: 'Giang V.J · An Giang',      product: 'Đại Bản Doanh G63 V8',       time: '23 giờ trước' },
+    { name: 'Hiếu T.K · TP.HCM',         product: 'EA Lục Mạch Thần Kiếm G63', time: '23 giờ 30 phút trước' },
   ];
 
   let idx = Math.floor(Math.random() * buyers.length);
@@ -170,15 +222,15 @@ window.addEventListener('load', () => {
     document.getElementById('sp-time').textContent = '⏱ ' + b.time;
     popup.style.display = 'block';
     popup.style.animation = 'none';
-    void popup.offsetWidth; // reflow để restart animation
+    void popup.offsetWidth;
     popup.style.animation = 'spIn .4s ease';
     idx++;
-    setTimeout(() => { if (popup) popup.style.display = 'none'; }, 6000);
+    setTimeout(() => { if (popup) popup.style.display = 'none'; }, 10000);
   }
 
-  // Popup đầu tiên sau 10 giây, sau đó mỗi 18 giây
+  // Popup đầu tiên sau 10 giây, sau đó mỗi 1 phút
   setTimeout(() => {
     showNext();
-    setInterval(showNext, 18000);
+    setInterval(showNext, 60000);
   }, 10000);
 })();
