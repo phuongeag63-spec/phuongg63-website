@@ -48,7 +48,9 @@
 
   function fmt(d) {
     if (!d) return '';
-    const p = d.split('-');
+    // Hỗ trợ cả YYYY-MM-DD và ISO datetime string
+    const dateOnly = d.substring(0, 10);
+    const p = dateOnly.split('-');
     return p[2] + '/' + p[1] + '/' + p[0];
   }
 
@@ -106,19 +108,23 @@
     </a>`;
   }
 
-  // Card mini — hàng dưới
+  // Card mini — hàng dưới (có ảnh trên đầu kiểu 24h)
   function cardMini(p) {
     return `
     <a href="/nhat-ky/post.html?file=${encodeURIComponent(p.file)}"
-       style="border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:block;min-height:130px;transition:.3s;background:linear-gradient(135deg,rgba(255,211,106,.07),rgba(255,159,28,.03));border:1px solid rgba(255,211,106,.2)"
+       style="border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.3s;background:rgba(15,11,22,.9);border:1px solid rgba(255,211,106,.2)"
        onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(255,211,106,.5)'"
        onmouseout="this.style.transform='';this.style.borderColor='rgba(255,211,106,.2)'">
-      <div style="padding:16px;height:100%;display:flex;flex-direction:column;justify-content:space-between">
-        <span style="font-size:10px;padding:3px 8px;border-radius:999px;border:1px solid rgba(255,211,106,.3);background:rgba(255,211,106,.08);color:var(--gold);font-weight:900;display:inline-block">${p.category}</span>
-        <div>
-          <h3 style="font-size:13px;font-weight:900;color:#fff;line-height:1.35;margin:8px 0 5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${p.title}</h3>
-          <span style="font-size:11px;color:var(--gold);font-weight:900">📅 ${fmt(p.date)} · Đọc →</span>
-        </div>
+      ${p.image
+        ? `<div style="width:100%;height:130px;overflow:hidden;flex-shrink:0">
+             <img src="${fixImg(p.image)}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;transition:.3s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
+           </div>`
+        : `<div style="width:100%;height:130px;flex-shrink:0;background:linear-gradient(135deg,#1a0a2e,#0f0620);display:flex;align-items:center;justify-content:center;font-size:40px">📖</div>`
+      }
+      <div style="padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:5px">
+        <span style="font-size:10px;color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:.5px">${p.category}</span>
+        <h3 style="font-size:13px;font-weight:800;color:#fff;line-height:1.4;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${p.title}</h3>
+        <span style="font-size:11px;color:rgba(255,255,255,.4);margin-top:auto">📅 ${fmt(p.date)}</span>
       </div>
     </a>`;
   }
