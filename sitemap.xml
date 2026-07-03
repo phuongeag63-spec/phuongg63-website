@@ -85,6 +85,28 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Bài blog / nhật ký -->
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/bi-quyet-giu-von-khi-thi-truong-di-nguoc.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/ea-co-thuc-su-hoat-dong-khong.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/tai-sao-90-phan-tram-trader-thua-lo.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Trang thông tin -->
   <url>
     <loc>https://phuongg63.com/chinh-sach-mua-hang.html</loc>
