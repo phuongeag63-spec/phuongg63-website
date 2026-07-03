@@ -670,10 +670,48 @@
 }
 
 /* ── MOBILE RESPONSIVE ── */
-@media (max-width: 700px) {
-  /* Stack 2-col stats (MyFXBook + Dashboard) into 1 col */
+@media (max-width: 768px) {
+  /* Stack 2-col stats vào 1 cột */
   .stats-2col {
     grid-template-columns: 1fr !important;
+  }
+
+  /* ── BLOG SECTION trên trang chủ — kiểu 24h.com.vn ── */
+  #blog-top-row {
+    display: block !important;
+    grid-template-columns: unset !important;
+  }
+  /* Hero bài nổi bật: full width, bo góc bỏ */
+  #blog-hero > a {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+  /* Sidebar "Bài viết gần đây": full width bên dưới hero */
+  #blog-side {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 0 !important;
+    background: #0a0710 !important;
+  }
+  /* Header "BÀI VIẾT GẦN ĐÂY": nền vàng chữ đen như 24h.com.vn */
+  #blog-side > div:first-child {
+    background: linear-gradient(135deg, #ffd36a, #ff9f1c) !important;
+    color: #07040b !important;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    padding: 9px 14px !important;
+    font-size: 11px !important;
+  }
+  /* Các side card: thêm padding ngang */
+  #blog-side a {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  /* Bottom row (3 mini cards): ẩn trên mobile để gọn */
+  #blog-bottom-row {
+    display: none !important;
   }
 }
 </style>
