@@ -237,6 +237,10 @@
   ]
 }
 </script>
+<!-- ✅ FONT BE VIETNAM PRO -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
 @keyframes blink {
@@ -781,6 +785,26 @@
   </div>
 </div>
 
+<!-- ✅ BOTTOM NAV BAR MOBILE -->
+<nav class="bottom-nav" id="bottom-nav">
+  <a href="#home" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">
+    <span class="nav-icon">🏠</span>
+    <span>Trang chủ</span>
+  </a>
+  <a href="#products" onclick="document.getElementById('products')?.scrollIntoView({behavior:'smooth'});return false">
+    <span class="nav-icon">🛒</span>
+    <span>Sản phẩm</span>
+  </a>
+  <a href="blog.html">
+    <span class="nav-icon">📝</span>
+    <span>Blog</span>
+  </a>
+  <a href="https://zalo.me/84822299993" target="_blank" class="nav-zalo">
+    <span class="nav-icon">💬</span>
+    <span>Zalo</span>
+  </a>
+</nav>
+
 <!-- ✅ NÚT ZALO NỔI VIP -->
 <a class="zalo-float-vip" href="https://zalo.me/84822299993" target="_blank" rel="noopener">
   <span class="zalo-icon">
@@ -796,6 +820,63 @@
 <script src="products.js"></script>
 <script src="script.js"></script>
 <style>
+/* ── FONT BE VIETNAM PRO ── */
+* { font-family: 'Be Vietnam Pro', 'Inter', system-ui, sans-serif; }
+
+/* ── BOTTOM NAV BAR MOBILE ── */
+.bottom-nav {
+  display: none;
+}
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 8000;
+    background: rgba(8,5,11,.97);
+    border-top: 1px solid rgba(255,211,106,.18);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 6px 0 env(safe-area-inset-bottom, 6px);
+    justify-content: space-around;
+    align-items: center;
+  }
+  .bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+    color: rgba(255,255,255,.38);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    transition: color .15s;
+    min-width: 56px;
+  }
+  .bottom-nav a .nav-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+  .bottom-nav a.active,
+  .bottom-nav a:hover {
+    color: #ffd36a;
+  }
+  .bottom-nav a.nav-zalo {
+    background: linear-gradient(135deg, #0068FF, #0052cc);
+    color: #fff !important;
+    border-radius: 14px;
+    padding: 6px 14px;
+    box-shadow: 0 4px 16px rgba(0,104,255,.45);
+  }
+  /* Đẩy nội dung lên trên bottom nav */
+  body { padding-bottom: 64px; }
+}
+
 .btn-exness {
   display: inline-flex;
   align-items: center;
