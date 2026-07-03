@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tại Sao Backtest Đẹp Mà Live Lại Thua? — Bí Mật Ít Ai Nói Với Bạn | Phương G63</title>
+<meta name="description" content="Bạn tìm được một EA trông rất hứa hẹn.  Backtest 5 năm, equity curve đi lên đẹp như tranh. Win rate 80%. Profit factor 2.5. Drawdown chỉ 8%.  Bạn bật lên...">
+<meta name="author" content="Phương G63">
+<link rel="canonical" href="https://phuongg63.com/nhat-ky/2026-07-01-3-lỗi-tôi-đã-mắc-khi-mới-bắt-đầu-dùng-ea-—-và-cách-tôi-sửa-từng-cái.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tại Sao Backtest Đẹp Mà Live Lại Thua? — Bí Mật Ít Ai Nói Với Bạn">
+<meta property="og:description" content="Bạn tìm được một EA trông rất hứa hẹn.  Backtest 5 năm, equity curve đi lên đẹp như tranh. Win rate 80%. Profit factor 2.5. Drawdown chỉ 8%.  Bạn bật lên...">
+<meta property="og:image" content="https://phuongg63.com/assets/images/phuongnhatkyg63.jpg">
+<meta property="og:url" content="https://phuongg63.com/nhat-ky/2026-07-01-3-lỗi-tôi-đã-mắc-khi-mới-bắt-đầu-dùng-ea-—-và-cách-tôi-sửa-từng-cái.html">
+<meta property="article:published_time" content="2026-07-01T18:37:00.000+07:00">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Tại Sao Backtest Đẹp Mà Live Lại Thua? — Bí Mật Ít Ai Nói Với Bạn","description":"Bạn tìm được một EA trông rất hứa hẹn.  Backtest 5 năm, equity curve đi lên đẹp như tranh. Win rate 80%. Profit factor 2.5. Drawdown chỉ 8%.  Bạn bật lên...","datePublished":"2026-07-01T18:37:00.000+07:00","author":{"@type":"Person","name":"Phương G63","url":"https://phuongg63.com/"},"publisher":{"@type":"Person","name":"Phương G63"},"url":"https://phuongg63.com/nhat-ky/2026-07-01-3-lỗi-tôi-đã-mắc-khi-mới-bắt-đầu-dùng-ea-—-và-cách-tôi-sửa-từng-cái.html","image":"https://phuongg63.com/assets/images/phuongnhatkyg63.jpg"}
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8KME2DB3L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-B8KME2DB3L');</script>
+<style>
+body{font-family:system-ui,sans-serif;max-width:800px;margin:0 auto;padding:20px 24px;line-height:1.7;color:#e8e0f0;background:#07040b}
+h1,h2,h3{color:#ffd36a}img{max-width:100%;border-radius:12px}a{color:#ffd36a}
+.back{display:inline-block;margin-bottom:24px;color:#ffd36a;text-decoration:none;font-weight:700}
+.meta{color:rgba(255,255,255,.5);font-size:14px;margin-bottom:32px}
+</style>
+</head>
+<body>
+<a class="back" href="/blog.html">← Quay lại Nhật ký</a>
+<h1>Tại Sao Backtest Đẹp Mà Live Lại Thua? — Bí Mật Ít Ai Nói Với Bạn</h1>
+<div class="meta">📅 2026-07-01T18:37:00.000+07:00 &nbsp;·&nbsp; Kinh nghiệm</div>
+<img src="/assets/images/phuongnhatkyg63.jpg" alt="Tại Sao Backtest Đẹp Mà Live Lại Thua? — Bí Mật Ít Ai Nói Với Bạn" style="width:100%;margin-bottom:24px">
+<article><p>Bạn tìm được một EA trông rất hứa hẹn.</p>
+<p>Backtest 5 năm, equity curve đi lên đẹp như tranh. Win rate 80%. Profit factor 2.5. Drawdown chỉ 8%.</p>
+<p>Bạn bật lên tài khoản thật. Và thua.</p>
+<p>Không phải bạn xui. Không phải EA &quot;hết thiêng&quot;. Đây là lý do thật sự.</p>
+<hr>
+<h2>Backtest là nhìn vào gương chiếu hậu</h2>
+<p>Backtest chạy trên dữ liệu <strong>đã biết trước</strong>. EA biết chính xác từng cây nến, từng mức giá trong quá khứ — và thuật toán tối ưu để &quot;thắng&quot; trên đúng bộ dữ liệu đó.</p>
+<p>Thị trường thật thì khác. Không có gương chiếu hậu. Mỗi giây là dữ liệu mới, điều kiện mới, biến động mới.</p>
+<p>EA tốt trên backtest nhưng tệ trên live = EA được <strong>may đo cho quá khứ</strong>, không phải tương lai.</p>
+<hr>
+<h2>3 bẫy phổ biến nhất trong backtest</h2>
+<p><strong>Bẫy 1: Overfitting (tối ưu hóa quá mức)</strong></p>
+<p>Người tạo EA chỉnh tham số hàng trăm lần cho đến khi backtest đẹp nhất. Kết quả là EA chỉ hoạt động tốt trên đúng khoảng thời gian đó — với điều kiện thị trường đó.</p>
+<p>Khi thị trường thay đổi dù chỉ một chút, EA sụp đổ.</p>
+<p><strong>Bẫy 2: Look-ahead bias (nhìn trước dữ liệu)</strong></p>
+<p>Một số EA vô tình dùng dữ liệu tương lai để ra quyết định trong backtest — điều này không thể xảy ra trên live. Kết quả backtest trông tuyệt vời, nhưng hoàn toàn không thể tái hiện.</p>
+<p><strong>Bẫy 3: Spread và slippage không thực tế</strong></p>
+<p>Backtest thường dùng spread cố định thấp. Thực tế, spread thay đổi liên tục — đặc biệt khi tin tức ra, spread có thể tăng gấp 5-10 lần. EA vào lệnh đúng lúc đó là thua ngay từ đầu.</p>
+<hr>
+<h2>Cách tôi đánh giá EA trước khi dùng tiền thật</h2>
+<p>Tôi không tin backtest đẹp. Tôi hỏi những câu này:</p>
+<p><strong>1. EA có kết quả live thực tế không?</strong></p>
+<p>Không phải backtest — mà là tài khoản thật, chạy thật, có lịch sử giao dịch có thể xem được. Không có? Tôi bỏ qua.</p>
+<p><strong>2. Kết quả live kéo dài bao lâu?</strong></p>
+<p>1 tháng chưa đủ — có thể là may mắn. 3 tháng bắt đầu có ý nghĩa. 6 tháng trở lên mới đáng tin.</p>
+<p><strong>3. Drawdown tối đa là bao nhiêu?</strong></p>
+<p>Drawdown 50% nghĩa là có lúc tài khoản mất một nửa. Bạn có thể chịu được điều đó không? Với tôi, EA tốt phải giữ drawdown dưới 20-25%.</p>
+<p><strong>4. EA hoạt động trong nhiều điều kiện thị trường khác nhau không?</strong></p>
+<p>Trending mạnh? Sideway? Tin tức lớn? EA chỉ tốt trong 1 điều kiện là EA yếu. EA tốt phải xử lý được nhiều hoàn cảnh.</p>
+<p><strong>5. Chiến lược bên trong có hợp lý không?</strong></p>
+<p>Tôi cần hiểu tại sao EA vào lệnh, thoát lệnh. Nếu không giải thích được — dù backtest có đẹp đến đâu — tôi không dùng.</p>
+<hr>
+<h2>Điều tôi học được sau nhiều lần bị lừa bởi backtest đẹp</h2>
+<p>EA tôi đang dùng hiện tại không có backtest đẹp nhất. Nhưng nó có thứ quan trọng hơn: <strong>kết quả live thực tế, nhiều tháng liên tiếp, trên tài khoản thật</strong>.</p>
+<p>Số liệu thật quan trọng hơn đường equity curve mượt mà trong backtest.</p>
+<p>Khi bạn nhìn vào một EA, hãy hỏi: <em>&quot;Tôi đang nhìn vào quá khứ được tô vẽ, hay tương lai có thể xảy ra?&quot;</em></p>
+<hr>
+<p>Nếu bạn muốn dùng EA đã có track record thực tế — không phải backtest — liên hệ tôi qua Zalo <strong>0822 299 993</strong> để tìm hiểu thêm.</p>
+</article>
+<hr style="border-color:rgba(255,211,106,.2);margin:40px 0">
+<p><a href="/blog.html">← Xem tất cả bài viết</a></p>
+</body>
+</html>
