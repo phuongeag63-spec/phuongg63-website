@@ -786,24 +786,35 @@
 </div>
 
 <!-- ✅ BOTTOM NAV BAR MOBILE -->
-<nav class="bottom-nav" id="bottom-nav">
-  <a href="#home" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">
-    <span class="nav-icon">🏠</span>
+<nav id="bottom-nav" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9000;background:rgba(8,5,11,.97);border-top:1px solid rgba(255,211,106,.22);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:8px 0 10px;justify-content:space-around;align-items:center;">
+  <a href="#home" onclick="window.scrollTo({top:0,behavior:'smooth'});return false" style="display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:rgba(255,255,255,.45);font-size:10px;font-weight:700;min-width:56px;padding:2px 8px">
+    <span style="font-size:22px;line-height:1">🏠</span>
     <span>Trang chủ</span>
   </a>
-  <a href="#products" onclick="document.getElementById('products')?.scrollIntoView({behavior:'smooth'});return false">
-    <span class="nav-icon">🛒</span>
+  <a href="#products" onclick="document.getElementById('products')?.scrollIntoView({behavior:'smooth'});return false" style="display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:rgba(255,255,255,.45);font-size:10px;font-weight:700;min-width:56px;padding:2px 8px">
+    <span style="font-size:22px;line-height:1">🛒</span>
     <span>Sản phẩm</span>
   </a>
-  <a href="blog.html">
-    <span class="nav-icon">📝</span>
+  <a href="blog.html" style="display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:rgba(255,255,255,.45);font-size:10px;font-weight:700;min-width:56px;padding:2px 8px">
+    <span style="font-size:22px;line-height:1">📝</span>
     <span>Blog</span>
   </a>
-  <a href="https://zalo.me/84822299993" target="_blank" class="nav-zalo">
-    <span class="nav-icon">💬</span>
+  <a href="https://zalo.me/84822299993" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:#fff;font-size:10px;font-weight:800;min-width:56px;padding:6px 16px;background:linear-gradient(135deg,#0068FF,#0052cc);border-radius:14px;box-shadow:0 4px 16px rgba(0,104,255,.4)">
+    <span style="font-size:22px;line-height:1">💬</span>
     <span>Zalo</span>
   </a>
 </nav>
+<script>
+(function(){
+  var nav = document.getElementById('bottom-nav');
+  function checkNav(){
+    if(!nav) return;
+    nav.style.display = window.innerWidth <= 900 ? 'flex' : 'none';
+  }
+  checkNav();
+  window.addEventListener('resize', checkNav, {passive:true});
+})();
+</script>
 
 <!-- ✅ NÚT ZALO NỔI VIP -->
 <a class="zalo-float-vip" href="https://zalo.me/84822299993" target="_blank" rel="noopener">
