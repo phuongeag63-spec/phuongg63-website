@@ -8,7 +8,7 @@ const PRODUCTS = [
     id: 'chien-truong-sinh-tu-g63',
     name: 'CHIẾN TRƯỜNG SINH TỬ G63',
     category: 'EA Top Khủng Tam Quốc', categoryKey:'tamquoc',
-    badge: 'TOP KHỦNG', price: 19999000, priceText: '19.999.000đ', rating: 'Collector Edition',
+    badge: 'TOP KHỦNG', price: 19999000, priceText: '19.999.000đ', originalPrice: 24990000, originalPriceText: '24.990.000đ', discount: 20, slots: 2, rating: 'Collector Edition',
     image: 'assets/images/chien-truong-sinh-tu-poster.png',
     images: ['assets/images/chien-truong-sinh-tu-poster.png','assets/images/chien-truong-sinh-tu-dashboard.png','assets/images/chien-truong-sinh-tu-gallery.png'],
     tags:['Tam Quốc','Top khủng','Trải nghiệm','Dashboard','Quốc chiến'],
@@ -21,7 +21,7 @@ const PRODUCTS = [
     videoTitle:'Demo EA Chiến Trường Sinh Tử G63', videoText:'Video demo 20 giây — hành trình Tam Quốc trong từng phiên giao dịch.', video:'assets/chientruongsinhtU_demo.mp4'
   },
   {
-    id: 'han-bang-chuong-g63', name: 'HÀN BĂNG CHƯỞNG G63', category: 'Manual Trading Cockpit', categoryKey:'manual', badge:'NEW PREMIUM', price:1400000, priceText:'1.400.000đ', rating:'5.0',
+    id: 'han-bang-chuong-g63', name: 'HÀN BĂNG CHƯỞNG G63', category: 'Manual Trading Cockpit', categoryKey:'manual', badge:'NEW PREMIUM', price:1400000, priceText:'1.400.000đ', originalPrice:1800000, originalPriceText:'1.800.000đ', discount:22, slots:5, rating:'5.0',
     image:'assets/images/han-bang-chuong-poster.png', images:['assets/images/han-bang-chuong-poster.png','assets/images/han-bang-chuong-dashboard.png','assets/images/han-bang-chuong-input.png'],
     tags:['Đánh tay','Tin tức','Cockpit','BE','TP gộp'],
     short:'Premium Manual Trading Cockpit: trader quyết định Buy/Sell, EA xử lý toàn bộ quản trị còn lại.',
@@ -32,7 +32,7 @@ const PRODUCTS = [
     videoTitle:'', videoText:''
   },
   {
-    id: 'dai-ban-doanh-g63-v8', name:'ĐẠI BẢN DOANH G63 V8', category:'Dashboard MT5', categoryKey:'dashboard', badge:'BEST SELLER', price:999000, priceText:'999.000đ', rating:'5.0',
+    id: 'dai-ban-doanh-g63-v8', name:'ĐẠI BẢN DOANH G63 V8', category:'Dashboard MT5', categoryKey:'dashboard', badge:'BEST SELLER', price:999000, priceText:'999.000đ', originalPrice:1500000, originalPriceText:'1.500.000đ', discount:33, slots:9, rating:'5.0',
     image:'assets/images/web-preview.png', images:['assets/images/web-preview.png','assets/images/dashboard-luc-mach.png','assets/images/input-luc-mach.png'], tags:['Dashboard','Quản lý lệnh','Multi Symbol'],
     short:'Dashboard quản lý lệnh MT5 chuyên nghiệp: kéo thả, thu gọn, âm thanh, đóng lệnh nhanh và PnL realtime.',
     description:'ĐẠI BẢN DOANH G63 V8 là bảng điều khiển quản lý lệnh cao cấp dành cho MetaTrader 5. Công cụ giúp trader theo dõi tài khoản, quản lý nhiều cặp và xử lý lệnh nhanh trong một giao diện duy nhất.',
@@ -42,7 +42,7 @@ const PRODUCTS = [
     videoTitle:'', videoText:''
   },
   {
-    id:'luc-mach-than-kiem-g63', name:'EA LỤC MẠCH THẦN KIẾM G63', category:'EA Premium', categoryKey:'ea', badge:'PREMIUM', price:1600000, priceText:'1.600.000đ', rating:'5.0',
+    id:'luc-mach-than-kiem-g63', name:'EA LỤC MẠCH THẦN KIẾM G63', category:'EA Premium', categoryKey:'ea', badge:'PREMIUM', price:1600000, priceText:'1.600.000đ', originalPrice:2100000, originalPriceText:'2.100.000đ', discount:24, slots:6, rating:'5.0',
     image:'assets/images/poster-luc-mach.png', images:['assets/images/poster-luc-mach.png','assets/images/hero-luc-mach.png','assets/images/dashboard-luc-mach.png','assets/images/input-luc-mach.png'], tags:['Grid','TP gộp','EA Premium'],
     short:'EA Grid nhiều giai đoạn, TP đơn, TP gộp, đa tài sản, Dashboard Cyberpunk và Magic Number.',
     description:'EA LỤC MẠCH THẦN KIẾM G63 được xây dựng theo phong cách Premium Cyberpunk, có bảng điều khiển trực quan, quản lý Grid nhiều giai đoạn và hỗ trợ nhiều loại tài sản.',
@@ -59,6 +59,10 @@ const PRODUCTS = [
     badge: 'MỚI',
     price: 888000,
     priceText: '888.000đ',
+    originalPrice: 1290000,
+    originalPriceText: '1.290.000đ',
+    discount: 31,
+    slots: 12,
     rating: '5.0',
     image: 'assets/images/phuong-g63-rr-banner.svg',
     images: ['assets/images/phuong-g63-rr-banner.svg'],
@@ -110,6 +114,10 @@ const PRODUCTS = [
     description: 'Võ Mục Di Thư G63 — Sung Liên Thanh v1.10 PROMAX là công cụ hỗ trợ giao dịch thủ công trên MT5. EA không tự động mở lệnh mà trang bị cho bạn bảng điều khiển thông minh: tính giá trung bình Buy/Sell, đồng bộ SL/TP toàn bộ lệnh, dời Break-Even 1 nút, chốt 50% lợi nhuận và hiển thị lãi/lỗ dự kiến realtime.',
     price: 666000,
     priceText: '666.000 ₫',
+    originalPrice: 990000,
+    originalPriceText: '990.000 ₫',
+    discount: 33,
+    slots: 15,
     image: 'assets/images/vmdt-banner.svg',
     images: [
       'assets/images/vmdt-banner.svg',
