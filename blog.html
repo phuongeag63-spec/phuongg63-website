@@ -87,17 +87,17 @@ body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min
 .container{max-width:1200px;margin:0 auto;padding:28px 24px 80px}
 
 /* ── NEWS LAYOUT ── */
-.news-layout{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-bottom:36px}
+.news-layout{display:grid;grid-template-columns:1.65fr 1fr;gap:0;margin-bottom:28px;border:1px solid var(--border);border-radius:16px;overflow:hidden}
 
 /* ── FEATURED (bài to bên trái) ── */
-.featured-card{position:relative;border-radius:20px;overflow:hidden;background:var(--surface);border:1px solid var(--border);text-decoration:none;color:inherit;display:block;transition:transform .3s,box-shadow .3s}
-.featured-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.6)}
-.featured-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--surface2)}
-.featured-img-placeholder{width:100%;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(135deg,#1a0a2e,#0f0620);position:relative;overflow:hidden}
+.featured-card{position:relative;overflow:hidden;background:var(--surface);border-right:1px solid var(--border);text-decoration:none;color:inherit;display:block;transition:opacity .2s}
+.featured-card:hover{opacity:.92}
+.featured-img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;background:var(--surface2)}
+.featured-img-placeholder{width:100%;aspect-ratio:3/2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(135deg,#1a0a2e,#0f0620);position:relative;overflow:hidden}
 .featured-img-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,211,106,.15),transparent 65%)}
 .featured-img-placeholder .ph-icon{font-size:72px;position:relative;z-index:1}
 .featured-img-placeholder .ph-label{font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,211,106,.55);position:relative;z-index:1}
-.featured-body{padding:24px 28px 28px}
+.featured-body{padding:18px 22px 22px;background:var(--surface)}
 .featured-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
 .cat-badge{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 12px;border-radius:999px;background:rgba(255,211,106,.15);color:var(--gold);text-transform:uppercase;border:1px solid rgba(255,211,106,.25)}
 .result-badge{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 12px;border-radius:999px}
@@ -112,18 +112,15 @@ body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min
 .featured-read::after{content:'→';transition:transform .2s}
 .featured-card:hover .featured-read::after{transform:translateX(5px)}
 
-/* ── SIDEBAR (danh sách bên phải) ── */
-.sidebar{display:flex;flex-direction:column;gap:0}
-.sidebar-header{font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding-bottom:12px;border-bottom:2px solid var(--gold);margin-bottom:4px}
-.side-card{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .2s;border-radius:8px}
-.side-card:hover{background:rgba(255,211,106,.04);padding-left:8px}
-.side-img{width:80px;height:56px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--surface2)}
-.side-img-placeholder{width:80px;height:56px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a0a2e,#0f0620);font-size:22px}
-.side-body{flex:1;min-width:0}
-.side-cat{font-size:10px;font-weight:900;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
-.side-title{font-size:13px;font-weight:700;color:#fff;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:5px}
-.side-date{font-size:11px;color:var(--muted)}
+/* ── SIDEBAR text-only — kiểu 24h ── */
+.sidebar{display:flex;flex-direction:column;background:var(--surface);height:100%}
+.sidebar-header{font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#07040b;background:linear-gradient(135deg,var(--gold),var(--gold2));padding:10px 16px;margin-bottom:0}
+.side-card{display:block;padding:11px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:all .18s;border-left:3px solid transparent}
+.side-card:hover{border-left-color:var(--gold);background:rgba(255,211,106,.05)}
 .side-card:last-child{border-bottom:none}
+.side-cat{font-size:11px;font-weight:900;color:var(--gold);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.side-title{font-size:14px;font-weight:700;color:#fff;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:4px}
+.side-date{font-size:11px;color:var(--muted)}
 
 /* ── THÊM BÀI (nút xem tất cả) ── */
 .see-all-wrap{text-align:right;margin-top:8px}
@@ -193,43 +190,18 @@ footer a{color:var(--gold);text-decoration:none}
   }
 
   /* Featured card: ảnh to full-width, body gọn */
-  .featured-card{border-radius:0;border-left:none;border-right:none;border-top:none}
+  .featured-card{border-radius:0;border:none;border-right:none}
+  .news-layout{border-radius:0;border:none;border-left:none;border-right:none}
   .featured-body{padding:12px 14px 16px}
   .featured-title{font-size:19px;line-height:1.4}
   .featured-excerpt{font-size:13px;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:12px}
 
-  /* ── HIỆN SIDEBAR trên mobile như "Bài viết gần đây" ── */
-  .sidebar{
-    display:flex;
-    flex-direction:column;
-    border-radius:0;
-    margin-top:0;
-  }
-  .sidebar-header{
-    background:linear-gradient(135deg,var(--gold),var(--gold2));
-    color:#07040b;
-    -webkit-background-clip:initial;
-    background-clip:initial;
-    -webkit-text-fill-color:#07040b;
-    font-size:11px;
-    letter-spacing:2px;
-    padding:9px 14px;
-    border-bottom:none;
-    margin-bottom:0;
-    border-radius:0;
-  }
-
-  /* Side card ngang: thumbnail trái, nội dung phải */
-  .side-card{
-    padding:10px 14px;
-    border-radius:0;
-    gap:10px;
-    align-items:center;
-  }
-  .side-card:hover{padding-left:14px}
-  .side-img{width:90px;height:62px;border-radius:6px;flex-shrink:0;object-fit:cover}
-  .side-img-placeholder{width:90px;height:62px;border-radius:6px;flex-shrink:0;font-size:20px}
-  .side-title{font-size:13px;font-weight:700;line-height:1.45;-webkit-line-clamp:2}
+  /* ── SIDEBAR trên mobile ── */
+  .sidebar{border-radius:0}
+  .sidebar-header{font-size:11px;letter-spacing:2px;padding:9px 14px;-webkit-text-fill-color:#07040b}
+  .side-card{padding:10px 14px;border-left:none;border-left-width:0}
+  .side-card:hover{border-left-color:transparent;background:rgba(255,255,255,.02)}
+  .side-title{font-size:13px}
   .side-cat{font-size:10px}
   .side-date{font-size:10px}
 
@@ -417,23 +389,15 @@ function renderFeatured(post) {
   </a>`;
 }
 
-// ─── RENDER SIDEBAR ─────────────────────────────────────────────────
+// ─── RENDER SIDEBAR — text-only kiểu 24h ────────────────────────────
 function renderSidebar(posts) {
   if (!posts.length) return '';
-  const items = posts.slice(0, 4).map(p => {
-    const img = p.image
-      ? `<img class="side-img" src="${fixImg(p.image)}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'">`
-      : `<div class="side-img-placeholder">${'📖'}</div>`;
-    return `
+  const items = posts.slice(0, 5).map(p => `
     <a class="side-card" href="${p.href}">
-      ${img}
-      <div class="side-body">
-        <div class="side-cat">${p.category || 'Bài viết'}</div>
-        <div class="side-title">${p.title}</div>
-        <div class="side-date">📅 ${formatDate(p.date)}</div>
-      </div>
-    </a>`;
-  }).join('');
+      <div class="side-cat">${p.category || 'Bài viết'}</div>
+      <div class="side-title">${p.title}</div>
+      <div class="side-date">📅 ${formatDate(p.date)}</div>
+    </a>`).join('');
   return `
   <div class="sidebar">
     <div class="sidebar-header">Bài viết gần đây</div>
@@ -551,7 +515,7 @@ function renderAll() {
     layout.style.display = 'grid';
     const [featured, ...rest] = pagePosts;
     layout.innerHTML = renderFeatured(featured) + renderSidebar(rest);
-    const gridPosts = rest.slice(4);
+    const gridPosts = rest.slice(5); // sidebar dùng 5 bài
     if (gridPosts.length) {
       moreSection.style.display = 'block';
       if (sectionLbl) sectionLbl.style.display = '';
