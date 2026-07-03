@@ -176,22 +176,16 @@
     row1.appendChild(leftCol);
     row1.appendChild(rightCol);
 
-    // ── Hàng 2: 3 card mini ──
+    // ── Hàng 2: 6 mini cards (3 cột × 2 hàng) ──
     const row2 = document.createElement('div');
     row2.className = 'hb-row2';
     row2.innerHTML =
-      (posts[5] ? cardMini(posts[5]) : '') +
-      (posts[6] ? cardMini(posts[6]) : '') +
-      `<a href="/blog.html"
-         style="border-radius:14px;text-decoration:none;color:inherit;display:flex;align-items:center;justify-content:center;min-height:130px;transition:.3s;background:linear-gradient(135deg,rgba(255,211,106,.08),rgba(255,159,28,.04));border:1px dashed rgba(255,211,106,.35)"
-         onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'"
-         onmouseout="this.style.borderColor='rgba(255,211,106,.35)';this.style.transform=''">
-        <div style="text-align:center">
-          <div style="font-size:30px;margin-bottom:6px">📖</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:3px">Xem tất cả bài viết</div>
-          <div style="font-size:12px;color:var(--gold);font-weight:900">Nhật ký →</div>
-        </div>
-      </a>`;
+      (posts[5]  ? cardMini(posts[5])  : '') +
+      (posts[6]  ? cardMini(posts[6])  : '') +
+      (posts[7]  ? cardMini(posts[7])  : '') +
+      (posts[8]  ? cardMini(posts[8])  : '') +
+      (posts[9]  ? cardMini(posts[9])  : '') +
+      (posts[10] ? cardMini(posts[10]) : '');
 
     // Chèn vào trước CTA
     if (ctaDiv) {
