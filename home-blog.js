@@ -106,7 +106,6 @@
 
     // Hàng 1: 1 bài to + 2 bài nhỏ
     const row1 = document.createElement('div');
-    row1.className = 'reveal';
     row1.style.cssText = 'display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-bottom:20px';
     row1.innerHTML = cardBig(posts[0]);
 
@@ -118,7 +117,6 @@
 
     // Hàng 2: 2 bài mini + nút xem tất cả
     const row2 = document.createElement('div');
-    row2.className = 'reveal';
     row2.style.cssText = 'display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px';
     row2.innerHTML =
       (posts[3] ? cardMini(posts[3]) : '') +
