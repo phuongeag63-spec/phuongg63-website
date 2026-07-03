@@ -10,7 +10,7 @@ function productPageUrl(id){return 'san-pham/'+id+'/'}
 function renderFilters(){const bar=document.getElementById('filterBar');bar.innerHTML=cats().map(c=>`<button class="filter-btn ${c===activeFilter?'active':''}" onclick="setFilter('${c}')">${catLabel(c)}</button>`).join('')}
 function setFilter(c){activeFilter=c;renderFilters();renderProducts()}
 function productMatch(p,q){q=q.trim().toLowerCase();if(!q)return true;return [p.name,p.category,p.short,p.description,...(p.tags||[]),...(p.features||[])].join(' ').toLowerCase().includes(q)}
-function renderProducts(){const q=document.getElementById('searchInput')?.value||'';const list=PRODUCTS.filter(p=>(activeFilter==='all'||p.categoryKey===activeFilter)&&productMatch(p,q));const grid=document.getElementById('productGrid');grid.innerHTML=list.map(p=>`<article class="product-card reveal" data-id="${p.id}"><div class="img-wrap"><img src="${p.image}" alt="${p.name}"><span class="shine"></span></div><div class="product-body"><span class="badge">${p.badge}</span><div class="category">${p.category}</div><h3>${p.name}</h3><p>${p.short}</p><div class="tag-row">${(p.tags||[]).slice(0,3).map(t=>`<small>${t}</small>`).join('')}</div><div class="price-row"><span class="price">${p.priceText}</span><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button></div><a class="btn btn-exness" href="https://one.exnessonelink.com/intl/vi/a/20jf6d0igf" target="_blank">🎁 Đăng ký Exness — Nhận miễn phí</a><div class="product-actions"><button class="btn btn-blue" onclick="selectProduct('${p.id}')">Xem nhanh</button><a class="btn btn-blue" href="${productPageUrl(p.id)}">Trang SEO</a></div></div></article>`).join('')||'<div class="empty">Không tìm thấy sản phẩm phù hợp.</div>';observeReveal()}
+function renderProducts(){const q=document.getElementById('searchInput')?.value||'';const list=PRODUCTS.filter(p=>(activeFilter==='all'||p.categoryKey===activeFilter)&&productMatch(p,q));const grid=document.getElementById('productGrid');grid.innerHTML=list.map(p=>`<article class="product-card reveal" data-id="${p.id}"><div class="img-wrap"><img src="${p.image}" alt="${p.name}"><span class="shine"></span></div><div class="product-body"><span class="badge">${p.badge}</span><div class="category">${p.category}</div><h3>${p.name}</h3><p>${p.short}</p><div class="tag-row">${(p.tags||[]).slice(0,3).map(t=>`<small>${t}</small>`).join('')}</div><div style="font-size:11px;color:rgba(255,180,60,.85);margin:4px 0 8px;font-weight:700" class="viewer-count" data-id="${p.id}">👁 <span>--</span> người đang xem</div><div class="price-row"><span class="price">${p.priceText}</span><button class="btn btn-gold" onclick="openCheckoutById('${p.id}')">Mua ngay</button></div><a class="btn btn-exness" href="https://one.exnessonelink.com/intl/vi/a/20jf6d0igf" target="_blank">🎁 Đăng ký Exness — Nhận miễn phí</a><div class="product-actions"><button class="btn btn-blue" onclick="selectProduct('${p.id}')">Xem nhanh</button><a class="btn btn-blue" href="${productPageUrl(p.id)}">Trang SEO</a></div></div></article>`).join('')||'<div class="empty">Không tìm thấy sản phẩm phù hợp.</div>';observeReveal();initViewerCounts()}
 function selectProduct(id){currentProduct=PRODUCTS.find(p=>p.id===id)||PRODUCTS[0];renderDetail(currentProduct);syncProductSelects(currentProduct.id);document.getElementById('details').scrollIntoView({behavior:'smooth'})}
 function renderDetail(p){const box=document.getElementById('detailBox');const thumbs=p.images.map((img,i)=>`<img src="${img}" class="${i===0?'active':''}" onclick="setMainImage('${img}',this)" alt="${p.name} ảnh ${i+1}">`).join('');const warning=p.warning?`<div class="warning-box">⚠️ ${p.warning}</div>`:'';const faq=(p.faq||[]).map((f,i)=>`<details ${i===0?'open':''}><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');const video=p.video?`<div style="margin:20px 0;border-radius:14px;overflow:hidden;border:2px solid #ffd36a;box-shadow:0 0 24px rgba(255,211,106,.25)"><video controls preload="metadata" style="width:100%;display:block;background:#000"><source src="${p.video}" type="video/mp4"></video></div>`:`<div class="video-box"><span>🎬</span><h4>${p.videoTitle||'Video demo'}</h4><p>${p.videoText||'Video sẽ được cập nhật.'}</p></div>`;const lore=p.id==='chien-truong-sinh-tu-g63'?`<div class="lore-box"><h4>👑 Cốt truyện sản phẩm</h4><p>Thiên hạ chia ba. Mỗi phiên giao dịch là một trận sa trường. Người dùng không mua một lời cam kết lợi nhuận, mà bước vào hành trình Tam Quốc: chiếm thành, mở tướng, thu báu vật, hạ Boss và tự thử thách bản lĩnh của chính mình.</p></div>`:'';box.innerHTML=`<div class="detail-layout"><div><div class="gallery-main"><img id="mainGallery" src="${p.images[0]}" alt="${p.name}"></div><div class="thumbs">${thumbs}</div>${video}${lore}</div><div class="detail-copy"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p>${warning}<div class="price">${p.priceText}</div><h4>Tính năng nổi bật</h4><ul class="feature-list">${p.features.map(f=>`<li>✅ ${f}</li>`).join('')}</ul><h4>Hướng dẫn nhận & cài đặt</h4><ul class="install-list">${p.install.map(x=>`<li>➜ ${x}</li>`).join('')}</ul><h4>Câu hỏi thường gặp</h4><div class="faq-list">${faq}</div><div style="margin-top:20px;padding:16px;border-radius:14px;border:2px solid rgba(255,211,106,.4);background:linear-gradient(135deg,rgba(255,211,106,.06),rgba(255,159,28,.02));box-shadow:0 0 20px rgba(255,211,106,.08)"><div style="font-size:11px;color:rgba(255,211,106,.7);font-weight:900;letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px">🛒 Đặt mua & Liên hệ</div><button class="btn btn-gold" style="width:100%;margin-bottom:8px;font-size:15px;padding:13px" onclick="openCheckoutById('${p.id}')">💰 Mua ngay — ${p.priceText}</button><a class="btn btn-exness" href="https://one.exnessonelink.com/intl/vi/a/20jf6d0igf" target="_blank" style="display:block;text-align:center;margin-bottom:8px;white-space:normal;word-break:break-word">🎁 Đăng ký Exness — Nhận EA miễn phí</a><div style="display:flex;gap:8px"><a class="btn btn-blue" href="${productPageUrl(p.id)}" style="flex:1;text-align:center;min-width:0;font-size:12px">📄 Trang chi tiết</a><a class="btn btn-blue" href="${zaloUrl}" style="flex:1;text-align:center;min-width:0;font-size:12px">💬 Hỏi Zalo</a></div></div></div></div>`}
 function setMainImage(src,el){document.getElementById('mainGallery').src=src;document.querySelectorAll('.thumbs img').forEach(i=>i.classList.remove('active'));el.classList.add('active')}
@@ -233,4 +233,166 @@ window.addEventListener('load', () => {
     showNext();
     setInterval(showNext, 60000);
   }, 10000);
+})();
+
+/* ─── VIEWER COUNT "X người đang xem" ───────────── */
+function rndViewer() {
+  return Math.floor(Math.random() * (163 - 19 + 1)) + 19;
+}
+function nudge(n) {
+  const delta = Math.floor(Math.random() * 5) - 2; // -2 đến +2
+  return Math.min(163, Math.max(19, n + delta));
+}
+
+const _viewerMap = {};
+
+function initViewerCounts() {
+  document.querySelectorAll('.viewer-count[data-id]').forEach(el => {
+    const id = el.dataset.id;
+    if (!_viewerMap[id]) _viewerMap[id] = rndViewer();
+    el.querySelector('span').textContent = _viewerMap[id];
+  });
+}
+
+// Cập nhật số mỗi 35 giây — dao động nhẹ cho tự nhiên
+setInterval(() => {
+  Object.keys(_viewerMap).forEach(id => {
+    _viewerMap[id] = nudge(_viewerMap[id]);
+  });
+  initViewerCounts();
+}, 35000);
+
+/* ─── SCROLL PROGRESS BAR ────────────────────────── */
+(function () {
+  const bar = document.createElement('div');
+  bar.id = 'scroll-bar';
+  bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#ffd36a,#ff9f1c);z-index:9999;transition:width .1s linear;pointer-events:none';
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+  }, { passive: true });
+})();
+
+/* ─── CONFETTI KHI THANH TOÁN ────────────────────── */
+function launchConfetti() {
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  canvas.width = innerWidth; canvas.height = innerHeight;
+  const colors = ['#ffd36a','#ff9f1c','#ffffff','#22c55e','#3b82f6','#f472b6'];
+  const pieces = Array.from({ length: 140 }, () => ({
+    x: Math.random() * canvas.width, y: Math.random() * -200,
+    w: Math.random() * 10 + 5, h: Math.random() * 6 + 3,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    vx: (Math.random() - 0.5) * 5, vy: Math.random() * 5 + 2,
+    rot: Math.random() * 360, vrot: (Math.random() - 0.5) * 8
+  }));
+  let raf;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let alive = false;
+    pieces.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.rot += p.vrot;
+      if (p.y < canvas.height + 20) alive = true;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180);
+      ctx.fillStyle = p.color; ctx.globalAlpha = 0.9;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    });
+    if (alive) raf = requestAnimationFrame(draw);
+    else canvas.remove();
+  }
+  draw();
+  setTimeout(() => { cancelAnimationFrame(raf); canvas.remove(); }, 4000);
+}
+// Hook vào showPaidNotice
+const _origPaid = window.showPaidNotice;
+window.showPaidNotice = function () {
+  launchConfetti();
+  if (_origPaid) _origPaid();
+  else {
+    document.getElementById('paidNotice').style.display = 'block';
+    setTimeout(() => { closeCheckout(); }, 1400);
+  }
+};
+
+/* ─── EXIT INTENT POPUP ──────────────────────────── */
+(function () {
+  let shown = false;
+  const html = `
+  <div id="exit-popup" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.75);align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px)">
+    <div style="background:linear-gradient(160deg,#12101a,#1a0f08);border:2px solid rgba(255,211,106,.4);border-radius:24px;padding:36px 32px;max-width:420px;width:100%;text-align:center;position:relative;box-shadow:0 0 60px rgba(255,211,106,.15)">
+      <button onclick="document.getElementById('exit-popup').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,.4);font-size:22px;cursor:pointer">×</button>
+      <div style="font-size:48px;margin-bottom:12px">⚔️</div>
+      <div style="display:inline-block;background:linear-gradient(135deg,#ffd36a,#ff9f1c);color:#08050b;font-weight:900;font-size:11px;letter-spacing:1.5px;padding:4px 14px;border-radius:999px;margin-bottom:14px">KHOAN ĐÃ!</div>
+      <h3 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.3">Bạn sắp bỏ lỡ ưu đãi hôm nay!</h3>
+      <p style="color:rgba(255,255,255,.6);font-size:14px;margin-bottom:20px;line-height:1.6">Phương G63 tặng <strong style="color:#ffd36a">hướng dẫn cài đặt 1:1 miễn phí</strong> cho đơn hàng trong hôm nay. Hỏi thêm qua Zalo trước khi quyết định nhé!</p>
+      <a href="https://zalo.me/84822299993" target="_blank" style="display:block;background:linear-gradient(135deg,#ffd36a,#ff9f1c);color:#08050b;font-weight:900;font-size:15px;padding:14px;border-radius:12px;text-decoration:none;margin-bottom:10px">💬 Hỏi Zalo ngay — Miễn phí tư vấn</a>
+      <button onclick="document.getElementById('exit-popup').style.display='none';document.getElementById('products')?.scrollIntoView({behavior:'smooth'})" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);font-size:13px;padding:10px 20px;border-radius:10px;cursor:pointer;width:100%">Xem sản phẩm trước</button>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend', html);
+  document.addEventListener('mouseleave', e => {
+    if (e.clientY < 8 && !shown) {
+      shown = true;
+      document.getElementById('exit-popup').style.display = 'flex';
+    }
+  });
+})();
+
+/* ─── PARTICLE HERO BACKGROUND ───────────────────── */
+(function () {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.35';
+  hero.style.position = 'relative';
+  hero.insertBefore(canvas, hero.firstChild);
+  const ctx = canvas.getContext('2d');
+  function resize() { canvas.width = hero.offsetWidth; canvas.height = hero.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+  const pts = Array.from({ length: 55 }, () => ({
+    x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 0.5,
+    vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+    a: Math.random()
+  }));
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pts.forEach(p => {
+      p.x = (p.x + p.vx + canvas.width) % canvas.width;
+      p.y = (p.y + p.vy + canvas.height) % canvas.height;
+      p.a = 0.3 + 0.5 * Math.abs(Math.sin(Date.now() / 2000 + p.x));
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,211,106,${p.a})`; ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ─── LIVE STATS COUNTER ─────────────────────────── */
+(function () {
+  function countUp(el, target, suffix, duration) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      el.textContent = (Number.isInteger(target) ? Math.floor(start) : start.toFixed(1)) + suffix;
+      if (start >= target) clearInterval(timer);
+    }, 16);
+  }
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      statsObs.unobserve(e.target);
+      e.target.querySelectorAll('[data-count]').forEach(el => {
+        countUp(el, parseFloat(el.dataset.count), el.dataset.suffix || '', 1400);
+      });
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.live-stats-wrap').forEach(el => statsObs.observe(el));
 })();
