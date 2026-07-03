@@ -355,13 +355,7 @@ function fixImg(src) {
   return '/' + src;
 }
 
-const OLD_POSTS = [
-  {title:'Từ bỏ hay đứng dậy?',date:'2025-06-30',category:'Câu chuyện',result:null,image:null,excerpt:'Sau một chuỗi thua lỗ, ranh giới giữa từ bỏ và đứng dậy mỏng đến mức đáng sợ...',href:'/nhat-ky/tu-bo-hay-dung-day.html',emoji:'⚔️'},
-  {title:'Hành trình của tôi',date:'2025-06-28',category:'Câu chuyện',result:null,image:null,excerpt:'Tôi không sinh ra biết trading. Đây là những gì thị trường đã dạy tôi...',href:'/nhat-ky/hanh-trinh-cua-toi.html',emoji:'🗺️'},
-  {title:'Nhật ký 28/06/2025',date:'2025-06-28',category:'Nhật ký lệnh',result:'Thua',image:null,excerpt:'Thị trường đảo chiều bất ngờ. Ghi lại để học.',href:'/nhat-ky/2025-06-28.html',emoji:'📉'},
-  {title:'Nhật ký 26/06/2025',date:'2025-06-26',category:'Nhật ký lệnh',result:'Thua',image:null,excerpt:'Hai lệnh ngược chiều nhau. Cả hai đều sai.',href:'/nhat-ky/2025-06-26.html',emoji:'📉'},
-  {title:'Nhật ký 24/06/2025',date:'2025-06-24',category:'Nhật ký lệnh',result:'Hoà vốn',image:null,excerpt:'Đứng vững không phải là thắng, nhưng cũng không phải là thua.',href:'/nhat-ky/2025-06-24.html',emoji:'⚖️'},
-];
+// OLD_POSTS đã được chuyển sang posts.json — không còn dùng nữa
 
 // ─── PARSERS ────────────────────────────────────────────────────────
 function parseFrontmatter(raw) {
@@ -542,7 +536,7 @@ async function loadMarkdownPosts() {
 // ─── INIT ───────────────────────────────────────────────────────────
 (async () => {
   const mdPosts = await loadMarkdownPosts();
-  const combined = [...mdPosts, ...OLD_POSTS].sort((a,b) => {
+  const combined = [...mdPosts].sort((a,b) => {
     return new Date(b.date || b._ts || '2000') - new Date(a.date || a._ts || '2000');
   });
   allPosts = combined;
