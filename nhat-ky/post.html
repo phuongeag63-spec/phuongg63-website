@@ -215,9 +215,10 @@ body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min
 
 <script>
 // ─── CONFIG ─────────────────────────────────────────────────────────────
-const REPO   = 'phuongeag63-spec/phuongg63-website';
-const BRANCH = 'main';
-const RAW    = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/nhat-ky/`;
+const REPO       = 'phuongeag63-spec/phuongg63-website';
+const BRANCH     = 'main';
+const RAW        = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/nhat-ky/`;
+const POSTS_JSON = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/posts.json`;
 
 // ─── READING PROGRESS ───────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
@@ -353,7 +354,7 @@ function renderArticle(meta, body, fileName) {
 
     <div class="article-body">${html}</div>
 
-    <div class="internal-cta">
+    <div class="internal-cta" style="margin-top:32px">
       <div class="internal-cta-icon">🤖</div>
       <div class="internal-cta-body">
         <div class="internal-cta-title">Muốn có <span>EA MT5 riêng</span> chạy tự động 24/7?</div>
@@ -361,8 +362,6 @@ function renderArticle(meta, body, fileName) {
         <a class="internal-cta-btn" href="/lap-trinh-ea.html">🔧 Xem dịch vụ lập trình EA →</a>
       </div>
     </div>
-
-    <div class="signature">— Phương G63 —</div>
 
     <div class="share-section">
       <div class="share-label">Chia sẻ bài viết</div>
@@ -410,45 +409,31 @@ function copyLink(btn) {
   });
 }
 
-// ─── RELATED POSTS ──────────────────────────────────────────────────────
+// ─── RELATED POSTS (dùng posts.json — không gọi GitHub API) ────────────
 async function loadRelatedPosts(currentFile, currentCategory) {
   try {
-    const API = `https://api.github.com/repos/${REPO}/contents/nhat-ky?ref=${BRANCH}`;
-    const res = await fetch(API);
+    const res = await fetch(POSTS_JSON + '?t=' + Date.now());
     if (!res.ok) return;
-    const files = await res.json();
-    const mdFiles = files
-      .filter(f => f.name.endsWith('.md') && !f.name.includes(currentFile))
-      .sort(() => Math.random() - 0.5);
+    const allPosts = await res.json();
 
-    // Lấy tối đa 6 file để chọn bài cùng category
-    const candidates = mdFiles.slice(0, 6);
-    const posts = [];
+    // Ưu tiên cùng category, loại bài hiện tại
+    const others  = allPosts.filter(p => p.file !== currentFile);
+    const sameCat = others.filter(p => p.category === currentCategory);
+    const diff    = others.filter(p => p.category !== currentCategory);
 
-    for (const f of candidates) {
-      if (posts.length >= 3) break;
-      try {
-        const r = await fetch(RAW + f.name);
-        const text = await r.text();
-        const { meta } = parseFrontmatter(text);
-        posts.push({
-          title:    meta.title || f.name.replace('.md',''),
-          date:     meta.date ? meta.date.slice(0,10) : '',
-          category: meta.category || 'Bài viết',
-          image:    meta.image || null,
-          href:     `/nhat-ky/post.html?file=${encodeURIComponent(f.name.replace('.md',''))}`,
-        });
-      } catch { /* skip */ }
-    }
+    // Ghép: cùng category trước, random shuffle, lấy 3
+    const pool = [...sameCat, ...diff].sort(() => Math.random() - 0.5).slice(0, 3);
+    if (!pool.length) return;
 
-    if (!posts.length) return;
+    const ICONS = {'Trading':'📈','Kinh nghiệm':'💡','Câu chuyện':'📖','Nhật ký lệnh':'📊'};
 
     const grid = document.getElementById('relatedGrid');
-    grid.innerHTML = posts.map(p => `
-      <a class="related-card" href="${p.href}">
+    grid.innerHTML = pool.map(p => `
+      <a class="related-card" href="/nhat-ky/post.html?file=${encodeURIComponent(p.file)}">
         ${p.image
-          ? `<img class="related-img" src="https://phuongg63.com${p.image}" alt="${p.title}" loading="lazy" onerror="this.outerHTML='<div class=related-img-ph>📝</div>'">`
-          : `<div class="related-img-ph">📝</div>`}
+          ? `<img class="related-img" src="https://phuongg63.com${p.image}" alt="${p.title}" loading="lazy" onerror="this.parentElement.querySelector('.related-img-ph') && (this.style.display='none')">`
+          : ''}
+        <div class="related-img-ph" style="${p.image ? 'display:none' : ''}font-size:32px">${ICONS[p.category]||'📝'}</div>
         <div class="related-body">
           <div class="related-cat">${p.category}</div>
           <div class="related-card-title">${p.title}</div>

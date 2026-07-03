@@ -93,7 +93,10 @@ body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min
 .featured-card{position:relative;border-radius:20px;overflow:hidden;background:var(--surface);border:1px solid var(--border);text-decoration:none;color:inherit;display:block;transition:transform .3s,box-shadow .3s}
 .featured-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.6)}
 .featured-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--surface2)}
-.featured-img-placeholder{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a0a2e,#0f0620);font-size:64px}
+.featured-img-placeholder{width:100%;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(135deg,#1a0a2e,#0f0620);position:relative;overflow:hidden}
+.featured-img-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,211,106,.15),transparent 65%)}
+.featured-img-placeholder .ph-icon{font-size:72px;position:relative;z-index:1}
+.featured-img-placeholder .ph-label{font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,211,106,.55);position:relative;z-index:1}
 .featured-body{padding:24px 28px 28px}
 .featured-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
 .cat-badge{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 12px;border-radius:999px;background:rgba(255,211,106,.15);color:var(--gold);text-transform:uppercase;border:1px solid rgba(255,211,106,.25)}
@@ -138,7 +141,10 @@ body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min
 .post-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s;text-decoration:none;color:inherit}
 .post-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.5);border-color:rgba(255,211,106,.3)}
 .card-img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface2)}
-.card-img-placeholder{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:36px}
+.card-img-placeholder{width:100%;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#1a1025,#0f0b16);position:relative;overflow:hidden}
+.card-img-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,211,106,.1),transparent 65%)}
+.card-img-placeholder .ph-icon{font-size:36px;position:relative;z-index:1}
+.card-img-placeholder .ph-label{font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,211,106,.45);position:relative;z-index:1}
 .card-body{padding:18px;display:flex;flex-direction:column;gap:7px;flex:1}
 .card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .card-cat{font-size:10px;font-weight:900;letter-spacing:1px;padding:3px 10px;border-radius:999px;background:rgba(255,211,106,.12);color:var(--gold);text-transform:uppercase}
@@ -255,9 +261,11 @@ footer a{color:var(--gold);text-decoration:none}
     aspect-ratio:unset;
     flex-shrink:0;
     border-radius:6px;
-    font-size:22px;
+    font-size:20px;
     margin:10px 0 10px 14px;
+    gap:3px;
   }
+  .card-img-placeholder .ph-label{display:none}
   .card-body{padding:10px 14px 10px 10px;gap:3px}
   .card-body p{display:none}
   .card-read{display:none}
@@ -393,11 +401,16 @@ function resultBadge(r) {
   return `<span class="result-badge result-hoa">⚖️ Hoà vốn</span>`;
 }
 
+// ─── CAT ICON ───────────────────────────────────────────────────────
+function catIcon(cat) {
+  return {'Trading':'📈','Kinh nghiệm':'💡','Câu chuyện':'📖','Nhật ký lệnh':'📊'}[cat] || '📝';
+}
+
 // ─── RENDER FEATURED ────────────────────────────────────────────────
 function renderFeatured(post) {
   const img = post.image
     ? `<img class="featured-img" src="${fixImg(post.image)}" alt="${post.title}" loading="lazy" onerror="this.style.display='none'">`
-    : `<div class="featured-img-placeholder">${post.emoji || '📖'}</div>`;
+    : `<div class="featured-img-placeholder"><span class="ph-icon">${catIcon(post.category)}</span><span class="ph-label">${post.category || 'Bài viết'}</span></div>`;
   return `
   <a class="featured-card" href="${post.href}">
     ${img}
@@ -443,7 +456,7 @@ function renderSidebar(posts) {
 function renderCard(post) {
   const img = post.image
     ? `<img class="card-img" src="${fixImg(post.image)}" alt="${post.title}" loading="lazy" onerror="this.style.display='none'">`
-    : `<div class="card-img-placeholder">${post.emoji || '📖'}</div>`;
+    : `<div class="card-img-placeholder"><span class="ph-icon">${catIcon(post.category)}</span><span class="ph-label">${post.category || 'Bài viết'}</span></div>`;
   return `
   <a class="post-card" href="${post.href}">
     ${img}
