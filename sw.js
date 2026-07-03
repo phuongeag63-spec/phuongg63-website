@@ -1,5 +1,5 @@
-// Phương G63 — Service Worker v1.0
-const CACHE_NAME = 'phuongg63-v1';
+// Phương G63 — Service Worker v2.0
+const CACHE_NAME = 'phuongg63-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
