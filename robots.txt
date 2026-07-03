@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block private assets
-Disallow: /assets/private/
-
 Sitemap: https://phuongg63.com/sitemap.xml
