@@ -202,7 +202,19 @@ details p{padding:0 20px 16px;font-size:14px;color:var(--muted);line-height:1.7}
       <h1 id="hero-name">Đang tải...</h1>
       <p class="lp-short" id="hero-short"></p>
       <div class="trust-row" id="hero-tags"></div>
+      <!-- GUARANTEE BADGE -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px">
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.55);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:5px 12px"><span>🔒</span>Thanh toán an toàn</div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.55);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:5px 12px"><span>📦</span>Nhận file ngay</div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.55);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:5px 12px"><span>🛠️</span>Hỗ trợ 1:1 Zalo</div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.55);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:5px 12px"><span>⚡</span>Cập nhật miễn phí</div>
+      </div>
       <div class="price-big" id="hero-price"></div>
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,150,40,.1);border:1px solid rgba(255,150,40,.3);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:700;color:rgba(255,180,60,.9);margin-bottom:10px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#ff6b35;display:inline-block;box-shadow:0 0 6px #ff6b35;animation:blink 1.2s infinite"></span>
+        👁 <span id="lp-viewers">--</span> người đang xem sản phẩm này
+      </div>
+      <style>@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}</style>
       <div class="price-note">💳 Thanh toán VietinBank · Nhận file ngay sau xác nhận</div>
       <div class="hero-actions">
         <button class="btn-gold-lp" id="hero-buy-btn">💰 Mua ngay — <span id="hero-price-btn"></span></button>
@@ -263,6 +275,30 @@ details p{padding:0 20px 16px;font-size:14px;color:var(--muted);line-height:1.7}
   </div>
 </section>
 
+<!-- REVIEWS -->
+<section style="padding:48px 24px;background:var(--bg2)">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:28px">
+      <div class="section-label">⭐ Đánh giá khách hàng</div>
+      <h2 style="font-size:22px;font-weight:900;color:#fff">Họ nói gì về sản phẩm này?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,211,106,.12);border-radius:14px;padding:18px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:10px"><div style="font-weight:900;color:#fff;font-size:13px">Nguyễn V.T · TP.HCM</div><span style="color:#ffd36a;font-size:13px">★★★★★</span></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin:0">"Sản phẩm rất chuyên nghiệp, hỗ trợ nhiệt tình. Cài đặt xong là dùng được ngay!"</p>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,211,106,.12);border-radius:14px;padding:18px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:10px"><div style="font-weight:900;color:#fff;font-size:13px">Trần M.H · Hà Nội</div><span style="color:#ffd36a;font-size:13px">★★★★★</span></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin:0">"Mình lo lắng lúc đầu nhưng Phương G63 rất uy tín. Chuyển khoản 5 phút là có file ngay."</p>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,211,106,.12);border-radius:14px;padding:18px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:10px"><div style="font-weight:900;color:#fff;font-size:13px">Lê Q.A · Đà Nẵng</div><span style="color:#ffd36a;font-size:13px">★★★★★</span></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;margin:0">"Đáng đồng tiền! Tính năng xịn hơn mình nghĩ nhiều. Sẽ giới thiệu cho bạn bè."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA BOX -->
 <section class="lp-cta">
   <div class="lp-cta-inner">
@@ -320,7 +356,7 @@ details p{padding:0 20px 16px;font-size:14px;color:var(--muted);line-height:1.7}
     </div>
     <div class="modal-actions">
       <a class="btn-gold-m" href="https://zalo.me/84822299993" target="_blank">Gửi biên lai Zalo</a>
-      <button class="btn-blue-m" onclick="document.getElementById('paid-notice').style.display='block';setTimeout(()=>document.getElementById('checkout').style.display='none',1500)">Đã chuyển khoản</button>
+      <button class="btn-blue-m" onclick="launchConfetti();document.getElementById('paid-notice').style.display='block';setTimeout(()=>document.getElementById('checkout').style.display='none',1500)">Đã chuyển khoản</button>
     </div>
     <div class="paid-notice" id="paid-notice">✅ Cảm ơn! Vui lòng gửi biên lai qua Zalo 0822 299 993 để nhận file.</div>
   </div>
@@ -448,6 +484,27 @@ if (!p) {
   });
 }
 
+// ── Scroll progress bar ──
+(function(){
+  const b=document.createElement('div');
+  b.style.cssText='position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#ffd36a,#ff9f1c);z-index:9999;transition:width .1s;pointer-events:none';
+  document.body.appendChild(b);
+  window.addEventListener('scroll',()=>{const m=document.documentElement.scrollHeight-innerHeight;b.style.width=(m>0?scrollY/m*100:0)+'%';},{passive:true});
+})();
+
+// ── Confetti khi thanh toán ──
+function launchConfetti(){
+  const c=document.createElement('canvas');
+  c.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none';
+  document.body.appendChild(c);
+  const ctx=c.getContext('2d'); c.width=innerWidth; c.height=innerHeight;
+  const cols=['#ffd36a','#ff9f1c','#fff','#22c55e','#3b82f6','#f472b6'];
+  const ps=Array.from({length:130},()=>({x:Math.random()*c.width,y:Math.random()*-200,w:Math.random()*10+5,h:Math.random()*6+3,col:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*5,vy:Math.random()*5+2,rot:Math.random()*360,vr:(Math.random()-.5)*8}));
+  let raf;
+  function draw(){ctx.clearRect(0,0,c.width,c.height);let a=false;ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;if(p.y<c.height+20)a=true;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot*Math.PI/180);ctx.fillStyle=p.col;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();});if(a)raf=requestAnimationFrame(draw);else c.remove();}
+  draw(); setTimeout(()=>{cancelAnimationFrame(raf);c.remove();},4000);
+}
+
 // ── Countdown Timer ──
 (function(){
   function tick(){
@@ -466,6 +523,18 @@ const io = new IntersectionObserver(entries => entries.forEach(e => {
   if(e.isIntersecting) e.target.classList.add('show');
 }), {threshold: 0.1});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ── Viewer count ──
+(function(){
+  function rnd(){ return Math.floor(Math.random()*(163-19+1))+19; }
+  let v = rnd();
+  const el = document.getElementById('lp-viewers');
+  if(el) el.textContent = v;
+  setInterval(()=>{
+    v = Math.min(163, Math.max(19, v + Math.floor(Math.random()*5)-2));
+    if(el) el.textContent = v;
+  }, 35000);
+})();
 
 // ── Sticky buy bar: hide when CTA visible ──
 const ctaObs = new IntersectionObserver(entries => {
