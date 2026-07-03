@@ -187,6 +187,7 @@ footer a{color:var(--gold);text-decoration:none}
     display:block;
     gap:0;
     margin-bottom:0;
+    overflow:visible;
   }
 
   /* Featured card: ảnh to full-width, body gọn */
@@ -392,7 +393,7 @@ function renderFeatured(post) {
 // ─── RENDER SIDEBAR — text-only kiểu 24h ────────────────────────────
 function renderSidebar(posts) {
   if (!posts.length) return '';
-  const items = posts.slice(0, 5).map(p => `
+  const items = posts.slice(0, 6).map(p => `
     <a class="side-card" href="${p.href}">
       <div class="side-cat">${p.category || 'Bài viết'}</div>
       <div class="side-title">${p.title}</div>
@@ -427,7 +428,7 @@ function renderCard(post) {
 }
 
 // ─── PAGINATION ─────────────────────────────────────────────────────
-const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 13;
 let currentPage = 1;
 let searchQuery  = '';
 
@@ -515,7 +516,7 @@ function renderAll() {
     layout.style.display = 'grid';
     const [featured, ...rest] = pagePosts;
     layout.innerHTML = renderFeatured(featured) + renderSidebar(rest);
-    const gridPosts = rest.slice(5); // sidebar dùng 5 bài
+    const gridPosts = rest.slice(6); // sidebar dùng 6 bài
     if (gridPosts.length) {
       moreSection.style.display = 'block';
       if (sectionLbl) sectionLbl.style.display = '';
