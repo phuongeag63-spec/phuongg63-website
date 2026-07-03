@@ -159,6 +159,21 @@ body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min
 .spinner{display:inline-block;width:32px;height:32px;border:3px solid rgba(255,211,106,.2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* ── SEARCH ── */
+.search-wrap{margin-left:auto}
+.search-input{background:rgba(255,211,106,.07);border:1.5px solid rgba(255,211,106,.2);border-radius:999px;padding:6px 18px;color:#fff;font-size:13px;width:220px;outline:none;transition:all .25s}
+.search-input::placeholder{color:var(--muted)}
+.search-input:focus{border-color:var(--gold);background:rgba(255,211,106,.1);width:260px}
+@media(max-width:600px){.search-wrap{width:100%;margin-left:0}.search-input{width:100%}.search-input:focus{width:100%}}
+
+/* ── PAGINATION ── */
+.pagination{display:flex;justify-content:center;align-items:center;gap:8px;padding:32px 0 8px;flex-wrap:wrap}
+.page-btn{min-width:38px;height:38px;padding:0 12px;border-radius:8px;border:1.5px solid rgba(255,211,106,.2);background:transparent;color:rgba(255,211,106,.7);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.page-btn:hover:not(:disabled){border-color:var(--gold);color:var(--gold);background:rgba(255,211,106,.08)}
+.page-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold2));border-color:transparent;color:#07040b}
+.page-btn:disabled{opacity:.3;cursor:default}
+.page-dots{color:var(--muted);font-size:13px;padding:0 4px}
+
 /* ── FOOTER ── */
 footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;color:var(--muted);font-size:13px}
 footer a{color:var(--gold);text-decoration:none}
@@ -315,6 +330,9 @@ footer a{color:var(--gold);text-decoration:none}
     <button class="filter-btn" onclick="setFilter('Nhật ký lệnh')">Nhật ký lệnh</button>
     <button class="filter-btn" onclick="setFilter('Kinh nghiệm')">Kinh nghiệm</button>
     <button class="filter-btn" onclick="setFilter('Trading')">Trading</button>
+    <div class="search-wrap">
+      <input class="search-input" type="text" id="searchInput" placeholder="🔍 Tìm kiếm bài viết..." oninput="setSearch(this.value)">
+    </div>
   </div>
 </div>
 
@@ -334,6 +352,9 @@ footer a{color:var(--gold);text-decoration:none}
     <div class="posts-grid" id="postsGrid"></div>
   </div>
 
+  <!-- PAGINATION -->
+  <div id="pagination" class="pagination"></div>
+
 </div>
 
 <footer>
@@ -347,7 +368,6 @@ const REPO       = 'phuongeag63-spec/phuongg63-website';
 const BRANCH     = 'main';
 const POSTS_JSON = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/posts.json`;
 
-// Fix đường dẫn ảnh — đảm bảo luôn bắt đầu bằng /
 function fixImg(src) {
   if (!src) return '';
   src = src.trim();
@@ -358,30 +378,6 @@ function fixImg(src) {
 // OLD_POSTS đã được chuyển sang posts.json — không còn dùng nữa
 
 // ─── PARSERS ────────────────────────────────────────────────────────
-function parseFrontmatter(raw) {
-  const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
-  if (!m) return { meta: {}, body: raw };
-  const meta = {};
-  m[1].split('\n').forEach(line => {
-    const [k, ...rest] = line.split(':');
-    if (k) meta[k.trim()] = rest.join(':').trim().replace(/^["']|["']$/g,'');
-  });
-  return { meta, body: m[2] };
-}
-
-function excerpt(body, len = 160) {
-  return body
-    .replace(/!\[[\s\S]*?\]\([\s\S]*?\)/g, '')
-    .replace(/\[[\s\S]*?\]\([\s\S]*?\)/g, '')
-    .replace(/#{1,6}\s[^\n]*/g, '')
-    .replace(/https?:\/\/\S+/g, '')
-    .replace(/\*\*|__|\*|_|`/g, '')
-    .replace(/\n/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .trim()
-    .slice(0, len) + '…';
-}
-
 function formatDate(d) {
   if (!d) return '';
   try { return new Date(d).toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'}); }
@@ -395,7 +391,6 @@ function resultBadge(r) {
   return `<span class="result-badge result-hoa">⚖️ Hoà vốn</span>`;
 }
 
-// ─── CAT ICON ───────────────────────────────────────────────────────
 function catIcon(cat) {
   return {'Trading':'📈','Kinh nghiệm':'💡','Câu chuyện':'📖','Nhật ký lệnh':'📊'}[cat] || '📝';
 }
@@ -428,7 +423,7 @@ function renderSidebar(posts) {
   const items = posts.slice(0, 4).map(p => {
     const img = p.image
       ? `<img class="side-img" src="${fixImg(p.image)}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'">`
-      : `<div class="side-img-placeholder">${p.emoji || '📖'}</div>`;
+      : `<div class="side-img-placeholder">${'📖'}</div>`;
     return `
     <a class="side-card" href="${p.href}">
       ${img}
@@ -467,42 +462,117 @@ function renderCard(post) {
   </a>`;
 }
 
+// ─── PAGINATION ─────────────────────────────────────────────────────
+const POSTS_PER_PAGE = 9;
+let currentPage = 1;
+let searchQuery  = '';
+
+function renderPagination(page, total) {
+  const el = document.getElementById('pagination');
+  if (!el) return;
+  if (total <= 1) { el.innerHTML = ''; return; }
+
+  let html = `<button class="page-btn" onclick="goPage(${page-1})" ${page===1?'disabled':''}>← Trước</button>`;
+
+  // Tính danh sách trang hiển thị
+  const pages = [];
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) pages.push(i);
+  } else {
+    pages.push(1);
+    if (page > 3) pages.push('...');
+    for (let i = Math.max(2, page-1); i <= Math.min(total-1, page+1); i++) pages.push(i);
+    if (page < total - 2) pages.push('...');
+    pages.push(total);
+  }
+
+  pages.forEach(p => {
+    if (p === '...') {
+      html += `<span class="page-dots">…</span>`;
+    } else {
+      html += `<button class="page-btn${p===page?' active':''}" onclick="goPage(${p})">${p}</button>`;
+    }
+  });
+
+  html += `<button class="page-btn" onclick="goPage(${page+1})" ${page===total?'disabled':''}>Tiếp →</button>`;
+  el.innerHTML = html;
+}
+
+function goPage(p) {
+  currentPage = p;
+  renderAll();
+  // Cuộn lên đầu danh sách
+  const el = document.getElementById('newsLayout') || document.querySelector('.header-bar');
+  if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
 // ─── RENDER ALL ─────────────────────────────────────────────────────
-let allPosts = [];
+let allPosts    = [];
 let activeFilter = 'all';
 
 function renderAll() {
-  const filtered = activeFilter === 'all'
+  // 1. Lọc theo category
+  let filtered = activeFilter === 'all'
     ? allPosts
     : allPosts.filter(p => p.category === activeFilter);
 
-  const layout = document.getElementById('newsLayout');
+  // 2. Lọc theo search
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    filtered = filtered.filter(p =>
+      p.title.toLowerCase().includes(q) ||
+      (p.excerpt || '').toLowerCase().includes(q)
+    );
+  }
+
+  const layout      = document.getElementById('newsLayout');
   const moreSection = document.getElementById('moreSection');
-  const grid = document.getElementById('postsGrid');
+  const grid        = document.getElementById('postsGrid');
+  const sectionLbl  = moreSection ? moreSection.querySelector('.section-label') : null;
 
   if (!filtered.length) {
-    layout.innerHTML = `<div class="status-msg" style="grid-column:1/-1"><div class="icon">🔍</div><div>Chưa có bài nào trong danh mục này.</div></div>`;
+    layout.style.display = 'grid';
+    layout.innerHTML = `<div class="status-msg" style="grid-column:1/-1"><div class="icon">🔍</div><div>Không tìm thấy bài viết nào.</div></div>`;
     moreSection.style.display = 'none';
+    renderPagination(0, 0);
     return;
   }
 
-  const [featured, ...rest] = filtered;
+  // 3. Tính trang
+  const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
+  if (currentPage > totalPages) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
 
-  // Render featured + sidebar
-  layout.innerHTML = renderFeatured(featured) + renderSidebar(rest);
+  const start     = (currentPage - 1) * POSTS_PER_PAGE;
+  const pagePosts = filtered.slice(start, start + POSTS_PER_PAGE);
 
-  // Render remaining grid (bỏ qua 5 bài đầu đã hiện sidebar)
-  const gridPosts = rest.slice(4);
-  if (gridPosts.length) {
-    moreSection.style.display = 'block';
-    grid.innerHTML = gridPosts.map(renderCard).join('');
+  if (currentPage === 1) {
+    // Trang 1: featured + sidebar + grid
+    layout.style.display = 'grid';
+    const [featured, ...rest] = pagePosts;
+    layout.innerHTML = renderFeatured(featured) + renderSidebar(rest);
+    const gridPosts = rest.slice(4);
+    if (gridPosts.length) {
+      moreSection.style.display = 'block';
+      if (sectionLbl) sectionLbl.style.display = '';
+      grid.innerHTML = gridPosts.map(renderCard).join('');
+    } else {
+      moreSection.style.display = 'none';
+    }
   } else {
-    moreSection.style.display = 'none';
+    // Trang 2+: chỉ hiện grid
+    layout.style.display = 'none';
+    moreSection.style.display = 'block';
+    if (sectionLbl) sectionLbl.style.display = 'none';
+    grid.innerHTML = pagePosts.map(renderCard).join('');
   }
+
+  renderPagination(currentPage, totalPages);
 }
 
 function setFilter(cat) {
   activeFilter = cat;
+  currentPage  = 1;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.filter-btn').forEach(b => {
     if (b.textContent.includes(cat === 'all' ? 'Tất cả' : cat)) b.classList.add('active');
@@ -510,7 +580,13 @@ function setFilter(cat) {
   renderAll();
 }
 
-// ─── LOAD POSTS FROM STATIC INDEX ──────────────────────────────────
+function setSearch(val) {
+  searchQuery = val.trim();
+  currentPage = 1;
+  renderAll();
+}
+
+// ─── LOAD POSTS ──────────────────────────────────────────────────────
 async function loadMarkdownPosts() {
   try {
     const res = await fetch(POSTS_JSON + '?t=' + Date.now());
@@ -524,7 +600,6 @@ async function loadMarkdownPosts() {
       image:    p.image    || null,
       excerpt:  p.excerpt  || '',
       href:     `/nhat-ky/post.html?file=${encodeURIComponent(p.file)}`,
-      emoji:    '📝',
       _ts:      p.date     || p.file,
     }));
   } catch(e) {
@@ -536,10 +611,9 @@ async function loadMarkdownPosts() {
 // ─── INIT ───────────────────────────────────────────────────────────
 (async () => {
   const mdPosts = await loadMarkdownPosts();
-  const combined = [...mdPosts].sort((a,b) => {
-    return new Date(b.date || b._ts || '2000') - new Date(a.date || a._ts || '2000');
-  });
-  allPosts = combined;
+  allPosts = [...mdPosts].sort((a,b) =>
+    new Date(b.date || b._ts || '2000') - new Date(a.date || a._ts || '2000')
+  );
 
   if (!allPosts.length) {
     document.getElementById('newsLayout').innerHTML =
