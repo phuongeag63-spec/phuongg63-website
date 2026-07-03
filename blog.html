@@ -118,16 +118,124 @@ body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min
 footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;color:var(--muted);font-size:13px}
 footer a{color:var(--gold);text-decoration:none}
 
-/* ── MOBILE ── */
+/* ── MOBILE — kiểu 24h.com.vn ── */
 @media(max-width:768px){
-  .news-layout{grid-template-columns:1fr}
-  .sidebar{display:none}
-  .posts-grid{grid-template-columns:1fr}
-  .featured-body{padding:18px}
+
+  /* Container sát mép màn hình */
+  .container{padding:0 0 60px}
+  .filter-bar{padding:8px 12px}
+
+  /* Stack thành 1 cột */
+  .news-layout{
+    display:block;
+    gap:0;
+    margin-bottom:0;
+  }
+
+  /* Featured card: ảnh to full-width, body gọn */
+  .featured-card{border-radius:0;border-left:none;border-right:none;border-top:none}
+  .featured-body{padding:12px 14px 16px}
+  .featured-title{font-size:19px;line-height:1.4}
+  .featured-excerpt{font-size:13px;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;margin-bottom:12px}
+
+  /* ── HIỆN SIDEBAR trên mobile như "Bài viết gần đây" ── */
+  .sidebar{
+    display:flex;
+    flex-direction:column;
+    border-radius:0;
+    margin-top:0;
+  }
+  .sidebar-header{
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    color:#07040b;
+    -webkit-background-clip:initial;
+    background-clip:initial;
+    -webkit-text-fill-color:#07040b;
+    font-size:11px;
+    letter-spacing:2px;
+    padding:9px 14px;
+    border-bottom:none;
+    margin-bottom:0;
+    border-radius:0;
+  }
+
+  /* Side card ngang: thumbnail trái, nội dung phải */
+  .side-card{
+    padding:10px 14px;
+    border-radius:0;
+    gap:10px;
+    align-items:center;
+  }
+  .side-card:hover{padding-left:14px}
+  .side-img{width:90px;height:62px;border-radius:6px;flex-shrink:0;object-fit:cover}
+  .side-img-placeholder{width:90px;height:62px;border-radius:6px;flex-shrink:0;font-size:20px}
+  .side-title{font-size:13px;font-weight:700;line-height:1.45;-webkit-line-clamp:2}
+  .side-cat{font-size:10px}
+  .side-date{font-size:10px}
+
+  /* ── BÀI VIẾT KHÁC: tiêu đề section ── */
+  .section-label{
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    padding:9px 14px;
+    margin-bottom:0;
+    gap:0;
+  }
+  .section-label span{
+    color:#07040b;
+    -webkit-text-fill-color:#07040b;
+    font-size:11px;
+  }
+  .section-label::before,.section-label::after{display:none}
+
+  /* Posts grid: single column list */
+  .posts-grid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  /* Post card ngang: ảnh trái, nội dung phải */
+  .post-card{
+    flex-direction:row;
+    border-radius:0;
+    border:none;
+    border-bottom:1px solid var(--border);
+    background:transparent;
+    gap:0;
+  }
+  .post-card:hover{transform:none;box-shadow:none;border-color:var(--border);background:rgba(255,255,255,.02)}
+  .card-img{
+    width:94px;height:68px;
+    aspect-ratio:unset;
+    flex-shrink:0;
+    border-radius:6px;
+    margin:10px 0 10px 14px;
+    object-fit:cover;
+  }
+  .card-img-placeholder{
+    width:94px;height:68px;
+    aspect-ratio:unset;
+    flex-shrink:0;
+    border-radius:6px;
+    font-size:22px;
+    margin:10px 0 10px 14px;
+  }
+  .card-body{padding:10px 14px 10px 10px;gap:3px}
+  .card-body p{display:none}
+  .card-read{display:none}
+  .card-body h3{
+    font-size:13px;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .card-meta{margin-bottom:1px}
 }
+
 @media(max-width:480px){
   .header-sub{display:none}
-  .featured-title{font-size:18px}
+  .featured-title{font-size:17px}
+  .featured-excerpt{font-size:12px}
 }
 </style>
 </head>
