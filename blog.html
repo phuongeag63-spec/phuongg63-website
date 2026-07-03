@@ -335,10 +335,9 @@ footer a{color:var(--gold);text-decoration:none}
 
 <script>
 // ─── CONFIG ────────────────────────────────────────────────────────
-const REPO     = 'phuongeag63-spec/phuongg63-website';
-const BRANCH   = 'main';
-const API_BASE = `https://api.github.com/repos/${REPO}/contents/nhat-ky?ref=${BRANCH}`;
-const RAW_BASE = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/nhat-ky/`;
+const REPO       = 'phuongeag63-spec/phuongg63-website';
+const BRANCH     = 'main';
+const POSTS_JSON = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/posts.json`;
 
 // Fix đường dẫn ảnh — đảm bảo luôn bắt đầu bằng /
 function fixImg(src) {
@@ -504,34 +503,25 @@ function setFilter(cat) {
   renderAll();
 }
 
-// ─── LOAD MARKDOWN ──────────────────────────────────────────────────
+// ─── LOAD POSTS FROM STATIC INDEX ──────────────────────────────────
 async function loadMarkdownPosts() {
   try {
-    const res = await fetch(API_BASE);
-    if (!res.ok) throw new Error('GitHub API error');
-    const files = await res.json();
-    const mdFiles = files.filter(f => f.name.endsWith('.md'));
-    const parsed = await Promise.all(mdFiles.map(async f => {
-      try {
-        const r = await fetch(RAW_BASE + f.name);
-        const text = await r.text();
-        const { meta, body } = parseFrontmatter(text);
-        return {
-          title:    meta.title || f.name.replace('.md',''),
-          date:     meta.date ? meta.date.slice(0,10) : f.name.slice(0,10),
-          category: meta.category || 'Bài viết',
-          result:   meta.result || null,
-          image:    meta.image  || null,
-          excerpt:  excerpt(body),
-          href:     `/nhat-ky/post.html?file=${encodeURIComponent(f.name.replace('.md',''))}`,
-          emoji:    '📝',
-          _ts:      meta.date || f.name,
-        };
-      } catch { return null; }
+    const res = await fetch(POSTS_JSON + '?t=' + Date.now());
+    if (!res.ok) throw new Error('posts.json not found');
+    const posts = await res.json();
+    return posts.map(p => ({
+      title:    p.title    || p.file,
+      date:     p.date     || '',
+      category: p.category || 'Bài viết',
+      result:   p.result   || null,
+      image:    p.image    || null,
+      excerpt:  p.excerpt  || '',
+      href:     `/nhat-ky/post.html?file=${encodeURIComponent(p.file)}`,
+      emoji:    '📝',
+      _ts:      p.date     || p.file,
     }));
-    return parsed.filter(Boolean);
   } catch(e) {
-    console.warn('Could not fetch markdown posts:', e);
+    console.warn('Could not fetch posts.json:', e);
     return [];
   }
 }
