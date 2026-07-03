@@ -111,3 +111,74 @@ window.addEventListener('load', () => {
     if (el) io.observe(el);
   });
 })();
+
+/* ─── COUNTDOWN TIMER ────────────────────────────── */
+(function () {
+  function updateCountdown() {
+    const now = new Date();
+    const end = new Date(now);
+    end.setHours(23, 59, 59, 0);
+    const diff = end - now;
+    if (diff <= 0) return;
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const el = document.getElementById('countdown-timer');
+    if (el) el.textContent =
+      String(h).padStart(2, '0') + ':' +
+      String(m).padStart(2, '0') + ':' +
+      String(s).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
+
+/* ─── SOCIAL PROOF POPUP ─────────────────────────── */
+(function () {
+  // Thêm animation CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes spIn {
+      from { opacity:0; transform:translateY(16px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    #sp-popup { animation: spIn .4s ease; }
+  `;
+  document.head.appendChild(style);
+
+  const buyers = [
+    { name: 'Nguyễn V.T · TP.HCM',   product: 'Chiến Trường Sinh Tử G63',  time: '2 phút trước' },
+    { name: 'Trần M.H · Hà Nội',      product: 'Đại Bản Doanh G63 V8',      time: '7 phút trước' },
+    { name: 'Lê Q.A · Đà Nẵng',       product: 'Hàn Băng Chưởng G63',       time: '14 phút trước' },
+    { name: 'Phạm T.B · Cần Thơ',     product: 'Chiến Trường Sinh Tử G63',  time: '21 phút trước' },
+    { name: 'Hoàng V.C · Hải Phòng',  product: 'EA Lục Mạch Thần Kiếm G63', time: '29 phút trước' },
+    { name: 'Đỗ M.D · Bình Dương',    product: 'Đại Bản Doanh G63 V8',      time: '38 phút trước' },
+    { name: 'Vũ T.E · TP.HCM',        product: 'Phuong G63 RR',             time: '47 phút trước' },
+    { name: 'Bùi Q.F · Hà Nội',       product: 'Chiến Trường Sinh Tử G63',  time: '1 giờ trước' },
+    { name: 'Đinh T.G · Nha Trang',   product: 'Hàn Băng Chưởng G63',       time: '1 giờ 20 phút trước' },
+    { name: 'Cao V.H · Hồ Chí Minh',  product: 'Đại Bản Doanh G63 V8',      time: '2 giờ trước' },
+  ];
+
+  let idx = Math.floor(Math.random() * buyers.length);
+
+  function showNext() {
+    const popup = document.getElementById('sp-popup');
+    if (!popup) return;
+    const b = buyers[idx % buyers.length];
+    document.getElementById('sp-name').textContent = b.name;
+    document.getElementById('sp-product').textContent = '🛒 Vừa mua ' + b.product;
+    document.getElementById('sp-time').textContent = '⏱ ' + b.time;
+    popup.style.display = 'block';
+    popup.style.animation = 'none';
+    void popup.offsetWidth; // reflow để restart animation
+    popup.style.animation = 'spIn .4s ease';
+    idx++;
+    setTimeout(() => { if (popup) popup.style.display = 'none'; }, 6000);
+  }
+
+  // Popup đầu tiên sau 10 giây, sau đó mỗi 18 giây
+  setTimeout(() => {
+    showNext();
+    setInterval(showNext, 18000);
+  }, 10000);
+})();
