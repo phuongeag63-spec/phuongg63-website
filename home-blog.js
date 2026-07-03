@@ -3,6 +3,49 @@
 (async function () {
   const POSTS_JSON = 'https://raw.githubusercontent.com/phuongeag63-spec/phuongg63-website/main/posts.json';
 
+  // ── Inject responsive CSS (chỉ 1 lần) ──────────────────────────────────
+  if (!document.getElementById('hb-styles')) {
+    const st = document.createElement('style');
+    st.id = 'hb-styles';
+    st.textContent = `
+      .hb-row1 {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 0;
+        margin-bottom: 16px;
+        border: 1px solid rgba(255,211,106,.15);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .hb-right-col {
+        background: rgba(15,11,22,1);
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid rgba(255,211,106,.12);
+      }
+      .hb-big-card { min-height: 420px; }
+      .hb-row2 {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      /* ── Mobile: ≤ 720px ── */
+      @media (max-width: 720px) {
+        .hb-row1 { grid-template-columns: 1fr; }
+        .hb-big-card { min-height: 260px !important; border-radius: 0 !important; }
+        .hb-right-col { border-left: none; border-top: 1px solid rgba(255,211,106,.12); }
+        .hb-row2 { grid-template-columns: 1fr 1fr; gap: 10px; }
+      }
+      /* ── Small mobile: ≤ 480px ── */
+      @media (max-width: 480px) {
+        .hb-big-card { min-height: 220px !important; }
+        .hb-row2 { grid-template-columns: 1fr; }
+      }
+    `;
+    document.head.appendChild(st);
+  }
+
   function fmt(d) {
     if (!d) return '';
     const p = d.split('-');
@@ -18,7 +61,8 @@
   function cardBig(p) {
     return `
     <a href="/nhat-ky/post.html?file=${encodeURIComponent(p.file)}"
-       style="position:relative;border-radius:16px 0 0 16px;overflow:hidden;text-decoration:none;color:inherit;display:block;height:100%;min-height:420px;transition:.3s"
+       class="hb-big-card"
+       style="position:relative;border-radius:16px 0 0 16px;overflow:hidden;text-decoration:none;color:inherit;display:block;height:100%;transition:.3s"
        onmouseover="this.style.opacity='.92'"
        onmouseout="this.style.opacity='1'">
       ${p.image
@@ -101,15 +145,7 @@
 
     // ── Hàng 1: bài to bên trái + danh sách 4 bài bên phải ──
     const row1 = document.createElement('div');
-    row1.style.cssText = [
-      'display:grid',
-      'grid-template-columns:1.5fr 1fr',
-      'gap:0',
-      'margin-bottom:16px',
-      'border:1px solid rgba(255,211,106,.15)',
-      'border-radius:16px',
-      'overflow:hidden',
-    ].join(';');
+    row1.className = 'hb-row1';
 
     // Bài to
     const leftCol = document.createElement('div');
@@ -117,7 +153,7 @@
 
     // Danh sách bên phải
     const rightCol = document.createElement('div');
-    rightCol.style.cssText = 'background:rgba(15,11,22,1);display:flex;flex-direction:column;border-left:1px solid rgba(255,211,106,.12)';
+    rightCol.className = 'hb-right-col';
 
     const rightHeader = document.createElement('div');
     rightHeader.style.cssText = 'font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#07040b;background:linear-gradient(135deg,#ffd36a,#ff9f1c);padding:9px 16px';
@@ -136,7 +172,7 @@
 
     // ── Hàng 2: 3 card mini ──
     const row2 = document.createElement('div');
-    row2.style.cssText = 'display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px';
+    row2.className = 'hb-row2';
     row2.innerHTML =
       (posts[5] ? cardMini(posts[5]) : '') +
       (posts[6] ? cardMini(posts[6]) : '') +
