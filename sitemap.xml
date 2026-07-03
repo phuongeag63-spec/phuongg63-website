@@ -120,5 +120,23 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-07-03-dem-ngoi-mot-minh-ben-song</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-07-03-giua-rung-thong-da-lat</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://phuongg63.com/nhat-ky/post.html?file=2026-07-03-tu-ha-noi-nhin-ve</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>
