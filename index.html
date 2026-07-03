@@ -807,9 +807,24 @@
 <script>
 (function(){
   var nav = document.getElementById('bottom-nav');
+  var zalo = document.querySelector('.zalo-float-vip');
+  var cta = document.querySelector('.zalo-cta');
+  var pulse = document.querySelector('.zalo-pulse');
   function checkNav(){
     if(!nav) return;
-    nav.style.display = window.innerWidth <= 900 ? 'flex' : 'none';
+    var isMobile = window.innerWidth <= 900;
+    nav.style.display = isMobile ? 'flex' : 'none';
+    if(zalo){
+      if(isMobile){
+        zalo.style.cssText = 'position:fixed !important;bottom:74px !important;right:14px !important;padding:10px !important;border-radius:50% !important;width:48px !important;height:48px !important;justify-content:center !important;animation:none !important;background:linear-gradient(135deg,#0068FF,#0052cc) !important;display:flex !important;align-items:center !important;z-index:9999 !important;box-shadow:0 6px 28px rgba(0,104,255,.55) !important;';
+        if(cta) cta.style.display='none';
+        if(pulse){pulse.style.top='-3px';pulse.style.right='-3px';}
+      } else {
+        zalo.style.cssText='';
+        if(cta) cta.style.display='';
+        if(pulse){pulse.style.top='';pulse.style.right='';}
+      }
+    }
   }
   checkNav();
   window.addEventListener('resize', checkNav, {passive:true});
