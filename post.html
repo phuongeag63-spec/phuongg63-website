@@ -67,6 +67,17 @@ body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min
 .spinner{display:inline-block;width:36px;height:36px;border:3px solid rgba(255,211,106,.2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* ── SHARE BUTTONS ── */
+.share-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:40px 0 0;padding:18px 20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px}
+.share-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-right:4px;flex-shrink:0}
+.share-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+.share-fb{background:rgba(24,119,242,.18);color:#4e9cf7;border:1px solid rgba(24,119,242,.35)}
+.share-fb:hover{background:rgba(24,119,242,.3);transform:translateY(-2px)}
+.share-zalo{background:rgba(0,104,255,.15);color:#5ea8ff;border:1px solid rgba(0,104,255,.3)}
+.share-zalo:hover{background:rgba(0,104,255,.28);transform:translateY(-2px)}
+.share-copy{background:rgba(255,211,106,.1);color:var(--gold);border:1px solid rgba(255,211,106,.25);cursor:pointer}
+.share-copy:hover{background:rgba(255,211,106,.2);transform:translateY(-2px)}
+
 /* ── AUTHOR BIO ── */
 .author-bio{display:flex;align-items:flex-start;gap:16px;background:rgba(255,211,106,.05);border:1px solid rgba(255,211,106,.18);border-radius:18px;padding:22px 24px;margin:48px 0 0}
 .author-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex-shrink:0;background:linear-gradient(135deg,#1a0a2e,#0f0620);display:flex;align-items:center;justify-content:center;font-size:28px}
@@ -129,6 +140,21 @@ footer a{color:var(--gold);text-decoration:none}
       <h1 id="articleTitle"></h1>
     </div>
     <div class="article-body" id="articleBody"></div>
+
+    <!-- ── SHARE BAR ── -->
+    <div class="share-bar" id="shareBar">
+      <span class="share-label">📢 Chia sẻ:</span>
+      <a class="share-btn share-fb" id="shareF" href="#" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Facebook
+      </a>
+      <a class="share-btn share-zalo" id="shareZ" href="#" target="_blank" rel="noopener">
+        💬 Zalo
+      </a>
+      <button class="share-btn share-copy" id="shareCopy" onclick="copyLink()">
+        🔗 Sao chép link
+      </button>
+    </div>
 
     <!-- ── AUTHOR BIO ── -->
     <div class="author-bio">
@@ -283,10 +309,30 @@ function fixImg(src) {
 
     document.getElementById('loading').style.display = 'none';
     document.getElementById('app').style.display     = 'block';
+
+    // ── Share buttons — set URL sau khi có title ──
+    const pageUrl   = location.href;
+    const pageTitle = (meta.title || document.title);
+    const fbUrl   = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+    const zaloUrl = 'https://zalo.me/s?link=' + encodeURIComponent(pageUrl) + '&title=' + encodeURIComponent(pageTitle);
+    const sfEl = document.getElementById('shareF');
+    const szEl = document.getElementById('shareZ');
+    if (sfEl) sfEl.href = fbUrl;
+    if (szEl) szEl.href = zaloUrl;
+
   } catch (e) {
     showError();
   }
 })();
+
+function copyLink() {
+  const btn = document.getElementById('shareCopy');
+  navigator.clipboard.writeText(location.href).then(function() {
+    if (btn) { btn.textContent = '✅ Đã sao chép!'; setTimeout(function(){ btn.textContent = '🔗 Sao chép link'; }, 2000); }
+  }).catch(function() {
+    if (btn) { btn.textContent = '🔗 ' + location.href; }
+  });
+}
 
 function showError() {
   document.getElementById('loading').style.display  = 'none';
