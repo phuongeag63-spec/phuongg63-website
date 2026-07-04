@@ -115,12 +115,9 @@
        style="border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.3s;background:rgba(15,11,22,.9);border:1px solid rgba(255,211,106,.2)"
        onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(255,211,106,.5)'"
        onmouseout="this.style.transform='';this.style.borderColor='rgba(255,211,106,.2)'">
-      ${p.image
-        ? `<div style="width:100%;height:130px;overflow:hidden;flex-shrink:0">
-             <img src="${fixImg(p.image)}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;transition:.3s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
-           </div>`
-        : `<div style="width:100%;height:130px;flex-shrink:0;background:linear-gradient(135deg,#1a0a2e,#0f0620);display:flex;align-items:center;justify-content:center;font-size:40px">📖</div>`
-      }
+      <div style="width:100%;height:130px;overflow:hidden;flex-shrink:0">
+        <img src="${p.image ? fixImg(p.image) : '/assets/images/chien-truong-sinh-tu-poster.png'}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:.3s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
+      </div>
       <div style="padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:5px">
         <span style="font-size:10px;color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:.5px">${p.category}</span>
         <h3 style="font-size:13px;font-weight:800;color:#fff;line-height:1.4;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${p.title}</h3>
