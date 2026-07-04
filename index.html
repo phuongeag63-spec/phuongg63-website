@@ -3,25 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- PWA -->
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#FFD36A">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Phương G63">
-<link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
-<script>
-if('serviceWorker' in navigator){
-  window.addEventListener('load',function(){
-    navigator.serviceWorker.register('/sw.js').then(function(reg){
-      console.log('SW registered');
-    }).catch(function(err){
-      console.log('SW error:', err);
-    });
-  });
-}
-</script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8KME2DB3L"></script>
 <script>
@@ -61,68 +42,6 @@ if('serviceWorker' in navigator){
 <meta name="twitter:description" content="Hệ sinh thái EA MT5 chuyên nghiệp: Trust Center, hướng dẫn sau mua, QR VietinBank. Liên hệ Zalo ngay.">
 <meta name="twitter:image" content="https://phuongg63.com/assets/images/chien-truong-sinh-tu-poster.png">
 <meta name="twitter:image:alt" content="Phương G63 — EA MT5 chuyên nghiệp Việt Nam">
-<!-- ✅ ORGANIZATION / PERSON SCHEMA -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://phuongg63.com/#person",
-      "name": "Phương G63",
-      "alternateName": "Phuong G63",
-      "description": "Trader Forex hơn 5 năm kinh nghiệm, chuyên lập trình EA MT5 và dashboard giao dịch chuyên nghiệp cho trader Việt Nam.",
-      "url": "https://phuongg63.com/",
-      "image": "https://phuongg63.com/assets/images/anhbia.jpg",
-      "sameAs": [
-        "https://zalo.me/84822299993",
-        "https://www.facebook.com/phuongea.g63",
-        "https://www.tiktok.com/@phuongnguyen63b"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Cai Lậy",
-        "addressRegion": "Đồng Tháp",
-        "addressCountry": "VN"
-      }
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://phuongg63.com/#business",
-      "name": "Phương G63 Software",
-      "description": "Chuyên lập trình EA MT5, thiết kế website, chỉ báo giao dịch và công cụ hỗ trợ trader chuyên nghiệp tại Việt Nam.",
-      "url": "https://phuongg63.com/",
-      "logo": "https://phuongg63.com/assets/icons/icon-192x192.png",
-      "image": "https://phuongg63.com/assets/images/anhbia.jpg",
-      "telephone": "+84822299993",
-      "priceRange": "₫₫",
-      "currenciesAccepted": "VND",
-      "paymentAccepted": "Chuyển khoản ngân hàng",
-      "areaServed": "VN",
-      "founder": {"@id": "https://phuongg63.com/#person"},
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Cai Lậy",
-        "addressRegion": "Đồng Tháp",
-        "addressCountry": "VN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+84822299993",
-        "contactType": "customer support",
-        "contactOption": "TollFree",
-        "availableLanguage": "Vietnamese"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "50",
-        "bestRating": "5"
-      }
-    }
-  ]
-}
-</script>
 <!-- ✅ PRODUCT JSON-LD STRUCTURED DATA -->
 <script type="application/ld+json">
 {
@@ -360,7 +279,7 @@ if('serviceWorker' in navigator){
   <a class="brand" href="#home"><span class="logo">G63</span><span><b>PHƯƠNG G63</b><small>Enterprise MT5 Software</small></span></a>
   <button class="menu-btn" onclick="document.body.classList.toggle('menu-open')">☰</button>
   <nav>
-    <a href="#products">🛒 Sản phẩm</a><a href="lap-trinh-ea.html">🤖 Dịch vụ EA</a><a class="gold-link" href="#contact">💬 Liên hệ</a><a href="blog.html">📝 Nhật ký</a>
+    <a href="#products">🛒 Sản phẩm</a><a class="gold-link" href="#contact">💬 Liên hệ</a><a href="blog.html">📝 Nhật ký</a>
   </nav>
 </header>
 <main>
@@ -425,19 +344,19 @@ if('serviceWorker' in navigator){
 <div style="padding:40px 24px;background:linear-gradient(135deg,rgba(255,211,106,.04),rgba(255,159,28,.02))">
   <div class="live-stats-wrap" style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;text-align:center">
     <div style="padding:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,211,106,.15);border-radius:16px">
-      <div style="font-size:32px;font-weight:900;color:#ffd36a" data-count="67" data-suffix="%">67%</div>
+      <div style="font-size:32px;font-weight:900;color:#ffd36a" data-count="72.4" data-suffix="%">0%</div>
       <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Win Rate trung bình</div>
     </div>
     <div style="padding:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,211,106,.15);border-radius:16px">
-      <div style="font-size:32px;font-weight:900;color:#ffd36a" data-count="1.5" data-suffix="x">1.5x</div>
+      <div style="font-size:32px;font-weight:900;color:#ffd36a" data-count="2.3" data-suffix="x">0x</div>
       <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Profit Factor</div>
     </div>
     <div style="padding:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,211,106,.15);border-radius:16px">
-      <div style="font-size:32px;font-weight:900;color:#ffd36a" data-count="50" data-suffix="+">50+</div>
+      <div style="font-size:32px;font-weight:900;color:#ffd36a" data-count="63" data-suffix="+">0+</div>
       <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Khách hàng tin dùng</div>
     </div>
     <div style="padding:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,211,106,.15);border-radius:16px">
-      <div style="font-size:32px;font-weight:900;color:#ffd36a" data-count="10" data-suffix="%">10%</div>
+      <div style="font-size:32px;font-weight:900;color:#ffd36a" data-count="8.2" data-suffix="%">0%</div>
       <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Max Drawdown</div>
     </div>
   </div>
@@ -482,7 +401,7 @@ if('serviceWorker' in navigator){
   }
   function excerpt(body,len){return body.replace(/#{1,6}\s.*\n?/g,'').replace(/\*\*|__|\*|_|`/g,'').replace(/\n/g,' ').trim().slice(0,len||100)+'…';}
   function fmtDate(d){try{return new Date(d).toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'});}catch(e){return d||'';}}
-  window.heroImgErr=function(el){el.parentNode.innerHTML='<div style="width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:64px">📝</div>';}
+  function heroImgErr(el){el.parentNode.innerHTML='<div style="width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:64px">📝</div>';}
 
   function resultBadge(r){
     if(!r)return'';
@@ -558,34 +477,25 @@ if('serviceWorker' in navigator){
     bottom.innerHTML=bottomPosts.map(renderMini).join('');
   }
 
-  fetch('https://api.github.com/repos/'+REPO+'/contents/nhat-ky?ref='+BRANCH)
-    .then(function(r){return r.ok?r.json():[];})
-    .then(function(files){
-      if(!Array.isArray(files))throw new Error();
-      var mdFiles=files.filter(function(f){return f.name.endsWith('.md');});
-      if(!mdFiles.length)throw new Error('no md');
-      return Promise.all(mdFiles.map(function(f){
-        return fetch('https://raw.githubusercontent.com/'+REPO+'/'+BRANCH+'/nhat-ky/'+f.name)
-          .then(function(r){return r.text();})
-          .then(function(text){
-            var parsed=parseFM(text);
-            var meta=parsed.meta, body=parsed.body;
-            return{
-              title:meta.title||f.name.replace('.md',''),
-              date:meta.date?meta.date.slice(0,10):f.name.slice(0,10),
-              cat:meta.category||'Bài viết',
-              result:meta.result||null,
-              img:meta.image||null,
-              excerpt:excerpt(body,100),
-              href:'/nhat-ky/post.html?file='+encodeURIComponent(f.name.replace('.md','')),
-              _d:new Date(meta.date||f.name.slice(0,10))
-            };
-          }).catch(function(){return null;});
-      }));
-    })
-    .then(function(mdPosts){
-      mdPosts=mdPosts.filter(Boolean).sort(function(a,b){return b._d-a._d;});
-      var combined=mdPosts.concat(OLD).sort(function(a,b){return new Date(b.date)-new Date(a.date);});
+  // Tải từ posts.json — nhanh, không cần GitHub API, không rate limit
+  fetch('/posts.json')
+    .then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(data){
+      var jsonPosts = data.map(function(p){
+        return {
+          title:  p.title || '',
+          date:   p.date  || '',
+          cat:    p.category || 'Bài viết',
+          result: p.result || null,
+          img:    (p.image && p.image !== 'null') ? p.image : null,
+          excerpt:p.excerpt || '',
+          href:   '/nhat-ky/' + p.file + '.html',
+          _d:     new Date(p.date || '2000-01-01')
+        };
+      });
+      var combined = jsonPosts.concat(OLD).sort(function(a,b){
+        return new Date(b.date||'2000-01-01') - new Date(a.date||'2000-01-01');
+      });
       renderAll(combined);
     })
     .catch(function(){
@@ -880,10 +790,6 @@ if('serviceWorker' in navigator){
     <span style="font-size:22px;line-height:1">📝</span>
     <span>Blog</span>
   </a>
-  <a href="lap-trinh-ea.html" style="display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:rgba(255,255,255,.45);font-size:10px;font-weight:700;min-width:56px;padding:2px 8px">
-    <span style="font-size:22px;line-height:1">🤖</span>
-    <span>Dịch vụ</span>
-  </a>
   <a href="https://zalo.me/84822299993" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:#fff;font-size:10px;font-weight:800;min-width:56px;padding:6px 16px;background:linear-gradient(135deg,#0068FF,#0052cc);border-radius:14px;box-shadow:0 4px 16px rgba(0,104,255,.4)">
     <span style="font-size:22px;line-height:1">💬</span>
     <span>Zalo</span>
@@ -892,24 +798,9 @@ if('serviceWorker' in navigator){
 <script>
 (function(){
   var nav = document.getElementById('bottom-nav');
-  var zalo = document.querySelector('.zalo-float-vip');
-  var cta = document.querySelector('.zalo-cta');
-  var pulse = document.querySelector('.zalo-pulse');
   function checkNav(){
     if(!nav) return;
-    var isMobile = window.innerWidth <= 900;
-    nav.style.display = isMobile ? 'flex' : 'none';
-    if(zalo){
-      if(isMobile){
-        zalo.style.cssText = 'position:fixed !important;bottom:74px !important;right:14px !important;padding:10px !important;border-radius:50% !important;width:48px !important;height:48px !important;justify-content:center !important;animation:none !important;background:linear-gradient(135deg,#0068FF,#0052cc) !important;display:flex !important;align-items:center !important;z-index:9999 !important;box-shadow:0 6px 28px rgba(0,104,255,.55) !important;';
-        if(cta) cta.style.display='none';
-        if(pulse){pulse.style.top='-3px';pulse.style.right='-3px';}
-      } else {
-        zalo.style.cssText='';
-        if(cta) cta.style.display='';
-        if(pulse){pulse.style.top='';pulse.style.right='';}
-      }
-    }
+    nav.style.display = window.innerWidth <= 900 ? 'flex' : 'none';
   }
   checkNav();
   window.addEventListener('resize', checkNav, {passive:true});
@@ -1135,37 +1026,5 @@ if('serviceWorker' in navigator){
   }
 }
 </style>
-
-<!-- ✅ COUNTER ANIMATION cho Stats -->
-<script>
-(function(){
-  var els = document.querySelectorAll('[data-count]');
-  if(!els.length) return;
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(!entry.isIntersecting) return;
-      observer.unobserve(entry.target);
-      var el = entry.target;
-      var target = parseFloat(el.dataset.count);
-      var suffix = el.dataset.suffix || '';
-      var isDecimal = target % 1 !== 0;
-      var duration = 1400;
-      var start = null;
-      function step(ts){
-        if(!start) start = ts;
-        var progress = Math.min((ts - start) / duration, 1);
-        var ease = 1 - Math.pow(1 - progress, 3);
-        var val = target * ease;
-        el.textContent = (isDecimal ? val.toFixed(1) : Math.round(val)) + suffix;
-        if(progress < 1) requestAnimationFrame(step);
-        else el.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
-      }
-      requestAnimationFrame(step);
-    });
-  }, { threshold: 0.4 });
-  els.forEach(function(el){ observer.observe(el); });
-})();
-</script>
-<script src="/home-blog.js" defer></script>
 </body>
 </html>
