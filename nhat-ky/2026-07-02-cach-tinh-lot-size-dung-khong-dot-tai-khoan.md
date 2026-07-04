@@ -2,7 +2,7 @@
 title: "Cách Tính Lot Size Đúng — Không Bao Giờ Đốt Tài Khoản Nữa"
 date: 2026-07-02
 category: Kinh nghiệm
-image: null
+image: /assets/images/blog-bai2.png
 description: "Lot size không phải con số kỹ thuật. Đó là quyết định tâm lý. Sai lot size là nguyên nhân số 1 trader thua nhanh hơn thua chậm."
 ---
 

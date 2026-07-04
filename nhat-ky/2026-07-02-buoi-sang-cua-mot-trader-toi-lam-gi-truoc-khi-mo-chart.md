@@ -2,7 +2,7 @@
 title: "Buổi Sáng Của Một Trader — Tôi Làm Gì Trước Khi Mở Chart"
 date: 2026-07-02
 category: Kinh nghiệm
-image: null
+image: /assets/images/blog-trading3.png
 description: "Cách bạn bắt đầu buổi sáng ảnh hưởng đến chất lượng quyết định cả ngày. Đây là routine sáng của tôi trước khi mở MT5."
 ---
 

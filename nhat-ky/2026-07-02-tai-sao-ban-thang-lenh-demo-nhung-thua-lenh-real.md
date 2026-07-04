@@ -2,7 +2,7 @@
 title: "Tại Sao Bạn Thắng Lệnh Demo Nhưng Thua Lệnh Real"
 date: 2026-07-02
 category: Trading
-image: null
+image: /assets/images/blog-trading1.png
 description: "Demo và real không khác nhau ở kỹ thuật. Chúng khác nhau ở tâm lý. Và tâm lý thì không thể giả lập được."
 ---
 

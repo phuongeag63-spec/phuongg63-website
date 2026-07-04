@@ -2,7 +2,7 @@
 title: "Drawdown Bao Nhiêu Thì Nên Dừng Lại?"
 date: 2026-07-02
 category: Kinh nghiệm
-image: null
+image: /assets/images/blog-bai1.png
 description: "Không có con số đúng cho tất cả mọi người. Nhưng có một nguyên tắc mà trader sống sót lâu dài đều tuân theo."
 ---
 

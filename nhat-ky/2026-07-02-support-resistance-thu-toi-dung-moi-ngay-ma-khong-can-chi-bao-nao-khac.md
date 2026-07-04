@@ -2,7 +2,7 @@
 title: "Support & Resistance — Thứ Tôi Dùng Mỗi Ngày Mà Không Cần Chỉ Báo Nào Khác"
 date: 2026-07-02
 category: Kinh nghiệm
-image: null
+image: /assets/images/blog-trading2.png
 description: "Sau nhiều năm thử đủ loại indicator, tôi quay về với thứ đơn giản nhất: vùng hỗ trợ và kháng cự. Không phải vì lười — mà vì nó thật sự hoạt động."
 ---
 

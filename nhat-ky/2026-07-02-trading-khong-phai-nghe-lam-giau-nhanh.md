@@ -2,7 +2,7 @@
 title: "Trading Không Phải Nghề Làm Giàu Nhanh — Và Đó Là Tin Tốt"
 date: 2026-07-02
 category: Trading
-image: null
+image: /assets/images/blog-trading5.png
 description: "Người ta bán cho bạn giấc mơ làm giàu nhanh. Nhưng sự thật là trader thật sự kiếm tiền chậm — và đó chính xác là lý do họ còn tồn tại được."
 ---
 
