@@ -115,9 +115,17 @@
        style="border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.3s;background:rgba(15,11,22,.9);border:1px solid rgba(255,211,106,.2)"
        onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(255,211,106,.5)'"
        onmouseout="this.style.transform='';this.style.borderColor='rgba(255,211,106,.2)'">
-      <div style="width:100%;height:130px;overflow:hidden;flex-shrink:0">
-        <img src="${p.image ? fixImg(p.image) : '/assets/images/chien-truong-sinh-tu-poster.png'}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:.3s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
-      </div>
+      ${p.image
+        ? `<div style="width:100%;height:130px;overflow:hidden;flex-shrink:0">
+             <img src="${fixImg(p.image)}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:.3s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
+           </div>`
+        : `<div style="width:100%;height:130px;flex-shrink:0;background:linear-gradient(135deg,#16082e 0%,#0d0519 60%,#1a0830 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;overflow:hidden">
+             <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(255,211,106,.07) 0%,transparent 70%)"></div>
+             <span style="font-size:26px;line-height:1">📈</span>
+             <span style="font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,211,106,.7)">${p.category}</span>
+             <span style="font-size:8px;color:rgba(255,255,255,.25);letter-spacing:1px">PHƯƠNG G63</span>
+           </div>`
+      }
       <div style="padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:5px">
         <span style="font-size:10px;color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:.5px">${p.category}</span>
         <h3 style="font-size:13px;font-weight:800;color:#fff;line-height:1.4;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${p.title}</h3>
