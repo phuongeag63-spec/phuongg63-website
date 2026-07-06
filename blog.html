@@ -186,11 +186,8 @@ body{background:var(--bg);color:#e8e0f0;font-family:'Be Vietnam Pro',system-ui,s
   }
 
   function imgEl(post, cls, phClass, phIcon){
-    if(post.image && post.image.indexOf('http')===0){
-      return '<img class="'+cls+'" src="'+post.image+'" alt="'+esc(post.title)+'" loading="lazy" onerror="this.outerHTML=\'<div class=\\\"'+phClass+'\\\">'+phIcon+'</div>\'">';
-    }
-    if(post.image && post.image.indexOf('/')===0){
-      return '<img class="'+cls+'" src="'+post.image+'" alt="'+esc(post.title)+'" loading="lazy" onerror="this.outerHTML=\'<div class=\\\"'+phClass+'\\\">'+phIcon+'</div>\'">';
+    if(post.image && (post.image.indexOf('http')===0 || post.image.indexOf('/')===0)){
+      return '<img class="'+cls+'" src="'+post.image+'" alt="'+esc(post.title)+'" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;'+phClass+'&quot;>'+phIcon+'</div>\'">';
     }
     return '<div class="'+phClass+'">'+phIcon+'</div>';
   }
