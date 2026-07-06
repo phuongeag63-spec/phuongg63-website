@@ -3,368 +3,294 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nhật ký & Bài viết | Phương G63</title>
+<title>Nhật Ký Trading | Phương G63</title>
 <meta name="description" content="Nhật ký lệnh, kinh nghiệm trading và câu chuyện thật từ hành trình giao dịch của Phương G63.">
-<meta property="og:title" content="Nhật ký & Bài viết | Phương G63">
-<meta property="og:description" content="Hành trình thật, giao dịch thật — nhật ký lệnh, kinh nghiệm và những câu chuyện từ thị trường tài chính.">
+<meta property="og:title" content="Nhật Ký Trading | Phương G63">
+<meta property="og:description" content="Hành trình thật, giao dịch thật — nhật ký lệnh, kinh nghiệm và câu chuyện từ thị trường tài chính.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://phuongg63.com/assets/images/chien-truong-sinh-tu-poster.png">
 <link rel="canonical" href="https://phuongg63.com/blog.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8KME2DB3L"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-B8KME2DB3L');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#ffd36a;--gold2:#ff9f1c;--bg:#07040b;--surface:#0f0b16;--surface2:#160f22;--muted:#6b6480;--border:rgba(255,211,106,.1)}
+body{background:var(--bg);color:#e8e0f0;font-family:'Be Vietnam Pro',system-ui,sans-serif;line-height:1.6;min-height:100vh}
 
-:root{
-  --gold:#ffd36a;--gold2:#ff9f1c;--bg:#07040b;--surface:#0f0b16;
-  --surface2:#16101f;--cyan:#24e6ff;--muted:#6b6480;
-  --green:#3ddc84;--red:#ff5c5c;
-}
-
-body{background:var(--bg);color:#fff;font-family:'Segoe UI',Arial,sans-serif;min-height:100vh}
-
-/* ── NAV ── */
-.nav{position:sticky;top:0;z-index:100;background:rgba(7,4,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,211,106,.12);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
-.nav-brand{font-size:18px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;white-space:nowrap}
+/* NAV */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(7,4,11,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
+.nav-brand{font-size:17px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;white-space:nowrap;flex-shrink:0}
 .nav-links{display:flex;gap:16px;flex:1;flex-wrap:wrap}
-.nav-links a{color:rgba(255,255,255,.6);font-size:13px;text-decoration:none;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-links a{color:rgba(255,255,255,.5);font-size:13px;text-decoration:none;transition:color .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);font-weight:700}
+.nav-zalo{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#07040b!important;font-weight:900;padding:6px 14px;border-radius:999px;font-size:12px!important}
+@media(max-width:600px){.nav-links .hide-mobile{display:none}}
 
-/* ── HERO ── */
-.hero{padding:80px 24px 56px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(255,211,106,.08),transparent 60%)}
-.hero-eyebrow{font-size:11px;font-weight:900;letter-spacing:4px;color:rgba(255,211,106,.5);text-transform:uppercase;margin-bottom:16px}
-.hero h1{font-size:clamp(32px,6vw,56px);font-weight:900;background:linear-gradient(135deg,#fff 0%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px}
-.hero p{font-size:16px;color:var(--muted);max-width:540px;margin:0 auto 32px;line-height:1.7}
+/* WRAP */
+.page-wrap{max-width:1200px;margin:0 auto;padding:40px 20px 80px}
 
-/* ── FILTERS ── */
-.filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0 24px 32px}
-.filter-btn{padding:8px 18px;border-radius:999px;border:1.5px solid rgba(255,211,106,.2);background:transparent;color:rgba(255,211,106,.6);font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:all .2s}
-.filter-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(255,211,106,.06)}
-.filter-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold2));border-color:transparent;color:#07040b}
+/* PAGE HEADER */
+.page-header{margin-bottom:36px}
+.page-header h1{font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2}
+.page-header h1 span{background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-header p{color:var(--muted);font-size:14px;max-width:480px}
 
-/* ── MAIN GRID ── */
-.container{max-width:1100px;margin:0 auto;padding:0 24px 80px}
-.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+/* FEATURED LABEL */
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.section-label::before{content:'';display:block;width:4px;height:18px;background:linear-gradient(var(--gold),var(--gold2));border-radius:4px}
+.section-label h2{font-size:14px;font-weight:900;color:rgba(255,211,106,.7);letter-spacing:1.5px;text-transform:uppercase}
 
-/* ── CARD ── */
-.post-card{background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s;text-decoration:none;color:inherit}
-.post-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.5);border-color:rgba(255,211,106,.3)}
-.post-card .card-img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface2)}
-.post-card .card-img-placeholder{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1025,#0f0b16);font-size:40px}
-.post-card .card-body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
-.post-card .card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.card-cat{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 10px;border-radius:999px;background:rgba(255,211,106,.12);color:var(--gold);text-transform:uppercase}
-.card-result{font-size:11px;font-weight:900;letter-spacing:1px;padding:4px 10px;border-radius:999px}
-.result-win{background:rgba(61,220,132,.12);color:var(--green)}
-.result-lose{background:rgba(255,92,92,.12);color:var(--red)}
-.result-break{background:rgba(255,211,106,.1);color:rgba(255,211,106,.7)}
-.post-card .card-date{font-size:12px;color:var(--muted)}
-.post-card h3{font-size:17px;font-weight:900;color:#fff;line-height:1.4;margin-top:4px}
-.post-card p{font-size:13px;color:var(--muted);line-height:1.6;flex:1}
-.card-read{font-size:12px;font-weight:900;color:var(--gold);margin-top:8px;letter-spacing:.5px}
+/* ========================= */
+/*  3-COL HERO               */
+/* ========================= */
+.hero-3col{display:grid;grid-template-columns:220px 1fr 220px;gap:18px;min-height:340px;margin-bottom:52px}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero-3col{grid-template-columns:1fr}}
 
-/* ── SHOPEE DISPLAY BANNER ── */
-.sp-wrap{max-width:1100px;margin:0 auto 28px;padding:0 24px}
-.sp-banner{
-  display:flex;align-items:stretch;border-radius:20px;overflow:hidden;
-  text-decoration:none;position:relative;min-height:180px;
-  background:linear-gradient(135deg,#b0220a 0%,#ee4d2d 45%,#ff7337 100%);
-  transition:transform .2s,box-shadow .2s;
-}
-.sp-banner:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(238,77,45,.45)}
-.sp-content{
-  flex:1;padding:28px 32px;display:flex;flex-direction:column;
-  justify-content:center;position:relative;z-index:2;
-}
-.sp-content::before{
-  content:'';position:absolute;top:-50px;left:-50px;
-  width:220px;height:220px;border-radius:50%;
-  background:rgba(255,255,255,.06);pointer-events:none;
-}
-.sp-label{
-  font-size:10px;font-weight:800;letter-spacing:2px;
-  color:rgba(255,255,255,.75);text-transform:uppercase;
-  margin-bottom:10px;display:flex;align-items:center;gap:6px;
-}
-.sp-label span{background:rgba(255,255,255,.18);border-radius:4px;padding:2px 7px}
-.sp-title{font-size:clamp(18px,2.6vw,26px);font-weight:900;color:#fff;line-height:1.25;margin-bottom:6px}
-.sp-sub{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:14px}
-.sp-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-.sp-price{font-size:clamp(20px,2.4vw,26px);font-weight:900;color:#fff200}
-.sp-stars{font-size:12px;color:rgba(255,255,255,.75)}
-.sp-cta{
-  display:inline-flex;align-items:center;gap:8px;width:fit-content;
-  background:#fff;color:#ee4d2d;font-size:14px;font-weight:900;
-  padding:12px 26px;border-radius:999px;transition:transform .15s;
-}
-.sp-banner:hover .sp-cta{transform:scale(1.04)}
-.sp-img-wrap{
-  width:220px;min-width:160px;flex-shrink:0;
-  position:relative;overflow:hidden;
-}
-.sp-img-wrap::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to right,rgba(177,34,10,.55) 0%,transparent 35%);
-  z-index:1;pointer-events:none;
-}
-.sp-img{width:100%;height:100%;object-fit:cover;display:block}
-@media(max-width:600px){
-  .sp-banner{flex-direction:column-reverse}
-  .sp-img-wrap{width:100%;height:200px;min-width:unset}
-  .sp-img-wrap::before{background:linear-gradient(to bottom,transparent 40%,rgba(177,34,10,.95) 100%)}
-  .sp-content{padding:22px 20px}
-  .sp-cta{width:100%;justify-content:center;font-size:15px}
-}
+/* LEFT: numbered list */
+.hero-left{display:flex;flex-direction:column;gap:10px}
+.h-list-item{display:flex;gap:10px;padding:11px 13px;background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .2s,background .2s;align-items:flex-start}
+.h-list-item:hover{border-color:rgba(255,211,106,.25);background:rgba(255,211,106,.03)}
+.h-list-num{font-size:18px;font-weight:900;color:rgba(255,211,106,.15);min-width:24px;line-height:1.1;flex-shrink:0;font-variant-numeric:tabular-nums}
+.h-list-cat{font-size:9px;color:var(--gold);font-weight:800;margin-bottom:3px;letter-spacing:.8px;text-transform:uppercase}
+.h-list-title{font-size:11.5px;font-weight:800;color:#e8e0f0;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:960px){.hero-left{display:none}}
 
-/* ── STATUS ── */
-.status-msg{text-align:center;padding:60px 24px;color:var(--muted);font-size:14px}
-.status-msg .icon{font-size:40px;margin-bottom:16px}
-.spinner{display:inline-block;width:32px;height:32px;border:3px solid rgba(255,211,106,.2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+/* CENTER: big card */
+.hero-center{background:var(--surface2);border:1px solid var(--border);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color .3s,transform .2s}
+.hero-center:hover{border-color:rgba(255,211,106,.3);transform:translateY(-2px)}
+.hero-center-img{width:100%;height:220px;object-fit:cover;display:block;background:var(--surface)}
+.hero-center-img-ph{width:100%;height:220px;background:linear-gradient(135deg,#0f0b16,rgba(255,211,106,.06));display:flex;align-items:center;justify-content:center;font-size:56px}
+.hero-center-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.hero-center-cat{font-size:10px;font-weight:900;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.hero-center-title{font-size:clamp(16px,2vw,21px);font-weight:900;color:#fff;line-height:1.3;margin-bottom:10px;flex:1}
+.hero-center-excerpt{font-size:12.5px;color:#9d94b0;line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:14px}
+.hero-read-link{font-size:12px;font-weight:900;color:var(--gold);display:inline-flex;align-items:center;gap:4px}
+.hero-center:hover .hero-read-link{gap:8px}
+
+/* RIGHT: 2 stacked mini cards */
+.hero-right{display:flex;flex-direction:column;gap:10px}
+.h-right-card{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s;flex:1;display:flex;flex-direction:column}
+.h-right-card:hover{border-color:rgba(255,211,106,.25);transform:translateY(-2px)}
+.h-right-img{width:100%;height:108px;object-fit:cover;display:block;background:var(--surface2)}
+.h-right-img-ph{width:100%;height:108px;display:flex;align-items:center;justify-content:center;font-size:30px;background:var(--surface2)}
+.h-right-body{padding:12px;flex:1}
+.h-right-cat{font-size:9px;font-weight:900;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.h-right-title{font-size:12px;font-weight:800;color:#fff;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:600px){.hero-right{flex-direction:row}.h-right-card{flex:1}}
+
+/* ========================= */
+/*  CATEGORY SECTION         */
+/* ========================= */
+.cat-section{margin-bottom:48px}
+.cat-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.cat-title-wrap{display:flex;align-items:center;gap:10px}
+.cat-icon{font-size:20px}
+.cat-name{font-size:18px;font-weight:900;color:#fff}
+.cat-count{font-size:10px;color:var(--muted);background:rgba(255,255,255,.05);padding:3px 9px;border-radius:999px;font-weight:700}
+.cat-all{font-size:12px;font-weight:800;color:var(--gold);text-decoration:none;border:1px solid rgba(255,211,106,.2);padding:6px 14px;border-radius:999px;transition:background .2s}
+.cat-all:hover{background:rgba(255,211,106,.08)}
+
+/* SCROLL */
+.scroll-wrap{position:relative}
+.scroll-track{display:flex;gap:14px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.scroll-track::-webkit-scrollbar{height:3px}
+.scroll-track::-webkit-scrollbar-track{background:rgba(255,255,255,.03);border-radius:3px}
+.scroll-track::-webkit-scrollbar-thumb{background:rgba(255,211,106,.2);border-radius:3px}
+
+/* ARTICLE CARD */
+.art-card{flex:0 0 210px;background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;scroll-snap-align:start;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.art-card:hover{transform:translateY(-3px);border-color:rgba(255,211,106,.25)}
+.art-thumb{width:100%;height:126px;object-fit:cover;display:block;background:var(--surface2)}
+.art-thumb-ph{width:100%;height:126px;display:flex;align-items:center;justify-content:center;font-size:30px;background:var(--surface2)}
+.art-body{padding:13px;flex:1;display:flex;flex-direction:column}
+.art-cat{font-size:9px;font-weight:900;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.art-title{font-size:12.5px;font-weight:800;color:#fff;line-height:1.4;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.art-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,.05);font-size:10px}
+.art-date{color:var(--muted)}
+.art-read{color:var(--gold);font-weight:900}
+
+/* EMPTY / LOADING */
+.cat-empty{color:var(--muted);font-size:13px;padding:20px 0}
+.spinner-wrap{text-align:center;padding:60px 0}
+.spinner{display:inline-block;width:28px;height:28px;border:3px solid rgba(255,211,106,.15);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ── FOOTER ── */
-footer{border-top:1px solid rgba(255,255,255,.06);padding:40px 24px;text-align:center;color:var(--muted);font-size:13px}
-footer a{color:var(--gold);text-decoration:none}
+/* FOOTER */
+.site-footer{border-top:1px solid rgba(255,255,255,.06);padding:32px 20px;text-align:center;color:var(--muted);font-size:13px;margin-top:20px}
+.site-footer a{color:var(--gold);text-decoration:none}
 </style>
 </head>
 <body>
 
-<nav class="nav">
+<nav class="site-nav">
   <a class="nav-brand" href="/">⚔️ Phương G63</a>
   <div class="nav-links">
-    <a href="/">Trang chủ</a>
-    <a href="/#products">Sản phẩm</a>
-    <a href="/#order">Đặt mua</a>
-    <a href="/#trust">Uy tín</a>
+    <a href="/" class="hide-mobile">Trang chủ</a>
+    <a href="/#products" class="hide-mobile">Sản phẩm</a>
     <a href="/blog.html" class="active">Nhật ký</a>
-    <a href="https://zalo.me/84822299993" target="_blank">Zalo</a>
+    <a href="https://zalo.me/84822299993" target="_blank" class="nav-zalo">💬 Zalo</a>
   </div>
 </nav>
 
-<div class="hero">
-  <div class="hero-eyebrow">Hành trình thật · Giao dịch thật</div>
-  <h1>Nhật ký & Bài viết</h1>
-  <p>Nhật ký lệnh, kinh nghiệm trading và những câu chuyện thật từ thị trường tài chính.</p>
-</div>
+<div class="page-wrap">
 
-<!-- ══════════════════════════════════════════════════════
-     SHOPEE DISPLAY BANNER — thay đổi sản phẩm tại đây
-     LINK      → href bên dưới
-     ẢNH       → src của <img>
-     TÊN       → .sp-title
-     GIÁ       → .sp-price
-     ══════════════════════════════════════════════════════ -->
-<div class="sp-wrap">
-  <a class="sp-banner" href="https://s.shopee.vn/5Aqftcq9Rt" target="_blank" rel="noopener sponsored">
-    <div class="sp-content">
-      <div class="sp-label">🛒 <span>Shopee · Được tài trợ</span></div>
-      <div class="sp-title">Cẩm Nang Đầu Tư<br>Và Quản Lý Tài Chính Cá Nhân</div>
-      <div class="sp-sub">+ Tiền Bạc Và Lý Trí · Shopee Mall</div>
-      <div class="sp-price-row">
-        <span class="sp-price">123.285đ</span>
-        <span class="sp-stars">⭐ 5.0 · 65 đánh giá</span>
-      </div>
-      <div class="sp-cta">🛒 Mua ngay trên Shopee</div>
-    </div>
-    <div class="sp-img-wrap">
-      <img class="sp-img"
-        src="https://down-vn.img.susercontent.com/file/sg-11134201-822z7-mo57stveyg3q40@resize_w450_nl.webp"
-        alt="Cẩm Nang Đầu Tư Và Quản Lý Tài Chính Cá Nhân"
-        loading="lazy"
-        onerror="this.closest('.sp-img-wrap').style.display='none'">
-    </div>
-  </a>
-</div>
-
-<div class="filter-bar" id="filterBar">
-  <button class="filter-btn active" onclick="setFilter('all')">Tất cả</button>
-  <button class="filter-btn" onclick="setFilter('Câu chuyện')">Câu chuyện</button>
-  <button class="filter-btn" onclick="setFilter('Nhật ký lệnh')">Nhật ký lệnh</button>
-  <button class="filter-btn" onclick="setFilter('Kinh nghiệm')">Kinh nghiệm</button>
-  <button class="filter-btn" onclick="setFilter('Trading')">Trading</button>
-</div>
-
-<div class="container">
-  <div id="postsGrid" class="posts-grid">
-    <div class="status-msg" style="grid-column:1/-1">
-      <div class="spinner"></div>
-      <div style="margin-top:16px">Đang tải bài viết...</div>
-    </div>
+  <div class="page-header">
+    <h1>Nhật Ký <span>Trading</span></h1>
+    <p>Hành trình thật, giao dịch thật — những gì tôi học được từ lệnh thắng, lệnh thua và thị trường.</p>
   </div>
+
+  <!-- LOADING -->
+  <div id="loadingState" class="spinner-wrap"><div class="spinner"></div></div>
+
+  <!-- MAIN CONTENT (hidden until loaded) -->
+  <div id="mainContent" style="display:none">
+
+    <!-- HERO 3 COL -->
+    <div class="section-label"><h2>Bài Nổi Bật</h2></div>
+    <div class="hero-3col" id="heroGrid">
+      <!-- populated by JS -->
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <div id="catSections">
+      <!-- populated by JS -->
+    </div>
+
+  </div>
+
 </div>
 
-<footer>
-  <div style="margin-bottom:8px">© 2026 Phương G63</div>
-  <div><a href="/">Trang chủ</a> · <a href="/#products">Sản phẩm</a> · <a href="https://zalo.me/84822299993">Zalo hỗ trợ</a></div>
+<footer class="site-footer">
+  <p>© 2026 <a href="/">Phương G63</a> · Trading theo cách của mình</p>
 </footer>
 
 <script>
-// Bài viết HTML cũ (giữ lại để không mất bài cũ)
-const OLD_POSTS = [
-  {
-    title: 'Từ bỏ hay đứng dậy?',
-    date: '2025-06-30',
-    category: 'Câu chuyện',
-    result: null,
-    image: null,
-    excerpt: 'Sau một chuỗi thua lỗ, ranh giới giữa từ bỏ và đứng dậy mỏng đến mức đáng sợ...',
-    href: '/nhat-ky/tu-bo-hay-dung-day.html',
-    emoji: '⚔️'
-  },
-  {
-    title: 'Hành trình của tôi',
-    date: '2025-06-28',
-    category: 'Câu chuyện',
-    result: null,
-    image: null,
-    excerpt: 'Tôi không sinh ra biết trading. Đây là những gì thị trường đã dạy tôi...',
-    href: '/nhat-ky/hanh-trinh-cua-toi.html',
-    emoji: '🗺️'
-  },
-  {
-    title: 'Nhật ký 28/06/2025',
-    date: '2025-06-28',
-    category: 'Nhật ký lệnh',
-    result: 'Thua',
-    image: null,
-    excerpt: 'Thị trường đảo chiều bất ngờ. Ghi lại để học.',
-    href: '/nhat-ky/2025-06-28.html',
-    emoji: '📉'
-  },
-  {
-    title: 'Nhật ký 26/06/2025',
-    date: '2025-06-26',
-    category: 'Nhật ký lệnh',
-    result: 'Thua',
-    image: null,
-    excerpt: 'Hai lệnh ngược chiều nhau. Cả hai đều sai.',
-    href: '/nhat-ky/2025-06-26.html',
-    emoji: '📉'
-  },
-  {
-    title: 'Nhật ký 24/06/2025',
-    date: '2025-06-24',
-    category: 'Nhật ký lệnh',
-    result: 'Hoà vốn',
-    image: null,
-    excerpt: 'Đứng vững không phải là thắng, nhưng cũng không phải là thua.',
-    href: '/nhat-ky/2025-06-24.html',
-    emoji: '⚖️'
-  },
-];
+(function(){
+  var CATS = [
+    {key:'Kỹ thuật', icon:'⚔️', label:'Kỹ Thuật'},
+    {key:'Tâm lý',   icon:'🧠', label:'Tâm Lý'},
+    {key:'Trading',  icon:'📈', label:'Trading'},
+    {key:'Kinh nghiệm', icon:'💡', label:'Kinh Nghiệm'},
+    {key:'Câu chuyện',  icon:'📖', label:'Câu Chuyện'}
+  ];
 
-// ─── RENDER ─────────────────────────────────────────────────────────
-let allPosts = [];
-let activeFilter = 'all';
-
-function resultClass(r) {
-  if (!r) return '';
-  if (r === 'Thắng') return 'result-win';
-  if (r === 'Thua')  return 'result-lose';
-  return 'result-break';
-}
-
-function resultLabel(r) {
-  if (!r) return '';
-  if (r === 'Thắng') return '✅ Thắng';
-  if (r === 'Thua')  return '❌ Thua';
-  return '⚖️ Hoà vốn';
-}
-
-function imgFail(img) {
-  var emoji = img.getAttribute('data-emoji') || '📖';
-  var d = document.createElement('div');
-  d.className = 'card-img-placeholder';
-  d.textContent = emoji;
-  img.parentNode.replaceChild(d, img);
-}
-
-function renderCard(post) {
-  const imgHtml = post.image
-    ? `<img class="card-img" src="${post.image}" alt="${post.title}" loading="lazy" data-emoji="${post.emoji || '📖'}" onerror="imgFail(this)">`
-    : `<div class="card-img-placeholder">${post.emoji || '📖'}</div>`;
-  const resultBadge = post.result
-    ? `<span class="card-result ${resultClass(post.result)}">${resultLabel(post.result)}</span>`
-    : '';
-  return `
-  <a class="post-card" href="${post.href}">
-    ${imgHtml}
-    <div class="card-body">
-      <div class="card-meta">
-        <span class="card-cat">${post.category || 'Bài viết'}</span>
-        ${resultBadge}
-      </div>
-      <div class="card-date">${formatDate(post.date)}</div>
-      <h3>${post.title}</h3>
-      <p>${post.excerpt || ''}</p>
-      <div class="card-read">Đọc bài →</div>
-    </div>
-  </a>`;
-}
-
-function formatDate(d) {
-  if (!d) return '';
-  try {
-    const dt = new Date(d);
-    return dt.toLocaleDateString('vi-VN', { day:'2-digit', month:'2-digit', year:'numeric' });
-  } catch { return d; }
-}
-
-function setFilter(cat) {
-  activeFilter = cat;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    if (b.textContent.includes(cat === 'all' ? 'Tất cả' : cat)) b.classList.add('active');
-  });
-  renderPosts();
-}
-
-function renderPosts() {
-  const grid = document.getElementById('postsGrid');
-  const filtered = activeFilter === 'all'
-    ? allPosts
-    : allPosts.filter(p => p.category === activeFilter);
-
-  if (!filtered.length) {
-    grid.innerHTML = `<div class="status-msg" style="grid-column:1/-1"><div class="icon">🔍</div><div>Chưa có bài nào trong danh mục này.</div></div>`;
-    return;
+  function fmtDate(s){
+    if(!s)return'';
+    var p=s.split('-');
+    if(p.length<3)return s;
+    return p[2]+'/'+p[1]+'/'+p[0];
   }
-  grid.innerHTML = filtered.map(renderCard).join('');
-}
 
-// ─── LOAD TỪ posts.json (NHANH, KHÔNG CẦN API) ──────────────────────
-(async () => {
-  try {
-    const res = await fetch('/posts.json');
-    if (!res.ok) throw new Error('posts.json not found');
-    const data = await res.json();
-
-    // Map posts.json → định dạng card
-    const jsonPosts = data.map(p => ({
-      title:    p.title || '',
-      date:     p.date  || '',
-      category: p.category || 'Bài viết',
-      result:   p.result || null,
-      image:    (p.image && p.image !== 'null') ? p.image : null,
-      excerpt:  p.excerpt || '',
-      href:     `/nhat-ky/${p.file}.html`,
-      emoji:    '📝',
-    }));
-
-    // Gộp bài từ posts.json + bài HTML cũ, sắp xếp mới nhất trước
-    const combined = [...jsonPosts, ...OLD_POSTS].sort((a, b) =>
-      new Date(b.date || '2000-01-01') - new Date(a.date || '2000-01-01')
-    );
-    allPosts = combined;
-    renderPosts();
-
-  } catch (e) {
-    console.warn('Không tải được posts.json, dùng danh sách dự phòng:', e);
-    allPosts = OLD_POSTS;
-    renderPosts();
+  function imgEl(post, cls, phClass, phIcon){
+    if(post.image && post.image.indexOf('http')===0){
+      return '<img class="'+cls+'" src="'+post.image+'" alt="'+esc(post.title)+'" loading="lazy" onerror="this.outerHTML=\'<div class=\\\"'+phClass+'\\\">'+phIcon+'</div>\'">';
+    }
+    if(post.image && post.image.indexOf('/')===0){
+      return '<img class="'+cls+'" src="'+post.image+'" alt="'+esc(post.title)+'" loading="lazy" onerror="this.outerHTML=\'<div class=\\\"'+phClass+'\\\">'+phIcon+'</div>\'">';
+    }
+    return '<div class="'+phClass+'">'+phIcon+'</div>';
   }
+
+  function catIcon(cat){
+    var map={'Kỹ thuật':'⚔️','Tâm lý':'🧠','Trading':'📈','Kinh nghiệm':'💡','Câu chuyện':'📖'};
+    return map[cat]||'📝';
+  }
+
+  function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+  function postUrl(p){return '/nhat-ky/'+p.file+'.html'}
+
+  function buildHero(posts){
+    if(!posts.length) return;
+    var main=posts[0];
+    var sideLeft=posts.slice(1,6);
+    var sideRight=posts.slice(1,3);
+
+    // Left list
+    var leftHtml='<div class="hero-left">';
+    sideLeft.forEach(function(p,i){
+      leftHtml+='<a class="h-list-item" href="'+postUrl(p)+'">'
+        +'<span class="h-list-num">0'+(i+1)+'</span>'
+        +'<div><div class="h-list-cat">'+catIcon(p.category)+' '+esc(p.category)+'</div>'
+        +'<div class="h-list-title">'+esc(p.title)+'</div></div>'
+        +'</a>';
+    });
+    leftHtml+='</div>';
+
+    // Center
+    var centerHtml='<a class="hero-center" href="'+postUrl(main)+'">'
+      +imgEl(main,'hero-center-img','hero-center-img-ph',catIcon(main.category))
+      +'<div class="hero-center-body">'
+      +'<div class="hero-center-cat">'+catIcon(main.category)+' '+esc(main.category)+'</div>'
+      +'<div class="hero-center-title">'+esc(main.title)+'</div>'
+      +(main.excerpt?'<div class="hero-center-excerpt">'+esc(main.excerpt)+'</div>':'')
+      +'<div class="hero-read-link">Đọc bài này →</div>'
+      +'</div></a>';
+
+    // Right
+    var rightHtml='<div class="hero-right">';
+    sideRight.forEach(function(p){
+      rightHtml+='<a class="h-right-card" href="'+postUrl(p)+'">'
+        +imgEl(p,'h-right-img','h-right-img-ph',catIcon(p.category))
+        +'<div class="h-right-body">'
+        +'<div class="h-right-cat">'+catIcon(p.category)+' '+esc(p.category)+'</div>'
+        +'<div class="h-right-title">'+esc(p.title)+'</div>'
+        +'</div></a>';
+    });
+    rightHtml+='</div>';
+
+    document.getElementById('heroGrid').innerHTML=leftHtml+centerHtml+rightHtml;
+  }
+
+  function buildCats(posts){
+    var html='';
+    CATS.forEach(function(cat){
+      var catPosts=posts.filter(function(p){
+        return (p.category||'').toLowerCase()===cat.key.toLowerCase();
+      });
+      if(!catPosts.length) return;
+      html+='<div class="cat-section">'
+        +'<div class="cat-header">'
+        +'<div class="cat-title-wrap">'
+        +'<span class="cat-icon">'+cat.icon+'</span>'
+        +'<span class="cat-name">'+cat.label+'</span>'
+        +'<span class="cat-count">'+catPosts.length+' bài</span>'
+        +'</div>'
+        +'<a class="cat-all" href="#">Xem tất cả →</a>'
+        +'</div>'
+        +'<div class="scroll-wrap"><div class="scroll-track">';
+      catPosts.forEach(function(p){
+        html+='<a class="art-card" href="'+postUrl(p)+'">'
+          +imgEl(p,'art-thumb','art-thumb-ph',cat.icon)
+          +'<div class="art-body">'
+          +'<div class="art-cat">'+esc(p.category)+'</div>'
+          +'<div class="art-title">'+esc(p.title)+'</div>'
+          +'<div class="art-footer">'
+          +'<span class="art-date">'+fmtDate(p.date)+'</span>'
+          +'<span class="art-read">Đọc →</span>'
+          +'</div></div></a>';
+      });
+      html+='</div></div></div>';
+    });
+    document.getElementById('catSections').innerHTML=html;
+  }
+
+  fetch('/posts.json')
+    .then(function(r){return r.json();})
+    .then(function(posts){
+      posts.sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
+      buildHero(posts);
+      buildCats(posts);
+      document.getElementById('loadingState').style.display='none';
+      document.getElementById('mainContent').style.display='block';
+    })
+    .catch(function(e){
+      document.getElementById('loadingState').innerHTML='<p style="color:var(--muted)">Không tải được bài viết.</p>';
+    });
 })();
 </script>
 </body>
