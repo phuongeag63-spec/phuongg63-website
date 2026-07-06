@@ -73,42 +73,41 @@ article hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:32px 0}
 .book-card .bc-info strong{color:rgba(255,255,255,.8)}
 @media(max-width:480px){.book-card{flex-direction:column;align-items:center;text-align:center}.book-card img{width:140px}}
 
-/* ── SHOPEE DISPLAY BANNER ── */
-.sp-wrap{margin:40px 0}
-.sp-banner{
-  display:flex;align-items:stretch;border-radius:20px;overflow:hidden;
-  text-decoration:none;position:relative;min-height:180px;
-  background:linear-gradient(135deg,#b0220a 0%,#ee4d2d 45%,#ff7337 100%);
-  transition:transform .2s,box-shadow .2s;
+/* ── ROTATING SHOPEE BANNER ── */
+.sp-rot-wrap{margin:40px 0;position:relative}
+.sp-rot-track{position:relative;border-radius:20px;overflow:hidden;min-height:180px}
+.sp-rot-slide{
+  display:flex;align-items:stretch;min-height:180px;
+  text-decoration:none;position:absolute;inset:0;
+  opacity:0;transition:opacity .7s ease;pointer-events:none;
 }
-.sp-banner:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(238,77,45,.45)}
-.sp-content{
-  flex:1;padding:28px 32px;display:flex;flex-direction:column;
-  justify-content:center;position:relative;z-index:2;
-}
-.sp-content::before{
-  content:'';position:absolute;top:-50px;left:-50px;
-  width:220px;height:220px;border-radius:50%;
-  background:rgba(255,255,255,.06);pointer-events:none;
-}
-.sp-label{font-size:10px;font-weight:800;letter-spacing:2px;color:rgba(255,255,255,.75);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.sp-label span{background:rgba(255,255,255,.18);border-radius:4px;padding:2px 7px}
-.sp-title{font-size:clamp(16px,2.4vw,22px);font-weight:900;color:#fff;line-height:1.25;margin-bottom:6px}
-.sp-sub{font-size:12px;color:rgba(255,255,255,.8);margin-bottom:14px}
-.sp-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-.sp-price{font-size:clamp(18px,2.2vw,24px);font-weight:900;color:#fff200}
-.sp-stars{font-size:12px;color:rgba(255,255,255,.75)}
-.sp-cta{display:inline-flex;align-items:center;gap:8px;width:fit-content;background:#fff;color:#ee4d2d;font-size:14px;font-weight:900;padding:12px 26px;border-radius:999px;transition:transform .15s}
-.sp-banner:hover .sp-cta{transform:scale(1.04)}
-.sp-img-wrap{width:200px;min-width:150px;flex-shrink:0;position:relative;overflow:hidden}
-.sp-img-wrap::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(177,34,10,.55) 0%,transparent 35%);z-index:1;pointer-events:none}
-.sp-img{width:100%;height:100%;object-fit:cover;display:block}
+.sp-rot-slide.active{opacity:1;pointer-events:auto;position:relative}
+.sp-rot-slide:hover{filter:brightness(1.05)}
+.sp-slide-left{flex:1;padding:28px 32px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;overflow:hidden}
+.sp-slide-left::before{content:'';position:absolute;top:-50px;left:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none}
+.sp-slide-tag{font-size:10px;font-weight:800;letter-spacing:2px;color:rgba(255,255,255,.75);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sp-slide-tag span{background:rgba(255,255,255,.18);border-radius:4px;padding:2px 7px}
+.sp-slide-title{font-size:clamp(16px,2.4vw,22px);font-weight:900;color:#fff;line-height:1.25;margin-bottom:6px}
+.sp-slide-sub{font-size:12px;color:rgba(255,255,255,.8);margin-bottom:14px}
+.sp-slide-price{font-size:clamp(18px,2.2vw,24px);font-weight:900;color:#fff200;margin-bottom:18px}
+.sp-slide-stars{font-size:12px;color:rgba(255,255,255,.75);margin-left:10px}
+.sp-slide-btn{display:inline-flex;align-items:center;gap:8px;width:fit-content;background:#fff;font-size:14px;font-weight:900;padding:12px 26px;border-radius:999px}
+.sp-slide-img{width:200px;min-width:150px;flex-shrink:0;position:relative;overflow:hidden}
+.sp-slide-img::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(177,34,10,.55) 0%,transparent 35%);z-index:1;pointer-events:none}
+.sp-slide-img.green::before{background:linear-gradient(to right,rgba(15,76,53,.6) 0%,transparent 35%)}
+.sp-slide-img.purple::before{background:linear-gradient(to right,rgba(58,21,96,.6) 0%,transparent 35%)}
+.sp-slide-img img{width:100%;height:100%;object-fit:cover;display:block}
+.sp-dots{display:flex;justify-content:center;gap:8px;margin-top:12px}
+.sp-dot{width:8px;height:8px;border-radius:50%;background:rgba(238,77,45,.3);border:none;cursor:pointer;transition:background .3s,transform .3s;padding:0}
+.sp-dot.active{background:#ee4d2d;transform:scale(1.3)}
 @media(max-width:600px){
-  .sp-banner{flex-direction:column-reverse}
-  .sp-img-wrap{width:100%;height:190px;min-width:unset}
-  .sp-img-wrap::before{background:linear-gradient(to bottom,transparent 40%,rgba(177,34,10,.95) 100%)}
-  .sp-content{padding:22px 20px}
-  .sp-cta{width:100%;justify-content:center;font-size:15px}
+  .sp-rot-slide{flex-direction:column-reverse}
+  .sp-slide-img{width:100%;height:190px;min-width:unset}
+  .sp-slide-img::before{background:linear-gradient(to bottom,transparent 40%,rgba(177,34,10,.95) 100%)}
+  .sp-slide-img.green::before{background:linear-gradient(to bottom,transparent 40%,rgba(15,76,53,.95) 100%)}
+  .sp-slide-img.purple::before{background:linear-gradient(to bottom,transparent 40%,rgba(58,21,96,.95) 100%)}
+  .sp-slide-left{padding:22px 20px}
+  .sp-slide-btn{width:100%;justify-content:center}
 }
 
 /* ── SHARE ── */
@@ -245,28 +244,88 @@ article hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:32px 0}
 
   </article>
 
-  <!-- SHOPEE DISPLAY BANNER -->
-  <div class="sp-wrap">
-    <a class="sp-banner" href="https://s.shopee.vn/5Aqftcq9Rt" target="_blank" rel="noopener sponsored">
-      <div class="sp-content">
-        <div class="sp-label">🛒 <span>Shopee · Được tài trợ</span></div>
-        <div class="sp-title">Cẩm Nang Đầu Tư Và Quản Lý Tài Chính Cá Nhân + Tiền Bạc Và Lý Trí</div>
-        <div class="sp-sub">Alpha Books · Shopee Mall · ⭐ 5.0 · 65 đánh giá</div>
-        <div class="sp-price-row">
-          <span class="sp-price">123.285đ</span>
-          <span class="sp-stars">Freeship toàn quốc</span>
+  <!-- ROTATING SHOPEE BANNER -->
+  <div class="sp-rot-wrap">
+    <div class="sp-rot-track" id="spTrackPost">
+
+      <!-- SP 1: Combo sách Đầu Tư (Cam) -->
+      <a class="sp-rot-slide active" href="https://s.shopee.vn/5Aqftcq9Rt" target="_blank" rel="noopener sponsored"
+         style="background:linear-gradient(135deg,#b0220a 0%,#ee4d2d 45%,#ff7337 100%)">
+        <div class="sp-slide-left">
+          <div class="sp-slide-tag">🛒 <span>Shopee · Được tài trợ</span></div>
+          <div class="sp-slide-title">Cẩm Nang Đầu Tư Và Quản Lý Tài Chính Cá Nhân</div>
+          <div class="sp-slide-sub">+ Tiền Bạc Và Lý Trí · Alpha Books · Shopee Mall</div>
+          <div class="sp-slide-price">123.285đ <span class="sp-slide-stars">⭐ 5.0 · 65 đánh giá</span></div>
+          <div class="sp-slide-btn" style="color:#ee4d2d">🛒 Mua ngay trên Shopee</div>
         </div>
-        <div class="sp-cta">🛒 Mua ngay trên Shopee</div>
-      </div>
-      <div class="sp-img-wrap">
-        <img class="sp-img"
-          src="https://down-vn.img.susercontent.com/file/sg-11134201-822z7-mo57stveyg3q40@resize_w450_nl.webp"
-          alt="Combo sách tài chính"
-          loading="lazy"
-          onerror="this.closest('.sp-img-wrap').style.display='none'">
-      </div>
-    </a>
+        <div class="sp-slide-img">
+          <img src="https://down-vn.img.susercontent.com/file/sg-11134201-822z7-mo57stveyg3q40@resize_w450_nl.webp"
+               alt="Combo sách tài chính" loading="lazy" onerror="this.closest('.sp-slide-img').style.display='none'">
+        </div>
+      </a>
+
+      <!-- SP 2: Tài Chính Cho Mọi Người (Xanh) -->
+      <a class="sp-rot-slide" href="https://s.shopee.vn/2VpurWhNXl" target="_blank" rel="noopener sponsored"
+         style="background:linear-gradient(135deg,#0f4c35 0%,#1a7a52 45%,#26a96b 100%)">
+        <div class="sp-slide-left">
+          <div class="sp-slide-tag">📚 <span>Shopee · Được tài trợ</span></div>
+          <div class="sp-slide-title">Tài Chính<br>Cho Mọi Người</div>
+          <div class="sp-slide-sub">Paco de Leon · First News - Trí Việt · 456 trang</div>
+          <div class="sp-slide-price">218.000đ <span class="sp-slide-stars">📖 Bìa mềm · NXB Dân Trí</span></div>
+          <div class="sp-slide-btn" style="color:#1a7a52">🛒 Mua ngay trên Shopee</div>
+        </div>
+        <div class="sp-slide-img green">
+          <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luk3bkhzs8b692@resize_w450_nl.webp"
+               alt="Tài Chính Cho Mọi Người" loading="lazy" onerror="this.closest('.sp-slide-img').style.display='none'">
+        </div>
+      </a>
+
+      <!-- SP 3: Vượt Bẫy Cảm Xúc (Tím) -->
+      <a class="sp-rot-slide" href="https://s.shopee.vn/7prRJPFhd0" target="_blank" rel="noopener sponsored"
+         style="background:linear-gradient(135deg,#3a1560 0%,#6b21a8 45%,#a855f7 100%)">
+        <div class="sp-slide-left">
+          <div class="sp-slide-tag">🧠 <span>Shopee · Được tài trợ</span></div>
+          <div class="sp-slide-title">Vượt Bẫy Cảm Xúc<br>Emotional Agility</div>
+          <div class="sp-slide-sub">Susan David · First News – Trí Việt · 336 trang</div>
+          <div class="sp-slide-price">188.000đ <span class="sp-slide-stars">📖 Bìa mềm · NXB Dân Trí</span></div>
+          <div class="sp-slide-btn" style="color:#6b21a8">🛒 Mua ngay trên Shopee</div>
+        </div>
+        <div class="sp-slide-img purple">
+          <img src="https://down-vn.img.susercontent.com/file/vn-11134258-81ztc-mpucflcjbnr416@resize_w450_nl.webp"
+               alt="Vượt Bẫy Cảm Xúc" loading="lazy" onerror="this.closest('.sp-slide-img').style.display='none'">
+        </div>
+      </a>
+
+    </div>
+    <div class="sp-dots">
+      <button class="sp-dot active" onclick="spGoPost(0)"></button>
+      <button class="sp-dot" onclick="spGoPost(1)"></button>
+      <button class="sp-dot" onclick="spGoPost(2)"></button>
+    </div>
   </div>
+  <p style="font-size:12px;color:var(--muted);margin-top:-24px">
+    <em>* Đây là link affiliate — nếu bạn mua qua link này, tôi nhận được một khoản hoa hồng nhỏ mà không ảnh hưởng đến giá bạn trả. Cảm ơn vì đã ủng hộ!</em>
+  </p>
+  <script>
+  (function(){
+    var wrap=document.getElementById('spTrackPost').parentElement;
+    var slides=wrap.querySelectorAll('.sp-rot-slide');
+    var dots=wrap.querySelectorAll('.sp-dot');
+    var cur=0,timer;
+    function spGoPost(i){
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur=i;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+      clearInterval(timer);
+      timer=setInterval(next,6000);
+    }
+    function next(){spGoPost((cur+1)%slides.length)}
+    window.spGoPost=spGoPost;
+    timer=setInterval(next,6000);
+  })();
+  </script>
 
   <!-- SHARE -->
   <div class="share-box">
