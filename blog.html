@@ -191,9 +191,17 @@ function resultLabel(r) {
   return '⚖️ Hoà vốn';
 }
 
+function imgFail(img) {
+  var emoji = img.getAttribute('data-emoji') || '📖';
+  var d = document.createElement('div');
+  d.className = 'card-img-placeholder';
+  d.textContent = emoji;
+  img.parentNode.replaceChild(d, img);
+}
+
 function renderCard(post) {
   const imgHtml = post.image
-    ? `<img class="card-img" src="${post.image}" alt="${post.title}" loading="lazy" onerror="this.style.display='none'">`
+    ? `<img class="card-img" src="${post.image}" alt="${post.title}" loading="lazy" data-emoji="${post.emoji || '📖'}" onerror="imgFail(this)">`
     : `<div class="card-img-placeholder">${post.emoji || '📖'}</div>`;
   const resultBadge = post.result
     ? `<span class="card-result ${resultClass(post.result)}">${resultLabel(post.result)}</span>`
