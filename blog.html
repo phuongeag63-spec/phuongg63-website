@@ -119,6 +119,30 @@ body{background:var(--bg);color:#e8e0f0;font-family:'Be Vietnam Pro',system-ui,s
 .spinner{display:inline-block;width:28px;height:28px;border:3px solid rgba(255,211,106,.15);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* ========================= */
+/*  FILTER BAR               */
+/* ========================= */
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:28px}
+.search-input{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:10px 18px;color:#e8e0f0;font-size:13px;font-family:'Be Vietnam Pro',system-ui,sans-serif;outline:none;transition:border-color .2s}
+.search-input::placeholder{color:var(--muted)}
+.search-input:focus{border-color:rgba(255,211,106,.4);box-shadow:0 0 0 3px rgba(255,211,106,.06)}
+.filter-pills{display:flex;gap:7px;flex-wrap:wrap}
+.filter-pill{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:7px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s;white-space:nowrap;font-family:inherit}
+.filter-pill:hover{border-color:rgba(255,211,106,.3);color:var(--gold)}
+.filter-pill.active{background:rgba(255,211,106,.12);border-color:rgba(255,211,106,.5);color:var(--gold)}
+
+/* FILTERED GRID */
+.filter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:48px}
+.filter-empty{color:var(--muted);font-size:14px;padding:48px 0;text-align:center}
+
+/* SHARE BUTTONS */
+.share-row{display:flex;gap:7px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.07)}
+.share-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 13px;border-radius:999px;font-size:11px;font-weight:800;cursor:pointer;border:1px solid;text-decoration:none;transition:opacity .2s;font-family:inherit}
+.share-btn:hover{opacity:.8}
+.share-fb{background:#1877f2;border-color:#1877f2;color:#fff}
+.share-zalo{background:#0068ff;border-color:#0068ff;color:#fff}
+.share-copy{background:var(--surface2);border-color:rgba(255,255,255,.15);color:#c8c0d8}
+
 /* FOOTER */
 .site-footer{border-top:1px solid rgba(255,255,255,.06);padding:32px 20px;text-align:center;color:var(--muted);font-size:13px;margin-top:20px}
 .site-footer a{color:var(--gold);text-decoration:none}
@@ -146,18 +170,41 @@ body{background:var(--bg);color:#e8e0f0;font-family:'Be Vietnam Pro',system-ui,s
   <!-- LOADING -->
   <div id="loadingState" class="spinner-wrap"><div class="spinner"></div></div>
 
+  <!-- FILTER BAR (hidden until loaded) -->
+  <div id="filterBar" style="display:none">
+    <div class="filter-bar">
+      <input class="search-input" id="searchInput" type="search" placeholder="🔍  Tìm bài viết...">
+      <div class="filter-pills" id="filterPills">
+        <button class="filter-pill active" data-cat="">Tất cả</button>
+        <button class="filter-pill" data-cat="Kỹ thuật">⚔️ Kỹ Thuật</button>
+        <button class="filter-pill" data-cat="Tâm lý">🧠 Tâm Lý</button>
+        <button class="filter-pill" data-cat="Trading">📈 Trading</button>
+        <button class="filter-pill" data-cat="Kinh nghiệm">💡 Kinh Nghiệm</button>
+        <button class="filter-pill" data-cat="Câu chuyện">📖 Câu Chuyện</button>
+      </div>
+    </div>
+  </div>
+
   <!-- MAIN CONTENT (hidden until loaded) -->
   <div id="mainContent" style="display:none">
 
-    <!-- HERO 3 COL -->
-    <div class="section-label"><h2>Bài Nổi Bật</h2></div>
-    <div class="hero-3col" id="heroGrid">
-      <!-- populated by JS -->
+    <!-- FILTER RESULT GRID (shown when filter/search active) -->
+    <div id="filterResult" style="display:none">
+      <div class="filter-grid" id="filterGrid"></div>
     </div>
 
-    <!-- CATEGORY SECTIONS -->
-    <div id="catSections">
-      <!-- populated by JS -->
+    <!-- NORMAL VIEW -->
+    <div id="normalView">
+      <!-- HERO 3 COL -->
+      <div class="section-label"><h2>Bài Nổi Bật</h2></div>
+      <div class="hero-3col" id="heroGrid">
+        <!-- populated by JS -->
+      </div>
+
+      <!-- CATEGORY SECTIONS -->
+      <div id="catSections">
+        <!-- populated by JS -->
+      </div>
     </div>
 
   </div>
@@ -219,6 +266,7 @@ body{background:var(--bg);color:#e8e0f0;font-family:'Be Vietnam Pro',system-ui,s
     leftHtml+='</div>';
 
     // Center
+    var mainUrl='https://phuongg63.com'+postUrl(main);
     var centerHtml='<a class="hero-center" href="'+postUrl(main)+'">'
       +imgEl(main,'hero-center-img','hero-center-img-ph',catIcon(main.category))
       +'<div class="hero-center-body">'
@@ -226,6 +274,11 @@ body{background:var(--bg);color:#e8e0f0;font-family:'Be Vietnam Pro',system-ui,s
       +'<div class="hero-center-title">'+esc(main.title)+'</div>'
       +(main.excerpt?'<div class="hero-center-excerpt">'+esc(main.excerpt)+'</div>':'')
       +'<div class="hero-read-link">Đọc bài này →</div>'
+      +'<div class="share-row" onclick="event.preventDefault()">'
+      +'<button class="share-btn share-fb" onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?u=\'+encodeURIComponent(\''+mainUrl+'\'),\'_blank\',\'width=600,height=400\')">📘 Chia sẻ FB</button>'
+      +'<button class="share-btn share-zalo" onclick="window.open(\'https://zalo.me/pc?mini=false&redirectUrl=\'+encodeURIComponent(\''+mainUrl+'\'),\'_blank\')">💙 Zalo</button>'
+      +'<button class="share-btn share-copy" id="copyBtn" onclick="copyLink(\''+mainUrl+'\')">🔗 Copy link</button>'
+      +'</div>'
       +'</div></a>';
 
     // Right
@@ -276,14 +329,134 @@ body{background:var(--bg);color:#e8e0f0;font-family:'Be Vietnam Pro',system-ui,s
     document.getElementById('catSections').innerHTML=html;
   }
 
+  /* ── Filter / Search ─────────────────────────────────── */
+  var allPosts=[];
+  var activeCat='';
+  var searchQ='';
+
+  function applyFilter(){
+    var q=searchQ.toLowerCase().trim();
+    var filtered=allPosts.filter(function(p){
+      var matchCat=!activeCat||(p.category||'').toLowerCase()===activeCat.toLowerCase();
+      var matchQ=!q||(p.title||'').toLowerCase().indexOf(q)>=0||(p.excerpt||'').toLowerCase().indexOf(q)>=0;
+      return matchCat&&matchQ;
+    });
+
+    if(!activeCat&&!q){
+      // Normal view
+      document.getElementById('filterResult').style.display='none';
+      document.getElementById('normalView').style.display='block';
+      return;
+    }
+
+    // Show filtered grid
+    document.getElementById('normalView').style.display='none';
+    document.getElementById('filterResult').style.display='block';
+    if(!filtered.length){
+      document.getElementById('filterGrid').innerHTML='<div class="filter-empty">Không tìm thấy bài viết nào 🔍</div>';
+      return;
+    }
+    var html='';
+    filtered.forEach(function(p){
+      var icon=catIcon(p.category);
+      html+='<a class="art-card" href="'+postUrl(p)+'">'
+        +imgEl(p,'art-thumb','art-thumb-ph',icon)
+        +'<div class="art-body">'
+        +'<div class="art-cat">'+icon+' '+esc(p.category)+'</div>'
+        +'<div class="art-title">'+esc(p.title)+'</div>'
+        +'<div class="art-footer">'
+        +'<span class="art-date">'+fmtDate(p.date)+'</span>'
+        +'<span class="art-read">Đọc →</span>'
+        +'</div></div></a>';
+    });
+    document.getElementById('filterGrid').innerHTML=html;
+  }
+
+  function initFilter(){
+    var pills=document.querySelectorAll('#filterPills .filter-pill');
+    for(var i=0;i<pills.length;i++){
+      pills[i].addEventListener('click',(function(pill){
+        return function(){
+          activeCat=pill.getAttribute('data-cat');
+          for(var j=0;j<pills.length;j++) pills[j].classList.remove('active');
+          pill.classList.add('active');
+          applyFilter();
+        };
+      })(pills[i]));
+    }
+    var si=document.getElementById('searchInput');
+    si.addEventListener('input',function(){
+      searchQ=si.value;
+      applyFilter();
+    });
+  }
+
+  /* ── JSON-LD Article injection ────────────────────────── */
+  function injectJsonLd(posts){
+    var items=posts.slice(0,10).map(function(p,i){
+      return {
+        '@type':'ListItem',
+        'position':i+1,
+        'item':{
+          '@type':'BlogPosting',
+          '@id':'https://phuongg63.com'+postUrl(p),
+          'headline':p.title||'',
+          'description':p.excerpt||'',
+          'datePublished':p.date||'',
+          'image':p.image||(p.img||''),
+          'url':'https://phuongg63.com'+postUrl(p),
+          'author':{'@type':'Person','name':'Phương G63'},
+          'publisher':{'@type':'Organization','name':'Phương G63','url':'https://phuongg63.com'},
+          'inLanguage':'vi',
+          'articleSection':p.category||''
+        }
+      };
+    });
+    var ld={
+      '@context':'https://schema.org',
+      '@type':'Blog',
+      'name':'Nhật Ký Trading — Phương G63',
+      'url':'https://phuongg63.com/blog.html',
+      'description':'Hành trình thật, giao dịch thật — nhật ký lệnh, kinh nghiệm và câu chuyện từ thị trường tài chính.',
+      'inLanguage':'vi',
+      'publisher':{'@type':'Organization','name':'Phương G63','url':'https://phuongg63.com'},
+      'blogPost':items.map(function(it){return it.item;})
+    };
+    var s=document.createElement('script');
+    s.type='application/ld+json';
+    s.textContent=JSON.stringify(ld,null,2);
+    document.head.appendChild(s);
+  }
+
+  /* ── Copy link helper ─────────────────────────────────── */
+  window.copyLink=function(url){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){
+        var btn=document.getElementById('copyBtn');
+        if(btn){btn.textContent='✅ Đã copy!';setTimeout(function(){btn.textContent='🔗 Copy link';},2000);}
+      });
+    } else {
+      var ta=document.createElement('textarea');
+      ta.value=url;ta.style.position='fixed';ta.style.opacity='0';
+      document.body.appendChild(ta);ta.select();document.execCommand('copy');
+      document.body.removeChild(ta);
+      var btn=document.getElementById('copyBtn');
+      if(btn){btn.textContent='✅ Đã copy!';setTimeout(function(){btn.textContent='🔗 Copy link';},2000);}
+    }
+  };
+
   fetch('/posts.json')
     .then(function(r){return r.json();})
     .then(function(posts){
       posts.sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
+      allPosts=posts;
       buildHero(posts);
       buildCats(posts);
+      injectJsonLd(posts);
       document.getElementById('loadingState').style.display='none';
+      document.getElementById('filterBar').style.display='block';
       document.getElementById('mainContent').style.display='block';
+      initFilter();
     })
     .catch(function(e){
       document.getElementById('loadingState').innerHTML='<p style="color:var(--muted)">Không tải được bài viết.</p>';

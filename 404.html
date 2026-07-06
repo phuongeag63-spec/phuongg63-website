@@ -3,216 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 — Trang không tìm thấy | Phương G63</title>
-<meta name="robots" content="noindex, follow">
+<title>404 — Không tìm thấy trang | Phương G63</title>
+<meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8KME2DB3L"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-B8KME2DB3L');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#ffd36a;--gold2:#ff9f1c;--bg:#07040b;--surface:#0f0b16;--muted:#6b6480;--border:rgba(255,211,106,.1)}
+body{background:var(--bg);color:#e8e0f0;font-family:'Be Vietnam Pro',system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column}
 
-  :root {
-    --gold: #ffd36a;
-    --gold2: #ff9f1c;
-    --bg: #07040b;
-    --surface: #0f0b16;
-    --cyan: #24e6ff;
-    --muted: #6b6480;
-  }
+/* NAV */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(7,4,11,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
+.nav-brand{font-size:17px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+.nav-links{display:flex;gap:16px;flex:1}
+.nav-links a{color:rgba(255,255,255,.5);font-size:13px;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-zalo{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#07040b!important;font-weight:900;padding:6px 14px;border-radius:999px;font-size:12px!important}
 
-  body {
-    background: var(--bg);
-    color: #fff;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
+/* HERO 404 */
+.err-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px}
+.err-code{font-size:clamp(100px,20vw,180px);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px;animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.err-icon{font-size:48px;margin-bottom:16px}
+.err-title{font-size:clamp(20px,4vw,28px);font-weight:900;color:#fff;margin-bottom:10px}
+.err-desc{font-size:14px;color:var(--muted);max-width:400px;line-height:1.7;margin-bottom:32px}
 
-  /* Orbs */
-  .orb {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.18;
-    pointer-events: none;
-  }
-  .orb-1 { width: 500px; height: 500px; background: #ffd36a; top: -150px; left: -150px; }
-  .orb-2 { width: 400px; height: 400px; background: #24e6ff; bottom: -100px; right: -100px; }
+/* ACTIONS */
+.err-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:48px}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#07040b;font-weight:900;padding:12px 24px;border-radius:999px;text-decoration:none;font-size:14px;transition:opacity .2s}
+.btn-primary:hover{opacity:.85}
+.btn-ghost{border:1px solid rgba(255,211,106,.25);color:var(--gold);font-weight:800;padding:12px 24px;border-radius:999px;text-decoration:none;font-size:14px;transition:background .2s}
+.btn-ghost:hover{background:rgba(255,211,106,.07)}
 
-  .container {
-    text-align: center;
-    padding: 40px 24px;
-    position: relative;
-    z-index: 1;
-    max-width: 560px;
-  }
+/* SUGGESTIONS */
+.err-suggest{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:24px 28px;max-width:500px;width:100%;text-align:left}
+.err-suggest-title{font-size:11px;font-weight:900;color:rgba(255,211,106,.6);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.err-links{display:flex;flex-direction:column;gap:8px}
+.err-link{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;color:#e8e0f0;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.06);transition:border-color .2s,background .2s}
+.err-link:hover{border-color:rgba(255,211,106,.25);background:rgba(255,211,106,.03)}
+.err-link-icon{font-size:18px;flex-shrink:0}
 
-  /* 404 glitch number */
-  .error-code {
-    font-size: clamp(100px, 20vw, 160px);
-    font-weight: 900;
-    line-height: 1;
-    background: linear-gradient(135deg, #ffd36a 0%, #ff9f1c 50%, #ffd36a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    display: inline-block;
-    animation: glitch 4s infinite;
-    text-shadow: none;
-    filter: drop-shadow(0 0 40px rgba(255,211,106,0.4));
-  }
-
-  @keyframes glitch {
-    0%, 90%, 100% { transform: translate(0); filter: drop-shadow(0 0 40px rgba(255,211,106,0.4)); }
-    92% { transform: translate(-3px, 1px); filter: drop-shadow(3px 0 0 #24e6ff) drop-shadow(-3px 0 0 #ff9f1c); }
-    94% { transform: translate(3px, -1px); filter: drop-shadow(-3px 0 0 #24e6ff) drop-shadow(3px 0 0 #ff9f1c); }
-    96% { transform: translate(-2px, 2px); filter: drop-shadow(2px 0 0 #24e6ff); }
-    98% { transform: translate(0); filter: drop-shadow(0 0 40px rgba(255,211,106,0.4)); }
-  }
-
-  .brand {
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 4px;
-    color: rgba(255,211,106,0.5);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  h1 {
-    font-size: clamp(20px, 4vw, 28px);
-    font-weight: 900;
-    margin: 12px 0 16px;
-    color: #fff;
-  }
-
-  p {
-    font-size: 15px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
-
-  .actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    padding: 13px 28px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 900;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    letter-spacing: 0.5px;
-  }
-  .btn:hover { transform: translateY(-3px); }
-
-  .btn-gold {
-    background: linear-gradient(135deg, #ffd36a, #ff9f1c);
-    color: #07040b;
-    box-shadow: 0 4px 20px rgba(255,211,106,0.35);
-  }
-  .btn-gold:hover { box-shadow: 0 8px 32px rgba(255,211,106,0.55); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--gold);
-    border: 1.5px solid rgba(255,211,106,0.4);
-  }
-  .btn-outline:hover { border-color: var(--gold); background: rgba(255,211,106,0.08); }
-
-  /* Quick links */
-  .quick-links {
-    margin-top: 48px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .quick-links p {
-    font-size: 12px;
-    margin-bottom: 14px;
-    color: rgba(255,255,255,0.25);
-  }
-  .quick-links .links {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .quick-links a {
-    font-size: 12px;
-    color: rgba(255,211,106,0.6);
-    text-decoration: none;
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,211,106,0.2);
-    transition: all 0.2s;
-  }
-  .quick-links a:hover {
-    color: var(--gold);
-    border-color: rgba(255,211,106,0.5);
-    background: rgba(255,211,106,0.08);
-  }
-
-  /* Countdown */
-  .auto-redirect {
-    margin-top: 28px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .auto-redirect span { color: var(--gold); font-weight: 900; }
+/* FOOTER */
+.site-footer{border-top:1px solid rgba(255,255,255,.06);padding:24px 20px;text-align:center;color:var(--muted);font-size:13px}
+.site-footer a{color:var(--gold);text-decoration:none}
 </style>
 </head>
 <body>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
 
-<div class="container">
-  <div class="brand">Phương G63 Enterprise</div>
-  <div class="error-code">404</div>
-  <h1>Trang không tìm thấy</h1>
-  <p>Trang bạn đang tìm có thể đã được di chuyển, xoá hoặc chưa tồn tại.<br>Đừng lo — quay về trang chủ để tiếp tục khám phá.</p>
+<nav class="site-nav">
+  <a class="nav-brand" href="/">⚔️ Phương G63</a>
+  <div class="nav-links">
+    <a href="/">Trang chủ</a>
+    <a href="/#products">Sản phẩm</a>
+    <a href="/blog.html">Nhật ký</a>
+    <a href="https://zalo.me/84822299993" target="_blank" class="nav-zalo">💬 Zalo</a>
+  </div>
+</nav>
 
-  <div class="actions">
-    <a class="btn btn-gold" href="/">🏠 Về trang chủ</a>
-    <a class="btn btn-outline" href="/#products">Xem sản phẩm</a>
-    <a class="btn btn-outline" href="https://zalo.me/84822299993">Nhắn Zalo</a>
+<div class="err-wrap">
+  <div class="err-code">404</div>
+  <div class="err-icon">🗡️</div>
+  <h1 class="err-title">Trang này không tồn tại</h1>
+  <p class="err-desc">Link có thể đã bị xóa, đổi địa chỉ hoặc bạn gõ nhầm URL. Hãy thử quay về trang chủ hoặc xem nhật ký trading nhé.</p>
+
+  <div class="err-actions">
+    <a class="btn-primary" href="/">🏠 Về trang chủ</a>
+    <a class="btn-ghost" href="/blog.html">📝 Xem nhật ký</a>
   </div>
 
-  <div class="quick-links">
-    <p>Hoặc đi thẳng đến</p>
-    <div class="links">
-      <a href="/#trust">Trust Center</a>
-      <a href="/#afterbuy">Sau mua</a>
-      <a href="/#license">License</a>
-      <a href="/#contact">Liên hệ</a>
-      <a href="/blog.html">Nhật ký</a>
+  <div class="err-suggest">
+    <div class="err-suggest-title">Có thể bạn đang tìm</div>
+    <div class="err-links">
+      <a class="err-link" href="/">
+        <span class="err-link-icon">🏠</span>
+        <span>Trang chủ — EA MT5 & sản phẩm</span>
+      </a>
+      <a class="err-link" href="/blog.html">
+        <span class="err-link-icon">📝</span>
+        <span>Nhật Ký Trading — kinh nghiệm thực tế</span>
+      </a>
+      <a class="err-link" href="/#products">
+        <span class="err-link-icon">⚔️</span>
+        <span>Sản phẩm EA MT5 — Chiến Trường, Hàn Băng...</span>
+      </a>
+      <a class="err-link" href="https://zalo.me/84822299993" target="_blank" rel="noopener">
+        <span class="err-link-icon">💬</span>
+        <span>Liên hệ Zalo — hỗ trợ trực tiếp</span>
+      </a>
     </div>
-  </div>
-
-  <div class="auto-redirect">
-    Tự động về trang chủ sau <span id="countdown">10</span> giây
   </div>
 </div>
 
-<script>
-  let count = 10;
-  const el = document.getElementById('countdown');
-  const timer = setInterval(() => {
-    count--;
-    el.textContent = count;
-    if (count <= 0) {
-      clearInterval(timer);
-      window.location.href = '/';
-    }
-  }, 1000);
-</script>
+<footer class="site-footer">
+  <p>© 2026 <a href="/">Phương G63</a> · Trading theo cách của mình</p>
+</footer>
+
 </body>
 </html>
