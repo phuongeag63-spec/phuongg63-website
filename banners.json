@@ -1,0 +1,86 @@
+[
+  {
+    "id": "shopee-giai-ma-tam-ly",
+    "label": "🛒 Shopee",
+    "icon": "🧠",
+    "img": "https://down-vn.img.susercontent.com/file/vn-11134207-820l4-metillg31vcyc4.webp",
+    "title": "Giải Mã Tâm Lý Học",
+    "desc": "Kiểm soát cảm xúc tiêu cực — sách tâm lý học thực hành cho trader Forex.",
+    "cta": "Mua ngay trên Shopee →",
+    "url": "THAY_BANG_LINK_AFFILIATE_SHOPEE_CUA_BAN",
+    "bg": "#6b21a8",
+    "textColor": "#fff"
+  },
+  {
+    "id": "shopee-tai-chinh-cho-moi-nguoi",
+    "label": "🛒 Shopee",
+    "icon": "💰",
+    "img": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luk3bkhzs8b692@resize_w450_nl.webp",
+    "title": "Tài Chính Cho Mọi Người",
+    "desc": "Paco de Leon — dạy bạn ngừng sợ tiền và sống hoà bình với tài chính cá nhân.",
+    "cta": "Mua ngay trên Shopee →",
+    "url": "https://s.shopee.vn/2VpurWhNXl",
+    "bg": "#1a7a52",
+    "textColor": "#fff"
+  },
+  {
+    "id": "shopee-ctst",
+    "label": "🛒 Shopee",
+    "icon": "⚔️",
+    "img": "https://phuongg63.com/assets/images/chien-truong-sinh-tu-poster.png",
+    "title": "Chiến Trường Sinh Tử G63",
+    "desc": "EA Top Khủng Tam Quốc — Gamification 30 thành trì, 20 tướng, Boss tuần/tháng trên MT5.",
+    "cta": "Mua ngay trên Shopee →",
+    "url": "THAY_BANG_LINK_SHOPEE_CUA_BAN",
+    "bg": "#ff6600",
+    "textColor": "#fff"
+  },
+  {
+    "id": "shopee-hbc",
+    "label": "🛒 Shopee",
+    "icon": "🧊",
+    "img": "https://phuongg63.com/assets/images/han-bang-chuong-poster.png",
+    "title": "Hàn Băng Chưởng G63",
+    "desc": "Manual Trading Cockpit MT5 — Break Even 1 chạm, TP gộp, Dashboard Cyberpunk kéo thả.",
+    "cta": "Mua ngay trên Shopee →",
+    "url": "THAY_BANG_LINK_SHOPEE_CUA_BAN",
+    "bg": "#0099ff",
+    "textColor": "#fff"
+  },
+  {
+    "id": "shopee-dbdg",
+    "label": "🛒 Shopee",
+    "icon": "📊",
+    "img": "https://phuongg63.com/assets/images/web-preview.png",
+    "title": "Đại Bản Doanh G63 V8",
+    "desc": "Dashboard MT5 chuyên nghiệp — theo dõi Balance/Equity realtime, quản lý nhiều symbol.",
+    "cta": "Mua ngay trên Shopee →",
+    "url": "THAY_BANG_LINK_SHOPEE_CUA_BAN",
+    "bg": "#22c55e",
+    "textColor": "#fff"
+  },
+  {
+    "id": "shopee-lmtk",
+    "label": "🛒 Shopee",
+    "icon": "⚡",
+    "img": "https://phuongg63.com/assets/images/poster-luc-mach.png",
+    "title": "EA Lục Mạch Thần Kiếm G63",
+    "desc": "EA Grid nhiều giai đoạn Premium — XAUUSD/BTC/Forex, Dashboard Cyberpunk, Magic Number.",
+    "cta": "Mua ngay trên Shopee →",
+    "url": "THAY_BANG_LINK_SHOPEE_CUA_BAN",
+    "bg": "#8b5cf6",
+    "textColor": "#fff"
+  },
+  {
+    "id": "shopee-rr",
+    "label": "🛒 Shopee",
+    "icon": "📐",
+    "img": "https://phuongg63.com/assets/images/phuong-g63-rr-banner.svg",
+    "title": "Phuong G63 RR",
+    "desc": "EA quản lý lệnh theo Risk:Reward — tự tính Lot, Break Even, Trailing SL theo EMA 100.",
+    "cta": "Mua ngay trên Shopee →",
+    "url": "THAY_BANG_LINK_SHOPEE_CUA_BAN",
+    "bg": "#f59e0b",
+    "textColor": "#000"
+  }
+]
