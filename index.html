@@ -607,6 +607,17 @@
 </a>
 
 <script src="script.js"></script>
+<script>
+// Fallback: ẩn loading screen sau 1.5s nếu script.js bị lỗi
+(function(){
+  function hideLoader(){
+    var s=document.getElementById('loading-screen');
+    if(s){s.style.opacity='0';s.style.transition='opacity .4s';setTimeout(function(){s.style.display='none';},400);}
+  }
+  window.addEventListener('load',function(){setTimeout(hideLoader,800);});
+  setTimeout(hideLoader,1500);
+})();
+</script>
 <style>
 /* ── FONT BE VIETNAM PRO ── */
 * { font-family: 'Be Vietnam Pro', 'Inter', system-ui, sans-serif; }
