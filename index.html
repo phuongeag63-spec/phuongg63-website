@@ -118,28 +118,32 @@
 </header>
 <main>
 
-<!-- ✅ HERO -->
-<section id="home" class="hero section-pad">
-  <div class="hero-copy reveal">
-    <span class="eyebrow">✍️ Phương G63 — Trading Journal</span>
-    <h1>Nhật Ký Thực Chiến — <em>Không Tô Vẽ, Không Hoa Mỹ</em></h1>
-    <p>Hành trình trading thật — thắng có, thua có, và những bài học không có trong sách vở. Chia sẻ kinh nghiệm Forex/Gold từ góc nhìn của một trader bình thường.</p>
-    <div style="position:relative;border-left:3px solid var(--gold);padding:16px 20px 16px 52px;background:rgba(255,211,106,.06);border-radius:0 16px 16px 0;margin:20px 0 28px">
-      <span style="position:absolute;left:12px;top:12px;font-size:30px;line-height:1;font-family:Georgia,serif;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">"</span>
-      <div style="font-size:17px;font-weight:700;font-style:italic;color:#fff;line-height:1.55;margin-bottom:10px;letter-spacing:.3px">Mình Thật Sự Thất Bại Khi Mình Từ Bỏ</div>
-      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--gold);font-weight:900;letter-spacing:1px"><span style="opacity:.6">—</span><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block"></span>Phương G63</div>
+<!-- ✅ NHẬT KÝ MỚI NHẤT — đầu trang -->
+<section id="home" style="padding:80px 24px 64px;background:#07040b">
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,211,106,.08);border:1px solid rgba(255,211,106,.18);border-radius:999px;padding:5px 16px;margin-bottom:12px">
+          <span style="font-size:10px;font-weight:900;letter-spacing:2px;color:rgba(255,211,106,.7);text-transform:uppercase">📝 Nhật ký trading</span>
+        </div>
+        <h1 style="font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;margin:0 0 8px;line-height:1.2">Nhật Ký Mới Nhất</h1>
+        <p style="font-size:13px;color:rgba(255,255,255,.4);margin:0;line-height:1.6">Kinh nghiệm thực chiến — kỹ thuật, tâm lý, câu chuyện từ sàn thật</p>
+      </div>
+      <a href="/blog.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,211,106,.7);font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;padding:8px 20px;border:1px solid rgba(255,211,106,.25);border-radius:10px;transition:all .2s"
+        onmouseover="this.style.borderColor='rgba(255,211,106,.6)';this.style.color='#ffd36a'"
+        onmouseout="this.style.borderColor='rgba(255,211,106,.25)';this.style.color='rgba(255,211,106,.7)'">
+        Xem tất cả bài <span style="font-size:16px;line-height:1">→</span>
+      </a>
     </div>
-    <a class="btn btn-gold" href="blog.html">📖 Đọc nhật ký trading</a>
-  </div>
-  <div class="hero-visual reveal">
-    <div class="screen-frame"><img id="heroSlide" src="assets/images/phuong-g63-ha-long.jpg.jpg" alt="Phương G63" onerror="this.src='assets/images/web-preview.png'"><div class="scan-line"></div></div>
-    <div class="floating-card profit"><span>TRADING JOURNAL</span><b>THỰC CHIẾN</b></div>
-    <div class="floating-card order"><span>CHIA SẺ</span><b>TỪ TÂM</b></div>
+    <div id="nkSpinner" style="text-align:center;padding:40px;color:rgba(255,255,255,.3);font-size:13px">
+      <div style="width:28px;height:28px;border:2px solid rgba(255,211,106,.2);border-top-color:#ffd36a;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 12px"></div>
+      Đang tải bài viết…
+    </div>
+    <div id="nkHero" style="display:none"></div>
   </div>
 </section>
 
-<!-- NHẬT KÝ & CÂU CHUYỆN -->
-<section id="nhat-ky" class="section-pad" style="background:radial-gradient(circle at 80% 20%,rgba(255,211,106,.07),transparent 40%),radial-gradient(circle at 10% 80%,rgba(36,230,255,.05),transparent 35%)">
+<!-- OLD_NHAT_KY_START_REMOVE --><section id="nhat-ky-old-remove" style="display:none">
   <div class="section-head reveal">
     <span class="eyebrow">NHẬT KÝ & CÂU CHUYỆN</span>
     <h2>Góc chia sẻ của <em style="color:var(--gold);font-style:normal">Phương G63</em></h2>
@@ -278,7 +282,7 @@
 </script>
 </section>
 
-<section id="contact" class="contact section-pad reveal"><span class="eyebrow">CONTACT</span><h2>Kết nối Phương G63</h2><p>Zalo: <b>08222 99993 - Mr Phương</b></p><a class="btn btn-gold" href="https://zalo.me/84822299993">Nhắn Zalo ngay</a></section>
+<section id="contact" class="contact section-pad"><span class="eyebrow">CONTACT</span><h2>Kết nối Phương G63</h2><p>Zalo: <b>08222 99993 - Mr Phương</b></p><a class="btn btn-gold" href="https://zalo.me/84822299993">Nhắn Zalo ngay</a></section>
 </main>
 <!-- ══ NHÀ TÀI TRỢ CHÍNH ══ -->
 <section style="background:linear-gradient(135deg,#0a0700,#0f0b00,#0a0700);border-top:1px solid rgba(255,211,106,.15);border-bottom:1px solid rgba(255,211,106,.15);padding:64px 24px">
@@ -342,8 +346,8 @@
   </div>
 </section>
 
-<!-- ✅ NHẬT KÝ MỚI NHẤT -->
-<section id="nhat-ky-moi-nhat" style="padding:72px 24px;background:#07040b;border-top:1px solid rgba(255,211,106,.08)">
+<!-- ✅ NHẬT KÝ MỚI NHẤT — đã chuyển lên đầu, section này ẩn -->
+<section id="nhat-ky-moi-nhat" style="display:none">
   <div style="max-width:1100px;margin:0 auto">
 
     <!-- Header -->
